@@ -1,0 +1,15 @@
+html.do-anim .animation {
+  .animation--section-introduction {
+    > * {
+      @mixin staggered-fade-in-from-bottom;
+    }
+  }
+
+  &.is-visible {
+    .animation--section-introduction {
+      > * {
+        @mixin reveal-fade-in-from-y;
+      }
+    }
+  }
+}

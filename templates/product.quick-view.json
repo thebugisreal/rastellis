@@ -1,0 +1,26 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product--quick",
+      "blocks": {
+        "variant_picker": {
+          "type": "variant_picker"
+        },
+        "quantity_selector": {
+          "type": "quantity_selector"
+        },
+        "description": {
+          "type": "description"
+        }
+      },
+      "block_order": [
+        "variant_picker",
+        "quantity_selector",
+        "description"
+      ]
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

@@ -1,0 +1,20 @@
+<div class="article-products">
+  {%- if title != blank or title_2 != blank -%}
+    <div class="article-products__title">
+      <h2 class="fs-body-150">
+        {%- if title != blank -%}<p>{{- title -}}</p>{%- endif -%}
+        {%- if title_2 != blank -%}<p>{{- title_2 -}}</p>{%- endif -%}
+      </h2>
+    </div>
+  {%- endif -%}
+  {%- if sub_title != blank -%}
+    <h3 class="article-products__subtitle fs-body-150">{{- sub_title -}}</h3>
+  {%- endif -%}
+  <div class="article-products__product-inner">
+    {%- for prod in products limit: max_product -%}
+      {%- if prod.title != blank -%}
+        {%- render 'product-item', prod: prod -%}
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+</div>

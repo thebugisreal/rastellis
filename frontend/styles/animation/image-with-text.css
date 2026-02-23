@@ -1,0 +1,11 @@
+html.do-anim .animation.animation--image-with-text {
+  .image-with-text__image-caption {
+    @mixin staggered-image-fade-scale;
+  }
+
+  &.is-visible {
+    .image-with-text__image-caption {
+      @mixin reveal-fade-in-from-y;
+    }
+  }
+}

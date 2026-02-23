@@ -1,0 +1,170 @@
+{%- liquid
+  assign promo_sizes = promo_sizes | default: '(max-width: 720px) 90vw, (max-width: 1400px) 600px'
+  assign overlay_opacity = promo_block.settings.overlay_opacity | divided_by: 100.0
+
+  assign has_video = false
+  assign has_shopify_video = false
+  assign has_external_video = false
+  assign has_embed_video = false
+
+  if promo_block.settings.video_source == 'shopify' and promo_block.settings.video != blank
+    assign has_video = true
+    assign has_shopify_video = true
+  elsif promo_block.settings.video_source == 'external' and promo_block.settings.video_url != blank
+    assign has_video = true
+    assign has_external_video = false
+  elsif promo_block.settings.video_source == 'embed' and promo_block.settings.video_embed != blank
+    assign has_video = true
+    assign has_embed_video = true
+  endif
+
+  assign text_position = promo_block.settings.text_position | split: '_'
+  assign horizontal_position = text_position | first
+  assign vertical_position = text_position | last
+
+  assign text_position_modifier = 'center'
+
+  if horizontal_position == 'flex-start'
+    assign text_position_modifier = 'left'
+  elsif horizontal_position == 'flex-end'
+    assign text_position_modifier = 'right'
+  endif
+
+  assign text_position_mobile = promo_block.settings.text_position_mobile | split: '_'
+  assign horizontal_position_mobile = text_position_mobile | first
+  assign vertical_position_mobile = text_position_mobile | last
+
+  assign text_position_modifier_mobile = 'center'
+
+  if horizontal_position_mobile == 'flex-start'
+    assign text_position_modifier_mobile = 'left'
+  elsif horizontal_position_mobile == 'flex-end'
+    assign text_position_modifier_mobile = 'right'
+  endif
+-%}
+
+<div
+  class="
+    promo-card
+    {% if has_video %}promo-card--video{% endif %}
+    promo-card--text-{{ text_position_modifier }}
+    promo-card--text-mobile-{{ text_position_modifier_mobile }}
+    promo-card--align-{{ vertical_position }}
+    promor-card--align-mobile-{{ vertical_position_mobile }}
+  "
+>
+  {%- if has_video -%}
+    <div class="promo-card__video {% if has_shopify_video %}promo-card__video--shopify{% elsif has_external_video %}promo-card__video--external{% elsif has_embed_video %}promo-card__video--embed{% endif %}">
+      {%- render 'video-module',
+        id: section.id,
+        class: 'promo-card__video-wrapper',
+        video: promo_block.settings.video,
+        video_url: promo_block.settings.video_url,
+        video_embed: promo_block.settings.video_embed,
+        loop: true,
+        video_source: promo_block.settings.video_source,
+        image: promo_block.settings.image
+      -%}
+    </div>
+  {%- endif -%}
+
+  {%- unless has_video -%}
+    <div {% if promo_block.settings.link != blank %}href="{{ promo_block.settings.link }}"{% endif %} class="promo-card__image">
+      {% liquid
+        assign card_background = promo_block.settings.image
+        assign card_background_mobile = promo_block.settings.mobile_image
+      %}
+      {%
+        render 'image',
+        image: card_background,
+        mobile_image: card_background_mobile,
+        wrapper_class: 'promo-card__image-wrapper',
+        object_fit: 'cover',
+        include_placeholder: true,
+        sizes: promo_sizes,
+        src_set_type: "grid"
+      %}
+      <span class="sr-only">{{ "collections.general.promo_card" | t }}</span>
+    </div>
+  {%- endunless -%}
+
+  <div
+    class="promo-card__overlay"
+    style="
+      --overlay-background: {{ promo_block.settings.color_overlay }};
+      {% if promo_block.settings.color_overlay_gradient != blank %}
+        --overlay-background-gradient: {{ promo_block.settings.color_overlay_gradient }};
+      {% endif %}
+      --overlay-opacity: {{ overlay_opacity }};
+    "
+  >
+  </div>
+
+  <div
+    class="promo-card__content"
+    style="
+      --text-color: {{ promo_block.settings.text_color }};
+      --text-horizontal-position: {{ horizontal_position }};
+      --text-vertical-position: {{ vertical_position }};
+      --text-horizontal-position-mobile: {{ horizontal_position_mobile }};
+      --text-vertical-position-mobile: {{ vertical_position_mobile }};
+    "
+  >
+    <div class="promo-card__content-wrapper">
+      {%- if promo_block.settings.title != blank -%}
+        <h4 class="promo-card__heading ff-heading fs-heading-5-base">
+          {{- promo_block.settings.title -}}
+        </h4>
+      {%- endif -%}
+      {%- if promo_block.settings.description != blank -%}
+        <div class="promo-card__description ff-body fs-body-50">
+          {{- promo_block.settings.description -}}
+        </div>
+      {%- endif -%}
+      {%- if promo_block.settings.link_text != blank and promo_block.settings.link != blank -%}
+        {%- render 'button-block',
+          wrapper_class: 'promo-card__cta-button',
+          label: promo_block.settings.link_text,
+          link: promo_block.settings.link,
+          button_style: promo_block.settings.button_style,
+          button_color: promo_block.settings.button_color,
+          button_alignment: text_position_modifier,
+          button_alignment_mobile: text_position_modifier_mobile,
+        -%}
+      {%- endif -%}
+      {%- if promo_block.settings.enable_signup -%}
+        {% form 'customer', class: 'promo-card__newsletter-form fs-body-50', id: 'promo-card-subscribe' %}
+          {% render 'form-status', form: form, form_id: 'promo-card-subscribe', success_message: success_msg %}
+
+          {%- unless form.posted_successfully? -%}
+            <div class="promo-card__newsletter-inner">
+              <input type="hidden" name="contact[tags]" value="newsletter">
+              <label for="promo-card-subscribe-email" class="visually-hidden">
+                {{- 'general.newsletter_form.email_placeholder' | t -}}
+              </label>
+              <input
+                type="email"
+                class="input"
+                name="contact[email]"
+                id="promo-card-subscribe-email"
+                value="{% if customer.email != blank %}{{ customer.email }}{% endif %}"
+                placeholder="{{ 'general.newsletter_form.email_placeholder' | t }}"
+                autocorrect="off"
+                autocapitalize="off"
+                required
+              >
+              <button
+                type="submit"
+                name="commit"
+                class="promo-card__newsletter-submit btn btn--dark btn--small"
+                aria-label="{{ 'general.newsletter_form.submit' | t }}"
+              >
+                {{ 'general.newsletter_form.submit' | t }}
+              </button>
+            </div>
+          {%- endunless -%}
+        {% endform %}
+      {%- endif -%}
+    </div>
+  </div>
+</div>

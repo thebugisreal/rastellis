@@ -1,0 +1,11 @@
+html.do-anim .animation.animation--multi-column {
+  &.is-visible {
+    .multi-column__grid-item {
+      @mixin reveal-fade-in-from-y;
+    }
+  }
+
+  .multi-column__grid-item {
+    @mixin staggered-fade-in-from-bottom 10px;
+  }
+}

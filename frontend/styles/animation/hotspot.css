@@ -1,0 +1,13 @@
+@import "mixins.css";
+
+html.do-anim .animation {
+  .animation--hotspot {
+    @mixin staggered-fade;
+  }
+
+  &.is-visible {
+    .animation--hotspot {
+      @mixin reveal-fade;
+    }
+  }
+}

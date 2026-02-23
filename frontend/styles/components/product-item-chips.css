@@ -1,0 +1,29 @@
+.product-chips-options {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+}
+
+.product-chips-options__list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 0 var(--spacing-3);
+  margin: 0;
+  gap: var(--spacing-2);
+
+  & + .product-chips-options__list {
+    margin-top: var(--spacing-2);
+  }
+}
+
+.product-chips-options__item--chip {
+  padding: var(--spacing-unit-half) var(--spacing-2);
+  background-color: var(--color-background);
+  border: solid 1px var(--color-border);
+}

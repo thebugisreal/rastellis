@@ -1,0 +1,18 @@
+.share-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.share-icons__icon {
+  display: flex;
+  align-items: center;
+
+  .icon {
+  }
+}
+
+.share-icons__label {
+  padding-left: var(--spacing-3);
+  letter-spacing: 0.05em;
+}

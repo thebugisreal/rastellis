@@ -1,0 +1,33 @@
+.section-introduction {
+  > *:first-child {
+    margin-top: 0;
+  }
+
+  > *:last-child {
+    margin-bottom: var(--spacing-7);
+
+    @media (--above-720) {
+      margin-bottom: var(--spacing-8);
+    }
+  }
+}
+
+.section-introduction__heading + .section-introduction__subheading {
+  margin-top: var(--spacing-2);
+}
+
+.section-introduction__heading + .section-introduction__button {
+  margin-top: var(--spacing-2);
+
+  @media (--above-720) {
+    margin-top: var(--spacing-3);
+  }
+}
+
+.section-introduction__subheading + .section-introduction__button {
+  margin-top: var(--spacing-5);
+
+  @media (--above-720) {
+    margin-top: var(--spacing-6);
+  }
+}

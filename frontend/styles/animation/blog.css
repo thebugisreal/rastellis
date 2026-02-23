@@ -1,0 +1,20 @@
+@import "mixins.css";
+
+html.do-anim .animation.animation--blog {
+  &.is-visible {
+    .article-item__content-inner > *,
+    .animation--blog-header > *,
+    .animation--blog-pagination > * {
+      @mixin reveal-fade-in-from-y;
+    }
+  }
+
+  .animation--blog-header > *,
+  .animation--blog-pagination > * {
+    @mixin staggered-fade-in-from-bottom;
+  }
+
+  .article-item__content-inner > * {
+    @mixin staggered-fade-in-from-bottom 20px;
+  }
+}

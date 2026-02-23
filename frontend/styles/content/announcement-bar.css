@@ -1,0 +1,316 @@
+.announcement-bar__outer-wrapper {
+  order: -1; /* If the announcement bar is moved after the header */
+  z-index: var(--z-index-announcement-bar);
+
+  html.sticky-header-enabled[data-enable-sticky-announcement-bar*="desktop"] & {
+    @media (--above-960) {
+      position: sticky;
+      top: 0;
+    }
+  }
+
+  html.sticky-header-enabled[data-enable-sticky-announcement-bar*="mobile"] & {
+    @media (--below-960) {
+      position: sticky;
+      top: 0;
+    }
+  }
+}
+
+.announcement-bar {
+  --min-height: 34px;
+  z-index: var(--z-index-announcement-bar);
+  color: var(--color-text);
+  background-color: var(--color-background);
+  position: relative;
+  &,
+  .announcement-bar__content {
+    min-height: var(--min-height);
+  }
+  &.hidden {
+    display: none;
+  }
+
+  .announcement-bar__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .swiper-wrapper {
+    align-items: center;
+  }
+
+  &.has-action-button {
+    padding-right: 40px;
+
+    @media (--above-720) {
+      padding-right: 40px;
+      padding-left: 40px;
+    }
+
+    .ui-overlap-wrap {
+      padding-right: 40px;
+
+      @media (--above-720) {
+        padding-right: 40px;
+        padding-left: 40px;
+      }
+    }
+
+    .announcement-bar__actions {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  &.disable-overlay {
+    .ui-overlap .fader {
+      background: transparent;
+    }
+  }
+}
+
+.announcement-bar__actions-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+
+  .icon-play {
+    display: none;
+  }
+
+  &.paused {
+    .icon-pause {
+      display: none;
+    }
+
+    .icon-play {
+      display: inline;
+    }
+  }
+}
+
+.announcement-bar__item {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+  line-height: var(--line-height-body-1) !important; /* how to avoid important? */
+  padding: var(--spacing-unit) 0;
+  min-height: var(--min-height);
+  display: flex;
+
+  .announcement-bar__item-inner {
+    max-width: calc(100% - calc(2 * var(--spacing-16)));
+    margin: 0 auto;
+
+    .announcement-bar[data-item-count="1"] & {
+      max-width: calc(100% - calc(2 * var(--spacing-4)));
+    }
+
+    &.announcement-bar__item-inner-mobile-only {
+      @media (--above-720) {
+        display: none;
+      }
+    }
+    &.announcement-bar__item-inner-desktop-only {
+      @media (--below-720) {
+        display: none;
+      }
+    }
+  }
+
+  /* Link within text */
+  p {
+    > a,
+    > span.fake-link {
+      text-decoration: underline;
+    }
+  }
+
+  /* Text as link */
+  .announcement-bar__link {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.ui-overlap-wrap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+
+  .announcement-bar:not(.slider-active) & {
+    display: none;
+  }
+
+  .announcement-bar__image + & .ui-overlap {
+    justify-content: space-between;
+
+    @media (--above-960) {
+      justify-content: center;
+    }
+
+    .fader {
+      background: transparent;
+
+      &.left {
+        justify-content: flex-start;
+        background: transparent;
+
+        @media (--above-960) {
+          justify-content: flex-end;
+        }
+      }
+
+      &.right {
+        justify-content: flex-end;
+
+        @media (--above-960) {
+          justify-content: flex-start;
+        }
+      }
+    }
+  }
+
+  .announcement-bar__image + & + .swiper {
+    @media (--above-960) {
+      max-width: 50%;
+    }
+  }
+}
+.ui-overlap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+
+  .fader {
+    background: blue;
+    flex-grow: 1;
+    flex-shrink: 1;
+    display: flex;
+    z-index: 2;
+    height: 100%;
+    padding: 0 var(--spacing-8);
+    pointer-events: none;
+
+    @media (--below-480) {
+      padding: 0 var(--spacing-4);
+    }
+
+    &.left {
+      justify-content: flex-end;
+      padding-left: var(--spacing-2);
+      background: linear-gradient(
+        to left,
+        var(--color-gradient-overlay-transparent) 0,
+        var(--color-gradient-overlay) 50px,
+        var(--color-gradient-overlay) 100%
+      );
+    }
+
+    &.right {
+      justify-content: flex-start;
+      background: linear-gradient(
+        to right,
+        var(--color-gradient-overlay-transparent) 0,
+        var(--color-gradient-overlay) 50px,
+        var(--color-gradient-overlay) 100%
+      );
+      padding-right: var(--spacing-2);
+    }
+  }
+
+  .slider-nav-button {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    opacity: 0.5;
+    padding: 0 var(--spacing-4);
+    pointer-events: all;
+    transition: opacity 200ms ease-out;
+
+    .icon {
+      width: 12px;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &.slider-nav-button-prev {
+      .icon {
+        transform: rotate(90deg);
+      }
+    }
+
+    &.slider-nav-button-next {
+      .icon {
+        transform: rotate(-90deg);
+      }
+    }
+  }
+
+  /* These are styled identiacal to the real items (wrap at the same place etc) except are
+     vertically stacked.  Here purely to position the fader and buttons correctly - huge hack. */
+  .ui-overlap-item-clones {
+    visibility: hidden;
+    .announcement-bar__item {
+      line-height: 0;
+      height: 0;
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+}
+
+.announcement-bar__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+
+  &.announcement-bar__image--mobile {
+    @media (--above-960) {
+      display: none;
+    }
+  }
+
+  .announcement-bar--has-mobile-image & {
+    &.announcement-bar__image--desktop {
+      @media (--below-960) {
+        display: none;
+      }
+    }
+  }
+
+  .image__inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .image__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}

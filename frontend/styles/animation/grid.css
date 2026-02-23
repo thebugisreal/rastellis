@@ -1,0 +1,18 @@
+html.do-anim .animation.animation--grid {
+  &.is-visible {
+    .grid-item {
+      @mixin reveal-fade-in-from-y;
+    }
+  }
+
+  .grid-item {
+    @mixin staggered-fade-in-from-bottom 10px;
+  }
+
+  .grid-item__image {
+    .image__img {
+      transition-duration: var(--duration-slow);
+      transition-delay: 0ms;
+    }
+  }
+}

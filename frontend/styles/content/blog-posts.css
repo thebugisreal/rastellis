@@ -1,0 +1,21 @@
+.blog-posts__grid {
+  display: grid;
+  column-gap: var(--spacing-10);
+  row-gap: var(--spacing-9);
+
+  @media (--above-720) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (--above-1200) {
+    column-gap: var(--spacing-5);
+    row-gap: var(--spacing-12);
+  }
+}
+
+.blog-posts {
+  .carousel.swiper {
+    overflow: hidden;
+    padding-bottom: 40px;
+  }
+}

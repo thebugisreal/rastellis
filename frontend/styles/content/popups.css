@@ -1,0 +1,5 @@
+.popups {
+  z-index: var(--z-index-modal);
+  position: fixed;
+  top: 0;
+}

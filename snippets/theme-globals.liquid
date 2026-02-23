@@ -1,0 +1,46 @@
+{%- render 'asset' with 'typography.css', preload_stylesheet: true -%}
+
+{%- if template contains 'customers' -%}
+  <script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer></script>
+{%- endif -%}
+
+<script>
+  flu = window.flu || {};
+</script>
+
+{% # Set the following line to true to import custom-events.js %}
+{% assign useCustomEvents = false %}
+
+{% # Set the following line to true to import custom.css %}
+{% assign useCustomCSS = true %}
+
+{% if useCustomEvents %}
+  <script src="{{ 'custom-events.js' | asset_url }}" defer></script>
+  <script>
+    window.flu.states = {
+      useCustomEvents: true,
+    };
+  </script>
+{% endif %}
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script defer>
+  var defineVH = function () {
+    document.documentElement.style.setProperty('--vh', window.innerHeight * 0.01 + 'px');
+  };
+  window.addEventListener('resize', defineVH);
+  window.addEventListener('orientationchange', defineVH);
+  defineVH();
+</script>
+
+{%- render 'asset' with 'theme.css', preload_stylesheet: true -%}
+
+{% if useCustomCSS %}
+  {%- render 'asset' with 'custom.css', preload_stylesheet: true -%}
+{% endif %}
+
+{%- if request.design_mode -%}
+  {%- render 'asset' with 'theme-design-mode.js' -%}
+{%- else -%}
+  {%- render 'asset' with 'theme.js' -%}
+{%- endif -%}

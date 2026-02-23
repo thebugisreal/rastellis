@@ -1,0 +1,49 @@
+.navigation-dots {
+  --dot-size: 10px;
+  --animation-ease: cubic-bezier(0.33, 0, 0, 1);
+  position: absolute;
+  width: 100%;
+  bottom: var(--spacing-5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+  line-height: 1;
+  z-index: 99;
+
+  &.hidden {
+    display: none;
+  }
+
+  .navigation-dots__inner {
+    max-width: var(--max-width);
+    display: flex;
+    padding: 0 var(--space-outer);
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  .navigation-dot {
+    display: inline-block;
+    width: var(--dot-size);
+    height: var(--dot-size);
+    padding: 0;
+    margin: 0 var(--spacing-1);
+    background-color: var(--color-text);
+    border-radius: var(--dot-size);
+    cursor: pointer;
+    opacity: 0.3;
+    transform: scale(0.8);
+    transition: opacity 0.2s var(--animation-ease),
+      transform 0.2s var(--animation-ease);
+
+    &.is-selected {
+      opacity: 1;
+    }
+
+    &:hover,
+    &.is-selected {
+      transform: scale(1);
+    }
+  }
+}

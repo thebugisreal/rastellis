@@ -1,0 +1,254 @@
+<style>
+  #shopify-section-{{ section.id }} {
+    background-color: {{ section.settings.background_color }};
+    color: {{ section.settings.text_color }};
+  }
+</style>
+<div
+  data-section-id="{{ section.id }}"
+  data-section-type="video-reels"
+  data-enable-carousel="{{ section.settings.enable_carousel }}"
+  class="
+    section
+    section--divider-{{ section.settings.divider_style }}
+    video-reels
+    {% if section.settings.show_product_card_on_media %}
+      video-reels--show-product-on-media
+    {% endif %}
+    {{ section.settings.section_padding }}
+    {% if settings.enable_section_animations and section.settings.enable_animation %}
+      animation
+      animation--video-reels
+    {% endif %}
+  "
+  style="
+  --color-text: {{ section.settings.text_color }};
+  "
+>
+  <div class="video-reels__inner animation--section-introduction">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="video-reels__heading ff-heading fs-heading-3-base section-introduction__heading">{{- section.settings.heading -}}</h2>
+    {%- endif -%}
+    {%- if section.blocks.size > 0 -%}
+      <div class="swiper" data-swiper>
+        <div class="swiper-wrapper">
+          {% for block in section.blocks %}
+            <div
+              data-swiper-slide
+              data-block-id="{{ block.id }}"
+              class="swiper-slide video-reels__item animation--item"
+            >
+              <div class="video-reels__item-container">
+                {%- if block.settings.media_display_type == 'video' -%}
+                  <video-controls class="video-reels__item-video" data-video-click="false" role="button">
+                    {% if block.settings.video_hosted %}
+                      <button
+                        class="video-reels__item-control-button"
+                        aria-label="{{ 'aria-label.play-pause-button' | t }}"
+                        data-state="pause"
+                        data-btn-play-pause
+                      >
+                        <span class="video-reels__item-icon-play">
+                          {% render 'play-icon' %}
+                        </span>
+                        <span class="video-reels__item-icon-pause">
+                          {% render 'pause-icon' %}
+                        </span>
+                      </button>
+                      {{ block.settings.video_hosted | video_tag: autoplay: false, loop: true, muted: true, controls: false | replace: '<video', '<video class="js-video video-module__video"'}}
+                      <button
+                        aria-label="{{ 'aria-label.video-reels-toggle-sound' | t }}"
+                        class="video-reels__item-sound-toggle"
+                        data-sound="off"
+                        data-btn-sound
+                      >
+                        {% render 'volume-icon' %}
+                        {% render 'volume-muted-icon' %}
+                      </button>
+                    {% else %}
+                      {{ 'product-apparel-3' | placeholder_svg_tag: '' }}
+                    {% endif %}
+                  </video-controls>
+                {%- else -%}
+                  {%- if block.settings.media_image != blank -%}
+                    {{ block.settings.media_image | image_url: width: 300 | image_tag: class: 'video-reels__item-image' }}
+                  {%- else -%}
+                    {{ 'product-apparel-3' | placeholder_svg_tag: '' }}
+                  {%- endif -%}
+                {%- endif -%}
+
+              </div>
+              {%- if block.settings.featured_product != blank -%}
+                {% render 'product-card-video',
+                  class: 'video-reels__item-product',
+                  block: block,
+                  prod: block.settings.featured_product,
+                  index: forloop.index,
+                  render_shopify_attributes: true,
+                  quick_add_enabled: section.settings.quick_add_enabled
+                %}
+              {%- endif -%}
+            </div>
+          {% endfor %}
+        </div>
+        {% if section.settings.enable_carousel %}
+          <div class="swiper-button-next video-reels__btn-next" data-next>
+            {%- render 'icon' with icon: 'arrow-long' -%}
+          </div>
+          <div class="swiper-button-prev video-reels__btn-prev" data-prev>
+            {%- render 'icon' with icon: 'arrow-long' -%}
+          </div>
+          <div class="swiper-pagination video-reels__pagination" data-pagination></div>
+        {% endif %}
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.shoppable-video.name",
+  "tag": "section",
+  "class": "section-video-reels",
+  "max_blocks": 12,
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.shoppable-video.settings.important-information.content",
+      "info": "t:sections.shoppable-video.settings.important-information.info"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "t:sections.shoppable-video.settings.heading.label",
+      "default": "Shoppable video reels"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_carousel",
+      "label": "t:sections.shoppable-video.settings.enable_carousel.label",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "quick_add_enabled",
+      "label": "t:sections.shoppable-video.settings.quick_add_enabled.label",
+      "info": "t:sections.shoppable-video.settings.quick_add_enabled.info",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_product_card_on_media",
+      "label": "t:sections.shoppable-video.settings.show_product_card_on_media.label",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "t:shared.settings.header_color.content"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "t:shared.settings.text_color.label",
+      "default": "#FFFFFF"
+    },
+    {
+      "id": "background_color",
+      "type": "color",
+      "label": "t:shared.settings.background_color.label"
+    },
+    {
+      "type": "header",
+      "content": "t:shared.settings.section_style.header_style.content"
+    },
+    {
+      "id": "enable_animation",
+      "type": "checkbox",
+      "label": "t:shared.settings.section_style.enable_animation.label",
+      "info": "t:shared.settings.section_style.enable_animation.info",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "section_padding",
+      "label": "t:shared.settings.section_style.section_padding.label",
+      "default": "section--vertical-padding-none",
+      "options": [
+        {
+          "label": "t:shared.settings.section_style.section_padding.option_none", "value": "section--vertical-padding-none"
+        },
+        {
+          "label": "t:shared.settings.section_style.section_padding.option_both", "value": "section--vertical-padding-top-bottom"
+        },
+        {
+          "label": "t:shared.settings.section_style.section_padding.option_top", "value": "section--vertical-padding-top-only"
+        },
+        {
+          "label": "t:shared.settings.section_style.section_padding.option_bottom", "value": "section--vertical-padding-bottom-only"
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "t:sections.shoppable-video.blocks.product.name",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "media_image",
+          "label": "t:sections.shoppable-video.blocks.product.settings.media_image.label"
+        },
+        {
+          "type": "video",
+          "id": "video_hosted",
+          "label": "t:sections.shoppable-video.blocks.product.settings.video_hosted.label"
+        },
+        {
+          "type": "select",
+          "id": "media_display_type",
+          "label": "Display type",
+          "options": [
+            { "value": "image", "label": "t:sections.shoppable-video.blocks.product.settings.media_display_type.value_1" },
+            { "value": "video", "label": "t:sections.shoppable-video.blocks.product.settings.media_display_type.value_2" }
+          ],
+          "default": "video"
+        },
+        {
+          "type": "product",
+          "id": "featured_product",
+          "label": "t:sections.shoppable-video.blocks.product.settings.featured_product.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.shoppable-video.name",
+      "blocks": [
+        {
+          "type": "product"
+        },
+        {
+          "type": "product"
+        },
+        {
+          "type": "product"
+        },
+        {
+          "type": "product"
+        },
+        {
+          "type": "product"
+        },
+        {
+          "type": "product"
+        }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  }
+}
+{% endschema %}

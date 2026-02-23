@@ -1,0 +1,1 @@
+const c=(n,d)=>{let t=(window.innerWidth||document.documentElement.clientWidth)<=n;const r=()=>{const e=window.innerWidth<=n;if(e!==t)return t=e,d()};return window.addEventListener("resize",r),{unload:()=>{window.removeEventListener("resize",r)}}};export{c as a};

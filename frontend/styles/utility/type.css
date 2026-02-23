@@ -1,0 +1,255 @@
+/*
+  Apply base styling
+ */
+.ff-body {
+  font-family: var(--font-body);
+  font-weight: var(--font-body-weight);
+}
+
+.ff-heading {
+  font-family: var(--font-heading);
+  font-weight: var(--font-heading-weight);
+}
+
+.ff-subheading {
+  font-family: var(--font-subheading);
+  font-weight: var(--font-subheading-weight);
+}
+
+.ff-primary {
+  font-family: var(--font-heading) !important;
+}
+
+.ff-secondary {
+  font-family: var(--font-subheading) !important;
+}
+
+.fs-product-title {
+  text-transform: var(--font-product-listing-title-text-transform);
+}
+
+.fs-accent {
+  font-size: var(--font-size-button);
+}
+
+.fs-product-card-title {
+  font-size: var(--font-size-listing-title);
+  text-transform: var(--font-product-listing-title-text-transform);
+}
+
+/*
+  Apply line-height
+*/
+.fs-heading-display-1 {
+  font-size: var(--font-size-heading-1-base);
+  line-height: var(--line-height-heading-1);
+  text-transform: var(--text-transform-heading-1);
+  letter-spacing: var(--letter-spacing-heading-1);
+}
+
+.fs-heading-display-2 {
+  font-size: var(--font-size-heading-2-base);
+  line-height: var(--line-height-heading-2);
+  text-transform: var(--text-transform-heading-2);
+  letter-spacing: var(--letter-spacing-heading-2);
+}
+
+.fs-heading-display-3 {
+  font-size: var(--font-size-heading-3-base);
+  line-height: var(--line-height-heading-3);
+  text-transform: var(--text-transform-heading-3);
+  letter-spacing: var(--letter-spacing-heading-3);
+}
+
+.fs-heading-1-base {
+  font-size: var(--font-size-heading-1-base);
+  line-height: var(--line-height-heading-1);
+  text-transform: var(--text-transform-heading-1);
+  letter-spacing: var(--letter-spacing-heading-1);
+}
+
+.fs-heading-2-base {
+  font-size: var(--font-size-heading-2-base);
+  line-height: var(--line-height-heading-2);
+  text-transform: var(--text-transform-heading-2);
+  letter-spacing: var(--letter-spacing-heading-2);
+}
+
+.fs-heading-3-base {
+  font-size: var(--font-size-heading-3-base);
+  line-height: var(--line-height-heading-3);
+  text-transform: var(--text-transform-heading-3);
+  letter-spacing: var(--letter-spacing-heading-3);
+}
+
+.fs-heading-4-base {
+  font-size: var(--font-size-heading-4-base);
+  line-height: var(--line-height-heading-4);
+  text-transform: var(--text-transform-heading-4);
+  letter-spacing: var(--letter-spacing-heading-4);
+}
+
+.fs-heading-5-base {
+  font-size: var(--font-size-heading-5-base);
+  line-height: var(--line-height-heading-5);
+  text-transform: var(--text-transform-heading-5);
+  letter-spacing: var(--letter-spacing-heading-5);
+}
+
+.fs-heading-6-base {
+  font-size: var(--font-size-heading-6-base);
+  line-height: var(--line-height-heading-6);
+  text-transform: var(--text-transform-heading-6);
+  letter-spacing: var(--letter-spacing-heading-6);
+}
+
+.fs-body-50 {
+  font-size: var(--font-size-body-2);
+  line-height: var(--line-height-body-2);
+  text-transform: var(--text-transform-body-2);
+  letter-spacing: var(--letter-spacing-body-2);
+}
+
+.fs-body-75 {
+  font-size: var(--font-size-body-1);
+  line-height: var(--line-height-body-1);
+  text-transform: var(--text-transform-body-1);
+  letter-spacing: var(--letter-spacing-body-1);
+}
+
+.fs-body-100 {
+  font-size: var(--font-size-blog-body);
+  line-height: var(--line-height-blog-body);
+  text-transform: var(--text-transform-blog-body);
+  letter-spacing: var(--letter-spacing-blog-body);
+}
+
+.fs-body-150 {
+  font-size: var(--font-size-blog-body);
+  line-height: var(--line-height-blog-body);
+  text-transform: var(--text-transform-blog-body);
+  letter-spacing: var(--letter-spacing-blog-body);
+}
+
+.fs-body-200 {
+  font-size: var(--font-size-subheading-2);
+  line-height: var(--line-height-subheading-2);
+  text-transform: var(--text-transform-subheading-2);
+  letter-spacing: var(--letter-spacing-subheading-2);
+}
+
+.fs-body-250 {
+  font-size: var(--font-size-subheading-2);
+  line-height: var(--line-height-subheading-2);
+  text-transform: var(--text-transform-subheading-2);
+  letter-spacing: var(--letter-spacing-subheading-2);
+}
+
+.fs-body-300 {
+  font-size: var(--font-size-subheading-1);
+  line-height: var(--line-height-subheading-1);
+  text-transform: var(--text-transform-subheading-1);
+  letter-spacing: var(--letter-spacing-subheading-1);
+}
+
+.fs-body-350 {
+  font-size: var(--font-size-subheading-1);
+  line-height: var(--line-height-subheading-1);
+  text-transform: var(--text-transform-subheading-1);
+  letter-spacing: var(--letter-spacing-subheading-1);
+}
+
+.fs-body-400 {
+  font-size: var(--font-size-subheading-1);
+  line-height: var(--line-height-subheading-1);
+  text-transform: var(--text-transform-subheading-1);
+  letter-spacing: var(--letter-spacing-subheading-1);
+}
+
+.fs-body-bold {
+  font-weight: var(--font-body-bold-weight);
+}
+
+.fs-heading-bold {
+  font-weight: var(--font-heading-bold-weight);
+}
+
+.fs-subheading-bold {
+  font-weight: var(--font-subheading-bold-weight);
+}
+
+.fs-body-italic {
+  font-style: var(--font-body-italic);
+}
+
+.fs-navigation-base {
+  font-size: var(--font-size-navigation-base);
+  text-transform: var(--font-navigation-base-text-transform);
+  letter-spacing: var(--font-navigation-base-letter-spacing);
+}
+
+.c-heading-text-dark {
+  color: var(--color-heading-text-dark);
+}
+
+.c-subheading-text-dark {
+  color: var(--color-subheading-text-dark);
+}
+
+.c-body-text-dark {
+  color: var(--color-body-text-dark);
+}
+
+.c-heading-text-light {
+  color: var(--color-heading-text-light);
+}
+
+.c-subheading-text-light {
+  color: var(--color-subheading-text-light);
+}
+
+.c-body-text-light {
+  color: var(--color-body-text-light);
+}
+
+a.link {
+  color: var(--color-text-link);
+  text-decoration: underline;
+  transition: opacity 0.25s;
+
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+.ta-l {
+  text-align: left;
+}
+
+.ta-c {
+  text-align: center;
+}
+
+.ta-r {
+  text-align: right;
+}
+
+.td-u {
+  text-decoration: underline;
+}
+
+.t-subdued {
+  opacity: 0.65;
+}
+
+.t-opacity-60 {
+  opacity: 0.6;
+}
+
+.t-opacity-70 {
+  opacity: 0.7;
+}
+
+.t-opacity-80 {
+  opacity: 0.7;
+}

@@ -1,0 +1,72 @@
+{%- if settings.typekit_id != blank -%}
+  <link rel="stylesheet" href="https://use.typekit.net/{{- settings.typekit_id -}}.css">
+{%- endif -%}
+
+{%- comment -%}
+  Generate fonts preload
+{%- endcomment -%}
+{%- assign web_fonts = settings.web_fonts | default: shop.metaobjects.web_fonts.values -%}
+{%- for web_font in web_fonts -%}
+  {%- if web_font.preload and web_font.font_family -%}
+    {%- assign font_file = web_font.font_file | file_url -%}
+    {%- if web_font.font_href != blank -%}
+      {%- assign font_file = web_font.font_href | append: '' -%}
+    {%- endif -%}
+    {%- assign font_file_extension = font_file | split: '.' | last | split: '?' | first -%}
+    {%- if font_file contains 'typekit' -%}
+      {%- assign ext_type = font_file | split: '?' | first | split: '/' | last -%}
+      {%- case ext_type -%}
+        {%- when 'l' -%}
+          {%- assign font_file_extension = 'woff2' -%}
+        {%- when 'd' -%}
+          {%- assign font_file_extension = 'woff' -%}
+        {%- when 'a' -%}
+          {%- assign font_file_extension = 'opentype' -%}
+        {%- else -%}
+          {%- assign font_file_extension = 'woff2' -%}
+      {%- endcase -%}
+    {%- endif -%}
+
+    <link rel="preload" href="{{- font_file -}}" as="font" type="font/{{- font_file_extension -}}" crossorigin>
+  {%- endif -%}
+{%- endfor -%}
+
+{%- comment -%}
+  Generate font face definitions
+{%- endcomment -%}
+<style>
+  {%- for web_font in web_fonts -%}
+    {%- if web_font.font_family -%}
+      {%- assign font_file = web_font.font_file | file_url -%}
+      {%- if web_font.font_href != blank -%}
+        {%- assign font_file = web_font.font_href | append: '' -%}
+      {%- endif -%}
+      {%- assign font_file_extension = font_file | split: '.' | last | split: '?' | first -%}
+      {%- if font_file contains 'typekit' -%}
+        {%- assign ext_type = font_file | split: '?' | first | split: '/' | last -%}
+        {%- case ext_type -%}
+          {%- when 'l' -%}
+            {%- assign font_file_extension = 'woff2' -%}
+          {%- when 'd' -%}
+            {%- assign font_file_extension = 'woff' -%}
+          {%- when 'a' -%}
+            {%- assign font_file_extension = 'opentype' -%}
+          {%- else -%}
+            {%- assign font_file_extension = 'woff2' -%}
+        {%- endcase -%}
+      {%- endif -%}
+
+      @font-face {
+        font-family: '{{- web_font.font_family -}}';
+        src: url('{{- font_file -}}') format('{{- font_file_extension -}}');
+        font-style: {{- web_font.font_style | default: 'normal' }};
+        font-weight: {{- web_font.font_weight -}};
+        font-display: swap;
+
+        {%- if web_font.unicode_range != blank -%}
+          unicode-range: {{- web_font.unicode_range -}}
+        {%- endif -%}
+      }
+    {%- endif -%}
+  {%- endfor -%}
+</style>

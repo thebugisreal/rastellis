@@ -1,0 +1,19 @@
+{
+  "type": "custom.overlay",
+  "name": "t:groups.overlay_group.name",
+  "sections": {
+    "quick-cart": {
+      "type": "quick-cart",
+      "settings": {
+        "enable_quick_cart": true,
+        "show_product_currency": true,
+        "promotion_text": "<p>Check out these collections.</p>",
+        "collection_list_button_style": "btn--light"
+      }
+    },
+    "popup": {
+      "type": "popup"
+    }
+  },
+  "order": ["quick-cart", "popup"]
+}

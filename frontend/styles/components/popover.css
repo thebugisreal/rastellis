@@ -1,0 +1,85 @@
+.popover {
+  color: var(--color-text);
+
+  .btn.btn--dark {
+    color: var(--color-background);
+    border-color: var(--color-button-dark-solid-bg);
+    background-color: var(--color-button-dark-solid-bg);
+
+    &:not([disabled]) {
+      &:hover,
+      &:focus {
+        border-color: var(--color-button-dark-solid-bg-hover);
+        background-color: var(--color-button-dark-solid-bg-hover);
+      }
+    }
+
+    .btn__loading-bar {
+      background-color: var(--color-background);
+    }
+
+    .icon {
+      color: inherit;
+    }
+  }
+
+  .btn.btn--light {
+    border-color: var(--color-border);
+
+    &:hover {
+      border-color: var(--color-border-meta);
+    }
+  }
+
+  .input,
+  input.spr-form-input,
+  textarea.spr-form-input {
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+
+    option {
+      background-color: var(--color-background);
+    }
+  }
+
+  input[type="checkbox"] {
+    border: 1px solid var(--color-border);
+
+    &:checked {
+      &:before {
+        background-color: var(--color-text);
+      }
+    }
+  }
+
+  .loader__bar {
+    background-color: var(--color-text);
+  }
+
+  blockquote {
+    background-color: var(--color-background);
+    box-shadow: inset 1px 0px 0px var(--color-border);
+  }
+
+  table td,
+  table th {
+    border: 1px solid var(--color-border);
+  }
+
+  hr {
+    background-color: var(--color-border);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--color-text);
+  }
+
+  a {
+    color: var(--color-text-link);
+  }
+}

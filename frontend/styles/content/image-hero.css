@@ -1,0 +1,142 @@
+.image-hero {
+  position: relative;
+  color: var(--color-text);
+
+  &.image-hero--image-aspect-custom {
+    .image-hero__image-container {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      min-height: var(--custom-height-mobile);
+      height: 100%;
+      overflow: hidden;
+
+      @media (--above-720) {
+        min-height: var(--custom-height);
+      }
+
+      .image__img {
+        display: block;
+        position: absolute;
+        object-fit: cover;
+        object-position: var(--focal-alignment, center);
+        top: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .image-hero__text-container-wrapper {
+      min-height: var(--custom-height-mobile);
+      height: 100%;
+      position: relative;
+
+      @media (--above-720) {
+        min-height: var(--custom-height);
+      }
+    }
+  }
+
+  @media (--above-720) {
+    &.image-hero--text-center {
+      text-align: center;
+    }
+
+    &.image-hero--text-right {
+      text-align: right;
+    }
+  }
+
+  @media (--below-720) {
+    &.image-hero--text-mobile-center {
+      text-align: center;
+    }
+
+    &.image-hero--text-mobile-right {
+      text-align: right;
+    }
+  }
+
+  /* Account for section being under transparent header */
+  /* Eliminate padding top from section settings */
+  body.header-transparent #main > .shopify-section:first-child & {
+    padding-top: 0;
+  }
+}
+
+.image-hero__inner {
+  position: relative;
+
+  .image-hero--box & {
+    width: 100%;
+
+    @media (--above-960) {
+      max-width: calc(var(--max-width) + calc(var(--space-outer) * 2) - var(--spacing-between-sections) * 2);
+      margin: var(--spacing-between-sections) auto;
+    }
+  }
+}
+
+.image-hero__image {
+  position: relative;
+  height: 100%;
+}
+
+.image-hero__image-link {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.image-hero__overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: var(--overlay-background-gradient, var(--overlay-background));
+  opacity: var(--overlay-opacity);
+}
+
+.image-hero__text-container-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: var(--text-horizontal-position);
+  align-items: var(--text-vertical-position);
+  max-width: calc(var(--max-width) + calc(var(--space-outer) * 2));
+  margin: 0 auto;
+  padding: var(--spacing-10) var(--space-outer);
+
+  @media (--below-720) {
+    justify-content: var(--text-horizontal-position-mobile);
+    align-items: var(--text-vertical-position-mobile);
+  }
+}
+
+.image-hero__text-container {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: var(--text-horizontal-position);
+
+  @media (--below-720) {
+    align-items: var(--text-horizontal-position-mobile);
+  }
+
+  /* Account for section being under transparent header */
+  body.header-transparent #main > .shopify-section:first-child .image-hero & {
+    padding-top: var(--height-header);
+  }
+}
+
+.image-hero__text-container-inner {
+  z-index: 1;
+}

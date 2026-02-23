@@ -1,0 +1,318 @@
+{%- liquid
+  assign logo_text_transform = 'none'
+  if settings.capitalize_logo
+    assign logo_text_transform = 'uppercase'
+  endif
+
+  assign navigation_text_transform = 'none'
+  if settings.capitalize_navigation
+    assign navigation_text_transform = 'uppercase'
+  endif
+
+  assign product_listing_title_text_transform = 'none'
+  if settings.product_listing_title_uppercase
+    assign product_listing_title_text_transform = 'uppercase'
+  endif
+
+  assign product_badge_text_transform = 'none'
+  if settings.uppercase_badges
+    assign product_badge_text_transform = 'uppercase'
+  endif
+
+  assign button_text_transform = 'none'
+  if settings.typography_button_uppercase
+    assign button_text_transform = 'uppercase'
+  endif
+
+  assign heading_1_text_transform = 'none'
+  if settings.typography_heading_1_uppercase
+    assign heading_1_text_transform = 'uppercase'
+  endif
+
+  assign heading_2_text_transform = 'none'
+  if settings.typography_heading_2_uppercase
+    assign heading_2_text_transform = 'uppercase'
+  endif
+
+  assign heading_3_text_transform = 'none'
+  if settings.typography_heading_3_uppercase
+    assign heading_3_text_transform = 'uppercase'
+  endif
+
+  assign heading_4_text_transform = 'none'
+  if settings.typography_heading_4_uppercase
+    assign heading_4_text_transform = 'uppercase'
+  endif
+
+  assign heading_5_text_transform = 'none'
+  if settings.typography_heading_5_uppercase
+    assign heading_5_text_transform = 'uppercase'
+  endif
+
+  assign heading_6_text_transform = 'none'
+  if settings.typography_heading_6_uppercase
+    assign heading_6_text_transform = 'uppercase'
+  endif
+
+  assign subheading_1_text_transform = 'none'
+  if settings.typography_subheading_1_uppercase
+    assign subheading_1_text_transform = 'uppercase'
+  endif
+
+  assign subheading_2_text_transform = 'none'
+  if settings.typography_subheading_2_uppercase
+    assign subheading_2_text_transform = 'uppercase'
+  endif
+
+  assign blog_body_text_transform = 'none'
+  if settings.typography_blog_body_uppercase
+    assign blog_body_text_transform = 'uppercase'
+  endif
+
+  assign body_1_text_transform = 'none'
+  if settings.typography_body_1_uppercase
+    assign body_1_text_transform = 'uppercase'
+  endif
+
+  assign body_2_text_transform = 'none'
+  if settings.typography_body_2_uppercase
+    assign body_2_text_transform = 'uppercase'
+  endif
+
+  assign brightness_background = settings.color_site_background | color_brightness
+  if brightness_background > 127
+    assign color_background_meta = settings.color_site_background | color_darken: 4
+  else
+    assign color_background_meta = settings.color_site_background | color_lighten: 4
+  endif
+-%}
+
+<style>
+  {% if settings.font_heading_type == 'shopify' %}{{ settings.shopify_font_heading_family | font_face: font_display: 'swap' }}{% endif %}
+  {% if settings.font_subheading_type == 'shopify' %}{{ settings.shopify_font_subheading_family | font_face: font_display: 'swap' }}{% endif %}
+  {% if settings.font_body_type == 'shopify' %}{{ settings.shopify_font_body_family | font_face: font_display: 'swap' }}{% endif %}
+  {% if settings.font_button_type == 'shopify' %}{{ settings.shopify_font_button_family | font_face: font_display: 'swap' }}{% endif %}
+  :root {
+    --color-text: {{ settings.color_body_text_dark }};
+    --color-text-8-percent: {{ settings.color_body_text_dark | color_modify: 'alpha', 0.08 }};  {% comment %}very specific... can we avoid?{% endcomment %}
+    --color-text-alpha: {{ settings.color_body_text_dark | color_modify: 'alpha', 0.35 }};
+    --color-text-meta: {{ settings.color_body_text_dark | color_modify: 'alpha', 0.6 }};
+    --color-text-link: {{ settings.color_text_link }};
+    --color-text-error: {{ settings.color_error }};
+    --color-text-success: {{ settings.color_success }};
+
+    --color-background: {{ settings.color_site_background }};
+    --color-background-semi-transparent-80: {{ settings.color_site_background | color_modify: 'alpha', 0.8 }};
+    --color-background-semi-transparent-90: {{ settings.color_site_background | color_modify: 'alpha', 0.9 }};
+
+    --color-background-transparent: {{ settings.color_site_background | color_modify: 'alpha', 0 }};
+    --color-border: {{ settings.color_border }};
+    --color-border-meta: {{ settings.color_border | color_modify: 'alpha', 0.6 }};
+    --color-overlay: rgba(0, 0, 0, 0.7);
+
+    --color-background-meta: {{ color_background_meta }};
+    --color-background-meta-alpha: {{ color_background_meta | color_modify: 'alpha', 0.6 }};
+    --color-background-darker-meta: {{ color_background_meta | color_darken: 5 }};
+    --color-background-darker-meta-alpha: {{ color_background_meta | color_darken: 5 | color_modify: 'alpha', 0.6 }};
+    --color-background-placeholder: {{  color_background_meta | color_darken: 5 }};
+    --color-background-placeholder-lighter: {{ color_background_meta | color_darken: 2 }};
+    --color-foreground-placeholder: {{ settings.color_body_text_dark | color_modify: 'alpha', 0.4 }};
+
+    --color-border-input: {{ settings.color_border }};
+    --color-border-input-alpha: {{ settings.color_border | color_modify: 'alpha', 0.25 }};
+    --color-text-input: {{ settings.color_body_text_dark }};
+    --color-text-input-alpha: {{ settings.color_body_text_dark | color_modify: 'alpha', 0.04 }};
+
+    /* New Button Colors from Figma Design */
+    --color-button-dark-solid-bg: {{ settings.color_button_dark_solid_bg }};
+    --color-button-dark-solid-text: {{ settings.color_button_dark_solid_text }};
+    --color-button-dark-solid-bg-hover: {{ settings.color_button_dark_solid_bg_hover }};
+    --color-button-dark-solid-text-hover: {{ settings.color_button_dark_solid_text_hover }};
+
+    --color-button-dark-outline-border: {{ settings.color_button_dark_outline_border }};
+    --color-button-dark-outline-text: {{ settings.color_button_dark_outline_text }};
+
+    --color-button-light-solid-bg: {{ settings.color_button_light_solid_bg }};
+    --color-button-light-solid-text: {{ settings.color_button_light_solid_text }};
+    --color-button-light-solid-bg-hover: {{ settings.color_button_light_solid_bg_hover }};
+    --color-button-light-solid-text-hover: {{ settings.color_button_light_solid_text_hover }};
+
+    --color-button-light-outline-border: {{ settings.color_button_light_outline_border }};
+    --color-button-light-outline-text: {{ settings.color_button_light_outline_text }};
+
+    --color-background-button-alpha: {{ settings.color_button_dark_solid_bg | color_modify: 'alpha', 0.6 }};
+    --color-background-outline-button-alpha: {{ settings.color_button_dark_solid_bg | color_modify: 'alpha', 0.1 }};
+
+    --color-icon: {{ settings.color_body_text_dark | color_modify: 'alpha', 0.4 }};
+
+    --color-text-sale-badge: {{ settings.color_text_sale_badge }};
+    --color-background-sold-badge: {{ settings.color_background_sold_badge }};
+    --color-text-sold-badge: {{ settings.color_text_sold_badge }};
+
+    --color-text-header: {{ settings.color_header_text }};
+    --color-text-header-half-transparent: {{ settings.color_header_text | color_modify: 'alpha', 0.5 }};
+
+    --color-background-header: {{ settings.color_header_background }};
+    --color-icon-header: {{ settings.color_header_text }};
+    --color-shadow-header: rgba(0, 0, 0, 0.15);
+
+    --color-background-footer: {{ settings.color_footer_background }};
+    --color-text-footer: {{ settings.color_footer_text }};
+    --color-text-footer-subdued: {{ settings.color_footer_text | color_modify: 'alpha', 0.7 }};
+
+    /* New Product Colors from Figma Design */
+    --color-product-sale-price: {{ settings.color_product_sale_price }};
+    --color-product-rating-star: {{ settings.color_product_rating_star }};
+    --color-product-in-stock: {{ settings.color_product_in_stock }};
+    --color-product-low-stock: {{ settings.color_product_low_stock }};
+    --color-product-out-stock: {{ settings.color_product_out_stock }};
+
+    /* Text Links from Figma Design */
+    --color-text-link-dark-line: {{ settings.color_text_link_dark_line }};
+    --color-text-link-dark-text: {{ settings.color_text_link_dark_text }};
+    --color-text-link-dark-line-hover: {{ settings.color_text_link_dark_line_hover }};
+    --color-text-link-dark-text-hover: {{ settings.color_text_link_dark_text_hover }};
+    --color-text-link-light-line: {{ settings.color_text_link_light_line }};
+    --color-text-link-light-text: {{ settings.color_text_link_light_text }};
+    --color-text-link-light-line-hover: {{ settings.color_text_link_light_line_hover }};
+    --color-text-link-light-text-hover: {{ settings.color_text_link_light_text_hover }};
+
+    /* Theme Colors from Figma Design */
+    --color-inline-link-dark: {{ settings.color_inline_link_dark }};
+    --color-inline-link-light: {{ settings.color_inline_link_light }};
+    --color-focus-dark: {{ settings.color_focus_dark }};
+    --color-focus-light: {{ settings.color_focus_light }};
+    --color-divider: {{ settings.color_divider }};
+    --color-blog-category-bg: {{ settings.color_blog_category_bg }};
+    --color-blog-category-text: {{ settings.color_blog_category_text }};
+
+    /* Typography Colors from Figma Design */
+    --color-body-text-dark: {{ settings.color_body_text_dark }};
+    --color-body-text-light: {{ settings.color_body_text_light }};
+    --color-subheading-text-dark: {{ settings.color_subheading_text_dark }};
+    --color-subheading-text-light: {{ settings.color_subheading_text_light }};
+    --color-heading-text-dark: {{ settings.color_heading_text_dark }};
+    --color-heading-text-light: {{ settings.color_heading_text_light }};
+
+    /* Header Colors from Figma Design */
+    --color-header-transparent-text: {{ settings.color_header_transparent_text }};
+
+    /* Input Field Colors from Figma Design */
+    --color-input-fill-default: {{ settings.color_input_fill_default }};
+    --color-input-border-default: {{ settings.color_input_border_default }};
+    --color-input-text-default: {{ settings.color_input_text_default }};
+    --color-input-fill-active: {{ settings.color_input_fill_active }};
+    --color-input-border-active: {{ settings.color_input_border_active }};
+    --color-input-text-active: {{ settings.color_input_text_active }};
+    --color-input-fill-disabled: {{ settings.color_input_fill_disabled }};
+    --color-input-border-disabled: {{ settings.color_input_border_disabled }};
+    --color-input-text-disabled: {{ settings.color_input_text_disabled }};
+
+    --font-logo-style: normal;
+    --logo-text-transform: {{ logo_text_transform }};
+
+    /* Buttons */
+    {% if settings.typography_button_uppercase %}
+      --button-padding-multiplier: 1;
+    {% else %}
+      --button-padding-multiplier: 0.7;
+    {% endif %}
+
+    /* Navigation */
+    --font-navigation-base-text-transform: {{ navigation_text_transform }};
+
+    /* Product badges */
+    --font-product-badge-text-transform: {{ product_badge_text_transform }};
+
+    /* Product listing titles */
+    --font-product-listing-title-text-transform: {{ product_listing_title_text_transform }};
+
+    /* Shopify pay specific */
+    --payment-terms-background-color: {{ color_background_meta }};
+
+    /* Font family */
+    --global-font-family-heading: {% if settings.font_heading_type == 'shopify' %}{{ settings.shopify_font_heading_family.family }}{% else %}{{ settings.font_heading_family }}{% endif %};
+    --global-font-family-subheading: {% if settings.font_subheading_type == 'shopify' %}{{ settings.shopify_font_subheading_family.family }}{% else %}{{ settings.font_subheading_family }}{% endif %};
+    --global-font-family-body: {% if settings.font_body_type == 'shopify' %}{{ settings.shopify_font_body_family.family }}{% else %}{{ settings.font_body_family }}{% endif %};
+    --global-font-family-button: {% if settings.font_button_type == 'shopify' %}{{ settings.shopify_font_button_family.family }}{% else %}{{ settings.font_button_family }}{% endif %};
+
+    /* Font weight */
+    --global-font-weight-heading: {{ settings.font_heading_weight }};
+    --global-font-weight-heading-bold: {{ settings.font_heading_bold_weight }};
+    --global-font-weight-subheading: {{ settings.font_subheading_weight }};
+    --global-font-weight-subheading-bold: {{ settings.font_subheading_bold_weight }};
+    --global-font-weight-body: {{ settings.font_body_weight }};
+    --global-font-weight-body-bold: {{ settings.font_body_bold_weight }};
+    --global-font-weight-button: {{ settings.font_button_weight }};
+
+    /* Typography */
+    --global-font-size-heading-1: {% render 'fluid', min: settings.typography_heading_1_mobile, max: settings.typography_heading_1_desktop %};
+    --global-font-size-heading-2: {% render 'fluid', min: settings.typography_heading_2_mobile, max: settings.typography_heading_2_desktop %};
+    --global-font-size-heading-3: {% render 'fluid', min: settings.typography_heading_3_mobile, max: settings.typography_heading_3_desktop %};
+    --global-font-size-heading-4: {% render 'fluid', min: settings.typography_heading_4_mobile, max: settings.typography_heading_4_desktop %};
+    --global-font-size-heading-5: {% render 'fluid', min: settings.typography_heading_5_mobile, max: settings.typography_heading_5_desktop %};
+    --global-font-size-heading-6: {% render 'fluid', min: settings.typography_heading_6_mobile, max: settings.typography_heading_6_desktop %};
+    --global-font-size-subheading-1: {% render 'fluid', min: settings.typography_subheading_1_mobile, max: settings.typography_subheading_1_desktop %};
+    --global-font-size-subheading-2: {% render 'fluid', min: settings.typography_subheading_2_mobile, max: settings.typography_subheading_2_desktop %};
+    --global-font-size-blog-body: {% render 'fluid', min: settings.typography_blog_body_mobile, max: settings.typography_blog_body_desktop %};
+    --global-font-size-body-1: {% render 'fluid', min: settings.typography_body_1_mobile, max: settings.typography_body_1_desktop %};
+    --global-font-size-body-2: {% render 'fluid', min: settings.typography_body_2_mobile, max: settings.typography_body_2_desktop %};
+    --global-font-size-button: {% render 'fluid', min: settings.typography_button_mobile, max: settings.typography_button_desktop %};
+
+    /* Line heights */
+    --global-line-height-heading-1: {{ settings.typography_heading_1_line_height }};
+    --global-line-height-heading-2: {{ settings.typography_heading_2_line_height }};
+    --global-line-height-heading-3: {{ settings.typography_heading_3_line_height }};
+    --global-line-height-heading-4: {{ settings.typography_heading_4_line_height }};
+    --global-line-height-heading-5: {{ settings.typography_heading_5_line_height }};
+    --global-line-height-heading-6: {{ settings.typography_heading_6_line_height }};
+    --global-line-height-subheading-1: {{ settings.typography_subheading_1_line_height }};
+    --global-line-height-subheading-2: {{ settings.typography_subheading_2_line_height }};
+    --global-line-height-blog-body: {{ settings.typography_blog_body_line_height }};
+    --global-line-height-body-1: {{ settings.typography_body_1_line_height }};
+    --global-line-height-body-2: {{ settings.typography_body_2_line_height }};
+    --global-line-height-button: {{ settings.typography_button_line_height }};
+
+    /* Letter spacings */
+    --global-letter-spacing-heading-1: {{ settings.typography_heading_1_letter_spacing }}px;
+    --global-letter-spacing-heading-2: {{ settings.typography_heading_2_letter_spacing }}px;
+    --global-letter-spacing-heading-3: {{ settings.typography_heading_3_letter_spacing }}px;
+    --global-letter-spacing-heading-4: {{ settings.typography_heading_4_letter_spacing }}px;
+    --global-letter-spacing-heading-5: {{ settings.typography_heading_5_letter_spacing }}px;
+    --global-letter-spacing-heading-6: {{ settings.typography_heading_6_letter_spacing }}px;
+    --global-letter-spacing-subheading-1: {{ settings.typography_subheading_1_letter_spacing }}px;
+    --global-letter-spacing-subheading-2: {{ settings.typography_subheading_2_letter_spacing }}px;
+    --global-letter-spacing-blog-body: {{ settings.typography_blog_body_letter_spacing }}px;
+    --global-letter-spacing-body-1: {{ settings.typography_body_1_letter_spacing }}px;
+    --global-letter-spacing-body-2: {{ settings.typography_body_2_letter_spacing }}px;
+    --global-letter-spacing-button: {{ settings.typography_button_letter_spacing }}px;
+
+    /* Text transform */
+    --global-text-transform-heading-1: {{ heading_1_text_transform }};
+    --global-text-transform-heading-2: {{ heading_2_text_transform }};
+    --global-text-transform-heading-3: {{ heading_3_text_transform }};
+    --global-text-transform-heading-4: {{ heading_4_text_transform }};
+    --global-text-transform-heading-5: {{ heading_5_text_transform }};
+    --global-text-transform-heading-6: {{ heading_6_text_transform }};
+    --global-text-transform-subheading-1: {{ subheading_1_text_transform }};
+    --global-text-transform-subheading-2: {{ subheading_2_text_transform }};
+    --global-text-transform-blog-body: {{ blog_body_text_transform }};
+    --global-text-transform-body-1: {{ body_1_text_transform }};
+    --global-text-transform-body-2: {{ body_2_text_transform }};
+    --global-text-transform-button: {{ button_text_transform }};
+  }
+
+  {%- for index in (1..4) -%}
+    {%- capture tagNameSettingsKey -%}custom_product_badge_group_{{ index }}_tag_names{%- endcapture -%}
+    {%- capture colorSettingsKey -%}custom_product_badge_group_{{ index }}_color{%- endcapture -%}
+    {%- unless settings[tagNameSettingsKey] == blank -%}
+      {%- assign tags = settings[tagNameSettingsKey] | downcase | split: ", " -%}
+      {%- for tag in tags -%}
+        .product-badge[data-handle="{{ tag | downcase | handleize }}"]{%- if forloop.last != true -%},{%- endif -%}
+      {%- endfor -%}
+      {
+        color: {{ settings[colorSettingsKey] }};
+      }
+    {% endunless %}
+  {%- endfor -%}
+</style>

@@ -1,0 +1,424 @@
+.sales-banner,
+.promo-banner {
+  --min-height: 0px;
+  --min-height-mobile: 0px;
+  color: var(--color-text);
+}
+
+.sales-banner__inner,
+.promo-banner__inner {
+  position: relative;
+  background-color: var(--color-background);
+}
+
+.sales-banner__image,
+.sales-banner__image.image .image__img,
+.promo-banner__image,
+.promo-banner__image.image .image__img {
+  display: block;
+  position: absolute;
+  object-fit: cover;
+  object-position: var(--focal-alignment, center);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.sales-banner__overlay,
+.promo-banner__overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: var(--overlay-background-gradient, var(--overlay-background));
+  opacity: var(--overlay-opacity);
+}
+
+.sales-banner__content,
+.promo-banner__content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--min-height-mobile);
+  padding: var(--spacing-4);
+  overflow: hidden;
+
+  .sales-banner--bar &,
+  .promo-banner--bar & {
+    padding-right: var(--space-outer);
+    padding-left: var(--space-outer);
+  }
+
+  .sales-banner--frame &::before,
+  .promo-banner--frame &::before {
+    content: "";
+    position: absolute;
+    top: var(--spacing-4);
+    left: var(--spacing-4);
+    right: var(--spacing-4);
+    bottom: var(--spacing-4);
+    border: solid 1px var(--color-text);
+  }
+
+  @media (--above-720) {
+    min-height: var(--min-height);
+    padding: var(--spacing-5);
+
+    .sales-banner--frame &::before,
+    .promo-banner--frame &::before {
+      top: var(--spacing-5);
+      left: var(--spacing-5);
+      right: var(--spacing-5);
+      bottom: var(--spacing-5);
+    }
+  }
+}
+
+/* Two column sale promotion block */
+.sales-banner__columns,
+.promo-banner__columns {
+  position: relative;
+  width: 100%;
+  padding: var(--spacing-4);
+
+  .sales-banner--frame &,
+  .promo-banner--frame & {
+    @media (--below-720) {
+      padding: var(--spacing-8);
+    }
+  }
+
+  @media (--above-720) {
+    padding: var(--spacing-10) var(--spacing-5);
+  }
+}
+
+.promo-banner__columns {
+  @media (--above-720) {
+    padding: var(--spacing-10) var(--spacing-12);
+  }
+
+  @media (--above-1200) {
+    padding: var(--spacing-10) var(--spacing-15);
+  }
+}
+
+.sales-banner__columns-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+
+  @media (--above-720) {
+    display: flex;
+    justify-content: center;
+
+    .sales-banner--layout-one-column & {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}
+
+.promo-banner__columns-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+
+  @media (--above-960) {
+    display: flex;
+    justify-content: center;
+
+    .sales-banner--layout-one-column & {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}
+
+.sales-banner__column {
+  padding-bottom: var(--spacing-12);
+
+  .sales-banner--layout-one-column & {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 0;
+  }
+
+  .sales-banner--layout-one-column & + &::before {
+    content: none;
+  }
+
+  & + & {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 30%;
+      height: 1px;
+      background-color: var(--color-text);
+    }
+  }
+
+  @media (--below-720) {
+    & + & {
+      padding-top: var(--spacing-12);
+      padding-bottom: 0;
+    }
+  }
+
+  @media (--above-720) {
+    flex-basis: 50%;
+    flex-shrink: 0;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 0 5%;
+
+    & + & {
+      align-items: flex-start;
+
+      &::before {
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        height: auto;
+      }
+    }
+
+    .sales-banner--layout-one-column & {
+      flex-basis: 50%;
+      flex-shrink: 0;
+      width: 50%;
+      align-items: center;
+      padding: 0;
+    }
+
+    .sales-banner--layout-one-column & + & {
+      align-items: center;
+      margin-top: var(--spacing-9);
+    }
+  }
+
+  @media (--above-1200) {
+    padding: 0 6.5%;
+  }
+}
+
+.promo-banner__column {
+  &.promo-banner__column--alignment-center {
+    text-align: center;
+  }
+
+  &.promo-banner__column--alignment-right {
+    text-align: right;
+  }
+
+  &.promo-banner__column--alignment-mobile-center {
+    @media (--below-960) {
+      text-align: center;
+    }
+  }
+
+  &.promo-banner__column--alignment-mobile-right {
+    @media (--below-960) {
+      text-align: right;
+    }
+  }
+
+  & + & {
+    padding-top: var(--spacing-12);
+  }
+
+  @media (--above-960) {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 5%;
+
+    &:first-of-type {
+      flex-basis: var(--left-column-width, 50%);
+      max-width: var(--left-column-width, 50%);
+    }
+
+    &:last-of-type {
+      flex-basis: var(--right-column-width, 50%);
+      width: var(--right-column-width, 50%);
+    }
+
+    & + & {
+      padding-top: 0;
+      padding-right: 0;
+      padding-left: 5%;
+    }
+  }
+
+  @media (--above-1200) {
+    padding-right: 6.5%;
+
+    & + & {
+      padding-right: 0;
+      padding-left: 6.5%;
+    }
+  }
+}
+
+.sales-banner__column-inner,
+.promo-banner__column-inner {
+  display: inline-block;
+
+  .sales-banner--layout-one-column & {
+    text-align: center;
+  }
+}
+
+.sales-banner__button-group,
+.promo-banner__button-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: calc(var(--spacing-2) * -1);
+
+  .sales-banner--layout-one-column & {
+    justify-content: center;
+  }
+
+  .promo-banner__column--alignment-center & {
+    justify-content: center;
+  }
+
+  .promo-banner__column--alignment-right & {
+    justify-content: flex-end;
+  }
+
+  .promo-banner__column--alignment-mobile-center & {
+    @media (--below-960) {
+      justify-content: center;
+    }
+  }
+
+  .promo-banner__column--alignment-mobile-right & {
+    @media (--below-960) {
+      justify-content: flex-end;
+    }
+  }
+}
+
+.sales-banner__button,
+.promo-banner__button {
+  margin: var(--spacing-2);
+}
+
+/* Promo banner */
+
+.promo-banner__giant-heading {
+  font-size: var(--giant-heading-font-size-mobile);
+  line-height: var(--line-height-heading);
+
+  @media (--above-960) {
+    font-size: var(--giant-heading-font-size);
+  }
+}
+
+/* Promotion bar block */
+.sales-banner__bar {
+  width: 100%;
+
+  @media (--above-720) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+}
+
+.sales-banner__bar-item {
+  padding-top: var(--spacing-4);
+  padding-bottom: var(--spacing-6);
+
+  & + & {
+    @media (--below-720) {
+      padding-top: var(--spacing-6);
+      padding-bottom: var(--spacing-4);
+    }
+  }
+
+  &.sales-banner__bar-item--text {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  @media (--above-720) {
+    display: flex;
+    align-items: center;
+    padding-top: var(--spacing-2);
+    padding-bottom: var(--spacing-2);
+    padding-right: 3.3vw;
+    text-align: center;
+
+    & + & {
+      padding-right: 0;
+      padding-left: 3.3vw;
+    }
+  }
+
+  @media (--above-1200) {
+    padding-right: 3.3vw;
+
+    & + & {
+      padding-right: 0;
+      padding-left: 3.3vw;
+    }
+  }
+
+  & + & {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 15%;
+      height: 1px;
+      background-color: var(--color-text);
+
+      @media (--above-720) {
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        height: auto;
+      }
+    }
+  }
+}
+
+.sales-banner__bar-text {
+  & + .sales-banner__button {
+    margin-left: var(--spacing-3);
+    white-space: nowrap;
+  }
+
+  @media (--above-720) {
+    & + .sales-banner__button {
+      margin-left: 3.3vw;
+    }
+  }
+
+  @media (--above-1200) {
+    & + .sales-banner__button {
+      margin-left: 5vw;
+    }
+  }
+}

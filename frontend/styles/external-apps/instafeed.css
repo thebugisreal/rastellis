@@ -1,0 +1,14 @@
+div#insta-feed {
+  margin-top: 0;
+  padding: 0 !important;
+
+  h2 {
+    text-align: left;
+    margin-bottom: var(--spacing-8);
+  }
+
+  .slider-arrow {
+    margin-left: var(--spacing-2);
+    margin-right: var(--spacing-2);
+  }
+}

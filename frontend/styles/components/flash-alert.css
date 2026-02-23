@@ -1,0 +1,56 @@
+.flash-alert {
+  position: absolute;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  visibility: hidden;
+  pointer-events: none;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-outer);
+
+  &.is-visible {
+    visibility: visible;
+
+    .flash-alert__container {
+      animation: show 4s ease 0s;
+    }
+  }
+
+  .template-password & {
+    position: fixed;
+  }
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+    transform: translateY(var(--spacing-4));
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  80% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0;
+  }
+}
+
+.flash-alert__container {
+  max-width: 200px;
+  margin-top: var(--spacing-3);
+  padding: var(--spacing-2) var(--spacing-3);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  opacity: 0;
+  box-shadow: var(--box-shadow);
+
+  .template-password & {
+    margin-top: var(--spacing-10);
+  }
+}

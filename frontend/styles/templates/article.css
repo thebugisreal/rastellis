@@ -1,0 +1,171 @@
+.article {
+  --article-width: 540px;
+  padding-bottom: var(--spacing-10);
+}
+
+.article__heading + .article__share,
+.article__date + .article__share {
+  margin-top: var(--spacing-3);
+
+  @media (--above-480) {
+    margin-top: var(--spacing-5);
+  }
+}
+
+.article__header,
+.article .article__header {
+  max-width: none;
+  margin: var(--spacing-12) 0 var(--spacing-10);
+  padding: 0 var(--space-outer);
+
+  @media (--above-720) {
+    margin-top: var(--spacing-16);
+  }
+}
+
+.article__header-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: var(--content-width);
+  margin: 0 auto;
+}
+
+.article__tags {
+  margin-bottom: var(--spacing-5);
+}
+
+.article__meta {
+  margin-top: var(--spacing-3);
+  opacity: 0.6;
+
+  span + time {
+    padding-left: var(--spacing-4);
+  }
+}
+
+.article__image {
+  margin: var(--spacing-10) auto;
+  padding: 0 var(--space-outer);
+
+  @media (--above-480) {
+    /* padding: 0 var(--spacing-10); */
+  }
+
+  &.article__image--image-aspect-custom {
+    .article__image-container {
+      position: relative;
+      height: var(--custom-height-mobile);
+      overflow: hidden;
+
+      @media (--above-480) {
+        height: var(--custom-height);
+      }
+    }
+
+    .image__img {
+      display: block;
+      position: absolute;
+      object-fit: cover;
+      object-position: var(--focal-alignment, center);
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &.article__image--full-width {
+    padding: 0;
+
+    &.article__image--top {
+      margin-top: 0;
+    }
+  }
+}
+
+.article__image-container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+
+  .article__image--full-width & {
+    max-width: none;
+  }
+}
+
+.article__image-inner {
+  height: 100%;
+
+  .image__img {
+    width: 100%;
+  }
+}
+
+.article__content {
+  width: 100%;
+  margin: var(--spacing-10) auto;
+  padding: 0 var(--space-outer);
+
+  /* Grid styles are handled in page.css */
+  .article__rte {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.article__content-inner {
+  width: 100%;
+  max-width: var(--content-width);
+  margin: 0 auto;
+}
+
+.article__comments {
+  margin: var(--spacing-10) auto 0;
+  padding: 0 var(--space-outer);
+
+  .form-message {
+    margin-bottom: var(--spacing-5);
+  }
+
+  .form-status {
+    margin: var(--spacing-5) 0;
+  }
+}
+
+.article + .article__comments {
+  margin-top: var(--spacing-10);
+}
+
+.article__pagination {
+  margin-top: var(--spacing-9);
+  padding: 0 var(--space-outer);
+
+  .article__block-inner {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.article__pagination-sharing-inner {
+  width: 100%;
+  max-width: var(--content-width);
+  margin: 0 auto;
+}
+
+.article__pagination-item {
+}
+
+.article__social-sharing {
+  width: 100%;
+  margin: var(--spacing-9) auto;
+  padding: 0 var(--space-outer);
+}
+
+/* reused in a few places to apply the article max with */
+.article__block-inner {
+  width: 100%;
+  max-width: var(--content-width);
+  margin: 0 auto;
+}

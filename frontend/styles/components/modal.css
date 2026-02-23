@@ -1,0 +1,114 @@
+.modal {
+  visibility: hidden;
+  z-index: var(--z-index-modal);
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-3);
+  /* pointer-events: none; */
+  transition: visibility 0s var(--duration-normal);
+
+  @media (--above-720) {
+    padding: var(--spacing-10);
+  }
+
+  @media (--above-720) {
+    padding: var(--spacing-15);
+  }
+
+  @media (--above-960) {
+    padding: var(--spacing-20);
+  }
+
+  &.active {
+    visibility: visible;
+    transition: visibility 0s 0s;
+
+    .modal__inner {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .modal__wash {
+      /* pointer-events: all; */
+      opacity: 1;
+    }
+  }
+
+  &.modal--narrow {
+    .modal__inner {
+      @media (--above-720) {
+        width: 640px;
+      }
+    }
+  }
+
+  .modal-content {
+    display: block;
+  }
+
+  h2:first-of-type {
+    margin-top: 0;
+  }
+}
+
+.modal__wash {
+  z-index: var(--z-index-modal);
+  background-color: var(--color-overlay);
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  /* pointer-events: none; */
+  transition: opacity var(--duration-normal) var(--easing);
+  cursor: pointer;
+}
+
+.modal__header {
+  position: sticky;
+  top: 0;
+  margin-bottom: calc(var(--spacing-5) * -1);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal__close-icon {
+  background-color: var(--color-background);
+}
+
+.modal__inner {
+  z-index: var(--z-index-modal);
+  position: relative;
+  width: 100%;
+  max-height: calc(100vh - (var(--spacing-3) * 2));
+  background-color: var(--color-background);
+  pointer-events: all;
+  padding: var(--spacing-6);
+  overflow: auto;
+  transform: translateY(var(--spacing-4));
+  opacity: 0;
+  transition: opacity var(--duration-normal) var(--easing),
+    transform var(--duration-normal) var(--easing);
+
+  @media (--above-720) {
+    max-height: calc(100vh - (var(--spacing-10) * 2));
+    width: calc(var(--max-width-narrow) + (var(--spacing-9) * 2));
+    padding: var(--spacing-9);
+  }
+
+  .is-mobile & {
+    height: 100%;
+  }
+}
+
+.modal__content > div {
+  margin: 0;
+}

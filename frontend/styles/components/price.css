@@ -1,0 +1,74 @@
+.price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 0;
+  margin-bottom: 0;
+
+  dl {
+    margin-top: 0;
+  }
+  dd {
+    margin: 0 0.5em 0 0;
+  }
+}
+
+.price--unavailable {
+  visibility: hidden;
+}
+
+.price--compare-price-hidden {
+  .price__compare {
+    display: none;
+  }
+}
+
+.price__pricing-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.price__regular {
+  display: block;
+}
+
+.price__regular,
+.price__sale {
+  margin-right: 0.625rem;
+}
+
+.price--on-sale {
+  .price__regular,
+  .price__availability {
+    display: none;
+  }
+}
+
+.price__availability {
+  display: none;
+}
+
+.price--sold-out {
+  .price__availability {
+    display: block;
+  }
+}
+
+.price__sale {
+  display: none;
+
+  .price--on-sale & {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+.price__unit {
+  display: none;
+
+  .price--unit-available & {
+    display: block;
+  }
+}

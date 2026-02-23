@@ -1,0 +1,46 @@
+html.do-anim .animation {
+  &.animation--collection {
+    /*
+      Fade out all collection items, no delay.
+      This happens when a filter change is made.
+      The product grid is faded out, replaced with the new products,
+      and then the individual product items are revealed.
+    */
+    .animation--collection-products-hide {
+      opacity: 0;
+      transition: opacity var(--duration-ultra-fast);
+    }
+
+    /* Fade in slide up product item */
+    .animation--item {
+      &.animation--item-initial {
+        /*
+          This initial state doesn't transition,
+          the products are added to the page like this.
+        */
+        opacity: 0;
+        transform: translateY(40px);
+      }
+
+      &.animation--item-revealed {
+        /*
+          It might seem counterintuitive to add both mixins at the same time but there's a good reason.
+          We only want to add the transition and transition-delay when revealing the item,
+          because we don't want the item to transtion into its hidden state when it gets added to the page.
+          This can happen on infinite scroll/click to load, or on filter change.
+        */
+        @mixin staggered-fade-in-from-bottom 40px, var(--delay-small);
+        @mixin reveal-fade-in-from-y;
+      }
+    }
+  }
+
+  .animation--filter-bar,
+  .animation--mobile-filters {
+    @mixin fade-in-from-bottom;
+
+    &.is-visible {
+      @mixin reveal-fade-in-from-y;
+    }
+  }
+}

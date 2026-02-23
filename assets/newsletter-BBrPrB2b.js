@@ -1,0 +1,1 @@
+import{i as s}from"./intersection-watcher-CQpC-SnO.js";import{d as o}from"./delay-offset-WNpokWIU.js";const r={items:".animation--section-blocks > *"},n=e=>{o(e,[r.items]);const t=s(e,!0);return{destroy(){t==null||t.destroy()}}};export{n as a};

@@ -1,0 +1,102 @@
+.page {
+  --header-width: 800px;
+  position: relative;
+
+  .shopify-policy__container {
+    margin-top: var(--spacing-10);
+    margin-bottom: var(--spacing-10);
+
+    @media (--above-960) {
+      margin-top: var(--spacing-25);
+      margin-bottom: calc(var(--space-outer) * 2);
+    }
+  }
+
+  html.sticky-header-active body.scroll-lock & {
+    padding-top: var(--height-header);
+  }
+}
+
+.page__inner {
+  max-width: calc(
+    var(--content-width, var(--max-width)) + calc(var(--space-outer) * 2)
+  );
+  margin-right: auto;
+  margin-left: auto;
+  padding: var(--spacing-2) var(--space-outer) var(--spacing-6);
+
+  .section & {
+    padding-bottom: 0;
+  }
+
+  @media (--above-720) {
+    padding-top: var(--spacing-6);
+  }
+}
+
+.page__header {
+  max-width: var(--header-width);
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto var(--spacing-10);
+}
+
+.page__subheading {
+  margin-top: var(--spacing-3);
+}
+
+.page__rte,
+.article__rte {
+  width: 100%;
+
+  .grid {
+    --s-item-gutter: 10px;
+
+    min-width: 100%;
+    padding: 0;
+    margin: calc(var(--spacing-10) - var(--s-item-gutter)) 0;
+    margin-left: calc(var(--s-item-gutter) * -1);
+    margin-right: calc(var(--s-item-gutter) * -1);
+
+    &:first-child {
+      margin-top: calc(var(--s-item-gutter) * -1);
+    }
+
+    @media (--above-480) {
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-top: calc(var(--spacing-20) - var(--s-item-gutter));
+      margin-right: -50vw;
+      margin-bottom: calc(var(--spacing-20) - var(--s-item-gutter));
+      margin-left: -50vw;
+      padding: 0 calc(var(--space-outer) - var(--s-item-gutter));
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    img + img {
+      margin-top: calc(var(--s-item-gutter) * 2);
+    }
+
+    & > div,
+    & > img,
+    & > p {
+      padding: var(--s-item-gutter);
+      margin: 0;
+      width: 100%;
+    }
+
+    .small {
+      width: 50%;
+    }
+  }
+}

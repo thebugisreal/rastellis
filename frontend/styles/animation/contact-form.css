@@ -1,0 +1,11 @@
+html.do-anim .animation.animation--contact-form {
+  &.is-visible {
+    .animation--item {
+      @mixin reveal-fade-in-from-y;
+    }
+  }
+
+  .animation--item {
+    @mixin staggered-fade-in-from-bottom 40px;
+  }
+}

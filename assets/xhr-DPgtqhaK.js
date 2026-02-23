@@ -1,0 +1,1 @@
+function r(e,n){return new Promise(function(o,s){let t=new XMLHttpRequest;t.open(e,n),t.onload=function(){this.status>=200&&this.status<300?o(t.response):s(new Error(this.status))},t.onerror=function(){s(new Error(this.status))},t.send()})}export{r as m};

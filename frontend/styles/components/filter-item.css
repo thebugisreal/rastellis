@@ -1,0 +1,230 @@
+.filter-item {
+  --swatch-size: 26px;
+  --height-input: 44px;
+
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  transition: transform 0.2s;
+
+  & + &:not(.filter-item--chip) {
+    margin-top: var(--spacing-4);
+
+    .filter-sidebar & {
+      margin-top: var(--spacing-3);
+    }
+
+    .filter-group__list--sort & {
+      margin-top: var(--spacing-3);
+    }
+  }
+
+  &.filter-item--chip {
+    display: flex;
+
+    .filter-item__content {
+      padding: 0;
+    }
+  }
+}
+
+.filter-item__content {
+  transition: background-color 0.3s;
+
+  .filter-item--chip & {
+    display: flex;
+    width: 100%;
+  }
+}
+
+.filter-item__content-inner {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  .filter-item--chip & {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+  }
+}
+
+.filter-input__input {
+  width: var(--spacing-4);
+  height: var(--spacing-4);
+  border: 1px solid var(--color-border);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.filter-item__checkbox {
+  color: var(--color-text);
+
+  &:checked + .filter-item__content-inner {
+    .filter-input__input {
+      border-color: var(--color-text);
+
+      .icon {
+        opacity: 1;
+      }
+    }
+
+    .filter-item__chip {
+      border-color: var(--color-text);
+      box-shadow: 0 0 0 1px var(--color-text);
+    }
+
+    .filter-item__swatch {
+      box-shadow: 0 0 0 1px inset var(--color-text-8-percent),
+        0 0 0 2px var(--color-text);
+
+      .icon {
+        opacity: 1;
+      }
+    }
+  }
+
+  &:disabled + .filter-item__content-inner {
+    color: var(--color-text-meta);
+    cursor: default;
+
+    .filter-input__input {
+      border-color: var(--color-border-input-alpha);
+      background-color: var(--color-text-input-alpha);
+    }
+
+    .filter-item__swatch {
+      opacity: 0.6;
+    }
+
+    .filter-item__chip {
+      border-color: var(--color-border-input-alpha);
+      background-color: var(--color-text-input-alpha);
+      text-decoration: line-through;
+    }
+  }
+}
+
+.filter-input__input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-border-input);
+  color: var(--color-text-popover);
+
+  .icon {
+    display: flex;
+    width: 10px;
+    height: 10px;
+    color: var(--color-text-popover);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+}
+
+.filter-item__radio {
+  border-radius: 100%;
+  margin: 0;
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--color-border);
+
+  & + .filter-item__content-inner .filter-input__input {
+    border-radius: 100%;
+    margin: 0;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-background);
+
+    .indicator {
+      border-radius: 100%;
+      width: var(--spacing-2);
+      height: var(--spacing-2);
+      background-color: var(--color-text);
+      opacity: 0;
+    }
+  }
+
+  &:checked + .filter-item__content-inner {
+    .filter-input__input {
+      border-color: var(--color-text);
+
+      .indicator {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.filter-item__count {
+  padding-left: var(--spacing-1);
+  color: var(--color-text-meta);
+}
+
+.filter-item__label {
+  align-items: center;
+  padding-left: var(--spacing-3);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  span {
+    margin-left: auto;
+    color: var(--color-text);
+  }
+}
+
+.filter-item__chip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: var(--spacing-2) var(--spacing-4);
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 0 0 0 var(--color-border);
+  line-height: 1;
+  text-align: center;
+  word-break: break-all;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.filter-item__swatch {
+  display: flex;
+  width: var(--swatch-size);
+  height: var(--swatch-size);
+  border: 2px solid var(--color-background);
+  box-shadow: 0 0 0 1px inset var(--color-text-8-percent),
+    0 0 0 0 var(--color-border);
+  transition: box-shadow 0.2s;
+  background-size: cover;
+  background-position: center center;
+
+  &[data-shape="round"] {
+    border-radius: 100%;
+  }
+  &[data-shape="rectangle"] {
+    width: 39px;
+    height: 24px;
+
+    .icon {
+      width: 15px;
+      height: 15px;
+    }
+  }
+
+  .icon {
+    display: flex;
+    width: 18px;
+    height: 18px;
+    margin: auto;
+    color: var(--color-background);
+    opacity: 0;
+    transition: opacity 0.3s;
+
+    path {
+      filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.5));
+    }
+  }
+}

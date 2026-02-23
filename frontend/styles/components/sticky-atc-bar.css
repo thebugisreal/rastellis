@@ -1,0 +1,125 @@
+.sticky-atc-bar {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: var(--z-index-bar);
+  background-color: var(--color-background);
+  transform: translateY(0);
+  visibility: visible;
+  transition: all var(--duration-normal) var(--easing);
+
+  &:before {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    inset: 0;
+  }
+
+  &[data-divider-style="border--thin"]:before {
+    box-shadow: 0px 1px 0px currentColor inset;
+  }
+
+  &[data-divider-style="border--thick"]:before {
+    box-shadow: 0px 2px 0px currentColor inset;
+  }
+
+  &[data-divider-style="shadow--small"]:before {
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
+  }
+
+  &[data-divider-style="shadow--large"]:before {
+    box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.15);
+  }
+
+  &.is-hidden {
+    transform: translateY(100%);
+    visibility: hidden;
+
+    @media (--above-960) {
+      opacity: 0;
+    }
+  }
+
+  &[data-show-desktop="false"] {
+    @media (--above-960) {
+      height: 0;
+      visibility: hidden;
+    }
+  }
+
+  &[data-show-mobile="false"] {
+    @media (--below-960) {
+      height: 0;
+      visibility: hidden;
+    }
+  }
+
+  @media (--above-720) {
+    max-width: 562px;
+    right: 30px;
+    bottom: 30px;
+  }
+
+  @media (--above-960) {
+    right: 77px;
+    bottom: 74px;
+  }
+}
+
+.sticky-atc-bar__inner {
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+  margin-left: auto;
+  padding: var(--spacing-3);
+  gap: var(--spacing-3);
+
+  @media (--above-960) {
+    gap: var(--spacing-5);
+  }
+}
+
+.sticky-atc-bar__details {
+  display: flex;
+  flex-grow: 1;
+  width: 100%;
+  column-gap: var(--spacing-5);
+  align-items: center;
+
+  .sticky-atc-bar__price {
+    flex-direction: row;
+    flex-grow: 1;
+    align-content: flex-end;
+    column-gap: var(--spacing-2);
+
+    s {
+      margin: 0;
+    }
+  }
+}
+
+.sticky-atc-bar__media {
+  width: 50px;
+  flex-shrink: 0;
+}
+
+.sticky-atc-bar__meta-options {
+  margin-right: var(--spacing-1);
+}
+
+.sticky-atc-bar__meta-change-option-trigger {
+  color: var(--color-text-link);
+  text-decoration: underline;
+  transition: opacity 0.25s;
+
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+.sticky-atc-bar__button {
+  display: flex;
+  align-items: center;
+  min-width: 150px;
+}

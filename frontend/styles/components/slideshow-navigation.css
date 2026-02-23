@@ -1,0 +1,271 @@
+.slideshow-navigation {
+  z-index: 1;
+  position: absolute;
+  right: 0;
+  bottom: var(--spacing-8);
+  left: 0;
+  max-width: calc(var(--max-width) + calc(var(--space-outer) * 2));
+  display: flex;
+  margin: 0 auto;
+  padding-right: var(--space-outer);
+  padding-left: var(--space-outer);
+
+  &.slideshow-navigation--align-center {
+    justify-content: center;
+  }
+
+  &.slideshow-navigation--align-right {
+    justify-content: flex-end;
+  }
+
+  &.slideshow-navigation--hide-autoplay {
+    .slideshow-navigation__dots {
+      .slideshow-navigation__dot {
+        &.slideshow-navigation__dot--active {
+          &:after {
+            background-color: var(--color-foreground);
+          }
+
+          &:before {
+            display: none;
+          }
+        }
+
+        .slideshow-navigation__dot-loader {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.slideshow-navigation__inner {
+  display: flex;
+}
+
+.slideshow-navigation__navigation-button {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--slideshow-navigation-height);
+  width: var(--slideshow-navigation-height);
+  color: var(--color-foreground);
+  background-color: var(--color-background);
+  border-radius: 100%;
+  transition: background-color 0.2s ease, color 0.2s ease;
+
+  .icon {
+    display: flex;
+    width: 14px;
+    height: 14px;
+    transition: opacity 0.2s ease;
+  }
+
+  .user-is-tabbing &:focus,
+  &:hover {
+    .icon {
+      opacity: 0.6;
+    }
+  }
+}
+
+.slideshow-navigation__navigation-button--previous {
+  transform: rotate(90deg);
+
+  /* Icon fine adjustment */
+  .icon {
+    margin-top: 1px;
+  }
+}
+
+.slideshow-navigation__navigation-button--next {
+  transform: rotate(-90deg);
+
+  /* Icon fine adjustment */
+  .icon {
+    margin-top: 1px;
+  }
+}
+
+.slideshow-navigation__dots {
+  display: flex;
+  align-items: center;
+  height: var(--slideshow-navigation-height);
+  padding: 0 var(--spacing-unit-half);
+  margin: 0 var(--spacing-2);
+  background-color: var(--color-background);
+  border-radius: 40px;
+  transition: background-color 0.2s ease;
+}
+
+.slideshow-navigation__dot {
+  position: relative;
+  padding: var(--spacing-3);
+  opacity: 0.4;
+  border-radius: 100%;
+  transition: opacity 0.2s ease;
+
+  &:after {
+    content: "";
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--color-foreground);
+    border-radius: 100%;
+    transition: background-color 0.2s ease;
+  }
+
+  &:hover,
+  &:focus {
+    opacity: 1;
+  }
+
+  &.slideshow-navigation__dot--active {
+    opacity: 1;
+    pointer-events: none;
+    background-color: transparent;
+
+    &:after {
+      background-color: transparent;
+      transition: background-color 0s ease;
+    }
+
+    &:before {
+      content: "";
+      width: 16px;
+      height: 16px;
+      position: absolute;
+      border: 2px solid var(--color-foreground-transparent);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: transparent;
+      border-radius: 100%;
+      transition: border-color 0.2s ease;
+    }
+
+    .slideshow-navigation__dot-loader {
+      display: block;
+    }
+  }
+}
+
+.slideshow-navigation__dot-loader {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid var(--color-foreground);
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  transition: border-color 0.2s ease;
+  animation: load-spinner-fill linear calc(var(--animation-timing) * 1ms);
+}
+
+@keyframes load-spinner-fill {
+  0% {
+    clip-path: polygon(
+      50% -20.71%,
+      50% 50%,
+      50% 0%,
+      50% 0%,
+      50% 0%,
+      50% 0%,
+      50% 0%
+    );
+  }
+  12.5% {
+    clip-path: polygon(
+      50% -20.71%,
+      50% 50%,
+      100% 0%,
+      100% 0%,
+      100% 0%,
+      100% 0%,
+      100% 0%
+    );
+  }
+  25% {
+    clip-path: polygon(
+      50% -20.71%,
+      50% 50%,
+      120.71% 50%,
+      120.71% 50%,
+      120.71% 50%,
+      120.71% 50%,
+      100% 0%
+    );
+  }
+  37.5% {
+    clip-path: polygon(
+      50% -20.71%,
+      50% 50%,
+      100% 100%,
+      100% 100%,
+      100% 100%,
+      100% 100%,
+      100% 0%
+    );
+  }
+  50% {
+    clip-path: polygon(
+      50% -20.71%,
+      50% 50%,
+      50% 120.71%,
+      50% 120.71%,
+      50% 120.71%,
+      100% 100%,
+      100% 0%
+    );
+  }
+  62.5% {
+    clip-path: polygon(
+      50% -20.71%,
+      50% 50%,
+      0% 100%,
+      0% 100%,
+      0% 100%,
+      100% 100%,
+      100% 0%
+    );
+  }
+  75% {
+    clip-path: polygon(
+      50% -20.71%,
+      50% 50%,
+      -20.71% 50%,
+      -20.71% 50%,
+      0% 100%,
+      100% 100%,
+      100% 0%
+    );
+  }
+  87.5% {
+    clip-path: polygon(
+      50% -20.71%,
+      50% 50%,
+      0% 0%,
+      0% 0%,
+      0% 100%,
+      100% 100%,
+      100% 0%
+    );
+  }
+  100% {
+    clip-path: polygon(
+      50% -20.71%,
+      50% 50%,
+      50% -20.71%,
+      0% 0%,
+      0% 100%,
+      100% 100%,
+      100% 0%
+    );
+  }
+}

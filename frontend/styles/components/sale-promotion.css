@@ -1,0 +1,69 @@
+.sale-promotion {
+  display: inline-block;
+}
+
+.sale-promotion__sale {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.sale-promotion__sale-grid {
+  display: grid;
+  grid-template-columns: auto auto;
+  font-size: var(--promotion-amount-text-size-mobile, 150px);
+
+  @media (--above-720) {
+    font-size: var(--promotion-amount-text-size, 150px);
+  }
+
+  .sale-promotion--per_month &,
+  .sale-promotion--per_year & {
+    grid-template-columns: auto auto auto;
+  }
+}
+
+.sale-promotion__type {
+  display: block;
+  margin-bottom: var(--spacing-2);
+}
+
+.sale-promotion__amount {
+  line-height: 0.9;
+  font-size: var(--promotion-amount-text-size-mobile, 150px);
+
+  @media (--above-720) {
+    font-size: var(--promotion-amount-text-size, 150px);
+  }
+}
+
+.sale-promotion__unit-currency {
+  align-self: flex-start;
+  font-size: var(--font-size-body-2);
+  line-height: 1;
+}
+
+.sale-promotion__unit {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: min-content;
+  margin-left: var(--spacing-3);
+  font-size: var(--font-size-body-2);
+  line-height: 1;
+  text-align: center;
+
+  &.sale-promotion__unit--per_month,
+  &.sale-promotion__unit--per_year {
+    align-self: flex-start;
+    font-size: var(--font-size-body-2);
+  }
+}
+
+.sale-promotion__unit-percent {
+  font-size: var(--font-size-body-2);
+}
+
+.sale-promotion__terms {
+  margin-top: var(--terms-vertical-offset, 0px);
+}

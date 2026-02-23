@@ -1,0 +1,11 @@
+html.do-anim .animation.animation--blog-posts {
+  &.is-visible {
+    .article-item__content-inner > * {
+      @mixin reveal-fade-in-from-y;
+    }
+  }
+
+  .article-item__content-inner > * {
+    @mixin staggered-fade-in-from-bottom 20px;
+  }
+}

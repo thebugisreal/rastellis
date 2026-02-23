@@ -1,0 +1,110 @@
+.featured-collection-slider__meta {
+  .featured-collection-slider__navigation-buttons {
+    display: none;
+
+    @media (--above-720) {
+      &.visible {
+        display: flex;
+      }
+    }
+  }
+}
+
+.featured-collection-slider__meta-controls {
+  display: flex;
+}
+
+.featured-collection-slider__navigation-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  li {
+    margin-right: var(--spacing-6);
+  }
+
+  .no-js & {
+    display: none;
+  }
+}
+
+.featured-collection-slider__navigation-list-item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--spacing-7);
+  opacity: 0.7;
+
+  @media (--above-720) {
+    margin-bottom: var(--spacing-8);
+  }
+
+  &.selected {
+    opacity: 1;
+
+    .indicator {
+      width: 100%;
+    }
+  }
+
+  .indicator {
+    margin: var(--spacing-2) auto 0;
+    width: 0%;
+    height: 2px;
+    background-color: var(--color-text);
+    transition: width var(--duration-normal) var(--easing);
+  }
+}
+
+.featured-collection-slider__content {
+  display: none;
+
+  .animation & {
+    &.fadeout {
+      opacity: 0;
+      transition: opacity var(--duration-fast) var(--easing);
+    }
+
+    &.init-reveal {
+      opacity: 0;
+      transition: transform var(--duration-fast) var(--easing),
+        opacity var(--duration-fast) var(--easing);
+
+      &.reveal {
+        opacity: 1;
+        transform: unset;
+        transition: transform var(--duration-normal) var(--easing),
+          opacity var(--duration-normal) var(--easing);
+      }
+
+      html.do-anim & {
+        transform: translateY(20px);
+
+        &.reveal {
+          transform: unset;
+        }
+      }
+    }
+  }
+
+  &.visible {
+    display: block;
+  }
+}
+
+.featured-collection-slider__content-view-all-wrapper {
+  height: unset;
+  display: flex;
+  align-items: center;
+  margin-left: var(--spacing-4);
+
+  @media (--above-720) {
+    margin-left: var(--spacing-6);
+  }
+}
+
+.featured-collection-slider__content-view-all-header
+  + .featured-collection-slider__view-all {
+  margin-top: var(--spacing-3);
+}

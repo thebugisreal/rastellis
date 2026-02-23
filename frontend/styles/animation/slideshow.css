@@ -1,0 +1,40 @@
+html.do-anim .animation.animation--slideshow {
+  .slideshow-slide:not(.swiper-slide-active):not(.slideshow-slide--single)
+    .slideshow-slide__inner {
+    opacity: 0;
+    transition: opacity 0s var(--duration-normal);
+  }
+
+  .image--animate .image__img {
+    @mixin staggered-image-fade-scale 1.3;
+    transition-duration: var(--duration-slow);
+  }
+
+  .animation--section-blocks > * {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .slideshow-slide__overlay {
+    opacity: 0;
+    transition: opacity var(--duration-normal) var(--easing);
+  }
+
+  &.is-visible {
+    .image--animate.loaded .image__img {
+      @mixin reveal-fade-scale;
+    }
+
+    .slideshow-slide.swiper-slide-active,
+    .slideshow-slide.slideshow-slide--single {
+      .animation--section-blocks > * {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .slideshow-slide__overlay {
+      opacity: var(--overlay-opacity);
+    }
+  }
+}

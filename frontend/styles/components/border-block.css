@@ -1,0 +1,6 @@
+.border-block {
+  height: 1px;
+  width: 100%;
+  /* Will map to the section level text color var if needed */
+  background-color: var(--color-text);
+}

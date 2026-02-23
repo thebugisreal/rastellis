@@ -1,0 +1,1 @@
+import{i as e}from"./intersection-watcher-CQpC-SnO.js";import{d as o}from"./delay-offset-WNpokWIU.js";const r={media:".animation--product-media"},m=a=>{o(a,[r.media]);const t=e(a,!0);return{destroy(){t==null||t.destroy()}}};export{m as a};

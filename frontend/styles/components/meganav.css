@@ -1,0 +1,226 @@
+.meganav {
+  position: absolute;
+  top: 100%;
+  margin-top: -1px;
+  background: var(--color-background);
+  border: 1px solid var(--color-text);
+  color: var(--color-text);
+  text-transform: none;
+  overflow-y: hidden;
+  overflow-x: auto;
+  max-width: 100%;
+  font-size: var(--font-size-body-1);
+  transition: visibility 0s 0s var(--easing),
+    opacity var(--duration-normal) 0s var(--easing);
+
+  &:not(.active) {
+    opacity: 0;
+    visibility: hidden;
+    transition: none;
+  }
+
+  &:not(.customAlignment) {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  ul,
+  li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  a {
+    /* Until chrome bug is fixed https://bugs.chromium.org/p/chromium/issues/detail?id=1190987&q=underline%20columns&can=2 */
+    text-underline-offset: unset;
+    text-underline-position: unset;
+  }
+}
+
+.meganav__nav {
+  height: 100%;
+  column-count: var(--column-count);
+  column-gap: var(--spacing-12);
+  position: relative;
+  padding: 0 var(--spacing-6);
+  width: var(--columns-width);
+  &.with-column-dividers .meganav__column-rule {
+    position: absolute;
+    width: 1px;
+    background: var(--color-border);
+    top: 0;
+    bottom: 0;
+  }
+
+  a {
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* giant hack instead of simple column-rule style so
+     that rules are full height regardless of column content */
+
+  &[data-column-count="2"] {
+    .meganav__column-rule[data-index="1"] {
+      left: 50%;
+    }
+  }
+
+  &[data-column-count="3"] {
+    .meganav__column-rule[data-index="1"] {
+      left: 33.33%;
+    }
+    .meganav__column-rule[data-index="2"] {
+      left: 66.66%;
+    }
+  }
+
+  &[data-column-count="4"] {
+    .meganav__column-rule[data-index="1"] {
+      left: 25%;
+    }
+    .meganav__column-rule[data-index="2"] {
+      left: 50%;
+    }
+    .meganav__column-rule[data-index="3"] {
+      left: 75%;
+    }
+  }
+
+  ul[depth="0"] > li {
+    break-inside: avoid;
+  }
+
+  h4 {
+    color: var(--color-text);
+    margin-bottom: 0.4em;
+    font-size: var(--font-size-heading-4-base);
+  }
+
+  li {
+    line-height: 1.4;
+    margin: 0.4em 0;
+    white-space: normal;
+    &:first-child {
+      margin-top: 0 !important;
+    }
+
+    &[depth="0"] {
+      margin: 0.6em 0;
+      &.has-children:not(:first-child) {
+        margin-top: 3em;
+      }
+      &.has-children:not(:last-child) {
+        margin-bottom: 3em;
+      }
+    }
+  }
+
+  ul[depth="1"] > li > a {
+    opacity: 0.7;
+  }
+}
+
+.meganav__primary {
+  padding: var(--spacing-6) 0;
+}
+
+.meganav__secondary {
+  width: var(--secondary-width);
+}
+
+.meganav__inner {
+  display: flex;
+}
+
+.meganav-promo {
+  display: block;
+  width: var(--secondary-width);
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  height: 100%;
+  width: 100%;
+  min-height: var(--min-promo-height);
+
+  .image {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.meganav__promo-image {
+  position: relative;
+
+  .image__img,
+  .placeholder-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+  }
+}
+
+.meganav__secondary-promo-overlay,
+.meganav__secondary-promo-text {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  pointer-events: none; /* Don't block clicks to image link */
+  * {
+    pointer-events: all;
+  }
+}
+
+.user-is-tabbing .meganav__promo-image-link:focus {
+  opacity: 0.75; /* Visual indicator of focus because outline won't work */
+}
+
+.meganav__secondary-promo-overlay {
+  background: var(--overlay-background-gradient, var(--overlay-background));
+  opacity: var(--overlay-opacity);
+  pointer-events: none;
+}
+
+.meganav__secondary-promo-text {
+  color: var(--color-promo-text);
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-8);
+  justify-content: var(--text-vertical-position);
+  align-items: var(--text-horizontal-position);
+}
+
+.meganav__secondary-promo-text-heading + .meganav__secondary-promo-text-button {
+  margin-top: var(--spacing-6);
+}
+
+.meganav[data-meganav-type="full_width_meganav"] {
+  width: 100%;
+  max-width: var(--max-width);
+  .meganav__primary {
+    flex-grow: 1;
+    .meganav__nav {
+      width: 100%;
+    }
+  }
+
+  .meganav__inner {
+    max-width: 100%;
+    gap: 20px;
+  }
+}
+
+.meganav__featured-products {
+  padding: var(--spacing-6);
+}
+
+.meganav__featured-products-list {
+  display: flex;
+  gap: 24px;
+}

@@ -1,0 +1,204 @@
+.filter-bar {
+  position: relative;
+  display: none;
+  width: 100%;
+  padding: var(--spacing-3) 0;
+  z-index: var(--z-index-filter-bar);
+
+  &.filter-bar--sticky {
+    top: 0;
+    position: sticky;
+    background-color: var(--color-background);
+
+    @supports (backdrop-filter: blur(10px)) {
+      background-color: var(--color-background-semi-transparent-80);
+      backdrop-filter: blur(10px);
+    }
+
+    html.sticky-header-enabled & {
+      top: calc(var(--height-header, 0px));
+
+      /*
+        This is a hack to show the top divider.
+        The dividers are made with an inset box-shadow,
+        when there is no padding it gets covered by the content in the section.
+      */
+      @media (--above-960) {
+        top: calc(
+          var(--height-header, 0px) + var(--header-desktop-sticky-position, 0px) -
+            1px
+        );
+      }
+    }
+
+    html.sticky-header-enabled[data-enable-sticky-announcement-bar*="desktop"]
+      & {
+      @media (--above-960) {
+        top: calc(var(--height-header, 0px) + var(--announcement-height));
+
+        /*
+        This is a hack to show the top divider.
+        The dividers are made with an inset box-shadow,
+        when there is no padding it gets covered by the content in the section.
+      */
+        top: calc(
+          var(--height-header, 0px) + var(--announcement-height) +
+            var(--header-desktop-sticky-position, 0px) - 1px
+        );
+      }
+    }
+  }
+
+  @media (--above-720) {
+    display: block;
+
+    &.filter-bar--disabled {
+      display: none;
+    }
+  }
+}
+
+.filter-bar__inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  max-width: calc(var(--max-width) + calc(var(--space-outer) * 2));
+  padding: 0 var(--space-outer);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.filter-bar__button {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--spacing-1) 0;
+  border: 0;
+  border-radius: 0;
+  background-color: transparent;
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-style: var(--font-body-style);
+
+  &.filter-bar__button--filters {
+    margin-right: var(--spacing-4);
+
+    /* Button to toggle sidebar above 960px */
+    &[data-filter-location="sidebar"] {
+      margin-right: var(--spacing-5);
+
+      @media (--below-960) {
+        display: none;
+      }
+    }
+
+    /* Button to open mobile drawer between 720px-960px */
+    &[data-filter-drawer-target="__tags"] {
+      padding: var(--spacing-2) var(--spacing-6);
+      border: 1px solid;
+
+      @media (--above-960) {
+        display: none;
+      }
+    }
+  }
+
+  &.filter-bar__button--sort {
+    margin-left: auto;
+  }
+
+  .icon {
+    display: flex;
+    transition: color 0.3s;
+  }
+
+  .icon-chevron-small {
+    width: 10px;
+    height: 10px;
+    margin-left: var(--spacing-2);
+    margin-top: 3px;
+    transition: transform var(--duration-normal) var(--easing);
+  }
+
+  .icon-filter {
+    margin-right: 12px;
+  }
+
+  &[aria-expanded="true"] {
+    .icon-chevron-small {
+      transform: rotate3d(1, 0, 0, 180deg);
+    }
+  }
+}
+
+.filter-bar__button-count {
+  margin-left: var(--spacing-2);
+  padding: var(--spacing-1);
+  background-color: var(--color-text);
+  color: var(--color-background);
+  font-size: var(--font-size-body-2);
+}
+
+.filter-bar__results-count {
+  color: var(--color-text-meta);
+}
+
+.filter-bar__sort-group {
+  position: relative;
+  margin-left: auto;
+  z-index: 2;
+}
+
+.filter-bar__filters {
+  position: relative;
+  display: none;
+  max-width: calc(var(--max-width) + calc(var(--space-outer) * 2));
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.filter-bar__filters-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  max-width: 100%;
+  margin: 0 calc(var(--spacing-2) * -1);
+  padding: var(--spacing-1) var(--space-outer) 0;
+}
+
+.filter-bar__active-filters {
+  display: none;
+  max-width: calc(var(--max-width) + calc(var(--space-outer) * 2));
+  padding: 0 var(--space-outer);
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: var(--spacing-3);
+
+  .filters-active & {
+    display: block;
+  }
+
+  .active-filters {
+    flex-wrap: wrap;
+    margin: calc(var(--spacing-1) * -1);
+    overflow-x: unset;
+
+    .active-filters__active-filter {
+      margin: var(--spacing-1);
+    }
+  }
+}
+
+.filter-bar__wash {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  z-index: var(--z-index-filter-bar-wash);
+
+  .filter-bar--wash-active + & {
+    display: block;
+  }
+}

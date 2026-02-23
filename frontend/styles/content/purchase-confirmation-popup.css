@@ -1,0 +1,100 @@
+.purchase-confirmation-popup {
+  --popup-width: 400px;
+  max-width: var(--max-width);
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
+
+  @media (max-width: 1500px) {
+    max-width: calc(100vw - var(--space-outer) - var(--space-outer));
+  }
+
+  &.active {
+    .purchase-confirmation-popup__inner {
+      visibility: visible;
+      opacity: 1;
+      transition: visibility 0s 0s ease,
+        opacity var(--duration-normal) 0s var(--easing);
+    }
+  }
+
+  .free-shipping-bar {
+    margin-top: var(--spacing-5);
+  }
+
+  .purchase-confirmation-popup__close {
+    position: absolute;
+    top: var(--spacing-2);
+    right: var(--spacing-2);
+    padding: var(--spacing-2);
+  }
+}
+
+.purchase-confirmation-popup__inner {
+  visibility: hidden;
+  position: absolute;
+  height: auto;
+  width: var(--popup-width);
+  right: 0;
+  padding: var(--spacing-6) var(--spacing-4) var(--spacing-4);
+  margin-top: -1px;
+  border: 1px solid var(--color-text);
+  background-color: var(--color-background);
+  opacity: 0;
+  transition: visibility 0s var(--duration-normal) var(--easing),
+    opacity var(--duration-normal) var(--easing);
+
+  @media (--below-480) {
+    width: calc(100vw - (var(--space-outer) * 2));
+  }
+}
+
+.purchase-confirmation-popup__item {
+  display: flex;
+  flex-direction: column;
+
+  &.hidden {
+    display: none;
+  }
+}
+
+.purchase-confirmation-popup__product-title-price {
+  &.sale-price {
+    margin-left: var(--spacing-2);
+    color: var(--color-product-sale-price);
+  }
+}
+
+.purchase-confirmation-popup__product-price-wrapper {
+  .unit-price__price {
+    margin-left: var(--spacing-3);
+    font-size: var(--font-size-body-1);
+  }
+}
+
+.purchase-confirmation-popup__product {
+  display: flex;
+  margin-top: var(--spacing-6);
+}
+
+.purchase-confirmation-popup__product-image {
+  width: 120px;
+  flex-shrink: 0;
+}
+
+.purchase-confirmation-popup__product-details {
+  margin-left: var(--spacing-4);
+  width: 100%;
+}
+
+.purchase-confirmation-popup__item-properties {
+  margin-top: var(--spacing-1);
+}
+
+.purchase-confirmation-popup__view-cart {
+  margin-top: var(--spacing-6);
+}
+
+.purchase-confirmation-popup__submit {
+  margin-top: var(--spacing-3);
+}

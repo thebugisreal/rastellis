@@ -1,0 +1,25 @@
+.social-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+  margin: 0;
+  padding: 0;
+
+  &.social-icons--center {
+    justify-content: center;
+  }
+
+  &.social-icons--right {
+    justify-content: flex-end;
+  }
+
+  li {
+    width: 24px;
+    height: 24px;
+    list-style: none;
+  }
+
+  a {
+    display: block;
+  }
+}

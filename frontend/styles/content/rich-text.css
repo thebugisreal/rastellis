@@ -1,0 +1,10 @@
+.rich-text__inner {
+  max-width: var(--content-width);
+  margin-left: auto;
+  margin-right: auto;
+  text-align: var(--content-alignment);
+}
+
+.rich-text__heading {
+  text-align: var(--heading-alignment);
+}

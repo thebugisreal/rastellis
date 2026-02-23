@@ -1,0 +1,25 @@
+html.do-anim .animation.animation--product-tabs {
+  &.is-visible {
+    .product-tabs__tab-list-wrapper,
+    .product-tabs__tab-buttons {
+      @mixin reveal-fade-in-from-y;
+    }
+
+    .accordion {
+      @mixin reveal-fade-in-from-y;
+    }
+  }
+
+  .product-tabs__tab-buttons {
+    @mixin staggered-fade-in-from-bottom;
+  }
+
+  .product-tabs__tab-list-wrapper {
+    @mixin staggered-fade-in-from-bottom 40px, var(--duration-normal),
+      var(--delay-small);
+  }
+
+  .accordion {
+    @mixin staggered-fade-in-from-bottom;
+  }
+}

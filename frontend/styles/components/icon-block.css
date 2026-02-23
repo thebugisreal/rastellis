@@ -1,0 +1,12 @@
+.icon-block {
+  display: flex;
+}
+
+.icon-block__icon {
+  width: var(--icon-width-mobile);
+  height: auto;
+
+  @media (--above-720) {
+    width: var(--icon-width);
+  }
+}

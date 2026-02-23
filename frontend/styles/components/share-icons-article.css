@@ -1,0 +1,30 @@
+.share-icons-article {
+  display: flex;
+  gap: 17px;
+  align-items: center;
+
+  .share-icons-article__share {
+    margin-top: var(--spacing-unit-half);
+  }
+
+  .icon {
+    height: 16px;
+    width: auto;
+  }
+
+  .share-icons-article__list {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .share-icons-article__link {
+    display: inline-flex;
+    width: fit-content;
+    transition: opacity var(--duration-fast) var(--easing);
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+}

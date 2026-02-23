@@ -1,0 +1,12 @@
+/* Hide known fixed widgets that conflict with the drawers, when a drawer opens. */
+
+div#tidio-chat,
+div#smile-ui-container,
+div#smile-ui-lite-container {
+  transition: opacity var(--duration-normal) var(--easing);
+
+  body[data-fluorescent-overlay-open="true"] & {
+    opacity: 0;
+    pointer-events: none;
+  }
+}

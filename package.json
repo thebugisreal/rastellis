@@ -1,0 +1,52 @@
+{
+  "name": "rastellis",
+  "version": "3.13.0",
+  "description": "",
+  "author": "Barrel, LLC",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "concurrently --prefix none pnpm:dev pnpm:serve",
+    "dev": "vite dev",
+    "build": "vite build",
+    "serve": "shopify theme dev --notify=/tmp/theme.update --store=rastellis2",
+    "push": "shopify theme push --nodelete --ignore \"config/settings_data.json\" --ignore \"templates/*.json\" --ignore \"locales/*.json\" --store=rastellis2",
+    "push:new": "shopify theme push --unpublished --store=rastellis2",
+    "deploy": "pnpm run build && pnpm run push",
+    "deploy:new": "pnpm run build && pnpm run push:new"
+  },
+  "dependencies": {
+    "@fluorescent/dom": "^0.1.2",
+    "@shopify/theme-currency": "^4.1.1",
+    "@shopify/theme-product": "^4.1.1",
+    "@shopify/theme-product-form": "^4.1.1",
+    "@shopify/theme-sections": "^4.1.1",
+    "ajaxinate": "^3.0.1",
+    "body-scroll-lock": "4.0.0-beta.0",
+    "evx": "^1.1.1",
+    "focus-trap": "^7.5.2",
+    "ftdomdelegate": "^5.0.0",
+    "is-mobile": "^4.0.0",
+    "nouislider": "^15.5.0",
+    "photoswipe": "^5.2.4",
+    "resize-observer-polyfill": "^1.5.1",
+    "slide-anim": "^1.4.0",
+    "swiper": "^8.4.7",
+    "wicg-inert": "^3.1.2"
+  },
+  "devDependencies": {
+    "@by-association-only/vite-plugin-shopify-clean": "^1.1.0",
+    "concurrently": "^8.2.2",
+    "postcss": "^8.4.33",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-functions": "^4.0.2",
+    "postcss-import": "^16.0.0",
+    "postcss-mixins": "^9.0.4",
+    "postcss-nested": "^6.0.1",
+    "postcss-preset-env": "^9.3.0",
+    "tailwindcss": "^3.4.3",
+    "vite": "^5.0.11",
+    "vite-plugin-page-reload": "^0.2.0",
+    "vite-plugin-shopify": "^3.0.1"
+  }
+}

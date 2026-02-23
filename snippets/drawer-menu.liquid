@@ -1,0 +1,316 @@
+{% liquid
+  comment
+    Renders the mobile drawer including navigation, localization, account login
+
+    Required parameters:
+      - links: { Object } The linklists[menu].linkslinks passed through from the header.
+      - secondary_links: { Object } linklists[secondary_menu].links passed through from the header.
+      - locale_selector: { Boolean } True if locale settings enabled and there is more than 1 locale in the admin.
+      - country_selector: { Boolean } True if country settings enabled and there is more than 1 country in the admin.
+      - mobile_menu_image_blocks: { Object } Enabled mobile menu image blocks to pass into the drawer-menu-list snippet.
+  endcomment
+
+  assign account_visible = false
+  assign show_social_media = show_social_media | default: false
+  assign bottom_links = bottom_links | default: ''
+  assign bottom_image = bottom_image | default: ''
+  assign bottom_content = bottom_content | default: ''
+  assign location_text = location_text | default: ''
+  assign location_url = location_url | default: ''
+
+  if shop.customer_accounts_enabled
+    assign account_visible = true
+  endif
+
+  assign localization_option_count = 0
+
+  if shop.published_locales.size > 1
+    assign localization_option_count = localization_option_count | plus: 1
+  endif
+
+  if localization.available_countries.size > 1
+    assign localization_option_count = localization_option_count | plus: 1
+  endif
+
+  assign has_first_level_mobile_menu_images = false
+  assign second_level_mobile_menu_image_link_handles = ''
+
+  for mobile_menu_image_block in mobile_menu_image_blocks
+    if mobile_menu_image_block.settings.menu_name == blank
+      # Check for first-level images and save settings
+      assign has_first_level_mobile_menu_images = true
+      assign mobile_menu_image_aspect_ratio = mobile_menu_image_block.settings.aspect_ratio
+      assign mobile_menu_image_width = mobile_menu_image_block.settings.thumbnail_width
+
+    else
+      # Save list of parent links for second-level images
+      assign current_menu_handle = mobile_menu_image_block.settings.menu_name | handle
+      assign second_level_mobile_menu_image_link_handles = second_level_mobile_menu_image_link_handles | append: current_menu_handle | append: ', '
+    endif
+  endfor
+%}
+
+{% capture account_link %}
+  {% if account_visible -%}
+    <div class="flex items-center gap-3 mb-4 drawer-menu__account" data-list-item>
+      {%- if account_icon != blank -%}
+        {{ account_icon | image_url: width: 24 | image_tag: class: 'icon' }}
+      {%- else -%}
+        {%- render 'icon' with icon: 'header-account' -%}
+      {%- endif -%}
+      {%- if customer -%}
+        {%-
+            render 'button-block' with
+            wrapper_class: 'drawer-menu__account-link',
+            link: routes.account_url,
+            label: 'Account',
+            button_style: "btn--callout"
+        -%}
+        <span>/</span>
+        {%-
+            render 'button-block' with
+            link: routes.account_logout_url,
+            label: 'Logout',
+            button_style: "btn--callout"
+        -%}
+      {% else %}
+        {%-
+            render 'button-block' with
+            wrapper_class: 'drawer-menu__account-link',
+            link: routes.account_url,
+            label: 'Sign In',
+            button_style: "btn--callout"
+        -%}
+      {%- endif -%}
+    </div>
+  {% endif %}
+{% endcapture %}
+
+{%- capture featured_banner -%}
+  {%- if featured_banner_image != blank -%}
+    <div class="drawer-menu__featured-banner">
+      {%- if featured_banner_link != blank -%}
+        <a href="{{ featured_banner_link }}">
+      {%- endif -%}
+      {%- render 'image',
+        wrapper_class: 'drawer-menu__featured-banner-image',
+        image: featured_banner_image
+      -%}
+      {%- if featured_banner_label != blank -%}
+        <p class="ff-body fs-body-75 drawer-menu__featured-banner-label">{{ featured_banner_label }}</p>
+      {%- endif -%}
+      {%- if featured_banner_link != blank -%}
+        </a>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+{%- endcapture -%}
+
+<section
+  class="
+    drawer-menu
+    {% if settings.enable_section_animations %}
+      animation
+      animation--drawer-menu
+    {% endif %}
+  "
+  data-drawer-menu
+  data-scroll-lock-ignore
+>
+  <div class="drawer-menu__overlay" data-overlay></div>
+
+  <div class="drawer-menu__panel !pt-[60px]">
+    <div class="drawer-menu__bottom">
+      <div class="drawer-menu__all-links" data-depth="0" data-all-links data-in-initial-position="true">
+        <div class="flex flex-col h-full drawer-menu__contents" data-scroll-lock-ignore>
+          <div class="drawer-menu__main grow" data-main role="navigation">
+            <div class="h-full drawer-menu__links-wrapper animation--drawer-menu-item">
+              {%- if settings.enable_quick_search -%}
+                {% render 'quick-search', parent: 'mobile' %}
+              {%- endif -%}
+              <div class="px-5">
+                <div class="drawer-menu__actions">
+                  {%- unless account_placement == 'bottom' -%}
+                    {{ account_link }}
+                  {%- endunless -%}
+                  {{ button_where_to_buy}}
+                </div>
+
+                <div class="drawer-menu__main-nav">
+                  <ul class="drawer-menu__primary-links" data-depth="0" data-primary-container="true">
+                    {% render 'drawer-menu-list',
+                      links: links,
+                      mobile_menu_image_blocks: mobile_menu_image_blocks,
+                      has_mobile_menu_images: has_first_level_mobile_menu_images,
+                      mobile_menu_image_aspect_ratio: mobile_menu_image_aspect_ratio,
+                      mobile_menu_image_width: mobile_menu_image_width,
+                      second_level_mobile_menu_image_link_handles: second_level_mobile_menu_image_link_handles,
+                      enable_expand_first: enable_expand_first,
+                      blocks: section.blocks
+                    %}
+                    {%- if location_button != blank -%}
+                      <li class="drawer-menu__item drawer-menu__primary-button">
+                        {{- location_button -}}
+                      </li>
+                      <li class="drawer-menu__item--divider has-divider-dashed"></li>
+                    {%- endif -%}
+                  </ul>
+                </div>
+                {{ featured_banner }}
+                {% if secondary_links %}
+                  <div class="drawer-menu__sub-nav px-3 my-[22px]">
+                    <div class="" data-tertiary-container="true">
+                      <ul class="drawer-menu__sub-links">
+                        {%- for link in secondary_links -%}
+                          <li><a href="{{ link.url }}" class="p1">{{ link.title }}</a></li>
+                        {%- endfor -%}
+                      </ul>
+                    </div>
+                  </div>
+                {% endif %}
+                {%- if account_placement == 'bottom' -%}
+                  <div class="mt-9">
+                    {{ account_link }}
+                  </div>
+                {%- endif -%}
+                {%- if show_social_media -%}
+                  <div class="mt-9">{% render 'social-icons' %}</div>
+                {%- endif -%}
+              </div>
+            </div>
+          </div>
+          {% if bottom_links.size > 0 or bottom_content != blank %}
+            <div class="w-full mt-auto">
+              <div class="w-full mt-[30px] bg-black bg-opacity-20 flex flex-col items-center p-8 pt-5">
+                {%- if bottom_links.size > 0 -%}
+                  <ul class="flex gap-5 justify-center !mb-[14px]">
+                    {% for link in bottom_links %}
+                      <li class="font-semibold text-[12px] leading-[1.2]"><a href="{{ link.url }}">{{ link.title }}</a></li>
+                    {% endfor %}
+                  </ul>
+                {%- endif -%}
+                {%- if bottom_image != blank -%}
+                  {%- render 'image' with
+                      wrapper_class: 'max-w-[22px]',
+                      image: bottom_image,
+                      sizes: '22px',
+                      prioritize_loading: true
+                  -%}
+                {%- endif -%}
+                {%- if bottom_content != blank -%}
+                  <div class="wysiwyg wysiwyg--header mt-2 [&_p]:label-small [&_a]:underline">{{ bottom_content }}</div>
+                {%- endif -%}
+              </div>
+            </div>
+          {% endif %}
+        </div>
+
+        {%- if locale_selector or country_selector -%}
+          {%- form 'localization', class: 'drawer-menu__form' -%}
+            <ul
+              class="drawer-menu__footer"
+              data-footer
+              data-localization-option-count="{{ localization_option_count }}"
+              style="--item-height: 38px"
+            >
+              {%- if country_selector -%}
+                <li class="drawer-menu__item localization-item-trigger" data-list-item>
+                  <a class="drawer-menu__link fs-body-50" href="#" data-item="viewCurrency">
+                    <span class="flag-icon flag-icon-{{ localization.country.iso_code | handleize }}"></span>
+                    <span class="drawer-menu__link--label">
+                      {{- localization.country.name }} ({{ localization.country.currency.iso_code }}
+                      {{ localization.country.currency.symbol }})</span
+                    >
+                  </a>
+                  <ul class="drawer-menu__list drawer-menu__list--sub drawer-menu__list--country-selector">
+                    <li class="drawer-menu__item drawer-menu__item--heading">
+                      <span
+                        class="drawer-menu__item--heading-back-link"
+                        data-item="secondaryHeading"
+                        aria-label="{{ 'general.accessibility.back' | t }}"
+                      >
+                        {% render 'icon', icon: 'arrow-long', class: 'back-link-icon' %}
+                      </span>
+                      <span class="drawer-menu__link without-link">
+                        <span class="fs-body-300">{{ 'sections.drawer_menu.currency' | t }}</span>
+                      </span>
+                    </li>
+                    {% for country in localization.available_countries %}
+                      <li class="drawer-menu__item localization-item" data-list-item>
+                        <a
+                          class="drawer-menu__link drawer-menu__link--cb"
+                          href="#"
+                          data-item="currency"
+                          data-value="{{ country.iso_code }}"
+                        >
+                          <span class="flag-icon flag-icon-{{ country.iso_code | handleize }}"></span>
+                          <span>
+                            {{- country.name }} ({{ country.currency.iso_code }}
+                            {{ country.currency.symbol }})
+                          </span>
+                          {% if country.iso_code == localization.country.iso_code %}
+                            {% render 'icon', icon: 'checkmark', class: 'drawer-menu__checkmark-icon' %}
+                          {% endif %}
+                        </a>
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+                </li>
+                {% capture localization_inputs %}
+                  {{ localization_inputs }}
+                  <input type="hidden" name="country_code" id="CurrencySelector" value="{{ localization.country.iso_code }}" data-currency-input />
+                {% endcapture %}
+              {%- endif -%}
+
+              {%- if locale_selector -%}
+                <li class="drawer-menu__item localization-item-trigger" data-list-item>
+                  <a class="drawer-menu__link fs-body-50" href="#" data-item="viewLanguage">
+                    {% render 'icon', icon: 'globe' %}
+                    <span class="drawer-menu__link--label">{{ form.current_locale.endonym_name | capitalize }}</span>
+                  </a>
+                  <ul class="drawer-menu__list drawer-menu__list--sub drawer-menu__list--language-selector">
+                    <li class="drawer-menu__item drawer-menu__item--heading">
+                      <span
+                        class="drawer-menu__item--heading-back-link"
+                        data-item="secondaryHeading"
+                        aria-label="{{ 'general.accessibility.back' | t }}"
+                      >
+                        {% render 'icon', icon: 'arrow-long', class: 'back-link-icon' %}
+                      </span>
+                      <span class="drawer-menu__link without-link">
+                        {% render 'icon', icon: 'chevron-left' %}
+                        <span class="fs-body-300">{{ 'sections.drawer_menu.language' | t }}</span>
+                      </span>
+                    </li>
+                    {% for locale in form.available_locales %}
+                      <li class="drawer-menu__item  localization-item" data-list-item>
+                        <a
+                          class="drawer-menu__link drawer-menu__link--cb"
+                          href="#"
+                          data-item="locale"
+                          data-value="{{ locale.iso_code }}"
+                        >
+                          <span>{{ locale.endonym_name }}</span>
+                          {% if locale.iso_code == form.current_locale.iso_code %}
+                            {% render 'icon', icon: 'checkmark', class: 'drawer-menu__checkmark-icon' %}
+                          {% endif %}
+                        </a>
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+                </li>
+                {% capture localization_inputs %}
+                  {{ localization_inputs }}
+                  <input type="hidden" name="locale_code" id="LocaleSelector" value="{{ form.current_locale.iso_code }}" data-locale-input />
+                {% endcapture %}
+              {%- endif -%}
+            </ul>
+
+            {{ localization_inputs }}
+          {%- endform -%}
+          {%- render 'asset' with '/frontend/styles/modules/partial-flag-icons.css', preload_stylesheet: 'defer' -%}
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>

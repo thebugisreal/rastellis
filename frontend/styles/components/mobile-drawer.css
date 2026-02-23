@@ -1,0 +1,60 @@
+.mobile-drawer {
+  position: fixed;
+  z-index: var(--z-index-popup);
+  visibility: hidden;
+  transition: visibility 0ms var(--duration-normal);
+
+  &,
+  .mobile-drawer__overlay,
+  .mobile-drawer__container {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+  }
+
+  &.enters-upwards {
+    .mobile-drawer__container {
+      top: auto;
+      max-height: 75vh;
+      border-radius: 10px 10px 0 0;
+    }
+  }
+
+  .mobile-drawer__overlay {
+    z-index: calc(var(--z-index-popup) + 5);
+    background: var(--color-overlay);
+    transition: opacity 300ms linear;
+    opacity: 0;
+  }
+
+  .mobile-drawer__container {
+    z-index: calc(var(--z-index-popup) + 10);
+    transition: transform var(--duration-normal) var(--easing);
+    transform: translateY(100%);
+    background: var(--color-background);
+    padding: var(--spacing-7);
+    box-shadow: 0px -1px 4px rgba(0, 0, 0, 0.09),
+      0px -10px 24px rgba(0, 0, 0, 0.14); /* How to have this contrast with background */
+
+    .mobile-drawer__close {
+      position: absolute;
+      right: 0;
+      top: 0;
+      padding: var(--spacing-4);
+      z-index: 10;
+    }
+  }
+
+  &.active {
+    visibility: visible;
+    transition: visibility 0ms linear 0ms;
+    .mobile-drawer__container {
+      transform: translateY(0);
+    }
+    .mobile-drawer__overlay {
+      opacity: 1;
+    }
+  }
+}

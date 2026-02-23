@@ -1,0 +1,13 @@
+html.do-anim .animation {
+  [data-filter-sidebar] {
+    .animation--filter-drawer-item {
+      @mixin staggered-fade-in-from-bottom;
+    }
+
+    &.animation--filter-sidebar-revealed {
+      .animation--filter-drawer-item {
+        @mixin reveal-fade-in-from-y;
+      }
+    }
+  }
+}

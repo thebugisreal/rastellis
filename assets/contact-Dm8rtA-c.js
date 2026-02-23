@@ -1,0 +1,1 @@
+import{r as a,t as o}from"./index-BWeMscSV.js";import{A as r}from"./accordions-B0I69eqg.js";import{w as i,a as t}from"./wrapTables-BziL4gGw.js";import"./slide-anim.module-Cg7-vL5t.js";a("contact",{onLoad(){this.accordions=r(o(".accordion",this.container)),i(o("iframe",this.container)),t(o("table",this.container))},onUnload(){this.accordions.unload()}});

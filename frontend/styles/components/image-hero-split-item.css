@@ -1,0 +1,106 @@
+.image-hero-split-item {
+  position: relative;
+  width: 100%;
+
+  @media (--above-720) {
+    width: 50%;
+  }
+
+  &.image-hero-split-item--image-aspect-custom {
+    .image-hero-split-item__image-container {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      min-height: var(--custom-height-mobile);
+      height: 100%;
+      overflow: hidden;
+
+      @media (--above-720) {
+        min-height: var(--custom-height);
+      }
+    }
+
+    .image__img {
+      display: block;
+      position: absolute;
+      object-fit: cover;
+      object-position: var(--focal-alignment, center);
+      top: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .image-hero-split-item__text-container {
+      min-height: var(--custom-height-mobile);
+      height: 100%;
+      position: relative;
+
+      @media (--above-720) {
+        min-height: var(--custom-height);
+      }
+    }
+  }
+
+  &.image-hero-split-item--image-aspect-original.image-hero-split-item--2 {
+    .image-hero-split-item__image-container {
+      @media (--above-720) {
+        height: 100%;
+      }
+
+      .image__img {
+        @media (--above-720) {
+          display: block;
+          position: absolute;
+          object-fit: cover;
+          object-position: var(--focal-alignment, center);
+          top: 0;
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      .placeholder-image {
+        @media (--below-720) {
+          padding-top: 100%;
+        }
+      }
+    }
+  }
+}
+
+.image-hero-split-item__image {
+  position: relative;
+  height: 100%;
+}
+
+.image-hero-split-item__text-container {
+  z-index: 1;
+  max-width: 600px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: var(--text-vertical-position);
+  align-items: center;
+  padding: var(--spacing-10) var(--space-outer);
+  text-align: center;
+
+  @media (--above-720) {
+    padding: var(--spacing-10) var(--spacing-5);
+  }
+
+  /* Account for section being under transparent header */
+  body.header-transparent
+    #main
+    > .shopify-section:first-child
+    .image-hero-split
+    & {
+    padding-top: calc(var(--height-header) + var(--spacing-10));
+  }
+}

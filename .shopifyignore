@@ -1,0 +1,13 @@
+.git/
+dist/
+node_modules/
+frontend/
+
+.editorconfig
+.gitignore
+.shopifyignore
+package.json
+pnpm-lock.yaml
+postcss.config.js
+README.md
+vite.config.js

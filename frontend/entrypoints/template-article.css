@@ -1,0 +1,8 @@
+@import "../styles/animation/mixins.css";
+@import "../styles/core/vars.css";
+
+@import "../styles/templates/article.css";
+@import "../styles/components/article-item.css";
+@import "../styles/components/article-tags.css";
+@import "../styles/components/comments.css";
+@import "../styles/animation/article.css";

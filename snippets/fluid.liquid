@@ -1,0 +1,14 @@
+{% liquid
+  assign min_bp_val = 768
+  assign max_bp_val = 1440
+  assign min_val = min | replace: 'px', '' | plus: 0
+  assign max_val = max | replace: 'px', '' | plus: 0
+  assign numerator_diff = max_val | minus: min_val
+  assign numerator = numerator_diff | times: 100.0
+  assign denominator = max_bp_val | minus: min_bp_val
+  assign slope = numerator | divided_by: denominator
+  assign part = slope | times: min_bp_val
+  assign division = part | divided_by: 100.0
+  assign base = min_val | minus: division
+%}
+clamp({{min_val}}px, {{base | round: 4 }}px + {{slope | round: 4 }}vw, {{max_val}}px)

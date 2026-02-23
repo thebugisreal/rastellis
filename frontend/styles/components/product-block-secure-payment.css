@@ -1,0 +1,21 @@
+.product-block-secure-payment--center {
+  text-align: center;
+  * {
+    justify-content: center;
+  }
+}
+.product-block-secure-payment__label {
+  margin: var(--spacing-1) 0;
+}
+.product-block-secure-payment__text {
+  margin: var(--spacing-1) 0;
+  p a {
+    text-decoration: underline;
+  }
+}
+.product-block-secure-payment__trust-image {
+  display: inline-flex;
+  margin: 0 0 var(--spacing-4) 0;
+  padding: var(--image-padding);
+  max-width: var(--image-size);
+}

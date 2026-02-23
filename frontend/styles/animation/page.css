@@ -1,0 +1,11 @@
+html.do-anim .animation.animation--page {
+  .page-section__inner > * {
+    @mixin staggered-fade-in-from-bottom 10px;
+  }
+
+  &.is-visible {
+    .page-section__inner > * {
+      @mixin reveal-fade-in-from-y;
+    }
+  }
+}

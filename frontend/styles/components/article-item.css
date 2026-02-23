@@ -1,0 +1,114 @@
+.article-item {
+  position: relative;
+
+  @media (--above-1200) {
+    display: grid;
+    grid-template-columns: repeat(24, 1fr);
+
+    &.article-item--has-no-image {
+      display: block;
+    }
+  }
+}
+
+.article-item__image-wrapper {
+  display: block;
+  text-decoration: none;
+
+  @media (--above-1200) {
+    grid-column: 1 / 16;
+    grid-row: 1;
+  }
+}
+
+.article-item__content {
+  position: relative;
+  display: flex;
+  margin-top: calc(var(--spacing-12) * -1);
+  padding: 0 var(--spacing-3);
+  z-index: 1;
+
+  .article-item--has-no-image & {
+    margin-top: 0;
+  }
+
+  .article-item--has-no-image & {
+    padding: 0;
+  }
+
+  @media (--above-1200) {
+    grid-column: 11 / 25;
+    grid-row: 1;
+    margin-top: var(--spacing-7);
+    padding: 0;
+  }
+}
+
+.article-item__content-inner {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: var(--spacing-5) var(--spacing-5) var(--spacing-4);
+  background-color: var(--color-background);
+
+  .article-item--has-no-image & {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  @media (--above-720) {
+    padding: var(--spacing-6) var(--spacing-6) var(--spacing-4);
+
+    .article-item--has-no-image & {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+
+  @media (--above-960) {
+    padding: var(--spacing-7) var(--spacing-6) var(--spacing-4);
+
+    .article-item--has-no-image & {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+
+  @media (--above-1200) {
+    padding: var(--spacing-9) var(--spacing-8) var(--spacing-4);
+
+    .article-item--has-no-image & {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+}
+
+.article-item__tags {
+  margin: 0 0 var(--spacing-5);
+}
+
+.article-item__title {
+  margin-bottom: var(--spacing-1);
+}
+
+.article-item__meta {
+  margin-bottom: var(--spacing-3);
+  opacity: 0.6;
+
+  span + time {
+    padding-left: var(--spacing-4);
+  }
+
+  @media (--above-1200) {
+    margin-bottom: var(--spacing-4);
+  }
+}
+
+.article-item__excerpt {
+  margin-bottom: var(--spacing-7);
+}
+
+.article-item__read-button {
+  margin-top: auto;
+}

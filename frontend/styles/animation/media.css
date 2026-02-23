@@ -1,0 +1,11 @@
+html.do-anim .animation {
+  &.is-visible {
+    .animation--media {
+      @mixin reveal-fade;
+    }
+  }
+
+  .animation--media {
+    @mixin staggered-fade;
+  }
+}

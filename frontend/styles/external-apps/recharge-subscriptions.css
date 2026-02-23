@@ -1,0 +1,103 @@
+.recharge-subscription-widget.shopify-block .rc-widget {
+  padding: 0;
+
+  .rc-template__radio {
+    .rc-radio {
+      padding: 0;
+      margin-top: var(--spacing-1);
+      background-color: unset;
+
+      &--active ~ .rc-selling-plans {
+        background-color: unset;
+        padding: 0;
+        margin-left: var(--spacing-7);
+        margin-bottom: var(--spacing-3);
+        font-size: var(--font-size-body-1);
+
+        label.rc-selling-plans-dropdown {
+          position: relative;
+
+          &:before {
+            content: "";
+            position: absolute;
+            top: 56%;
+            right: var(--spacing-3);
+            width: 10px;
+            height: 10px;
+            pointer-events: none;
+            transform: translateY(-56%);
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.875 7.438 12 17.563 22.125 7.438' stroke='currentColor' stroke-width='2.75'/%3E%3C/svg%3E");
+          }
+        }
+
+        select.rc-selling-plans-dropdown__select {
+          margin-top: var(--spacing-2);
+          cursor: pointer;
+          border-color: var(--color-border-input);
+          transition: border-color 0.3s ease-in-out;
+
+          &:hover {
+            border-color: var(--color-text);
+          }
+        }
+      }
+
+      .rc-radio__input {
+        margin-right: 0;
+      }
+
+      .rc-radio__label {
+        margin-left: var(--spacing-3);
+        line-height: var(--line-height-body-1);
+      }
+    }
+  }
+
+  .rc-template__checkbox {
+    padding: 0;
+
+    .rc-checkbox__label {
+      margin-left: var(--spacing-3);
+    }
+
+    .rc-selling-plans {
+      margin-left: var(--spacing-7);
+      margin-bottom: var(--spacing-3);
+      font-size: var(--font-size-body-1);
+    }
+  }
+
+  .rc-subscription-details {
+    padding: 0;
+    margin-top: var(--spacing-3);
+
+    svg {
+      margin: 0;
+    }
+
+    span {
+      margin-left: var(--spacing-3);
+      line-height: var(--line-height-body-1);
+    }
+  }
+}
+
+.login__main div#rc_login {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: left;
+
+  h5 {
+    margin-right: var(--spacing-3);
+    font-size: var(--font-size-body-1);
+  }
+
+  a {
+    text-decoration: underline;
+    transition: opacity 0.2s ease-in-out;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}

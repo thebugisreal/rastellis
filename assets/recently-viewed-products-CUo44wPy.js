@@ -1,0 +1,1 @@
+const e={get:()=>JSON.parse(localStorage.getItem("fluco_sto_recentlyViewed")),set:t=>localStorage.setItem("fluco_sto_recentlyViewed",JSON.stringify(t))},c=t=>{let s=[];e.get()!==null?(s=e.get().filter(l=>l!==t),s.unshift(t),e.set(s.slice(0,16))):e.get()===null&&(s.push(t),e.set(s))},o=()=>e.get();export{o as g,c as u};

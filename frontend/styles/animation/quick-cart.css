@@ -1,0 +1,13 @@
+html.do-anim .animation.animation--quick-cart {
+  .animation--quick-cart-items > *,
+  .animation--quick-cart-footer {
+    @mixin staggered-fade-in-from-bottom;
+  }
+
+  &.animation--quick-cart-revealed {
+    .animation--quick-cart-items > *,
+    .animation--quick-cart-footer {
+      @mixin reveal-fade-in-from-y;
+    }
+  }
+}

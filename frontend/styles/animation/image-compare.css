@@ -1,0 +1,87 @@
+html.do-anim .animation.animation--image-compare {
+  .image_compare__image {
+    .image__img {
+      transition-duration: var(--duration-slow);
+    }
+  }
+
+  .animation--label {
+    @mixin staggered-fade;
+  }
+
+  &.image-compare--horizontal {
+    .image-compare__slider-line,
+    .image-compare__slider-button {
+      opacity: 0;
+      left: 0;
+    }
+
+    .image-compare__image-container-inner {
+      .image-compare__image-after {
+        opacity: 0;
+        clip-path: inset(0 0 0 0);
+      }
+    }
+  }
+
+  &.image-compare--vertical {
+    .image-compare__slider-line,
+    .image-compare__slider-button {
+      opacity: 0;
+      bottom: 100%;
+    }
+
+    .image-compare__image-container-inner {
+      .image-compare__image-after {
+        opacity: 0;
+        clip-path: inset(0 0 0 0);
+      }
+    }
+  }
+
+  &.is-visible {
+    .animation--label {
+      transition-duration: var(--duration-slow);
+      transition-delay: var(--delay-long);
+      @mixin reveal-fade;
+    }
+
+    &.image-compare--horizontal {
+      .image-compare__slider-line,
+      .image-compare__slider-button {
+        opacity: 1;
+        left: var(--position);
+        transition: opacity var(--duration-normal) var(--easing),
+          left var(--duration-slow) var(--easing);
+      }
+
+      .image-compare__image-container-inner {
+        .image-compare__image-after {
+          opacity: 1;
+          clip-path: inset(0 0 0 var(--position));
+          transition: opacity var(--duration-slow) var(--easing),
+            clip-path var(--duration-slow) var(--easing);
+        }
+      }
+    }
+
+    &.image-compare--vertical {
+      .image-compare__slider-line,
+      .image-compare__slider-button {
+        opacity: 1;
+        bottom: var(--position);
+        transition: opacity var(--duration-normal) var(--easing),
+          bottom var(--duration-slow) var(--easing);
+      }
+
+      .image-compare__image-container-inner {
+        .image-compare__image-after {
+          opacity: 1;
+          clip-path: inset(calc(100% - var(--position)) 0 0 0);
+          transition: opacity var(--duration-slow) var(--easing),
+            clip-path var(--duration-slow) var(--easing);
+        }
+      }
+    }
+  }
+}

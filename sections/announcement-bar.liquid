@@ -1,0 +1,239 @@
+<script>
+  document.documentElement.setAttribute("data-enable-sticky-announcement-bar", "{{ section.settings.sticky_enabled }}");
+</script>
+
+{%- liquid
+  assign image_background = section.settings.image_background
+  assign image_background_mobile = section.settings.image_background_mobile
+-%}
+
+{%- if section.blocks.size -%}
+  {%- capture items -%}
+    {%- for block in section.blocks -%}
+      <div
+        class="announcement-bar__item ff-body fs-body-50 swiper-slide"
+        {% unless forloop.first %}
+          inert
+        {% endunless %}
+        data-slide
+        {{ block.shopify_attributes }}
+        data-index="{{ forloop.index0 }}"
+      >
+        {%- assign has_mobile_text = false -%}
+        {%- if block.settings.title_mobile != blank and block.settings.title_mobile != block.settings.title -%}
+          {%- assign has_mobile_text = true -%}
+          <div class="announcement-bar__item-inner announcement-bar__item-inner-mobile-only">
+            {%- if block.settings.link != blank -%}
+              <a class="announcement-bar__link color-inherit" href="{{ block.settings.link }}">
+                {{ block.settings.title_mobile | replace: '<a ', '<span class="fake-link" ' | replace: '</a>', '</span>' }}
+              </a>
+            {%- else -%}
+              {{ block.settings.title_mobile }}
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+        <div class="announcement-bar__item-inner{% if has_mobile_text %} announcement-bar__item-inner-desktop-only{% endif %}">
+          {%- if block.settings.link != blank -%}
+            <a class="announcement-bar__link color-inherit" href="{{ block.settings.link }}">
+              {{ block.settings.title | replace: '<a ', '<span class="fake-link" ' | replace: '</a>', '</span>' }}
+            </a>
+          {%- else -%}
+            {{ block.settings.title }}
+          {%- endif -%}
+        </div>
+      </div>
+    {%- endfor -%}
+  {%- endcapture -%}
+  <div
+    {% if section.blocks.size == 0 %}
+      hidden
+    {% endif %}
+    class="announcement-bar{% if section.blocks.size == 0 %} hidden{% endif %}{% if image_background_mobile != blank %} announcement-bar--has-mobile-image{% endif %}{% if section.settings.enable_action_button %} has-action-button{% endif %}{% unless section.settings.enable_overlay %} disable-overlay{% endunless %}"
+    data-section-id="{{ section.id }}"
+    data-section-type="announcement-bar"
+    data-enable-sticky-announcement-bar="{{ section.settings.enable_sticky_announcement_bar }}"
+    data-item-count="{{ section.blocks.size }}"
+    style="
+      --color-background: {{ section.settings.color_background }};
+      --color-gradient-overlay: {{ section.settings.color_background | color_modify: 'alpha', 1 }};
+      --color-gradient-overlay-transparent: {{ section.settings.color_background | color_modify: 'alpha', 0 }};
+      --color-text: {{ section.settings.color_text }};
+    "
+  >
+    {%- if image_background != blank or image_background_mobile != blank -%}
+      {%- if image_background != blank -%}
+        {%- render 'image',
+          wrapper_class: 'announcement-bar__image announcement-bar__image--desktop',
+          image: image_background,
+          object_fit: 'cover',
+          prioritize_loading: true,
+          no_lazy_load: true,
+          sizes: '100vw'
+        -%}
+      {%- endif -%}
+      {%- if image_background_mobile != blank -%}
+        {%- render 'image',
+          wrapper_class: 'announcement-bar__image announcement-bar__image--mobile',
+          image: image_background_mobile,
+          object_fit: 'cover',
+          prioritize_loading: true,
+          no_lazy_load: true,
+          sizes: '720px'
+        -%}
+      {%- endif -%}
+    {%- endif -%}
+
+    <div class="ui-overlap-wrap">
+      <div class="ui-overlap">
+        <div class="fader left">
+          <button class="slider-nav-button slider-nav-button-prev" title="{{ 'general.accessibility.previous' | t }}">
+            {% render 'icon' with icon: 'chevron' %}
+          </button>
+        </div>
+        <div class="ui-overlap-item-clones" aria-hidden="true">
+          {{ items }}
+        </div>
+        <div class="fader right">
+          <button class="slider-nav-button slider-nav-button-next" title="{{ 'general.accessibility.next' | t }}">
+            {% render 'icon' with icon: 'chevron' %}
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="swiper"
+      data-slider
+      data-autoplay-enabled="{{ section.settings.autoplay_enabled }}"
+      data-autoplay-delay="{{ section.settings.autoplay_delay | times: 1000 }}"
+    >
+      <div class="swiper-wrapper">
+        {{ items }}
+      </div>
+    </div>
+    {%- if section.settings.enable_action_button and section.settings.autoplay_enabled -%}
+      <div class="announcement-bar__actions">
+        <button class="js-action-button announcement-bar__actions-button" aria-label="Pause carousel" aria-pressed="false">
+          {% render 'icon', icon: 'play' %}
+          {% render 'icon', icon: 'pause' %}
+        </button>
+      </div>
+    {%- endif -%}
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "t:sections.announcement_bar.name",
+  "class": "announcement-bar__outer-wrapper",
+  "max_blocks": 3,
+  "settings": [
+    {
+      "id": "enable_sticky_announcement_bar",
+      "type": "select",
+      "label": "t:sections.announcement_bar.settings.enable_sticky_announcement_bar.label",
+      "info": "t:sections.announcement_bar.settings.enable_sticky_announcement_bar.info",
+      "options": [
+        {
+          "value": "never",
+          "label": "t:sections.announcement_bar.settings.enable_sticky_announcement_bar.options.never"
+        },
+        {
+          "value": "desktop",
+          "label": "t:sections.announcement_bar.settings.enable_sticky_announcement_bar.options.desktop"
+        },
+        {
+          "value": "mobile",
+          "label": "t:sections.announcement_bar.settings.enable_sticky_announcement_bar.options.mobile"
+        },
+        {
+          "value": "desktop-and-mobile",
+          "label": "t:sections.announcement_bar.settings.enable_sticky_announcement_bar.options.both"
+        }
+      ],
+      "default": "never"
+    },
+    {
+      "id": "autoplay_enabled",
+      "type": "checkbox",
+      "label": "t:sections.announcement_bar.settings.autoplay_enabled.label",
+      "default": true
+    },
+    {
+      "id": "enable_action_button",
+      "type": "checkbox",
+      "label": "t:sections.announcement_bar.settings.enable_action_button.label",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "autoplay_delay",
+      "label": "t:sections.announcement_bar.settings.timing.label",
+      "min": 3,
+      "max": 15,
+      "step": 1,
+      "default": 4,
+      "unit": "s"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_background",
+      "label": "t:sections.announcement_bar.settings.image_background.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_background_mobile",
+      "label": "t:sections.announcement_bar.settings.image_background_mobile.label"
+    },
+    {
+      "id": "color_background",
+      "type": "color",
+      "label": "t:sections.announcement_bar.settings.color_background.label",
+      "default": "#000000"
+    },
+    {
+      "id": "color_text",
+      "type": "color",
+      "label": "t:sections.announcement_bar.settings.color_text.label",
+      "default": "#FFFFFF"
+    },
+    {
+      "id": "enable_overlay",
+      "type": "checkbox",
+      "label": "t:sections.announcement_bar.settings.enable_overlay.label",
+      "default": true
+    },
+  ],
+  "blocks": [
+    {
+      "type": "announcement",
+      "name": "t:sections.announcement_bar.blocks.announcement.name",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "title",
+          "default": "<p>Free standard shipping and returns on all orders</p>",
+          "label": "t:sections.announcement_bar.blocks.announcement.settings.title.label"
+        },
+        {
+          "type": "richtext",
+          "id": "title_mobile",
+          "label": "t:sections.announcement_bar.blocks.announcement.settings.title_mobile.label"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "t:sections.announcement_bar.blocks.announcement.settings.link.label",
+          "info": "t:sections.announcement_bar.blocks.announcement.settings.link.info"
+        }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      {
+        "type": "announcement"
+      }
+    ]
+  }
+}
+{% endschema %}

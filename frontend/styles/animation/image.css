@@ -1,0 +1,16 @@
+html.do-anim {
+  .animation .image--animate,
+  .animation .video-wrapper--animate {
+    overflow: hidden;
+
+    .image__img,
+    .video {
+      @mixin staggered-image-fade-scale;
+    }
+  }
+
+  .is-visible .image--animate.loaded .image__img,
+  .is-visible .video-wrapper--animate .video {
+    @mixin reveal-fade-scale;
+  }
+}

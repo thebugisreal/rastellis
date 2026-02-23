@@ -1,0 +1,65 @@
+.inventory-counter {
+  &.hidden {
+    display: none;
+  }
+
+  .product__label-wrapper {
+    margin-bottom: 0;
+  }
+}
+
+.inventory-counter__label {
+  margin-right: var(--spacing-3);
+}
+
+.inventory-counter__bar {
+  display: block;
+  height: 4px;
+  margin-top: var(--spacing-3);
+  background-color: var(--color-background-meta);
+
+  &.hidden {
+    display: none;
+  }
+
+  .inventory-counter[data-show-status-bar="false"] & {
+    display: none;
+  }
+}
+
+.inventory-counter__bar-progress {
+  display: block;
+  height: 100%;
+  width: 100%;
+  background-color: var(--color-product-in-stock);
+  transition: width 0.75s ease 0.45s, background-color 0.5s ease 0.2s;
+
+  .inventory-counter[data-stock-category="low"] & {
+    background-color: var(--color-product-low-stock);
+  }
+
+  .inventory-counter[data-stock-category="empty"] & {
+    background-color: var(--color-product-out-stock);
+  }
+
+  .inventory-counter[data-stock-category="unavailable"] & {
+    background-color: var(--color-background-meta);
+  }
+}
+
+.inventory-counter__message {
+  transition: color 0.5s ease 0.2s;
+  color: var(--color-product-in-stock);
+
+  .inventory-counter[data-stock-category="low"] & {
+    color: var(--color-product-low-stock);
+  }
+
+  .inventory-counter[data-stock-category="empty"] & {
+    color: var(--color-product-out-stock);
+  }
+
+  .inventory-counter[data-stock-category="unavailable"] & {
+    color: var(--color-text-meta);
+  }
+}

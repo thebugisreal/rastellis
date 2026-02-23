@@ -1,0 +1,11 @@
+html.do-anim .animation--drawer-menu {
+  .animation--drawer-menu-item {
+    @mixin staggered-fade-in-from-bottom;
+  }
+
+  &.animation--drawer-menu-revealed {
+    .animation--drawer-menu-item {
+      @mixin reveal-fade-in-from-y;
+    }
+  }
+}

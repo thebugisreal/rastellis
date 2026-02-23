@@ -1,0 +1,157 @@
+.shoppable-item {
+  --card-max-width: 240px;
+  --hotspot-size: 30px;
+  --hotspot-size-inner: 11px;
+}
+
+.shoppable-item__hotspot {
+  position: absolute;
+  top: calc(var(--vertical-position) - (var(--hotspot-size) / 2));
+  left: calc(var(--horizontal-position) - (var(--hotspot-size) / 2));
+  display: flex;
+  width: var(--hotspot-size);
+  height: var(--hotspot-size);
+  border-radius: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0);
+  transition: transform var(--duration-fast) var(--easing),
+    box-shadow var(--duration-fast) var(--easing),
+    background-color var(--duration-fast) var(--easing);
+  cursor: pointer;
+  pointer-events: all;
+
+  &::before {
+    content: "";
+    display: block;
+    margin: auto;
+    height: var(--hotspot-size-inner);
+    width: var(--hotspot-size-inner);
+    border-radius: 100%;
+    background-color: #ffffff;
+    transition: transform var(--duration-fast) var(--easing);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: calc(var(--hotspot-size) * 2);
+    height: calc(var(--hotspot-size) * 2);
+    margin: calc(var(--hotspot-size) * -1) 0 0 calc(var(--hotspot-size) * -1);
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+    box-shadow: inset 0 0 0 var(--hotspot-size) rgba(255, 255, 255, 0);
+  }
+
+  &.shoppable-item__hotspot--pulse {
+    animation: scale var(--duration-slow) var(--easing);
+
+    &::after {
+      animation: pulse-ring var(--duration-slow) var(--easing);
+    }
+  }
+
+  .shoppable-item--animating & {
+    animation: scale var(--duration-slow) var(--easing) infinite;
+    animation-delay: var(--animation-delay);
+  }
+
+  &:hover,
+  .active &,
+  .shoppable-feature__image-container:not(.has-active-hotspot):not(:hover)
+    .hinted
+    & {
+    transform: scale(1.15);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 1);
+    background: rgba(0, 0, 0, 0.6);
+    &::before {
+      transform: scale(1.2);
+    }
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    opacity: 1;
+    transform: scale3d(0.4, 0.4, 1);
+  }
+  100% {
+    box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 1);
+    opacity: 0;
+    transform: scale3d(1.2, 1.2, 1);
+  }
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Shoppable product-card only rendered for desktop Shoppable image section */
+.shoppable-item__product-card {
+  display: flex;
+  z-index: calc(var(--z-index-header) - 1);
+  position: absolute;
+  top: calc(var(--vertical-position) - (var(--card-height) / 2));
+  left: calc(var(--horizontal-position) + var(--hotspot-size));
+  background-color: var(--color-background);
+  color: var(--color-text);
+  transition: transform var(--duration-fast) var(--easing),
+    opacity var(--duration-fast) var(--easing),
+    visibility var(--duration-fast) var(--easing);
+  box-shadow: var(--box-shadow-double);
+  border-radius: 4px;
+  max-width: var(--card-max-width);
+
+  &.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(100%);
+
+    @media (--above-960) {
+      transform: translateY(10%);
+    }
+  }
+
+  &.shoppable-item__product-card--align-right {
+    left: calc(
+      (var(--horizontal-position) - var(--hotspot-size)) - var(--card-width)
+    );
+  }
+}
+
+.shoppable-item__product-card-inner {
+  display: block;
+  max-width: 220px;
+  min-width: 160px;
+  margin: 0 auto;
+  padding: var(--spacing-3) var(--spacing-4);
+
+  .shoppable-item__meta {
+    font-size: var(--font-size-body-1);
+    line-height: 1.4em; /* can this be a var?  */
+
+    .shoppable-item__price {
+      display: block;
+      font-size: var(--font-size-body-2);
+
+      .sale {
+        color: var(--color-product-sale-price);
+      }
+    }
+  }
+
+  .shoppable-item__product-title {
+    display: inline-block;
+    position: relative;
+  }
+}

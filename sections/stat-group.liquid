@@ -1,0 +1,238 @@
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.5.1/snap.svg-min.js"></script>
+<div
+  class="
+    stat-group
+    section
+    {{ section.settings.section_padding }}
+    section--divider-{{ section.settings.divider_style }}
+    {% if settings.enable_section_animations and section.settings.enable_animation %}
+      animation
+      animation--stat-group
+    {% endif %}
+  "
+  data-section-id="{{ section.id }}"
+  data-section-type="stat-group"
+  data-border-color="{{ section.settings.border_color }}"
+  data-duration="{{ section.settings.duration }}"
+  style="
+    --background-color: {% if section.settings.type_background == 'solid' %} {{ section.settings.background_color }} {% else %} {{ section.settings.background_gradient_color }} {% endif %};
+    --text-color: {{ section.settings.text_color }};
+    --border-color: {{ section.settings.border_color }};
+  "
+>
+  <div class="stat-group__inner
+      {% if section.settings.rounded %}
+        stat-group__inner--rounded
+      {% endif %}
+    ">
+    {%- unless section.settings.heading == blank -%}
+      <{{ section.settings.heading_tag }} class="stat-group__heading ff-heading fs-heading-2-base section-introduction__heading">
+        {{ section.settings.heading }}
+      </{{ section.settings.heading_tag }}>
+    {%- endunless -%}
+    <div class="stat-group__grid">
+      {%- for block in section.blocks -%}
+        <div class="stat-group__item js-item">
+          <h3 class="js-group stat-group__item-inner ff-heading fs-heading-display-2"
+            data-number="{{ block.settings.number_count }}"
+            data-unit="{{ block.settings.unit }}"
+          >
+            <span class="js-number stat-group__item-number"></span>
+            <svg class="js-svg stat-group__item-circle"></svg>
+            <span class="sr-only">{{ block.settings.number_count }}</span>
+          </h3>
+          <h4 class="stat-group__item-title ff-body fs-body-75">{{ block.settings.title }}</h4>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Stat Group",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "custom.overlay"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Stat Group"
+    },
+    {
+      "id": "heading_tag",
+      "type": "select",
+      "label": "Heading Tag",
+      "default": "h2",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:shared.section_blocks.heading.settings.heading_tag.options.h2"
+        },
+        {
+          "value": "h3",
+          "label": "t:shared.section_blocks.heading.settings.heading_tag.options.h3"
+        },
+        {
+          "value": "h4",
+          "label": "t:shared.section_blocks.heading.settings.heading_tag.options.h4"
+        },
+        {
+          "value": "h5",
+          "label": "t:shared.section_blocks.heading.settings.heading_tag.options.h5"
+        },
+        {
+          "value": "h6",
+          "label": "t:shared.section_blocks.heading.settings.heading_tag.options.h6"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "rounded",
+      "label": "Rounded Content",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Count number animation"
+    },
+    {
+      "type": "range",
+      "id": "duration",
+      "min": 300,
+      "max": 5000,
+      "step": 100,
+      "unit": "ms",
+      "label": "Duration",
+      "default": 1500
+    },
+    {
+      "type": "header",
+      "content": "t:shared.settings.section_style.header_style.content"
+    },
+    {
+      "id": "enable_animation",
+      "type": "checkbox",
+      "label": "t:shared.settings.section_style.enable_animation.label",
+      "info": "t:shared.settings.section_style.enable_animation.info",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "section_padding",
+      "label": "t:shared.settings.section_style.section_padding.label",
+      "default": "section--vertical-padding-top-bottom",
+      "options": [
+        {
+          "label": "t:shared.settings.section_style.section_padding.option_none",
+          "value": "section--vertical-padding-none"
+        },
+        {
+          "label": "t:shared.settings.section_style.section_padding.option_both",
+          "value": "section--vertical-padding-top-bottom"
+        },
+        {
+          "label": "t:shared.settings.section_style.section_padding.option_top",
+          "value": "section--vertical-padding-top-only"
+        },
+        {
+          "label": "t:shared.settings.section_style.section_padding.option_bottom",
+          "value": "section--vertical-padding-bottom-only"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "t:shared.settings.header_color.content"
+    },
+    {
+      "type": "select",
+      "id": "type_background",
+      "label": "Type Background",
+      "options": [
+        {
+          "value": "solid",
+          "label": "Solid"
+        },
+        {
+          "value": "gradient",
+          "label": "Grandient"
+        }
+      ],
+      "default": "solid"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Solid Color",
+      "default": "#F7F7F7"
+    },
+    {
+      "type": "color_background",
+      "id": "background_gradient_color",
+      "label": "Background Grandient Color"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "t:sections.image_with_text_split.settings.text_color.label",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border Color",
+      "default": "#E5E5E5"
+    },
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "t:sections.collapsible_row_list.blocks.item.name",
+      "settings": [
+        {
+          "type": "number",
+          "id": "number_count",
+          "label": "Number Count",
+          "default": 50
+        },
+        {
+          "type": "text",
+          "id": "unit",
+          "label": "Unit",
+          "default": "%"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "This is an example of a text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Stat Group",
+      "blocks": [
+        {
+          "type": "item"
+        },
+        {
+          "type": "item"
+        },
+        {
+          "type": "item"
+        },
+        {
+          "type": "item"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

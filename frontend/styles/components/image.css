@@ -1,0 +1,65 @@
+/* This is currently doing double duty for images and image-like videos - should it be renamed to "media" ? */
+
+.image,
+.video-wrapper {
+  > * {
+    display: block;
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    object-position: var(--focal-alignment, center center);
+  }
+
+  &.aspect-ratio--landscape,
+  &.aspect-ratio--portrait,
+  &.aspect-ratio--square,
+  &.aspect-ratio--landscape_alt,
+  &.aspect-ratio--portrait_alt,
+  &.aspect-ratio--landscape_wide_alt,
+  &.aspect-ratio--landscape_ultrawide_alt,
+  &.aspect-ratio--externally_set {
+    > * {
+      object-fit: var(--object-fit, cover);
+    }
+  }
+
+  &.aspect-ratio--landscape > * {
+    aspect-ratio: var(--aspect-ratio-landscape);
+  }
+
+  &.aspect-ratio--portrait > * {
+    aspect-ratio: var(--aspect-ratio-portrait);
+  }
+
+  &.aspect-ratio--landscape_alt > * {
+    aspect-ratio: var(--aspect-ratio-landscape-alt);
+  }
+
+  &.aspect-ratio--portrait_alt > * {
+    aspect-ratio: var(--aspect-ratio-portrait-alt);
+  }
+
+  &.aspect-ratio--landscape_wide_alt > * {
+    aspect-ratio: var(--aspect-ratio-widescreen);
+  }
+
+  &.aspect-ratio--landscape_ultrawide_alt > * {
+    aspect-ratio: var(--aspect-ratio-ultrawide);
+  }
+
+  &.aspect-ratio--square > * {
+    aspect-ratio: var(--aspect-ratio-square);
+  }
+}
+
+.image {
+  background-color: hsla(0, 0%, 96%, 1);
+
+  &.loaded {
+    background-color: transparent;
+  }
+
+  &:not(.loaded) {
+    position: relative;
+  }
+}

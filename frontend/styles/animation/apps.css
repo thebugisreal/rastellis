@@ -1,0 +1,13 @@
+html:not(.no-js):not(.prefers-reduced-motion) .animation.animation--apps {
+  &.is-visible {
+    .animation--item {
+      @mixin reveal-fade-in-from-y;
+    }
+  }
+
+  /* Slide items */
+  .animation--item {
+    @mixin staggered-fade-in-from-bottom 40px, var(--duration-normal),
+      var(--delay-small);
+  }
+}

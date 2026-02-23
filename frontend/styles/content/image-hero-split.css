@@ -1,0 +1,26 @@
+.image-hero-split {
+  color: var(--color-text);
+  background-color: var(--color-background);
+
+  /* Account for section being under transparent header */
+  /* Eliminate padding top from section settings */
+  body.header-transparent #main > .shopify-section:first-child & {
+    padding-top: 0;
+  }
+}
+
+.image-hero-split__inner {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.image-hero-split__overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: var(--overlay-background-gradient, var(--overlay-background));
+  opacity: var(--overlay-opacity);
+}

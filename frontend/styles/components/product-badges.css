@@ -1,0 +1,57 @@
+.product-badges {
+  flex-shrink: 0;
+  display: flex;
+  flex-wrap: wrap;
+  white-space: nowrap;
+  pointer-events: none;
+  text-transform: var(--font-product-badge-text-transform);
+}
+
+.product-badge {
+  display: flex;
+  align-items: center;
+  line-height: 1em;
+  font-size: var(--font-size-body-2);
+  padding: 0.3em 0.3em;
+  background: var(--color-background);
+  color: var(--color-text);
+  border: 1px solid currentColor;
+  margin-right: var(--spacing-2);
+  margin-bottom: var(--spacing-2);
+  padding: 0.3em 0.3em;
+  font-size: var(--font-size-product-badge);
+}
+
+.product-badge--sale {
+  color: var(--color-text-sale-badge);
+}
+
+.product-badge--sold-out {
+  background-color: var(--color-background-sold-badge);
+  border-color: var(--color-background-sold-badge);
+  color: var(--color-text-sold-badge);
+}
+
+/* Product item specific styles */
+
+.product-item .product-badges {
+  z-index: 10;
+  position: absolute;
+
+  &.product-badges--position-top {
+    top: var(--spacing-2);
+  }
+
+  &.product-badges--position-bottom {
+    bottom: var(--spacing-2);
+  }
+
+  &.product-badges--position-right {
+    right: 0;
+    justify-content: end;
+  }
+
+  &.product-badges--position-left {
+    left: var(--spacing-2);
+  }
+}

@@ -1,0 +1,15 @@
+html.do-anim .animation.animation--quotes {
+  .animation--item {
+    .quote__item-inner > * {
+      @mixin staggered-fade-in-from-side;
+    }
+  }
+
+  &.is-visible {
+    .animation--item.swiper-slide-visible {
+      .quote__item-inner > * {
+        @mixin reveal-fade-in-from-x;
+      }
+    }
+  }
+}

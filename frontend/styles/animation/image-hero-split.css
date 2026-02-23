@@ -1,0 +1,59 @@
+html.do-anim .animation.animation--image-hero-split {
+  &.is-visible {
+    .image-hero-split-item {
+      .image-hero-split-item__image-container {
+        .image__img {
+          @mixin reveal-fade-scale;
+        }
+      }
+    }
+  }
+
+  .image-hero-split-item {
+    .image-hero-split-item__image-container {
+      .image__img {
+        @mixin image-fade-scale 1.3;
+        transition-duration: var(--duration-slow);
+      }
+    }
+
+    .animation--section-blocks {
+      & > * {
+        transition: transform var(--duration-normal) var(--easing),
+          opacity var(--duration-normal) var(--easing);
+      }
+    }
+  }
+
+  .image-hero-split-item--1 {
+    .animation--section-blocks {
+      & > * {
+        --adjusted-delay-offset-mulitplier: calc(
+          var(--delay-offset-multiplier, 0) + 1
+        );
+        transition-delay: calc(
+          var(--delay-normal) * var(--adjusted-delay-offset-mulitplier)
+        );
+      }
+    }
+  }
+
+  .image-hero-split-item--2 {
+    .image-hero-split-item__image-container {
+      .image__img {
+        transition-delay: var(--delay-normal);
+      }
+    }
+
+    .animation--section-blocks {
+      & > * {
+        --adjusted-delay-offset-mulitplier: calc(
+          var(--delay-offset-multiplier, 0) + 2
+        );
+        transition-delay: calc(
+          var(--delay-normal) * var(--adjusted-delay-offset-mulitplier)
+        );
+      }
+    }
+  }
+}

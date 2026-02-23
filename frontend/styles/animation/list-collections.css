@@ -1,0 +1,18 @@
+html.do-anim .animation.animation--list-collections {
+  &.is-visible {
+    .list-collections__heading,
+    .animation--item {
+      @mixin reveal-fade-in-from-y;
+    }
+  }
+
+  .list-collections__heading {
+    @mixin staggered-fade-in-from-bottom;
+  }
+
+  /* Fade in slide up collection item */
+  .animation--item {
+    @mixin staggered-fade-in-from-bottom 40px, var(--duration-normal),
+      var(--delay-small);
+  }
+}

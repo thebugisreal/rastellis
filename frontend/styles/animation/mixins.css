@@ -1,0 +1,119 @@
+/* Fade in */
+@define-mixin fade {
+  opacity: 0;
+  transition: opacity var(--duration-normal) var(--easing);
+}
+
+@define-mixin staggered-fade {
+  @mixin fade;
+  transition-delay: calc(
+    var(--delay-normal) * var(--delay-offset-multiplier, 0)
+  );
+}
+
+/* Fade in from bottom */
+@define-mixin fade-in-from-bottom $from: 20px, $duration: var(--duration-normal) {
+  --duration-amount: $duration;
+  opacity: 0;
+  transform: translateY($from);
+  transition: transform var(--duration-amount) var(--easing),
+    opacity var(--duration-amount) var(--easing);
+}
+
+@define-mixin staggered-fade-in-from-bottom $from: 20px,
+  $duration: var(--duration-normal), $delay: var(--delay-normal) {
+  --delay-amount: $delay;
+  @mixin fade-in-from-bottom $from, $duration;
+  transition-delay: calc(
+    var(--delay-amount) * var(--delay-offset-multiplier, 0)
+  );
+}
+
+/* Fade in from side */
+@define-mixin fade-in-from-side $from: -20px {
+  opacity: 0;
+  transform: translateX($from);
+  transition: transform var(--duration-normal) var(--easing),
+    opacity var(--duration-normal) var(--easing);
+}
+
+@define-mixin staggered-fade-in-from-side $from: -20px {
+  @mixin fade-in-from-side $from;
+  transition-delay: calc(
+    var(--delay-normal) * var(--delay-offset-multiplier, 0)
+  );
+}
+
+/* Slide in staggered X position */
+@define-mixin slide-in-staggered-x $from: 40px {
+  transform: translateX(
+    calc($from + ($from * var(--position-offset-multiplier, 0)))
+  );
+  transition: transform var(--duration-normal) var(--delay-small) var(--easing);
+}
+
+/* Image fade in scale down */
+@define-mixin image-fade-scale $scale: 1.1 {
+  transform: scale($scale);
+  opacity: 0;
+  transition: transform var(--duration-normal) var(--easing),
+    opacity var(--duration-normal) var(--easing);
+}
+
+@define-mixin staggered-image-fade-scale $scale: 1.1 {
+  @mixin image-fade-scale $scale;
+  transition-delay: calc(
+    var(--delay-normal) * var(--delay-offset-multiplier, 0)
+  );
+}
+
+/* Reveals */
+@define-mixin reveal-fade {
+  opacity: 1;
+}
+
+@define-mixin reveal-fade-scale {
+  opacity: 1;
+  transform: unset;
+}
+
+@define-mixin reveal-fade-in-from-y {
+  opacity: 1;
+  transform: unset;
+}
+
+@define-mixin reveal-fade-in-from-x {
+  opacity: 1;
+  transform: unset;
+}
+
+/* Hover states */
+@define-mixin link-hover-reveal {
+  position: relative;
+  text-decoration: none;
+
+  .link-hover {
+    position: relative;
+    pointer-events: none;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 100%;
+      width: 100%;
+      height: 1px;
+      background: currentColor;
+      pointer-events: none;
+      transform-origin: 100% 50%;
+      transform: scale3d(0, 1, 1);
+      transition: transform var(--duration-fast) var(--easing);
+    }
+  }
+
+  &:hover .link-hover::before,
+  &[aria-expanded="true"] .link-hover::before {
+    transform-origin: 0% 50%;
+    transform: scale3d(1, 1, 1);
+  }
+}

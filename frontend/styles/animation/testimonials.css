@@ -1,0 +1,37 @@
+html.do-anim .animation.animation--testimonials {
+  .animation--item {
+    .testimonials__item-stars,
+    .testimonials__item-quote,
+    .testimonials__item-author,
+    .testimonials__item-product-image,
+    .testimonials__item-product-title {
+      @media (--above-720) {
+        @mixin staggered-fade-in-from-side;
+      }
+    }
+
+    @media (--below-720) {
+      @mixin staggered-fade-in-from-bottom;
+    }
+  }
+
+  &.is-visible {
+    .animation--item.swiper-slide-visible {
+      .testimonials__item-stars,
+      .testimonials__item-quote,
+      .testimonials__item-author,
+      .testimonials__item-product-image,
+      .testimonials__item-product-title {
+        @media (--above-720) {
+          @mixin reveal-fade-in-from-x;
+        }
+      }
+    }
+
+    .animation--item {
+      @media (--below-720) {
+        @mixin reveal-fade-in-from-y;
+      }
+    }
+  }
+}

@@ -1,0 +1,206 @@
+/* Custom product photoswipe styles */
+.pswp.pswp--product-lightbox {
+  --pswp-bg: var(--color-background);
+  --pswp-icon-color: var(--color-text);
+  --pswp-icon-color-secondary: var(--color-background);
+
+  &.pswp--zoomed-in {
+    .cross-up {
+      display: none;
+    }
+  }
+
+  &.pswp--ui-visible {
+    .pswp__button--arrow {
+      opacity: 1;
+    }
+  }
+
+  &.pswp--is-single-image {
+    .pswp__button--arrow {
+      display: none;
+    }
+
+    .pswp__counter {
+      visibility: hidden;
+    }
+  }
+
+  .pswp__counter {
+    display: flex;
+    align-items: center;
+    margin-top: var(--spacing-4);
+    margin-left: var(--spacing-4);
+    padding: var(--spacing-unit) var(--spacing-3);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    opacity: 1;
+    white-space: nowrap;
+    box-shadow: var(--box-shadow-double);
+
+    /* body text */
+    font-family: var(--font-body);
+    font-weight: var(--font-body-weight);
+    font-style: var(--font-body-style);
+    line-height: var(--line-height-body-2);
+    letter-spacing: var(--letter-spacing-body-2);
+
+    font-size: var(--font-size-body-2);
+    border-radius: 30px;
+    text-shadow: none;
+
+    @media (--above-720) {
+      margin-top: var(--spacing-6);
+      margin-left: var(--spacing-6);
+    }
+  }
+
+  .pswp__button--zoom,
+  .pswp__button--close,
+  .pswp__button--arrow--prev,
+  .pswp__button--arrow--next {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    box-shadow: var(--box-shadow-double);
+    border-radius: 50%;
+
+    &:hover,
+    &:focus {
+      transform: scale(1.1);
+    }
+  }
+
+  .pswp__button--arrow {
+    width: 34px;
+    height: 34px;
+    margin-top: -17px;
+    opacity: 0;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+
+    @media (--above-720) {
+      width: 40px;
+      height: 40px;
+      margin-top: -20px;
+    }
+
+    .icon {
+      width: 16px;
+      height: 16px;
+
+      @media (--above-720) {
+        width: 18px;
+        height: 18px;
+      }
+    }
+  }
+
+  .pswp__button--arrow--prev {
+    left: var(--spacing-4);
+
+    @media (--above-720) {
+      left: var(--spacing-5);
+    }
+
+    .icon {
+      margin-right: 1px;
+      transform: rotate(90deg);
+    }
+  }
+
+  .pswp__button--arrow--next {
+    right: var(--spacing-4);
+
+    @media (--above-720) {
+      right: var(--spacing-5);
+    }
+
+    .icon {
+      margin-left: 1px;
+      transform: rotate(-90deg);
+    }
+  }
+
+  .pswp__button--close {
+    width: 43px;
+    height: 43px;
+    margin-top: var(--spacing-4);
+    margin-right: var(--spacing-4);
+
+    .icon {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  .pswp__button--zoom {
+    width: 34px;
+    height: 34px;
+    /* precision icon placement */
+    margin-top: 22px;
+    margin-right: 11px;
+
+    .icon {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  .pswp--product-video-modal {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    overflow-y: hidden;
+
+    iframe {
+      margin: auto;
+      pointer-events: all;
+      aspect-ratio: 16/9;
+
+      @media (orientation: landscape) {
+        height: 70vh;
+        width: auto;
+      }
+
+      @media (orientation: portrait) {
+        width: 90vw;
+        height: auto;
+      }
+    }
+  }
+}
+
+.pswp--video-lightbox {
+  --pswp-bg: var(--color-overlay);
+  --pswp-icon-color: var(--color-text);
+
+  .pswp__button--close {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    box-shadow: var(--box-shadow-double);
+    border-radius: 50%;
+    transition: transform 0.2s ease;
+    width: 43px;
+    height: 43px;
+    margin-top: var(--spacing-4);
+    margin-right: var(--spacing-4);
+
+    .icon {
+      width: 16px;
+      height: 16px;
+    }
+
+    &:hover,
+    &:focus {
+      transform: scale(1.1);
+    }
+  }
+}

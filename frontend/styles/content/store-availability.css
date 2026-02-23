@@ -1,0 +1,85 @@
+.store-availability {
+  position: relative;
+  display: flex;
+  margin-top: var(--spacing-6);
+
+  .icon {
+    width: 14px;
+    height: 14px;
+    margin-right: var(--spacing-2);
+    margin-top: 2px;
+    color: var(--color-text-error);
+  }
+
+  .icon-checkmark {
+    color: var(--color-text-success);
+  }
+
+  .icon-close-small {
+    padding: 1px;
+  }
+}
+
+.store-availability__information-title,
+.store-availability__information-stores {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.store-availability__store-list-wrapper {
+  display: none;
+}
+
+.store-availability__store-list-title {
+  margin-top: var(--spacing-7);
+  margin-bottom: var(--spacing-5);
+
+  @media (--above-480) {
+    margin-top: var(--spacing-10);
+    margin-bottom: var(--spacing-7);
+  }
+}
+
+.store-availability-list__item {
+  padding-top: var(--spacing-6);
+  padding-bottom: var(--spacing-6);
+  border-bottom: 1px solid var(--color-border);
+
+  .icon {
+    width: 14px;
+    height: 14px;
+  }
+
+  &:last-of-type {
+    padding-bottom: 0;
+    border: 0;
+  }
+}
+
+.store-availability-list__item-header {
+  display: flex;
+}
+
+.store-availability-list__item-inner {
+  display: flex;
+  padding-right: 0;
+  padding-left: 0;
+
+  .icon {
+    color: var(--color-text-error);
+    margin-top: 7px;
+    margin-right: var(--spacing-2);
+  }
+
+  .icon-checkmark {
+    color: var(--color-text-success);
+  }
+
+  .icon-close-small {
+    padding: 1px;
+  }
+}
+
+.store-availability-list__address {
+  margin-top: var(--spacing-4);
+}

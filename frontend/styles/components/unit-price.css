@@ -1,0 +1,14 @@
+.unit-price {
+  display: none;
+  margin: 0;
+  color: var(--color-text-meta);
+  font-size: var(--font-size-body-1);
+
+  &.unit-price--available {
+    display: inline-block;
+
+    .unit-price__price {
+      display: block;
+    }
+  }
+}

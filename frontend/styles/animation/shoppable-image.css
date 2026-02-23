@@ -1,0 +1,22 @@
+html.do-anim .animation.animation--shoppable-image {
+  .shoppable-image__image {
+    .image__img {
+      transition-duration: var(--duration-slow);
+    }
+  }
+
+  .animation--shoppable-item {
+    .shoppable-item__product-card-inner,
+    .shoppable-item__quick-view-button {
+      @mixin fade-in-from-bottom 5px, var(--duration-fast);
+      transition-delay: var(--delay-small);
+    }
+
+    &.active {
+      .shoppable-item__product-card-inner,
+      .shoppable-item__quick-view-button {
+        @mixin reveal-fade-in-from-y;
+      }
+    }
+  }
+}

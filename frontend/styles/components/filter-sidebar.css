@@ -1,0 +1,39 @@
+.filter-sidebar {
+  --sidebar-width: 280px;
+
+  display: none;
+  flex-shrink: 0;
+  width: var(--sidebar-width);
+  padding: 0 calc(var(--spacing-6) + 1px) var(--spacing-6) 0;
+
+  &[aria-expanded="true"] {
+    display: block;
+  }
+
+  @media (--below-960) {
+    display: none;
+
+    &[aria-expanded="true"] {
+      display: none;
+    }
+  }
+
+  .collection[data-enable-sticky-filter-sidebar="true"] &,
+  .search[data-enable-sticky-filter-sidebar="true"] & {
+    [data-sticky-container] {
+      position: sticky;
+      z-index: 1;
+      top: calc(
+        var(--header-desktop-sticky-height, 0) +
+          var(--sticky-filter-bar-height, 0)
+      );
+    }
+  }
+
+  .collection.has-sticky-scroll[data-enable-sticky-filter-sidebar="true"] &,
+  .search.has-sticky-scroll[data-enable-sticky-filter-sidebar="true"] & {
+    [data-sticky-container] {
+      top: var(--sticky-container-top, 0);
+    }
+  }
+}

@@ -1,0 +1,22 @@
+@import "mixins.css";
+
+html.do-anim .animation.animation--article {
+  .article__image-container {
+    .image__img {
+      transition-duration: var(--duration-slow);
+    }
+  }
+
+  .article__header-inner > *,
+  .article__content {
+    @mixin staggered-fade-in-from-bottom;
+
+    &.is-visible {
+      @mixin reveal-fade-in-from-y;
+    }
+  }
+
+  .article__tags {
+    transform: translateY(10px);
+  }
+}

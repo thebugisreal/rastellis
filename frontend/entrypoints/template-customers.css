@@ -1,0 +1,6 @@
+@import "../styles/animation/mixins.css";
+@import "../styles/core/vars.css";
+@import "../styles/templates/customers/login.css";
+@import "../styles/templates/customers/account.css";
+@import "../styles/templates/customers/order.css";
+@import "../styles/templates/customers/addresses.css";

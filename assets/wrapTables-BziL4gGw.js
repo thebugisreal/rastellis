@@ -1,0 +1,1 @@
+function t(r=[]){r.forEach(e=>{const a=document.createElement("div");a.classList.add("rte__iframe"),e.parentNode.insertBefore(a,e),a.appendChild(e),e.src=e.src})}function n(r=[]){r.forEach(e=>{const a=document.createElement("div");a.classList.add("rte__table-wrapper"),a.tabIndex=0,e.parentNode.insertBefore(a,e),a.appendChild(e)})}export{n as a,t as w};

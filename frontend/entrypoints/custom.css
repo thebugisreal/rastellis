@@ -1,0 +1,7 @@
+@import "../styles/animation/mixins.css";
+@import "../styles/modules/header.css";
+@import "../styles/modules/video-button.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

@@ -1,0 +1,128 @@
+{%- liquid
+  assign show_breadcrumbs = section.settings.show_breadcrumbs
+  assign show_author = section.settings.show_author
+  assign show_date = section.settings.show_date
+  assign show_tags = section.settings.show_tags
+-%}
+
+<div
+  class="article-hero"
+  section-id="{{ section.id }}"
+  style="--background-color: {{ section.settings.background_color }};"
+>
+  <div class="section article-hero__wrapper">
+    <div class="article-hero__inner">
+      <div class="article-hero__content">
+        {%- if show_breadcrumbs -%}
+          <div class="article-hero__breadcrumbs">
+            {%- render 'breadcrumbs',
+              show_breadcrumbs: true,
+              class: 'fs-body-50'
+            -%}
+          </div>
+        {%- endif -%}
+        <div class="article-hero__meta">
+          {%- if show_tags -%}
+            <div class="article-hero__tags">
+              <ul class="article-tags">
+                {%- for tag in article.tags -%}
+                  <li class="article-tags__item">
+                    <a
+                      href="{{ blog.url }}/tagged/{{ tag | handleize }}"
+                      class="ff-body fs-body-50 article-tags__tag"
+                    >
+                      {{- tag -}}
+                    </a>
+                  </li>
+                {%- endfor -%}
+              </ul>
+            </div>
+          {%- endif -%}
+          <h1 class="article-hero__title ff-heading fs-heading-4-base">
+            {{- article.title -}}
+          </h1>
+          {%- if show_author or show_date -%}
+            <p class="article-hero__author-and-date fs-body-50">
+              {%- if show_date -%}
+                <span>
+                  {{ article.published_at | time_tag: format: 'abbreviated_date' }}
+                </span>
+              {%- endif -%}
+              {%- if show_author -%}
+                <span>
+                  {{- 'blogs.article.by' | t }}
+                  {{ article.author -}}
+                </span>
+              {%- endif -%}
+            </p>
+          {%- endif -%}
+        </div>
+        {%- if section.settings.show_social_icons -%}
+          {%- render 'share-icons-article',
+            url: article.url,
+            title: article.title,
+            image: article.image
+          -%}
+        {%- endif -%}
+      </div>
+      {%- if article.image -%}
+        <div class="article-hero__image">
+          {%- render 'image',
+            image: article.image,
+            animate: true,
+            sizes: "100vw"
+          -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.article_hero.name",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "t:sections.article_hero.settings.background_color.label",
+      "default": "#F0F1F5"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_breadcrumbs",
+      "label": "t:shared.settings.show_breadcrumbs.label",
+      "default": true
+    },
+    {
+      "id": "show_tags",
+      "type": "checkbox",
+      "label": "t:sections.blog_posts.settings.show_tags.label",
+      "default": true
+    },
+    {
+      "id": "show_author",
+      "type": "checkbox",
+      "label": "t:sections.blog_posts.settings.show_author.label",
+      "default": true
+    },
+    {
+      "id": "show_date",
+      "type": "checkbox",
+      "label": "t:sections.blog_posts.settings.show_date.label",
+      "default": true
+    },
+    {
+      "id": "show_social_icons",
+      "type": "checkbox",
+      "label": "t:sections.article_hero.settings.show_social_icons.label",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.article_hero.presets.name"
+    }
+  ]
+}
+{% endschema %}

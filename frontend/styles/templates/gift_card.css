@@ -1,0 +1,71 @@
+.gift-card {
+  padding: var(--spacing-5);
+  text-align: center;
+
+  @media (--above-480) {
+    padding: var(--spacing-10);
+  }
+}
+
+.gift-card__title {
+  margin-top: 0;
+  margin-bottom: var(--spacing-5);
+}
+
+.gift-card__container {
+  max-width: 560px;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  margin: 0 auto;
+  padding: var(--spacing-5);
+  @media (--above-480) {
+    padding: var(--spacing-10);
+  }
+}
+
+.gift-card__graphic {
+  img {
+    width: 100%;
+    display: block;
+  }
+}
+
+.gift-card__initial-balance {
+  margin-top: var(--spacing-5);
+}
+
+.gift-card__shopping-link {
+  margin-top: var(--spacing-5);
+}
+
+#qr-code {
+  margin-top: var(--spacing-5);
+  display: flex;
+  justify-content: center;
+
+  @media (--above-480) {
+    margin-top: var(--spacing-10);
+  }
+}
+
+.apple-wallet-image {
+  display: block;
+  margin: 0 auto;
+}
+
+@media print {
+  @page {
+    margin: 0.5cm;
+  }
+
+  p {
+    orphans: 3;
+    widows: 3;
+  }
+
+  .print-giftcard,
+  .apple-wallet,
+  .gift-card__shopping-link {
+    display: none;
+  }
+}

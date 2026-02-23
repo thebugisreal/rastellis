@@ -1,0 +1,13 @@
+.a404 {
+  .a404__header {
+    margin-bottom: 0;
+  }
+}
+
+.a404__subheading {
+  margin-top: var(--spacing-2);
+}
+
+.a404__button {
+  margin-top: var(--spacing-7);
+}

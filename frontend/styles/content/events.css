@@ -1,0 +1,120 @@
+.events {
+  --date-badge-min-width: 50px;
+  --date-badge-min-width-large: 65px;
+
+  background-color: var(--section-background-color);
+  color: var(--color-text);
+}
+
+.events__header {
+  width: 100%;
+  text-align: var(--text-align);
+}
+
+.events__list {
+  display: grid;
+  grid-template-columns: repeat(var(--columns-mobile), 1fr);
+  column-gap: var(--spacing-6);
+  row-gap: var(--spacing-12);
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @media (--above-960) {
+    grid-template-columns: repeat(var(--columns), 1fr);
+    column-gap: var(--spacing-9);
+  }
+
+  &.events__list--skeleton.hide {
+    opacity: 0;
+    transition: opacity var(--duration-fast) var(--easing);
+  }
+}
+
+.event-item__link {
+  display: block;
+}
+
+.event-item__image-wrapper {
+  position: relative;
+  margin-bottom: var(--spacing-4);
+
+  @media (--above-960) {
+    margin-bottom: var(--spacing-7);
+  }
+}
+
+.event-item__name {
+  margin-bottom: var(--spacing-1);
+}
+
+.event-item__date {
+  color: var(--color-text-alpha-60);
+
+  &.skeleton {
+    margin-bottom: var(--spacing-1);
+  }
+}
+
+.event-item__venue {
+  color: var(--color-text-alpha-60);
+}
+
+.event-item__summary {
+  margin-top: var(--spacing-3);
+
+  @media (--above-960) {
+    margin-top: var(--spacing-4);
+  }
+}
+
+.event-item__callout {
+  margin-top: var(--spacing-6);
+
+  @media (--above-960) {
+    margin-top: var(--spacing-7);
+  }
+}
+
+.event-item__date-badge {
+  display: inline-block;
+  min-width: var(--date-badge-min-width);
+  padding: var(--spacing-1) var(--spacing-2);
+  border: solid 1px var(--color-badge-text);
+  background-color: var(--color-badge-background);
+  color: var(--color-badge-text);
+  text-align: center;
+
+  @media (--above-960) {
+    min-width: var(--date-badge-min-width-large);
+    padding: var(--spacing-2) var(--spacing-4);
+
+    .events--columns-4 & {
+      min-width: var(--date-badge-min-width);
+      padding: var(--spacing-1) var(--spacing-2);
+    }
+  }
+
+  .event-item__image + & {
+    position: absolute;
+    top: var(--spacing-2);
+    left: var(--spacing-2);
+    border: 0;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.09), 0px 2px 6px rgba(0, 0, 0, 0.14);
+  }
+}
+
+.event-item__date-badge-day {
+  display: block;
+}
+
+.event-item__date-badge-month {
+  display: block;
+
+  .event-item__date-badge-day + & {
+    margin-top: var(--spacing-1);
+    padding-top: var(--spacing-1);
+    border-top: solid 1px var(--color-badge-text-alpha-30);
+  }
+}

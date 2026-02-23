@@ -1,0 +1,67 @@
+.product-swatches-options {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+}
+
+.product-swatches-options__list {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 0 var(--spacing-3);
+  margin: 0;
+  column-gap: calc(var(--spacing-3) / 2);
+
+  & + .product-swatches-options__list {
+    margin-top: var(--spacing-2);
+  }
+}
+
+.product-swatches-options__item--swatch {
+  width: 100%;
+  max-width: var(--swatch-width, 16px);
+  aspect-ratio: 1;
+  position: relative;
+  background-position: center center;
+  background-size: var(--swatch-image-fit, contain);
+
+  &::after {
+    content: "";
+    box-shadow: 0 0 0 1px inset rgba(0, 0, 0, 0.075),
+      0 0 0 0 var(--color-border);
+  }
+
+  &::after,
+  img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  &[data-swatch-shape="rectangle"] {
+    aspect-ratio: 1.75;
+  }
+
+  &[data-swatch-shape="round"] {
+    &,
+    &::after,
+    img {
+      border-radius: 100%;
+    }
+  }
+
+  img {
+    object-fit: var(--swatch-image-fit, contain);
+    background-color: var(--color-background);
+  }
+}
+
+.product-swatches-options__item-overflow-note {
+  opacity: 0.65;
+  white-space: nowrap;
+  margin-left: 0.25em;
+}

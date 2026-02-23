@@ -1,0 +1,108 @@
+.countdown-timer {
+  margin: var(--spacing-6) 0;
+  opacity: 0;
+
+  &.active {
+    opacity: 1;
+  }
+
+  &.countdown-timer--small {
+    margin: var(--spacing-2) 0;
+
+    @media (--above-480) {
+      margin: 0;
+    }
+  }
+}
+
+.countdown-timer__inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .hide & {
+    display: none;
+  }
+
+  .countdown-timer--small.complete & {
+    margin-bottom: var(--spacing-2);
+  }
+}
+
+.countdown-timer__item {
+  text-align: center;
+}
+
+.countdown-timmer__amount {
+  position: relative;
+  margin-bottom: var(--spacing-2);
+  padding: 0 var(--spacing-4);
+  font-size: var(--font-size-heading-1-base);
+  line-height: 1;
+
+  .countdown-timer--small & {
+    padding: 0 var(--spacing-4);
+    font-size: var(--font-size-heading-3-base);
+  }
+
+  .countdown-timer__item + .countdown-timer__item &::before {
+    content: "";
+    position: absolute;
+    top: 25%;
+    left: 0;
+    bottom: 25%;
+    display: block;
+    width: 1px;
+    background-color: var(--color-text);
+    opacity: 0.66;
+  }
+
+  @media (--above-480) {
+    margin-bottom: var(--spacing-3);
+    padding: 0 var(--spacing-4);
+    font-size: var(--font-size-heading-display-1);
+
+    .countdown-timer--small & {
+      margin-bottom: var(--spacing-2);
+      padding: 0 var(--spacing-4);
+      font-size: var(--font-size-heading-2-base);
+    }
+  }
+
+  @media (--above-720) {
+    padding: 0 var(--spacing-8);
+
+    .countdown-timer--small & {
+      padding: 0 var(--spacing-6);
+    }
+  }
+
+  @media (--above-960) {
+    padding: 0 var(--spacing-12);
+  }
+}
+
+.countdown-timer__type,
+.countdown-timer__type.fs-accent {
+  padding: 0 var(--spacing-1);
+  text-transform: uppercase;
+  font-size: var(--font-size-body-2);
+
+  @media (--above-480) {
+    font-size: var(--font-size-body-2);
+  }
+}
+
+.countdown-timer__message {
+  display: none;
+  text-align: center;
+
+  .countdown-timer--small & {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .complete & {
+    display: block;
+  }
+}

@@ -1,0 +1,70 @@
+{%-liquid
+  assign is_shopify_video = false
+  assign is_external_video = false
+  assign is_embed_video = false
+  assign is_video = false
+
+  if video_source == 'shopify' and video != blank
+    assign is_shopify_video = true
+    assign is_video = true
+  elsif video_source == 'external' and video_url != blank
+    assign is_external_video = true
+    assign is_video = true
+  elsif video_source == 'embed' and video_embed != blank
+    assign is_embed_video = true
+    assign is_video = true
+  endif
+
+  assign loop = loop | default: true
+-%}
+
+<div
+  class="video-module {{ class }}"
+  data-section-type="video-module"
+  data-section-id="{{ id }}"
+>
+  {%- if is_video -%}
+    {%- if is_shopify_video -%}
+      {{ video | video_tag: autoplay: true, loop: loop, muted: true, controls: false | replace: '<video', '<video class="js-video video-module__video"'
+      }}
+    {%- elsif is_external_video -%}
+      <div
+        class="js-video-external video-module__video"
+        data-video-external-target
+        data-video-provider="{{ video_url.type }}"
+        data-video-id="{{ video_url.id | escape }}"
+        data-loop="{{ loop }}"
+      ></div>
+    {%- elsif is_embed_video -%}
+      {{ video_embed }}
+    {% else %}
+      {% comment %}
+      This is the state when there is not a correct source set, we need
+      something rendered to size the section correctly
+      {% endcomment %}
+      <div class="video__undefined_spacer"></div>
+    {%- endif -%}
+    {%- unless is_embed_video -%}
+      <button
+        class="video-module__button"
+        type="button"
+        data-play-button
+        data-state="pause"
+        aria-label="{{ 'general.accessibility.play_video' | t }}"
+      >
+        {% render 'play-icon', class: 'play' %}
+        {% render 'pause-icon', class: 'pause' %}
+      </button>
+    {%- endunless -%}
+  {%- else -%}
+    {%- if image != blank -%}
+      {%- render 'image',
+        wrapper_class: 'js-video-image video-module__image overlay visible',
+        image: image,
+        sizes: '(min-width: 960px) calc(100vw - calc(2 * 3.3vw)), calc(100vw - calc(2 * clamp(18px, 3.3vw, 3.3vw)))',
+        placeholder_name: 'lifestyle-2',
+        animate: true
+      -%}
+    {%- endif -%}
+  {%- endif -%}
+</div>

@@ -1,0 +1,4 @@
+@import "../styles/animation/mixins.css";
+@import "photoswipe/dist/photoswipe.css"; /* Photoswipe not needed until lightbox triggered */
+@import "../styles/vendor/photoswipe.css"; /* Photoswipe not needed until lightbox triggered */
+@import "../styles/vendor/no-ui-slider.css"; /* Never rendered outside of dropdown/drawer */

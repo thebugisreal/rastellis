@@ -1,0 +1,23 @@
+.product-rating {
+  display: inline-flex;
+  align-items: center;
+
+  &__stars {
+    display: flex;
+    color: var(--color-product-rating-star);
+    .icon {
+      margin: 1px;
+      margin-right: 2px;
+      display: flex;
+      &,
+      svg {
+        width: 12px;
+        height: 12px;
+      }
+    }
+  }
+  &__count {
+    margin-left: 2px;
+    margin-top: 2px;
+  }
+}

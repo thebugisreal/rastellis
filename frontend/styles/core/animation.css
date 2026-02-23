@@ -1,0 +1,17 @@
+@media (--above-480) {
+  .hover {
+    .image {
+      overflow: hidden;
+
+      > * {
+        transition: transform var(--duration-slow) var(--easing);
+      }
+    }
+
+    &:hover {
+      .image > * {
+        transform: scale(1.05);
+      }
+    }
+  }
+}

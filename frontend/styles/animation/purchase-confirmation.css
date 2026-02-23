@@ -1,0 +1,20 @@
+html.do-anim .animation.animation--purchase-confirmation {
+  .animation--purchase-confirmation-item,
+  .animation--purchase-confirmation-footer-item {
+    @mixin staggered-fade-in-from-bottom;
+  }
+
+  .animation--purchase-confirmation-footer-item {
+    transition-delay: calc(
+      (var(--delay-amount) * var(--delay-offset-multiplier, 0)) +
+        var(--duration-normal)
+    );
+  }
+
+  &.animation--purchase-confirmation-revealed {
+    .animation--purchase-confirmation-item,
+    .animation--purchase-confirmation-footer-item {
+      @mixin reveal-fade-in-from-y;
+    }
+  }
+}

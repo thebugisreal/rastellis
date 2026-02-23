@@ -1,0 +1,21 @@
+html.do-anim .animation.animation--events {
+  .event-item {
+    @mixin staggered-fade;
+  }
+
+  .event-item.event-item--skeleton {
+    @mixin fade;
+  }
+
+  &.is-visible {
+    .event-item.event-item--skeleton {
+      @mixin reveal-fade;
+    }
+  }
+
+  &.is-visible.animate-event-items {
+    .event-item {
+      @mixin reveal-fade;
+    }
+  }
+}

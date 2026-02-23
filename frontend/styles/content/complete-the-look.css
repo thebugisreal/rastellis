@@ -1,0 +1,191 @@
+.complete-the-look__inner {
+  display: flex;
+  flex-direction: column;
+
+  .complete-the-look__inner-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @media (--above-720) {
+      flex-direction: row;
+      align-items: flex-start;
+
+      .complete-the-look--image-right & {
+        flex-direction: row-reverse;
+      }
+    }
+  }
+}
+
+.complete-the-look__secondary-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  flex-shrink: 1;
+  @media (--above-720) {
+    width: 50%;
+  }
+  @media (--above-960) {
+    width: 48.75%;
+  }
+  text-align: center;
+}
+
+.complete-the-look__image-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  .image .image__img {
+    width: 100%;
+  }
+
+  @media (--above-720) {
+    width: 50%;
+  }
+  @media (--above-720) {
+    width: 48.75%;
+    margin-right: 2.5%;
+    flex-shrink: 0;
+    .complete-the-look--image-right & {
+      margin-right: 0;
+      margin-left: 2.5%;
+    }
+  }
+}
+
+.complete-the-look__image-container-inner {
+  width: 100%;
+
+  img {
+    display: block;
+  }
+}
+
+.complete-the-look__heading,
+.complete-the-look__subheading {
+  max-width: var(--text-max-width);
+}
+
+.complete-the-look__heading + .complete-the-look__subheading {
+  margin-top: var(--spacing-2);
+
+  @media (--above-480) {
+    margin-top: var(--spacing-3);
+  }
+}
+
+.complete-the-look__cta-button {
+  margin-top: var(--spacing-5);
+}
+
+.complete-the-look__products {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  @media (--below-960) {
+    width: 100%;
+    .complete-the-look__product {
+      &:not(:first-child) {
+        border-top: 1px solid var(--color-border);
+      }
+      .product-card-mini {
+        padding: var(--spacing-4) 0;
+      }
+      @media (--above-720) {
+        &:first-child {
+          .product-card-mini {
+            padding-top: 0;
+          }
+        }
+      }
+    }
+  }
+
+  @media (--above-960) {
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .complete-the-look__product {
+      padding: var(--spacing-3) var(--spacing-2);
+      position: relative;
+    }
+
+    .complete-the-look__product[data-index="2"],
+    .complete-the-look__product[data-index="3"],
+    &[data-count="3"] .complete-the-look__product[data-index="1"] {
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        height: 1px;
+        left: 0px;
+        right: 0px;
+        top: calc(-1 * var(--spacing-5));
+        background: var(--color-border);
+      }
+    }
+
+    .complete-the-look__product[data-index="2"],
+    .complete-the-look__product[data-index="3"] {
+      margin-top: var(--spacing-10);
+    }
+
+    &[data-count="3"] {
+      .complete-the-look__product[data-index="1"]::before {
+        top: auto;
+        bottom: calc(-1 * var(--spacing-5) - 1px);
+      }
+    }
+
+    .complete-the-look__product[data-index="1"],
+    .complete-the-look__product[data-index="3"],
+    .complete-the-look__product[data-index="2"]:last-child {
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        background: var(--color-border);
+        width: 1px;
+      }
+    }
+
+    .complete-the-look__product[data-index="2"]:last-child::after {
+      right: -1px;
+      left: auto;
+    }
+
+    .complete-the-look__product {
+      width: 50%;
+
+      .product-card-mini {
+        padding: 0;
+      }
+      .product-card-mini__image-link {
+        max-width: 50%;
+        display: block;
+        margin: 0 auto;
+      }
+
+      @media (--above-720) {
+        &[data-image-size="small"] .product-card-mini__image-link {
+          max-width: 50%;
+        }
+        &[data-image-size="medium"] .product-card-mini__image-link {
+          max-width: 67%;
+        }
+        &[data-image-size="large"] .product-card-mini__image-link {
+          max-width: 84%;
+        }
+      }
+    }
+  }
+}

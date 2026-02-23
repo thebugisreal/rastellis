@@ -1,0 +1,11 @@
+html.do-anim .animation.animation--collapsible-row-list {
+  &.is-visible {
+    .collapsible-row-list__inner > * {
+      @mixin reveal-fade-in-from-y;
+    }
+  }
+
+  .collapsible-row-list__inner > * {
+    @mixin staggered-fade-in-from-bottom;
+  }
+}

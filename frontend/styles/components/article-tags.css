@@ -1,0 +1,20 @@
+.article-tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin: calc(var(--spacing-1) * -1);
+  padding: 0;
+  list-style: none;
+}
+
+.article-tags__item {
+  margin: var(--spacing-1);
+}
+
+.article-tags__tag {
+  padding: var(--spacing-unit-half) var(--spacing-unit);
+  background-color: var(--color-blog-category-bg);
+  color: var(--color-blog-category-text);
+  border: 1px solid var(--color-blog-category-text);
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}

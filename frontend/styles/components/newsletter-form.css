@@ -1,0 +1,12 @@
+.newsletter-form__inner {
+  position: relative;
+}
+
+.newsletter-form__input,
+.newsletter-form__input.input {
+  margin-top: 0;
+}
+
+.newsletter-form__button {
+  margin-top: var(--spacing-4);
+}

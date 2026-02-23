@@ -1,0 +1,156 @@
+{%- capture image_sizes -%}
+  (min-width: 720px) calc(calc(50vw - calc(2 * clamp(18px, 3.3vw, 3.3vw)))), calc(100vw - calc(2 * 3.3vw))
+{%- endcapture -%}
+
+{%- liquid
+  assign tag_el = tag_el | default: 'span'
+  assign tag_wrapper = tag_wrapper | default: 'div'
+  assign excerpt_truncate_amount = 132
+
+  if show_featured_image == blank
+    assign show_featured_image = false
+  endif
+
+  if is_featured
+    assign excerpt_truncate_amount = 132
+  endif
+
+  if blog
+    assign tag_el = 'a'
+  endif
+
+  assign article_categories = settings.article_categories | downcase
+  assign blog_content = blog_article.excerpt_or_content | strip_html
+-%}
+
+{%- capture tag_list -%}
+  {%- if show_tags and blog_article.tags.size > 0 -%}
+    {%- for tag in blog_article.tags -%}
+      {%- if tag contains ':' -%}
+        {%- assign color = tag | split: ':' | first | handleize -%}
+        {%- assign tag_dc = tag | downcase -%}
+
+        {%- if color -%}
+          <li class="article-tags__item{% if color %} article-tags__item-color border-none {% endif %}">
+            <{{ tag_el }}
+            {%- if blog -%}
+              href="{{ blog.url }}/tagged/{{ tag | handleize }}"
+            {%- endif -%}
+            class="article-tags__tag{% if color %} btn-nav btn-tag bg-{{ color }}{% endif %}"
+            >
+            {{ tag | split: ':' | last }}
+            </{{ tag_el }}>
+          </li>
+        {%- endif -%}
+      {% endif %}
+    {%- endfor -%}
+  {%- endif -%}
+{%- endcapture -%}
+
+<{{ tag_wrapper }}
+  class="
+    article-item
+    {% if blog_article != blank and blog_article.image == blank or show_featured_image != true %}article-item--has-no-image{% endif %}
+    {% if is_featured %}article-item--is-featured{% endif %}
+    {% if class != blank %} {{ class }}{% endif %}
+    animation--article-item
+    hover
+  "
+  data-image="{{ show_featured_image }}"
+>
+  <div class="article-item__inner relative" role="group" aria-label="article">
+    {%- if blog_article != blank -%}
+      {%- if show_featured_image and blog_article.image -%}
+        <a
+          href="{{ blog_article.url }}"
+          class="article-item__image-wrapper"
+          aria-label="{{ blog_article.title }}"
+          {% if featured_article_image_width %}
+            style="--featured-image-width: {{ featured_article_image_width }}%"
+          {% endif %}
+        >
+          {%-
+            render 'image' with
+            wrapper_class: "article-item__image rounded-lg",
+            image: blog_article.image,
+            sizes: image_sizes,
+            aspect_ratio: aspect_ratio,
+            animate: true
+          -%}
+        </a>
+      {%- endif -%}
+
+      <div class="article-item__content static mt-4 p-0">
+        <div class="article-item__content-inner">
+          {%- if tag_list != blank -%}
+            <div class="article-item__tags absolute top-4 right-4 flex-row-reverse mb-0">
+              <ul class="article-tags gap-1.5 flex-row-reverse">
+                {{ tag_list }}
+              </ul>
+            </div>
+          {%- endif -%}
+
+          <h3 class="article-item__title mb-1.5 {% if is_featured %}fs-heading-3-base{% else %}label{% endif %}">
+            <a class="text-base font-bold" href="{{ blog_article.url }}">{{ blog_article.title }}</a>
+          </h3>
+
+          {%- if show_author or show_date -%}
+            <p class="article-item__meta text-sm mb-2.5">
+              {%- if show_author -%}
+                <span>
+                  {{- 'blogs.article.by' | t }}
+                  {{ blog_article.author -}}
+                </span>
+              {%- endif -%}
+
+              {%- if show_date -%}
+                {{ blog_article.published_at | time_tag: format: 'abbreviated_date' }}
+              {%- endif -%}
+            </p>
+          {%- endif -%}
+
+          {%- if show_excerpt and blog_content -%}
+            <div class="article-item__excerpt text-sm mb-2.5">
+              <p>{{ blog_content | truncate: excerpt_truncate_amount }}</p>
+            </div>
+          {%- endif -%}
+
+          {%- assign button_label = 'blogs.article.read' | t -%}
+          {%- if blog.url contains 'press' or blog.url contains 'events' -%}
+            {%- assign button_label = 'blogs.article.read_article' | t -%}
+          {%- endif -%}
+          {%-
+            render 'button-block' with
+            wrapper_class: "article-item__read-button font-bold",
+            link: blog_article.url,
+            label: button_label,
+            button_style: "btn--link p-0 text-sm"
+          -%}
+        </div>
+      </div>
+    {%- else -%}
+      <div class="article-item__image-wrapper">
+        {%-
+          render 'image' with
+          wrapper_class: "article-item__image rounded-lg",
+          sizes: image_sizes,
+          aspect_ratio: aspect_ratio,
+          include_placeholder: true
+        -%}
+      </div>
+      <div class="article-item__content static mt-4 p-0">
+        <div class="article-item__content-inner p-0">
+          <h3 class="article-item__title mb-1.5 label">{{ 'homepage.onboarding.blog_title' | t }}</h3>
+          <p class="article-item__meta">
+            <span>
+              {{- 'blogs.article.by' | t }}
+              {{ 'homepage.onboarding.article_author' | t -}}
+            </span>
+            {{ "now" | time_tag: format: 'abbreviated_date' }}
+          </p>
+          <div class="article-item__excerpt">{{ 'homepage.onboarding.article_excerpt' | t }}</div>
+        </div>
+      </div>
+    {%- endif -%}
+  </div>
+</{{ tag_wrapper }}>

@@ -1,0 +1,137 @@
+.disclosure-form {
+  position: relative;
+  align-self: center;
+
+  .header__row & {
+    margin-top: calc(-1 * var(--spacing-3));
+  }
+}
+
+.disclosure-form__inner {
+  display: flex;
+  align-items: center;
+}
+
+.disclosure-form__item {
+  & + & {
+    margin-left: var(--spacing-4);
+  }
+}
+
+.disclosure {
+  @media (--above-720) {
+    position: relative;
+  }
+}
+
+.disclosure__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  white-space: nowrap;
+
+  .header__row & {
+    min-height: 44px;
+  }
+
+  .flag-icon {
+    margin-right: var(--spacing-1);
+  }
+
+  .icon {
+    width: 8px;
+    height: 8px;
+    display: flex;
+    align-items: center;
+    margin-top: 1px;
+    margin-left: calc(var(--spacing-2) - 2px);
+
+    svg {
+      width: 100%;
+    }
+  }
+}
+
+.disclosure-list {
+  display: none;
+  position: absolute;
+  top: calc(100% + var(--spacing-2));
+  left: 0;
+  max-height: 380px;
+  margin: 0;
+  border: solid 1px var(--color-text);
+  background-color: var(--color-background);
+  padding: var(--spacing-3);
+  overflow-x: hidden;
+  overflow-y: auto;
+  z-index: var(--z-index-modal);
+  list-style: none;
+
+  .disclosure--locale & {
+    min-width: 150px;
+  }
+
+  .disclosure--currency & {
+    min-width: 200px;
+  }
+
+  &[aria-hidden="false"] {
+    display: block;
+  }
+
+  &.disclosure-list--top {
+    top: auto;
+    bottom: calc(100% + var(--spacing-2));
+  }
+
+  @media (--above-720) {
+    left: 0;
+
+    &.disclosure-list--right {
+      left: auto;
+      right: 0;
+    }
+  }
+}
+
+.disclosure-list__item {
+  padding: 0;
+  text-align: left;
+
+  & + & {
+    margin-top: var(--spacing-3);
+  }
+}
+
+.disclosure-list__option {
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  > .flag-icon {
+    flex: 1 0 18px;
+    max-width: 18px;
+    width: 18px;
+    height: 18px;
+    margin-right: var(--spacing-2);
+  }
+
+  > .icon {
+    display: flex;
+    width: 14px;
+    height: 14px;
+    margin-left: auto;
+    color: var(--color-text);
+  }
+}
+
+.disclosure-list__option-label {
+  color: var(--color-text);
+
+  @media (--above-720) {
+    white-space: nowrap;
+  }
+}

@@ -1,0 +1,244 @@
+.comparison-table {
+  display: block;
+}
+
+.comparison-table__header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  height: 100%;
+  z-index: 1;
+
+  &.scrolling {
+    padding-bottom: 35px;
+
+    .is-ios-device & {
+      padding-bottom: 29px;
+		}
+  }
+
+  .comparison-table__column {
+    background-color: var(--color-background);
+  }
+}
+
+.comparison-table__columns {
+  position: relative;
+  padding: 0px;
+  margin: 0px;
+  display: flex;
+  list-style: none;
+  text-align: center;
+}
+
+.comparison-table__headline {
+  margin-bottom: var(--spacing-1);
+  text-align: center;
+}
+
+.comparison-table__heading {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.comparison-table__inner {
+  position: relative;
+}
+
+.comparison-table__products {
+  position: relative;
+  overflow-x: auto;
+  margin-right: 20px;
+  padding-left: 100px;
+  width: 100%;
+
+  .scrolling & {
+    padding-bottom: 29px;
+  }
+
+  @media (--above-720) {
+    margin-left: 200px;
+    margin-right: 40px;
+    padding-left: 0;
+    width: calc(100% - 200px);
+  }
+
+	&::-webkit-scrollbar {
+    display: block;
+    height: 6px;
+    border-radius: 3px;
+  }
+
+	&::-webkit-scrollbar-track {
+    border-radius: 3px;
+    background-color: var(--color-border);
+	}
+
+	&::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-color: var(--color-text);
+	}
+}
+
+.comparison-table__column {
+  width: 100px;
+  margin: 0px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  list-style: none;
+
+  &.comparison-table__column--current {
+    background: var(--background-color);
+    border-radius: 10px;
+  }
+
+  @media (--above-720) {
+    width: 200px;
+  }
+
+	.comparison-table__products & {
+    width: 100%;
+	}
+}
+
+.comparison-table__item {
+  position: relative;
+  min-width: 154px;
+
+  @media (--above-720) {
+    min-width: 193px;
+    width: calc(100% / 6);
+    flex-shrink: 0;
+  }
+}
+
+.comparison-table__center {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.comparison-table__cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: max-content;
+  min-height: 71px;
+  width: 100%;
+  padding: var(--spacing-1);
+  border-top-width: 1px;
+  border-color: var(--color-text);
+
+  .template--aden & {
+    border-color: var(--color-medium-gray);
+  }
+
+  &:first-child {
+    border-top-width: 0;
+  }
+
+  @media (--above-960) {
+    min-height: 56px;
+  }
+
+	.comparison-table__header & {
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    padding: var(--spacing-1) 5px;
+
+    @media (--above-960) {
+      padding: var(--spacing-1) 10px;
+    }
+	}
+
+  &.comparison-table__cell--top {
+    flex-grow: 1;
+    padding: var(--spacing-3) var(--spacing-3) 18px;
+    justify-content: flex-start;
+
+    @media (--above-720) {
+      padding: var(--spacing-5) var(--spacing-5) 18px;
+    }
+  }
+
+  &.compare-row--shop-now {
+    min-height: 58px;
+
+    @media (--above-720) {
+      min-height: 79px;
+      justify-content: center;
+    }
+
+    &.compare-row--hide-button {
+      min-height: 20px;
+
+      @media (--above-960) {
+        min-height: 40px;
+      }
+    }
+  }
+
+  .comparison-icon {
+    width: 25px;
+    height: 25px;
+
+    @media (--above-720) {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+.comparison-table__product-link {
+  text-decoration: underline;
+  font-weight: var(--font-body-weight);
+
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+.comparison-table__image {
+  position: relative;
+  margin-bottom: var(--spacing-1);
+  width: 100%;
+  max-width: 130px;
+  aspect-ratio: 130 / 90;
+  overflow: hidden;
+
+  @media (--above-720) {
+    max-width: 153px;
+    aspect-ratio: 153 / 90;
+  }
+
+  img {
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+}
+
+.comparison-table__actions {
+  margin-top: var(--spacing-8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  @media (--above-720) {
+    flex-direction: row;
+  }
+
+  .button-block__button + .button-block__button {
+    margin-left: 0;
+    margin-top: var(--spacing-2);
+
+    @media (--above-720) {
+      margin-top: 0;
+      margin-left: var(--spacing-4);
+    }
+  }
+}

@@ -1,0 +1,12 @@
+html.do-anim .animation.animation--collection-list-grid {
+  &.is-visible {
+    .animation--item {
+      @mixin reveal-fade-in-from-y;
+    }
+  }
+  /* Fade in slide up collection item */
+  .animation--item {
+    @mixin staggered-fade-in-from-bottom 40px, var(--duration-normal),
+      var(--delay-small);
+  }
+}

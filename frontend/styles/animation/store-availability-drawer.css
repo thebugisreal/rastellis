@@ -1,0 +1,11 @@
+html.do-anim .animation.animation--store-availability-drawer {
+  .animation--store-availability-drawer-items > * {
+    @mixin slide-in-staggered-x;
+  }
+
+  &.animation--store-availability-drawer-revealed {
+    .animation--store-availability-drawer-items > * {
+      @mixin reveal-fade-in-from-x;
+    }
+  }
+}

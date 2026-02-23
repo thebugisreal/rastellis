@@ -1,0 +1,23 @@
+.shoppable-image {
+  position: unset;
+
+  .section-introduction__heading,
+  .section-introduction__subheading {
+    text-align: center;
+  }
+}
+
+.shoppable-image__image-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.shoppable-image__image-container-inner {
+  width: 100%;
+
+  img {
+    display: block;
+  }
+}

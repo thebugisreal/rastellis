@@ -1,0 +1,10 @@
+{% if alignment == blank %} {% assign alignment = "right" %} {% endif %}
+
+<button type="button" class="btn btn--solid btn--dark btn--small video-pause video-pause--{{ alignment }}"
+  data-status="play"
+  aria-label="{{ 'general.accessibility.pause' | t }}"
+>
+  <span class="sr-only">{{ 'general.accessibility.pause' | t }}</span>
+  {%- render "play-icon", class: "icon-play" -%}
+  {%- render "pause-icon", class: "icon-pause" -%}
+</button>

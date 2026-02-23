@@ -1,0 +1,309 @@
+.video-with-text {
+  --text-container-outer: 10%;
+  --text-container-outer-large: 14%;
+
+  text-align: var(--text-align);
+  color: var(--color-text);
+  background-color: var(--color-background);
+
+  &.video-with-text--content-align-left {
+    &.video-with-text--video-position-right {
+      .video-with-text__text-container-inner {
+        padding-left: 0;
+      }
+    }
+
+    &.video-with-text--video-position-left {
+      .video-with-text__text-container-inner {
+        padding-right: 0;
+      }
+    }
+  }
+
+  &.video-with-text--content-align-right {
+    &.video-with-text--video-position-right {
+      .video-with-text__text-container-inner {
+        padding-left: 0;
+      }
+    }
+
+    &.video-with-text--video-position-left {
+      .video-with-text__text-container-inner {
+        padding-right: 0;
+      }
+    }
+  }
+
+  @media (--below-720) {
+    &.video-with-text--aspect-ratio-mobile-natural {
+      --aspect-ratio: unset;
+
+      .video-with-text__media-container {
+        align-items: center;
+      }
+
+      video {
+        object-fit: unset;
+      }
+    }
+
+    &.video-with-text--aspect-ratio-mobile-square {
+      --aspect-ratio: var(--aspect-ratio-square);
+    }
+
+    &.video-with-text--aspect-ratio-mobile-portrait {
+      --aspect-ratio: var(--aspect-ratio-portrait);
+    }
+
+    &.video-with-text--aspect-ratio-mobile-portrait_alt {
+      --aspect-ratio: var(--aspect-ratio-portrait-alt);
+    }
+
+    &.video-with-text--aspect-ratio-mobile-landscape {
+      --aspect-ratio: var(--aspect-ratio-landscape);
+    }
+
+    &.video-with-text--aspect-ratio-mobile-landscape_alt {
+      --aspect-ratio: var(--aspect-ratio-landscape-alt);
+    }
+
+    &.video-with-text--aspect-ratio-mobile-landscape_wide_alt {
+      --aspect-ratio: var(--aspect-ratio-widescreen);
+    }
+
+    &.video-with-text--aspect-ratio-mobile-landscape_ultrawide_alt {
+      --aspect-ratio: var(--aspect-ratio-ultrawide);
+    }
+  }
+
+  @media (--above-720) {
+    &.video-with-text--aspect-ratio-natural {
+      --aspect-ratio: unset;
+
+      .video-with-text__media-container {
+        align-items: center;
+      }
+
+      video {
+        object-fit: unset;
+      }
+    }
+
+    &.video-with-text--aspect-ratio-square {
+      --aspect-ratio: var(--aspect-ratio-square);
+    }
+
+    &.video-with-text--aspect-ratio-portrait {
+      --aspect-ratio: var(--aspect-ratio-portrait);
+    }
+
+    &.video-with-text--aspect-ratio-portrait_alt {
+      --aspect-ratio: var(--aspect-ratio-portrait-alt);
+    }
+
+    &.video-with-text--aspect-ratio-landscape {
+      --aspect-ratio: var(--aspect-ratio-landscape);
+    }
+
+    &.video-with-text--aspect-ratio-landscape_alt {
+      --aspect-ratio: var(--aspect-ratio-landscape-alt);
+    }
+
+    &.video-with-text--aspect-ratio-landscape_wide_alt {
+      --aspect-ratio: var(--aspect-ratio-widescreen);
+    }
+
+    &.video-with-text--aspect-ratio-landscape_ultrawide_alt {
+      --aspect-ratio: var(--aspect-ratio-ultrawide);
+    }
+  }
+
+  /* Block Layout */
+  .video-with-text__inner {
+    display: flex;
+    flex-direction: column;
+
+    @media (--above-720) {
+      flex-direction: row;
+    }
+  }
+
+  .video-with-text__media-container {
+    max-width: 100%;
+    display: flex;
+    aspect-ratio: var(--aspect-ratio);
+    justify-content: center;
+    flex-direction: column;
+
+    @media (--above-720) {
+      width: 50%;
+    }
+  }
+
+  /* 1. Pause button will align to this container */
+  .video-with-text__video-wrapper {
+    width: 100%;
+    position: relative; /* [1] */
+    overflow: hidden;
+    display: block;
+    aspect-ratio: var(--aspect-ratio);
+  }
+
+  .video-with-text__text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @media (--above-720) {
+      width: 50%;
+    }
+  }
+
+  .video-with-text__text-container-inner {
+    max-width: 600px;
+
+    @media (--above-720) {
+      padding-right: var(--text-container-outer);
+      padding-left: var(--text-container-outer);
+      max-width: calc(600px + (var(--text-container-outer) * 2));
+    }
+
+    @media (--above-1200) {
+      padding-right: var(--text-container-outer-large);
+      padding-left: var(--text-container-outer-large);
+      max-width: calc(600px + (var(--text-container-outer-large) * 2));
+    }
+  }
+
+  /* Scaling video to fill block */
+  video {
+    min-height: 100%;
+    min-width: 100%;
+    object-fit: cover;
+
+    @media (--below-720) {
+      object-position: var(--video-focal-alignment-horizontal-mobile);
+    }
+
+    @media (--above-720) {
+      object-position: var(--video-focal-alignment-horizontal);
+    }
+  }
+
+  /* Adjustments to video element based on aspect-ratio */
+  @media (--below-720) {
+    &.video-with-text--aspect-ratio-mobile-natural {
+      video {
+        width: 100%;
+      }
+    }
+  }
+
+  @media (--above-720) {
+    &.video-with-text--aspect-ratio-natural {
+      video {
+        width: 100%;
+      }
+    }
+  }
+
+  /* Content Positioning */
+  &.video-with-text--video-position-right {
+    .video-with-text__media-container {
+      @media (--above-720) {
+        order: 1;
+      }
+    }
+  }
+
+  &.video-with-text--video-mobile-position-below-content {
+    .video-with-text__media-container {
+      @media (--below-720) {
+        order: 1;
+        margin-top: var(--spacing-10);
+      }
+    }
+  }
+
+  &.video-with-text--video-mobile-position-above-content {
+    .video-with-text__text-container {
+      @media (--below-720) {
+        margin-top: var(--spacing-10);
+      }
+    }
+  }
+
+  /* Media Container - video injected with javascript */
+  /* 1. Focal alignment */
+  /* 2. Fix for floating video element */
+  /* 3. Fix for whitespace at bottom of element - same as img */
+  .current-video-with-text-container {
+    width: 100%;
+    max-height: 100%;
+    height: 100%;
+    display: flex; /* [1][2] */
+    line-height: 0; /* [3] */
+  }
+
+  .placeholder-image {
+    flex-grow: 1;
+  }
+
+   /* Full Width */
+   /* intended to match image-with-text-split layout, but with video */
+   /* 1. breakpoint is 960 vs 720 */
+   /* 2. no margin separation between text and video */
+   /* 3. text container padding takes precedence */
+   /* 4. text container width is uncapped */
+  .section--full-width {
+    @media (--below-960) {
+      flex-direction: column;
+    }
+
+    .video-with-text__text-container {
+      padding: var(--spacing-10) var(--space-outer); /* [3] */
+
+      @media (--below-960) {
+        width: 100%;
+      }
+    }
+
+    .video-with-text__media-container {
+      @media (--below-960) {
+        width: 100%;
+      }
+    }
+
+    .video-with-text__text-container-inner {
+      max-width: inherit; /* [4] */
+      padding: 0; /* [3] */
+    }
+  }
+
+  &.video-with-text--video-mobile-position-below-content {
+    .section--full-width {
+      .video-with-text__media-container {
+        @media (--below-960) {
+          order: 1;
+          margin-top: 0; /* [2] */
+        }
+      }
+    }
+  }
+
+  &.video-with-text--video-mobile-position-above-content {
+    .section--full-width {
+      .video-with-text__media-container {
+        @media (--below-960) {
+          order: 0;
+        }
+      }
+
+      .video-with-text__text-container {
+        @media (--below-960) {
+          margin-top: 0; /* [2] */
+        }
+      }
+    }
+  }
+}

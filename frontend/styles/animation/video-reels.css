@@ -1,0 +1,19 @@
+html.do-anim .animation.animation--video-reels {
+  /* Navigation arrows */
+  .animation--controls {
+    @mixin staggered-fade-in-from-bottom;
+  }
+
+  /* Slide items */
+  .animation--item {
+    @mixin staggered-fade-in-from-bottom 40px, var(--duration-normal),
+      var(--delay-small);
+  }
+
+  &.is-visible {
+    .animation--controls,
+    .animation--item {
+      @mixin reveal-fade-in-from-y;
+    }
+  }
+}

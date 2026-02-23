@@ -1,0 +1,111 @@
+html.do-anim .animation {
+  &.animation--sales-banner,
+  &.animation--promotion-bar,
+  &.animation--countdown-banner,
+  &.animation--countdown-bar,
+  &.animation--promo-banner {
+    .animation--sale-amount {
+      @mixin staggered-image-fade-scale 0.8;
+    }
+
+    .animation--banner-divider::before {
+      width: 10%;
+      opacity: 0;
+      transition: width var(--duration-normal) var(--easing),
+        opacity var(--duration-normal) var(--easing);
+
+      @media (--above-720) {
+        width: 1px;
+        top: auto;
+        height: 80%;
+        transition: height var(--duration-normal) var(--easing),
+          opacity var(--duration-normal) var(--easing);
+      }
+    }
+
+    .animation--bar-divider::before {
+      width: 5%;
+      opacity: 0;
+      transition: width var(--duration-normal) var(--easing),
+        opacity var(--duration-normal) var(--easing);
+
+      @media (--above-720) {
+        width: 1px;
+        top: auto;
+        height: 80%;
+        transition: height var(--duration-normal) var(--easing),
+          opacity var(--duration-normal) var(--easing);
+      }
+    }
+
+    .sales-banner__bar-item--heading,
+    .sales-banner__bar-text,
+    .sales-banner__button,
+    .countdown-banner__bar-item--heading,
+    .countdown-banner__bar-item--timer,
+    .countdown-banner__bar-text,
+    .countdown-banner__button,
+    .animation--giant-heading {
+      @mixin staggered-fade-in-from-bottom;
+    }
+
+    .sale-promotion__type,
+    .sale-promotion__unit-currency,
+    .sale-promotion__unit-percent,
+    .sale-promotion__unit-off,
+    .sale-promotion__amount,
+    .sale-promotion__per-month,
+    .sale-promotion__per-year,
+    .sale-promotion__terms {
+      @mixin staggered-fade;
+    }
+
+    &.is-visible {
+      .animation--sale-amount {
+        @mixin reveal-fade-scale;
+      }
+
+      .sales-banner__bar-item--heading,
+      .sales-banner__bar-text,
+      .sales-banner__button,
+      .countdown-banner__bar-item--heading,
+      .countdown-banner__bar-item--timer,
+      .countdown-banner__bar-text,
+      .countdown-banner__button,
+      .animation--giant-heading {
+        @mixin reveal-fade-in-from-y;
+      }
+
+      .sale-promotion__type,
+      .sale-promotion__unit-currency,
+      .sale-promotion__unit-percent,
+      .sale-promotion__unit-off,
+      .sale-promotion__amount,
+      .sale-promotion__per-month,
+      .sale-promotion__per-year,
+      .sale-promotion__terms {
+        @mixin reveal-fade;
+      }
+
+      .animation--banner-divider::before {
+        width: 30%;
+        opacity: 1;
+
+        @media (--above-720) {
+          width: 1px;
+          height: 100%;
+        }
+      }
+
+      .animation--bar-divider::before {
+        width: 15%;
+        opacity: 1;
+
+        @media (--above-720) {
+          width: 1px;
+          height: 100%;
+        }
+      }
+    }
+  }
+}

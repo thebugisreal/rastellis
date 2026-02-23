@@ -1,0 +1,10 @@
+html.do-anim .animation {
+  .animation--section-blocks > * {
+    @mixin staggered-fade-in-from-bottom 20px;
+  }
+
+  &.is-visible .animation--section-blocks > *,
+  .is-visible .animation--section-blocks > * {
+    @mixin reveal-fade-in-from-y;
+  }
+}

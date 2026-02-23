@@ -1,0 +1,57 @@
+html.do-anim .animation.animation--complete-the-look {
+  &.is-visible {
+    .complete-the-look__products {
+      .complete-the-look__product {
+        @mixin reveal-fade-in-from-y;
+
+        .product-card-mini__inner {
+          @mixin reveal-fade-in-from-y;
+        }
+
+        &::after,
+        &::before {
+          @mixin reveal-fade;
+        }
+      }
+    }
+  }
+
+  .complete-the-look__product {
+    @media (--below-960) {
+      @mixin staggered-fade-in-from-bottom;
+    }
+
+    &:nth-of-type(2) {
+      .product-card-mini__inner {
+        @media (--above-960) {
+          transition-delay: calc(
+            var(--delay-normal) * (var(--delay-offset-multiplier, 0) - 1)
+          );
+        }
+      }
+    }
+
+    &:nth-of-type(4) {
+      .product-card-mini__inner {
+        @media (--above-960) {
+          transition-delay: calc(
+            var(--delay-normal) * (var(--delay-offset-multiplier, 0) - 1)
+          );
+        }
+      }
+    }
+
+    .product-card-mini__inner {
+      @media (--above-960) {
+        @mixin staggered-fade-in-from-bottom;
+      }
+    }
+
+    &::after,
+    &::before {
+      @media (--above-960) {
+        @mixin staggered-fade;
+      }
+    }
+  }
+}

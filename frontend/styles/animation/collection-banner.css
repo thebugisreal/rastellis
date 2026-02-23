@@ -1,0 +1,18 @@
+html.do-anim .animation.animation--collection-banner {
+  &.is-visible {
+    .collection-banner__overlay {
+      opacity: var(--overlay-opacity);
+    }
+  }
+
+  .collection-banner__image-container {
+    .image__img {
+      transition-duration: var(--duration-slow);
+    }
+  }
+
+  .collection-banner__overlay {
+    opacity: 0;
+    transition: opacity var(--duration-slow) var(--easing);
+  }
+}
