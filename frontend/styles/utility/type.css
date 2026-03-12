@@ -188,6 +188,38 @@
   letter-spacing: var(--font-navigation-base-letter-spacing);
 }
 
+.ff-heading.fs-heading-5-base,
+.ff-heading.fs-heading-6-base {
+  font-family: var(--font-heading-2);
+  font-weight: var(--font-heading-2-weight);
+}
+
+.ff-primary.fs-heading-5-base,
+.ff-primary.fs-heading-6-base {
+  font-family: var(--font-heading-2) !important;
+}
+
+.fs-heading-bold.fs-heading-5-base,
+.fs-heading-bold.fs-heading-6-base {
+  font-weight: var(--font-heading-2-bold-weight);
+}
+
+.ff-subheading.fs-body-200,
+.ff-subheading.fs-body-250 {
+  font-family: var(--font-subheading-2);
+  font-weight: var(--font-subheading-2-weight);
+}
+
+.ff-secondary.fs-body-200,
+.ff-secondary.fs-body-250 {
+  font-family: var(--font-subheading-2) !important;
+}
+
+.fs-subheading-bold.fs-body-200,
+.fs-subheading-bold.fs-body-250 {
+  font-weight: var(--font-subheading-2-bold-weight);
+}
+
 .c-heading-text-dark {
   color: var(--color-heading-text-dark);
 }

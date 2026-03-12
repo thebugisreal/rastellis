@@ -22,8 +22,7 @@ button {
   --button-height-x-small: 34px;
   --button-padding-large: calc(1em * var(--button-padding-multiplier))
     calc(2.31em * var(--button-padding-multiplier));
-  --button-padding-normal: calc(0.777em * var(--button-padding-multiplier))
-    calc(1.777em * var(--button-padding-multiplier));
+  --button-padding-normal: 15px 16px;
   --button-padding-small: calc(0.555em * var(--button-padding-multiplier))
     calc(1.333em * var(--button-padding-multiplier));
   --button-padding-x-small: calc(0.444em * var(--button-padding-multiplier))
@@ -39,6 +38,7 @@ button {
   word-break: break-word;
   font-family: var(--font-button);
   font-weight: var(--font-button-weight);
+  gap: 10px;
 
   &:disabled {
     pointer-events: none;
@@ -77,6 +77,7 @@ button {
   text-transform: var(--text-transform-button);
   line-height: var(--line-height-button);
   letter-spacing: var(--letter-spacing-button);
+  border-radius: 6px;
 }
 
 .btn.btn--small {
@@ -143,11 +144,21 @@ button {
     z-index: -2;
   }
 
-  &:hover:not([disabled]),
-  &:focus:not([disabled]) {
+  &:hover:not([disabled]):not(.disabled),
+  &:focus:not([disabled]):not(.disabled) {
     &::before {
       opacity: 1;
       visibility: visible;
+    }
+  }
+
+  &[disabled],
+  &.disabled {
+    opacity: 1;
+    background-color: var(--color-body-copy);
+
+    &::before {
+      background-color: var(--color-body-copy);
     }
   }
 
@@ -156,14 +167,14 @@ button {
   }
 
   &.btn--overlay {
-    border: 1px solid;
+    border: 1.5px solid;
   }
 }
 
 .btn.btn--light,
 .spr-button-primary {
   position: relative;
-  border: 1px solid;
+  border: 1.5px solid;
   transition: color 0.2s ease;
   overflow: hidden;
   z-index: 1;
@@ -181,11 +192,23 @@ button {
     transition: var(--duration-normal) var(--easing);
   }
 
-  &:hover:not([disabled]),
-  &:focus:not([disabled]) {
+  &:hover:not([disabled]):not(.disabled),
+  &:focus:not([disabled]):not(.disabled) {
     &::before {
       opacity: 1;
       visibility: visible;
+    }
+  }
+
+  &[disabled],
+  &.disabled {
+    opacity: 1;
+    color: var(--color-button-light-solid-text-hover);
+    border-color: var(--color-body-copy);
+    background-color: var(--color-body-copy);
+
+    &::before {
+      background-color: var(--color-body-copy);
     }
   }
 
@@ -197,7 +220,7 @@ button {
 .btn.btn--tertiary,
 .spr-summary-actions-newreview {
   color: var(--color-text);
-  border: 1px solid var(--color-text-alpha);
+  border: 1.5px solid var(--color-text-alpha);
   transition: color 0.2s ease, border-color 0.2s ease;
 
   &:hover:not([disabled]),
@@ -218,6 +241,8 @@ button {
   font-size: var(--font-size-button);
   line-height: 1.2;
   transition: color 0.1s ease;
+  border-radius: 0.1px;
+  gap: var(--spacing-2);
 
   span {
     position: relative;
@@ -333,8 +358,7 @@ button {
       background-color: var(--color-button-dark-solid-bg-hover);
     }
 
-    &:hover:not([disabled]),
-    &:focus:not([disabled]) {
+    &:hover:not([disabled]):not(.disabled) {
       color: var(--color-button-dark-solid-text-hover);
       border-color: var(--color-button-dark-solid-bg-hover);
 
@@ -343,10 +367,10 @@ button {
       }
     }
 
-    &:focus:not([disabled]) {
+    &:focus:not([disabled]):not(.disabled) {
       outline: 1px solid;
       outline-color: var(--color-focus-dark);
-      outline-offset: 2px;
+      outline-offset: var(--spacing-1);
     }
 
     &.btn--overlay {
@@ -362,15 +386,15 @@ button {
         background-color: var(--color-button-dark-solid-bg-hover);
       }
 
-      &:hover:not([disabled]),
-      &:focus:not([disabled]) {
+      &:hover:not([disabled]):not(.disabled),
+      &:focus:not([disabled]):not(.disabled) {
         color: var(--color-button-dark-solid-text-hover);
       }
     }
 
     /* Primary Outline = Dark Outline Button (Figma Design) */
     &.btn--outline {
-      border: 1px solid var(--color-button-dark-outline-border);
+      border: 1.5px solid var(--color-button-dark-outline-border);
       background-color: transparent;
       color: var(--color-button-dark-outline-text);
 
@@ -382,13 +406,24 @@ button {
         background-color: transparent;
       }
 
-      &:hover:not([disabled]),
-      &:focus:not([disabled]) {
+      &:hover:not([disabled]):not(.disabled) {
         color: var(--color-button-dark-solid-text-hover);
         border-color: var(--color-button-dark-solid-bg-hover);
 
         &::before {
           background-color: var(--color-button-dark-solid-bg-hover);
+        }
+      }
+
+      &[disabled],
+      &.disabled {
+        opacity: 1;
+        color: var(--color-button-dark-solid-text);
+        border-color: var(--color-body-copy);
+        background-color: var(--color-body-copy);
+
+        &::before {
+          background-color: var(--color-body-copy);
         }
       }
     }
@@ -411,14 +446,27 @@ button {
         }
       }
 
-      &:hover:not([disabled]),
-      &.btn--overlay:hover:not([disabled]) {
+      &:hover:not([disabled]):not(.disabled),
+      &.btn--overlay:hover:not([disabled]):not(.disabled) {
         color: var(--color-text-link-dark-text-hover);
 
         span {
           &::before,
           &::after {
             background-color: var(--color-text-link-dark-line-hover);
+          }
+        }
+      }
+
+      &[disabled],
+      &.disabled {
+        opacity: 1;
+        color: var(--color-body-copy);
+
+        span {
+          &::before,
+          &::after {
+            background-color: var(--color-body-copy);
           }
         }
       }
@@ -439,8 +487,7 @@ button {
       background-color: var(--color-button-light-solid-bg-hover);
     }
 
-    &:hover:not([disabled]),
-    &:focus:not([disabled]) {
+    &:hover:not([disabled]):not(.disabled) {
       color: var(--color-button-light-solid-text-hover);
       border-color: var(--color-button-light-solid-bg-hover);
 
@@ -449,10 +496,10 @@ button {
       }
     }
 
-    &:focus:not([disabled]) {
+    &:focus:not([disabled]):not(.disabled) {
       outline: 1px solid;
       outline-color: var(--color-focus-light);
-      outline-offset: 2px;
+      outline-offset: var(--spacing-1);
     }
 
     &.btn--overlay {
@@ -468,15 +515,26 @@ button {
         background-color: var(--color-button-light-solid-bg-hover);
       }
 
-      &:hover:not([disabled]),
-      &:focus:not([disabled]) {
+      &:hover:not([disabled]):not(.disabled) {
         color: var(--color-button-light-solid-text-hover);
+      }
+
+      &[disabled],
+      &.disabled {
+        opacity: 1;
+        color: var(--color-button-light-solid-text-hover);
+        border-color: var(--color-body-copy);
+        background-color: var(--color-body-copy);
+
+        &::before {
+          background-color: var(--color-body-copy);
+        }
       }
     }
 
     /* Secondary Outline = Light Outline Button (Figma Design) */
     &.btn--outline {
-      border: 1px solid var(--color-button-light-outline-border);
+      border: 1.5px solid var(--color-button-light-outline-border);
       background-color: transparent;
       color: var(--color-button-light-outline-text);
 
@@ -488,13 +546,24 @@ button {
         background-color: var(--color-button-light-solid-bg-hover);
       }
 
-      &:hover:not([disabled]),
-      &:focus:not([disabled]) {
+      &:hover:not([disabled]):not(.disabled) {
         color: var(--color-button-light-solid-text-hover);
         border-color: var(--color-button-light-solid-bg-hover);
 
         &::before {
           background-color: var(--color-button-light-solid-bg-hover);
+        }
+      }
+
+      &[disabled],
+      &.disabled {
+        opacity: 1;
+        color: var(--color-button-light-solid-text-hover);
+        border-color: var(--color-body-copy);
+        background-color: var(--color-body-copy);
+
+        &::before {
+          background-color: var(--color-body-copy);
         }
       }
     }
@@ -517,7 +586,7 @@ button {
         }
       }
 
-      &:hover:not([disabled]),
+      &:hover:not([disabled]):not(.disabled),
       &.btn--overlay:hover:not([disabled]) {
         color: var(--color-text-link-light-text-hover);
 
@@ -525,6 +594,19 @@ button {
           &::before,
           &::after {
             background-color: var(--color-text-link-light-line-hover);
+          }
+        }
+      }
+
+      &[disabled],
+      &.disabled {
+        opacity: 1;
+        color: var(--color-body-copy);
+
+        span {
+          &::before,
+          &::after {
+            background-color: var(--color-body-copy);
           }
         }
       }
@@ -540,6 +622,10 @@ button {
         bottom: 0;
         height: 1px;
       }
+    }
+
+    &:focus:not([disabled]):not(.disabled) {
+      outline-offset: 6px;
     }
   }
 }
