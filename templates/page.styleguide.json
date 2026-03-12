@@ -124,6 +124,111 @@
         "link_color_scheme": "dark"
       }
     },
+    "rich_text_qWqQLC": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_pK9wxW": {
+          "type": "heading",
+          "settings": {
+            "title": "Heading 1",
+            "heading_tag": "h2",
+            "font_family_class": "ff-secondary",
+            "heading_font_class": "fs-heading-1-base",
+            "heading_color": "c-heading-text-dark"
+          }
+        },
+        "heading_HnBURL": {
+          "type": "heading",
+          "settings": {
+            "title": "Heading 2",
+            "heading_tag": "h2",
+            "font_family_class": "ff-secondary",
+            "heading_font_class": "fs-heading-2-base",
+            "heading_color": "c-heading-text-dark"
+          }
+        },
+        "heading_TTHq4j": {
+          "type": "heading",
+          "settings": {
+            "title": "Heading 3",
+            "heading_tag": "h2",
+            "font_family_class": "ff-secondary",
+            "heading_font_class": "fs-heading-3-base",
+            "heading_color": "c-heading-text-dark"
+          }
+        },
+        "heading_DNeRmP": {
+          "type": "heading",
+          "settings": {
+            "title": "Heading 4",
+            "heading_tag": "h2",
+            "font_family_class": "ff-secondary",
+            "heading_font_class": "fs-heading-4-base",
+            "heading_color": "c-heading-text-dark"
+          }
+        },
+        "heading_3LgTL9": {
+          "type": "heading",
+          "settings": {
+            "title": "Heading 5",
+            "heading_tag": "h2",
+            "font_family_class": "ff-secondary",
+            "heading_font_class": "fs-heading-5-base",
+            "heading_color": "c-heading-text-dark"
+          }
+        },
+        "heading_JAKjPi": {
+          "type": "heading",
+          "settings": {
+            "title": "heading 6",
+            "heading_tag": "h2",
+            "font_family_class": "ff-secondary",
+            "heading_font_class": "fs-heading-6-base",
+            "heading_color": "c-heading-text-dark"
+          }
+        },
+        "subheading_VbRDWx": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Subheading 1",
+            "subheading_tag": "h3",
+            "font_family_class": "ff-secondary",
+            "subheading_font_class": "fs-body-300",
+            "subheading_color": "c-subheading-text-dark"
+          }
+        },
+        "subheading_y9LVGf": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Subheading 2",
+            "subheading_tag": "h3",
+            "font_family_class": "ff-secondary",
+            "subheading_font_class": "fs-body-200",
+            "subheading_color": "c-subheading-text-dark"
+          }
+        }
+      },
+      "block_order": [
+        "heading_pK9wxW",
+        "heading_HnBURL",
+        "heading_TTHq4j",
+        "heading_DNeRmP",
+        "heading_3LgTL9",
+        "heading_JAKjPi",
+        "subheading_VbRDWx",
+        "subheading_y9LVGf"
+      ],
+      "name": "t:sections.rich_text.presets.name",
+      "settings": {
+        "alignment": "left_left",
+        "enable_animation": true,
+        "divider_style": "none",
+        "section_padding": "section--vertical-padding-top-bottom",
+        "content_width": "full",
+        "custom_content_width": 700,
+        "link_color_scheme": "dark"
+      }
+    },
     "custom_liquid_dQFpJN": {
       "type": "custom-liquid",
       "settings": {
@@ -658,6 +763,7 @@
   "order": [
     "main",
     "rich_text_Yd3tLG",
+    "rich_text_qWqQLC",
     "custom_liquid_dQFpJN",
     "rich_text_TXy6zQ",
     "contact_form_tpLV7V",
