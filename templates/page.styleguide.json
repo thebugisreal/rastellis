@@ -21,14 +21,6 @@
     "image_hero_qAfpfC": {
       "type": "image-hero",
       "blocks": {
-        "display_iTFm8E": {
-          "type": "display",
-          "settings": {
-            "display": "Heading 1",
-            "font_family_class": "ff-primary",
-            "display_font_class": "fs-heading-display-1"
-          }
-        },
         "heading_C88igF": {
           "type": "heading",
           "settings": {
@@ -36,14 +28,6 @@
             "font_family_class": "ff-primary",
             "heading_font_class": "fs-heading-1-base",
             "heading_color": "c-heading-text-dark"
-          }
-        },
-        "display_pJJk66": {
-          "type": "display",
-          "settings": {
-            "display": "Heading 2",
-            "font_family_class": "ff-primary",
-            "display_font_class": "fs-heading-display-2"
           }
         },
         "heading_BrP8qP": {
@@ -55,14 +39,6 @@
             "heading_color": "c-heading-text-dark"
           }
         },
-        "display_9EQc96": {
-          "type": "display",
-          "settings": {
-            "display": "Heading 3",
-            "font_family_class": "ff-primary",
-            "display_font_class": "fs-heading-display-3"
-          }
-        },
         "heading_jV9ijn": {
           "type": "heading",
           "settings": {
@@ -72,44 +48,41 @@
             "heading_color": "c-heading-text-dark"
           }
         },
-        "subheading_yHPTMU": {
-          "type": "subheading",
+        "heading_t6rFgK": {
+          "type": "heading",
           "settings": {
-            "subheading": "Heading 4",
+            "title": "Heading 4",
             "font_family_class": "ff-primary",
-            "subheading_font_class": "fs-body-300",
-            "subheading_color": "c-subheading-text-dark"
+            "heading_font_class": "fs-heading-4-base",
+            "heading_color": "c-heading-text-dark"
           }
         },
-        "subheading_Uq7zFD": {
-          "type": "subheading",
+        "heading_xLKWbj": {
+          "type": "heading",
           "settings": {
-            "subheading": "Heading 5",
+            "title": "Heading 5",
             "font_family_class": "ff-primary",
-            "subheading_font_class": "fs-body-200",
-            "subheading_color": "c-subheading-text-dark"
+            "heading_font_class": "fs-heading-5-base",
+            "heading_color": "c-heading-text-dark"
           }
         },
-        "subheading_FPFHDP": {
-          "type": "subheading",
+        "heading_JW7hfi": {
+          "type": "heading",
           "settings": {
-            "subheading": "Heading 6",
+            "title": "Heading 6",
             "font_family_class": "ff-primary",
-            "subheading_font_class": "fs-body-300",
-            "subheading_color": "c-subheading-text-dark"
+            "heading_font_class": "fs-heading-6-base",
+            "heading_color": "c-heading-text-dark"
           }
         }
       },
       "block_order": [
-        "display_iTFm8E",
         "heading_C88igF",
-        "display_pJJk66",
         "heading_BrP8qP",
-        "display_9EQc96",
         "heading_jV9ijn",
-        "subheading_yHPTMU",
-        "subheading_Uq7zFD",
-        "subheading_FPFHDP"
+        "heading_t6rFgK",
+        "heading_xLKWbj",
+        "heading_JW7hfi"
       ],
       "settings": {
         "enable_hero_video": false,
@@ -138,7 +111,7 @@
     "custom_liquid_dQFpJN": {
       "type": "custom-liquid",
       "settings": {
-        "custom_liquid": "<p class=\"ff-subheading fs-body-400\">Subheading 1 like this</p>\n<p class=\"ff-subheading fs-body-250\">Subheading 2 like this</p>\n<p class=\"ff-body fs-body-150\">Blog body like this</p>\n<p class=\"ff-body fs-body-75\">Body 1 like this</p>\n<p class=\"ff-body fs-body-50\">Body 2 like this</p>",
+        "custom_liquid": "<p class=\"ff-subheading fs-body-300\" style=\"margin-bottom: 1rem;\">Subheading 1 like this</p>\n<p class=\"ff-subheading fs-body-200\" style=\"margin-bottom: 1rem;\">Subheading 2 like this</p>\n<p class=\"ff-body fs-body-150\" style=\"margin-bottom: 1rem;\">Blog body like this</p>\n<p class=\"ff-body fs-body-75\" style=\"margin-bottom: 1rem;\">Body 1 like this</p>\n<p class=\"ff-body fs-body-50\" style=\"margin-bottom: 1rem;\">Body 2 like this</p>\n<button type=\"submit\" class=\"btn btn--solid btn--dark\">Button like this</button>",
         "divider_style": "none",
         "section_padding": "section--vertical-padding-top-bottom"
       }
@@ -304,6 +277,7 @@
         "heading_font_class": "fs-heading-3-base",
         "heading_color": "c-heading-text-dark",
         "text": "",
+        "subheading_color": "c-subheading-text-dark",
         "show_recaptcha_terms": true,
         "enable_animation": false,
         "divider_style": "none",
