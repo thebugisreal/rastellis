@@ -547,7 +547,129 @@
       },
       {
         "type": "header",
-        "content": "t:settings_schema.typography.settings.header_subheading.content"
+        "content": "t:settings_schema.typography.settings.header_heading_5-6.content"
+      },
+      {
+        "id": "font_heading_2_type",
+        "type": "select",
+        "label": "t:settings_schema.typography.settings.font_type.label",
+        "options": [
+          {
+            "value": "shopify",
+            "label": "t:settings_schema.typography.settings.font_type.option_1"
+          },
+          {
+            "value": "custom",
+            "label": "t:settings_schema.typography.settings.font_type.option_2"
+          }
+        ],
+        "default": "shopify"
+      },
+      {
+        "id": "font_heading_2_family",
+        "type": "text",
+        "label": "t:settings_schema.typography.settings.font_family.label",
+        "default": "Gotham",
+        "visible_if": "{{ settings.font_heading_2_type == 'custom' }}"
+      },
+      {
+        "id": "shopify_font_heading_2_family",
+        "type": "font_picker",
+        "label": "t:settings_schema.typography.settings.font_family.label",
+        "default": "inter_n4",
+        "visible_if": "{{ settings.font_heading_2_type == 'shopify' }}"
+      },
+      {
+        "id": "font_heading_2_weight",
+        "type": "select",
+        "label": "t:settings_schema.typography.settings.font_weight.label",
+        "default": "400",
+        "options": [
+          {
+            "value": "100",
+            "label": "100"
+          },
+          {
+            "value": "200",
+            "label": "200"
+          },
+          {
+            "value": "300",
+            "label": "300"
+          },
+          {
+            "value": "400",
+            "label": "400"
+          },
+          {
+            "value": "500",
+            "label": "500"
+          },
+          {
+            "value": "600",
+            "label": "600"
+          },
+          {
+            "value": "700",
+            "label": "700"
+          },
+          {
+            "value": "800",
+            "label": "800"
+          },
+          {
+            "value": "900",
+            "label": "900"
+          }
+        ]
+      },
+      {
+        "id": "font_heading_2_bold_weight",
+        "type": "select",
+        "label": "t:settings_schema.typography.settings.font_bold_weight.label",
+        "default": "600",
+        "options": [
+          {
+            "value": "100",
+            "label": "100"
+          },
+          {
+            "value": "200",
+            "label": "200"
+          },
+          {
+            "value": "300",
+            "label": "300"
+          },
+          {
+            "value": "400",
+            "label": "400"
+          },
+          {
+            "value": "500",
+            "label": "500"
+          },
+          {
+            "value": "600",
+            "label": "600"
+          },
+          {
+            "value": "700",
+            "label": "700"
+          },
+          {
+            "value": "800",
+            "label": "800"
+          },
+          {
+            "value": "900",
+            "label": "900"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "t:settings_schema.typography.settings.header_subheading_1.content"
       },
       {
         "id": "font_subheading_type",
@@ -625,6 +747,128 @@
       },
       {
         "id": "font_subheading_bold_weight",
+        "type": "select",
+        "label": "t:settings_schema.typography.settings.font_bold_weight.label",
+        "default": "600",
+        "options": [
+          {
+            "value": "100",
+            "label": "100"
+          },
+          {
+            "value": "200",
+            "label": "200"
+          },
+          {
+            "value": "300",
+            "label": "300"
+          },
+          {
+            "value": "400",
+            "label": "400"
+          },
+          {
+            "value": "500",
+            "label": "500"
+          },
+          {
+            "value": "600",
+            "label": "600"
+          },
+          {
+            "value": "700",
+            "label": "700"
+          },
+          {
+            "value": "800",
+            "label": "800"
+          },
+          {
+            "value": "900",
+            "label": "900"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "t:settings_schema.typography.settings.header_subheading_2.content"
+      },
+      {
+        "id": "font_subheading_2_type",
+        "type": "select",
+        "label": "t:settings_schema.typography.settings.font_type.label",
+        "options": [
+          {
+            "value": "shopify",
+            "label": "t:settings_schema.typography.settings.font_type.option_1"
+          },
+          {
+            "value": "custom",
+            "label": "t:settings_schema.typography.settings.font_type.option_2"
+          }
+        ],
+        "default": "custom"
+      },
+      {
+        "id": "font_subheading_2_family",
+        "type": "text",
+        "label": "t:settings_schema.typography.settings.font_family.label",
+        "default": "degular-display",
+        "visible_if": "{{ settings.font_subheading_2_type == 'custom' }}"
+      },
+      {
+        "id": "shopify_font_subheading_2_family",
+        "type": "font_picker",
+        "label": "t:settings_schema.typography.settings.font_family.label",
+        "default": "inter_n4",
+        "visible_if": "{{ settings.font_subheading_2_type == 'shopify' }}"
+      },
+      {
+        "id": "font_subheading_2_weight",
+        "type": "select",
+        "label": "t:settings_schema.typography.settings.font_weight.label",
+        "default": "400",
+        "options": [
+          {
+            "value": "100",
+            "label": "100"
+          },
+          {
+            "value": "200",
+            "label": "200"
+          },
+          {
+            "value": "300",
+            "label": "300"
+          },
+          {
+            "value": "400",
+            "label": "400"
+          },
+          {
+            "value": "500",
+            "label": "500"
+          },
+          {
+            "value": "600",
+            "label": "600"
+          },
+          {
+            "value": "700",
+            "label": "700"
+          },
+          {
+            "value": "800",
+            "label": "800"
+          },
+          {
+            "value": "900",
+            "label": "900"
+          }
+        ]
+      },
+      {
+        "id": "font_subheading_2_bold_weight",
         "type": "select",
         "label": "t:settings_schema.typography.settings.font_bold_weight.label",
         "default": "600",

@@ -50,7 +50,9 @@
    */
   --font-body: var(--global-font-family-body);
   --font-heading: var(--global-font-family-heading);
+  --font-heading-2: var(--global-font-family-heading-2);
   --font-subheading: var(--global-font-family-subheading);
+  --font-subheading-2: var(--global-font-family-subheading-2);
   --font-button: var(--global-font-family-button);
   --font-logo: var(--global-font-family-heading);
 
@@ -61,8 +63,12 @@
   --font-body-bold-weight: var(--global-font-weight-body-bold);
   --font-heading-weight: var(--global-font-weight-heading);
   --font-heading-bold-weight: var(--global-font-weight-heading-bold);
+  --font-heading-2-weight: var(--global-font-weight-heading-2);
+  --font-heading-2-bold-weight: var(--global-font-weight-heading-2-bold);
   --font-subheading-weight: var(--global-font-weight-subheading);
   --font-subheading-bold-weight: var(--global-font-weight-subheading-bold);
+  --font-subheading-2-weight: var(--global-font-weight-subheading-2);
+  --font-subheading-2-bold-weight: var(--global-font-weight-subheading-2-bold);
   --font-button-weight: var(--global-font-weight-button);
   --font-logo-weight: "normal";
 

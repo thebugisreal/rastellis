@@ -89,7 +89,9 @@
 
 <style>
   {% if settings.font_heading_type == 'shopify' %}{{ settings.shopify_font_heading_family | font_face: font_display: 'swap' }}{% endif %}
+  {% if settings.font_heading_2_type == 'shopify' %}{{ settings.shopify_font_heading_2_family | font_face: font_display: 'swap' }}{% endif %}
   {% if settings.font_subheading_type == 'shopify' %}{{ settings.shopify_font_subheading_family | font_face: font_display: 'swap' }}{% endif %}
+  {% if settings.font_subheading_2_type == 'shopify' %}{{ settings.shopify_font_subheading_2_family | font_face: font_display: 'swap' }}{% endif %}
   {% if settings.font_body_type == 'shopify' %}{{ settings.shopify_font_body_family | font_face: font_display: 'swap' }}{% endif %}
   {% if settings.font_button_type == 'shopify' %}{{ settings.shopify_font_button_family | font_face: font_display: 'swap' }}{% endif %}
   :root {
@@ -232,15 +234,21 @@
 
     /* Font family */
     --global-font-family-heading: {% if settings.font_heading_type == 'shopify' %}{{ settings.shopify_font_heading_family.family }}{% else %}{{ settings.font_heading_family }}{% endif %};
+    --global-font-family-heading-2: {% if settings.font_heading_2_type == 'shopify' %}{{ settings.shopify_font_heading_2_family.family }}{% else %}{{ settings.font_heading_2_family }}{% endif %};
     --global-font-family-subheading: {% if settings.font_subheading_type == 'shopify' %}{{ settings.shopify_font_subheading_family.family }}{% else %}{{ settings.font_subheading_family }}{% endif %};
+    --global-font-family-subheading-2: {% if settings.font_subheading_2_type == 'shopify' %}{{ settings.shopify_font_subheading_2_family.family }}{% else %}{{ settings.font_subheading_2_family }}{% endif %};
     --global-font-family-body: {% if settings.font_body_type == 'shopify' %}{{ settings.shopify_font_body_family.family }}{% else %}{{ settings.font_body_family }}{% endif %};
     --global-font-family-button: {% if settings.font_button_type == 'shopify' %}{{ settings.shopify_font_button_family.family }}{% else %}{{ settings.font_button_family }}{% endif %};
 
     /* Font weight */
     --global-font-weight-heading: {{ settings.font_heading_weight }};
     --global-font-weight-heading-bold: {{ settings.font_heading_bold_weight }};
+    --global-font-weight-heading-2: {{ settings.font_heading_2_weight }};
+    --global-font-weight-heading-2-bold: {{ settings.font_heading_2_bold_weight }};
     --global-font-weight-subheading: {{ settings.font_subheading_weight }};
     --global-font-weight-subheading-bold: {{ settings.font_subheading_bold_weight }};
+    --global-font-weight-subheading-2: {{ settings.font_subheading_2_weight }};
+    --global-font-weight-subheading-2-bold: {{ settings.font_subheading_2_bold_weight }};
     --global-font-weight-body: {{ settings.font_body_weight }};
     --global-font-weight-body-bold: {{ settings.font_body_bold_weight }};
     --global-font-weight-button: {{ settings.font_button_weight }};
