@@ -61,7 +61,7 @@
           "type": "heading",
           "settings": {
             "title": "Heading 5",
-            "font_family_class": "ff-primary",
+            "font_family_class": "ff-secondary",
             "heading_font_class": "fs-heading-5-base",
             "heading_color": "c-heading-text-dark"
           }
@@ -70,7 +70,7 @@
           "type": "heading",
           "settings": {
             "title": "Heading 6",
-            "font_family_class": "ff-primary",
+            "font_family_class": "ff-secondary",
             "heading_font_class": "fs-heading-6-base",
             "heading_color": "c-heading-text-dark"
           }
@@ -110,8 +110,9 @@
     },
     "custom_liquid_dQFpJN": {
       "type": "custom-liquid",
+      "custom_css": [],
       "settings": {
-        "custom_liquid": "<p class=\"ff-subheading fs-body-300\" style=\"margin-bottom: 1rem;\">Subheading 1 like this</p>\n<p class=\"ff-subheading fs-body-200\" style=\"margin-bottom: 1rem;\">Subheading 2 like this</p>\n<p class=\"ff-body fs-body-150\" style=\"margin-bottom: 1rem;\">Blog body like this</p>\n<p class=\"ff-body fs-body-75\" style=\"margin-bottom: 1rem;\">Body 1 like this</p>\n<p class=\"ff-body fs-body-50\" style=\"margin-bottom: 1rem;\">Body 2 like this</p>\n<button type=\"submit\" class=\"btn btn--solid btn--dark\">Button like this</button>",
+        "custom_liquid": "<p class=\"ff-subheading fs-body-300\" style=\"margin-bottom: 1rem;\">Subheading 1 like this</p>\n<p class=\"ff-subheading ff-secondary fs-body-200\" style=\"margin-bottom: 1rem;\">Subheading 2 like this</p>\n<p class=\"ff-body fs-body-150\" style=\"margin-bottom: 1rem;\">Blog body like this</p>\n<p class=\"ff-body fs-body-75\" style=\"margin-bottom: 1rem;\">Body 1 like this</p>\n<p class=\"ff-body fs-body-50\" style=\"margin-bottom: 1rem;\">Body 2 like this</p>\n<button type=\"submit\" class=\"btn btn--solid btn--dark\">Button Like This</button>",
         "divider_style": "none",
         "section_padding": "section--vertical-padding-top-bottom"
       }
@@ -371,6 +372,10 @@
         "button_fX33zx",
         "button_mGTbja"
       ],
+      "custom_css": [
+        ".rich-text {background-color: #353535;}",
+        ".rich-text__heading {color: #ffffff;}"
+      ],
       "settings": {
         "alignment": "left_left",
         "enable_animation": false,
@@ -381,13 +386,22 @@
         "link_color_scheme": "dark"
       }
     },
+    "custom_liquid_UbqqiK": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom_liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<div class=\"container\" style=\"max-width: 700px; margin: 0 auto;\">\n  <h2 class=\"ff-heading fs-heading-2-base\" style=\"margin-bottom: 20px;\">Disabled button - Dark Solid + Outline</h2>\n  <div class=\"button-wrapper\" style=\"display: flex; gap: 10px;\">\n    <button type=\"button\" class=\"btn btn--dark\" disabled style=\"margin-right: 10px;\">\n      <span>Read more</span>\n    </button>\n    <button type=\"button\" class=\"btn btn--outline btn--dark\" disabled>\n      <span>Read more</span>\n    </button>\n  </div>\n  <br>\n  <h2 class=\"ff-heading fs-heading-2-base\" style=\"margin-bottom: 20px;\">Disabled button - Light Solid + Outline</h2>\n  <div class=\"button-wrapper\" style=\"display: flex; gap: 10px;\">\n    <button type=\"button\" class=\"btn btn--light\" disabled style=\"margin-right: 10px;\">\n      <span>Read more</span>\n    </button>\n    <button type=\"button\" class=\"btn btn--outline btn--light\" disabled>\n      <span>Read more</span>\n    </button>\n  </div>\n</div>",
+        "divider_style": "none",
+        "section_padding": "section--vertical-padding-top-bottom"
+      }
+    },
     "rich_text_QYwzKE": {
       "type": "rich-text",
       "blocks": {
         "heading_VMxPNx": {
           "type": "heading",
           "settings": {
-            "title": "Text Buttons",
+            "title": "Text Buttons - Button Callout",
             "heading_tag": "h2",
             "font_family_class": "ff-primary",
             "heading_font_class": "fs-heading-2-base",
@@ -426,6 +440,15 @@
         "content_width": "custom",
         "custom_content_width": 700,
         "link_color_scheme": "dark"
+      }
+    },
+    "custom_liquid_cWznHd": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom_liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<div class=\"container\" style=\"max-width: 700px; margin: 0 auto;\">\n  <h2 class=\"ff-heading fs-heading-2-base\" style=\"margin-bottom: 20px;\">Disabled button callout - Dark + Light</h2>\n  <div class=\"button-wrapper\" style=\"display: flex; gap: 10px;\">\n    <button type=\"button\" class=\"btn btn--dark btn--callout\" disabled style=\"margin-right: 10px;\">\n      <span>Primary text link</span>\n    </button>\n    <button type=\"button\" class=\"btn btn--light btn--callout\" disabled>\n      <span>Secondary text link</span>\n    </button>\n  </div>\n</div>",
+        "divider_style": "none",
+        "section_padding": "section--vertical-padding-top-bottom"
       }
     },
     "rich_text_iG9bNi": {
@@ -965,7 +988,9 @@
     "contact_form_tpLV7V",
     "rich_text_EM4wiz",
     "rich_text_cAEdxf",
+    "custom_liquid_UbqqiK",
     "rich_text_QYwzKE",
+    "custom_liquid_cWznHd",
     "rich_text_iG9bNi",
     "newsletter_e3CkAD",
     "featured_collection_slider_hpqJ7e",
