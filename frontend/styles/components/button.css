@@ -155,10 +155,12 @@ button {
   &[disabled],
   &.disabled {
     opacity: 1;
-    background-color: var(--color-body-copy);
+    color: var(--color-text);
+    border-color: var(--color-button-disabled-state);
+    background-color: var(--color-button-disabled-state);
 
     &::before {
-      background-color: var(--color-body-copy);
+      background-color: var(--color-button-disabled-state);
     }
   }
 
@@ -174,7 +176,7 @@ button {
 .btn.btn--light,
 .spr-button-primary {
   position: relative;
-  border: 1.5px solid;
+  border: 1px solid;
   transition: color 0.2s ease;
   overflow: hidden;
   z-index: 1;
@@ -203,12 +205,12 @@ button {
   &[disabled],
   &.disabled {
     opacity: 1;
-    color: var(--color-button-light-solid-text-hover);
-    border-color: var(--color-body-copy);
-    background-color: var(--color-body-copy);
+    color: var(--color-text);
+    border-color: var(--color-button-disabled-state);
+    background-color: var(--color-button-disabled-state);
 
     &::before {
-      background-color: var(--color-body-copy);
+      background-color: var(--color-button-disabled-state);
     }
   }
 
@@ -220,7 +222,7 @@ button {
 .btn.btn--tertiary,
 .spr-summary-actions-newreview {
   color: var(--color-text);
-  border: 1.5px solid var(--color-text-alpha);
+  border: 1px solid var(--color-text-alpha);
   transition: color 0.2s ease, border-color 0.2s ease;
 
   &:hover:not([disabled]),
@@ -347,6 +349,7 @@ button {
   &.btn--dark {
     /* Primary = Dark Solid Button (Figma Design) */
     color: var(--color-button-dark-solid-text);
+    border: 1px solid;
     border-color: var(--color-button-dark-solid-bg);
     background-color: var(--color-button-dark-solid-bg);
 
@@ -360,7 +363,6 @@ button {
 
     &:hover:not([disabled]):not(.disabled) {
       color: var(--color-button-dark-solid-text-hover);
-      border-color: var(--color-button-dark-solid-bg-hover);
 
       &::before {
         background-color: var(--color-button-dark-solid-bg-hover);
@@ -394,7 +396,7 @@ button {
 
     /* Primary Outline = Dark Outline Button (Figma Design) */
     &.btn--outline {
-      border: 1.5px solid var(--color-button-dark-outline-border);
+      border: 1px solid var(--color-button-dark-outline-border);
       background-color: transparent;
       color: var(--color-button-dark-outline-text);
 
@@ -407,23 +409,22 @@ button {
       }
 
       &:hover:not([disabled]):not(.disabled) {
-        color: var(--color-button-dark-solid-text-hover);
-        border-color: var(--color-button-dark-solid-bg-hover);
+        color: var(--color-button-dark-solid-text);
 
         &::before {
-          background-color: var(--color-button-dark-solid-bg-hover);
+          background-color: var(--color-button-dark-solid-bg);
         }
       }
 
       &[disabled],
       &.disabled {
         opacity: 1;
-        color: var(--color-button-dark-solid-text);
-        border-color: var(--color-body-copy);
-        background-color: var(--color-body-copy);
+        color: var(--color-text);
+        border-color: var(--color-button-disabled-state);
+        background-color: var(--color-button-disabled-state);
 
         &::before {
-          background-color: var(--color-body-copy);
+          background-color: var(--color-button-disabled-state);
         }
       }
     }
@@ -461,12 +462,12 @@ button {
       &[disabled],
       &.disabled {
         opacity: 1;
-        color: var(--color-body-copy);
+        color: var(--color-callout-disabled-state);
 
         span {
           &::before,
           &::after {
-            background-color: var(--color-body-copy);
+            background-color: var(--color-callout-disabled-state);
           }
         }
       }
@@ -522,19 +523,19 @@ button {
       &[disabled],
       &.disabled {
         opacity: 1;
-        color: var(--color-button-light-solid-text-hover);
-        border-color: var(--color-body-copy);
-        background-color: var(--color-body-copy);
+        color: var(--color-text);
+        border-color: var(--color-button-disabled-state);
+        background-color: var(--color-button-disabled-state);
 
         &::before {
-          background-color: var(--color-body-copy);
+          background-color: var(--color-button-disabled-state);
         }
       }
     }
 
     /* Secondary Outline = Light Outline Button (Figma Design) */
     &.btn--outline {
-      border: 1.5px solid var(--color-button-light-outline-border);
+      border: 1px solid var(--color-button-light-outline-border);
       background-color: transparent;
       color: var(--color-button-light-outline-text);
 
@@ -547,23 +548,23 @@ button {
       }
 
       &:hover:not([disabled]):not(.disabled) {
-        color: var(--color-button-light-solid-text-hover);
-        border-color: var(--color-button-light-solid-bg-hover);
+        color: var(--color-button-light-solid-text);
+        border: 1px solid var(--color-button-light-outline-border);
 
         &::before {
-          background-color: var(--color-button-light-solid-bg-hover);
+          background-color: var(--color-button-light-solid-bg);
         }
       }
 
       &[disabled],
       &.disabled {
         opacity: 1;
-        color: var(--color-button-light-solid-text-hover);
-        border-color: var(--color-body-copy);
-        background-color: var(--color-body-copy);
+        color: var(--color-text);
+        border-color: var(--color-button-disabled-state);
+        background-color: var(--color-button-disabled-state);
 
         &::before {
-          background-color: var(--color-body-copy);
+          background-color: var(--color-button-disabled-state);
         }
       }
     }
@@ -601,12 +602,12 @@ button {
       &[disabled],
       &.disabled {
         opacity: 1;
-        color: var(--color-body-copy);
+        color: var(--color-callout-disabled-state);
 
         span {
           &::before,
           &::after {
-            background-color: var(--color-body-copy);
+            background-color: var(--color-callout-disabled-state);
           }
         }
       }

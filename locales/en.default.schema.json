@@ -4598,10 +4598,10 @@
           "content": "Heading 6"
         },
         "header_subheading_1": {
-          "content": "Subheading 1"
+          "content": "Subheading - Primary font"
         },
         "header_subheading_2": {
-          "content": "Subheading 2"
+          "content": "Subheading - Secondary font"
         },
         "header_blog_body": {
           "content": "Blog body"
@@ -4645,10 +4645,10 @@
           "label": "Font Family"
         },
         "header_heading": {
-          "content": "Heading 1 ~ 4"
+          "content": "Heading - Primary font"
         },
         "header_heading_5-6": {
-          "content": "Heading 5 ~ 6"
+          "content": "Heading - Secondary font"
         },
         "header_subheading": {
           "content": "Subheading"

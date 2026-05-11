@@ -174,13 +174,13 @@
         "type": "color",
         "id": "color_site_background",
         "label": "t:settings_schema.colors.settings.color_site_background.label",
-        "default": "#FFFFFF"
+        "default": "#F2F1EB"
       },
       {
         "type": "color",
         "id": "color_inline_link_dark",
         "label": "t:settings_schema.colors.settings.color_inline_link_dark.label",
-        "default": "#000000"
+        "default": "#AF0440"
       },
       {
         "type": "color",
@@ -192,50 +192,50 @@
         "type": "color",
         "id": "color_success",
         "label": "t:settings_schema.colors.settings.color_success.label",
-        "default": "#2DD27D"
+        "default": "#5B6B2E"
       },
       {
         "type": "color",
         "id": "color_error",
         "label": "t:settings_schema.colors.settings.color_error.label",
-        "default": "#EC2E21"
+        "default": "#F95A53"
       },
       {
         "type": "color",
         "id": "color_focus_dark",
         "label": "t:settings_schema.colors.settings.color_focus_dark.label",
-        "default": "#0048FF"
+        "default": "#AF0440"
       },
       {
         "type": "color",
         "id": "color_focus_light",
         "label": "t:settings_schema.colors.settings.color_focus_light.label",
-        "default": "#00EAFF"
+        "default": "#AAC9C8"
       },
       {
         "type": "color",
         "id": "color_divider",
         "label": "t:settings_schema.colors.settings.color_divider.label",
-        "default": "#CACACA",
+        "default": "#D8D8D8",
         "info": "t:settings_schema.colors.settings.color_divider.info"
       },
       {
         "type": "color",
         "id": "color_border",
         "label": "t:settings_schema.colors.settings.color_border.label",
-        "default": "#000000"
+        "default": "#D8D8D8"
       },
       {
         "type": "color",
         "id": "color_blog_category_bg",
         "label": "t:settings_schema.colors.settings.color_blog_category_bg.label",
-        "default": "#A7F8FF"
+        "default": "#AAC9C8"
       },
       {
         "type": "color",
         "id": "color_blog_category_text",
         "label": "t:settings_schema.colors.settings.color_blog_category_text.label",
-        "default": "#000000"
+        "default": "#1A1A1A"
       },
       {
         "type": "header",
@@ -285,13 +285,13 @@
         "type": "color",
         "id": "color_header_text",
         "label": "t:settings_schema.colors.settings.color_header_text.label",
-        "default": "#000000"
+        "default": "#272727"
       },
       {
         "type": "color",
         "id": "color_header_background",
         "label": "t:settings_schema.colors.settings.color_header_background.label",
-        "default": "#FFFFFF"
+        "default": "#F2F1EB"
       },
       {
         "type": "color",
@@ -307,13 +307,13 @@
         "type": "color",
         "id": "color_footer_text",
         "label": "t:settings_schema.colors.settings.color_footer_text.label",
-        "default": "#FFFFFF"
+        "default": "#272727"
       },
       {
         "type": "color",
         "id": "color_footer_background",
         "label": "t:settings_schema.colors.settings.color_footer_background.label",
-        "default": "#000000"
+        "default": "#F2F1EB"
       },
       {
         "type": "header",
@@ -329,13 +329,13 @@
         "type": "color",
         "id": "color_input_border_default",
         "label": "t:settings_schema.colors.settings.color_input_border_default.label",
-        "default": "#000000"
+        "default": "#D8D8D8"
       },
       {
         "type": "color",
         "id": "color_input_text_default",
         "label": "t:settings_schema.colors.settings.color_input_text_default.label",
-        "default": "#000000"
+        "default": "#5B5B5B"
       },
       {
         "type": "color",
@@ -347,31 +347,31 @@
         "type": "color",
         "id": "color_input_border_active",
         "label": "t:settings_schema.colors.settings.color_input_border_active.label",
-        "default": "#000000"
+        "default": "#272727"
       },
       {
         "type": "color",
         "id": "color_input_text_active",
         "label": "t:settings_schema.colors.settings.color_input_text_active.label",
-        "default": "#000000"
+        "default": "#272727"
       },
       {
         "type": "color",
         "id": "color_input_fill_disabled",
         "label": "t:settings_schema.colors.settings.color_input_fill_disabled.label",
-        "default": "#FFFFFF"
+        "default": "#D8D8D8"
       },
       {
         "type": "color",
         "id": "color_input_border_disabled",
         "label": "t:settings_schema.colors.settings.color_input_border_disabled.label",
-        "default": "#787878"
+        "default": "#5B5B5B"
       },
       {
         "type": "color",
         "id": "color_input_text_disabled",
         "label": "t:settings_schema.colors.settings.color_input_text_disabled.label",
-        "default": "#787878"
+        "default": "#5B5B5B"
       },
       {
         "type": "header",
@@ -381,31 +381,31 @@
         "type": "color",
         "id": "color_product_sale_price",
         "label": "t:settings_schema.colors.settings.color_product_sale_price.label",
-        "default": "#EC2E21"
+        "default": "#F95A53"
       },
       {
         "type": "color",
         "id": "color_product_rating_star",
         "label": "t:settings_schema.colors.settings.color_product_rating_star.label",
-        "default": "#000000"
+        "default": "#E5BF43"
       },
       {
         "type": "color",
         "id": "color_product_in_stock",
         "label": "t:settings_schema.colors.settings.color_product_in_stock.label",
-        "default": "#2DD27D"
+        "default": "#5B6B2E"
       },
       {
         "type": "color",
         "id": "color_product_low_stock",
         "label": "t:settings_schema.colors.settings.color_product_low_stock.label",
-        "default": "#EB942B"
+        "default": "#E39700"
       },
       {
         "type": "color",
         "id": "color_product_out_stock",
         "label": "t:settings_schema.colors.settings.color_product_out_stock.label",
-        "default": "#9B9B9B"
+        "default": "#979797"
       }
     ]
   },
@@ -1520,7 +1520,7 @@
         "type": "text",
         "id": "typography_body_2_line_height",
         "label": "t:settings_schema.typography.settings.line_height.label",
-        "default": "1.4"
+        "default": "1.1"
       },
       {
         "type": "text",

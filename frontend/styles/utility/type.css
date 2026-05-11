@@ -188,36 +188,22 @@
   letter-spacing: var(--font-navigation-base-letter-spacing);
 }
 
-.ff-heading.fs-heading-5-base,
-.ff-heading.fs-heading-6-base {
-  font-family: var(--font-heading-2);
-  font-weight: var(--font-heading-2-weight);
-}
-
-.ff-primary.fs-heading-5-base,
-.ff-primary.fs-heading-6-base {
+.ff-heading.ff-secondary {
   font-family: var(--font-heading-2) !important;
+  font-weight: var(--font-heading-2-weight) !important;
 }
 
-.fs-heading-bold.fs-heading-5-base,
-.fs-heading-bold.fs-heading-6-base {
-  font-weight: var(--font-heading-2-bold-weight);
+.ff-heading.ff-secondary.fs-heading-bold {
+  font-weight: var(--font-heading-2-bold-weight) !important;
 }
 
-.ff-subheading.fs-body-200,
-.ff-subheading.fs-body-250 {
-  font-family: var(--font-subheading-2);
-  font-weight: var(--font-subheading-2-weight);
-}
-
-.ff-secondary.fs-body-200,
-.ff-secondary.fs-body-250 {
+.ff-subheading.ff-secondary {
   font-family: var(--font-subheading-2) !important;
+  font-weight: var(--font-subheading-2-weight) !important;
 }
 
-.fs-subheading-bold.fs-body-200,
-.fs-subheading-bold.fs-body-250 {
-  font-weight: var(--font-subheading-2-bold-weight);
+.ff-subheading.ff-secondary.fs-subheading-bold {
+  font-weight: var(--font-subheading-2-bold-weight) !important;
 }
 
 .c-heading-text-dark {
