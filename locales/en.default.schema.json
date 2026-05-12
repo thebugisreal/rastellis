@@ -4476,6 +4476,9 @@
         "color_header_transparent_text": {
           "label": "Transparent Nav Text Color"
         },
+        "color_header_navigation_background": {
+          "label": "Navigation Background Color"
+        },
         "color_footer_text": {
           "label": "Text"
         },

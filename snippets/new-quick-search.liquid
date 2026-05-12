@@ -1,0 +1,74 @@
+{% liquid
+  assign show_json = show_json | default: false
+%}
+
+<div
+  id="NewQuickSearch"
+  class="quick-search quick-search--new"
+  data-quick-search-new
+>
+  <div class="quick-search__overlay" data-overlay-new></div>
+
+  <div class="quick-search__container">
+    <form
+      action="{{ routes.search_url }}"
+      class="quick-search__form"
+      autocomplete="off"
+      data-quick-search-form-new
+      data-scroll-lock-ignore
+    >
+      <div class="quick-search__bar">
+        <div class="quick-search__bar-inner">
+          <label for="search--{{ custom_id }}" class="sr-only" aria-label="{{ 'search.search' | t }}">{{ 'search.search' | t }}</label>
+          <button class="header__search-button" type="submit" aria-label="{{ 'search.search' | t }}">
+            {% render 'icon-new', icon: 'search' %}
+          </button>
+          <input
+            class="quick-search__input fs-body-25"
+            id="search--{{ custom_id }}"
+            type="text"
+            name="q"
+            placeholder="{{ 'search.search_for' | t }}"
+            data-input-new
+          >
+          <input type="hidden" name="options[prefix]" value="last">
+          <input type="hidden" name="type" value="product,article" />
+          <button type="button" class="quick-search__close-button js-button-close" aria-label="{{ "search.close" | t }}">
+            {% render 'icon-new', icon: 'header-menu-close' %}
+          </button>
+        </div>
+      </div>
+
+      <div class="quick-search__content" data-content>
+        <div class="quick-search__results-wrapper">
+          <div class="quick-search__results" data-results-new></div>
+        </div>
+        {%- if settings.quick_search_suggested_links != blank -%}
+          <div class="quick-search__suggested-wrapper">
+            <div class="quick-search__suggested">
+              {% render 'search-suggested-links' %}
+            </div>
+          </div>
+        {%- endif -%}
+        <div class="quick-search__footer">
+          <button type="submit" class="btn btn--solid btn--primary btn--full">{{ 'search.see_all' | t }}</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+{%- if show_json -%}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "url": "{{ shop.url }}",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "{{ routes.search_url | prepend: shop.url }}?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+  </script>
+{%- endif -%}

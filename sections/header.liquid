@@ -163,23 +163,43 @@
 {%- endcapture -%}
 
 {%- capture search_icon -%}
-  <a
-    class="
-      header__icon-touch
-      header__icon-touch--search
-      {% if settings.enable_quick_search %}no-transition{% endif %}
-    "
-    href="{{ routes.search_url }}"
-    {% if settings.enable_quick_search %}
-      data-search
-    {% endif %}
-    aria-label="{{ 'general.accessibility.open_search' | t }}"
-    aria-controls="MainQuickSearch"
-    aria-expanded="false"
-  >
-    {% render 'icon-button' with icon: 'header-search' %}
-    {% render 'icon-button' with icon: 'header-menu-close' %}
-  </a>
+  {%- if section.settings.layout == 'logo-left_nav-below' -%}
+    <div class="header__search" data-search-new>
+      {%- if settings.enable_quick_search -%}
+        {% render 'new-quick-search', custom_id: 'desktop', show_json: true %}
+      {%- else -%}
+        <form action="{{ routes.search_url }}" class="header__search-form">
+          <input
+            class="header__search-input input"
+            type="text"
+            name="q"
+            placeholder="{{ 'search.search' | t }}"
+          >
+          <button class="header__search-button" type="submit" aria-label="{{ 'search.search' | t }}">
+            {% render 'icon-new', icon: 'search' %}
+          </button>
+        </form>
+      {%- endif -%}
+    </div>
+  {%- else -%}
+    <a
+      class="
+        header__icon-touch
+        header__icon-touch--search
+        {% if settings.enable_quick_search %}no-transition{% endif %}
+      "
+      href="{{ routes.search_url }}"
+      {% if settings.enable_quick_search %}
+        data-search
+      {% endif %}
+      aria-label="{{ 'general.accessibility.open_search' | t }}"
+      aria-controls="MainQuickSearch"
+      aria-expanded="false"
+    >
+      {% render 'icon-button' with icon: 'header-search' %}
+      {% render 'icon-button' with icon: 'header-menu-close' %}
+    </a>
+  {%- endif -%}
 {%- endcapture -%}
 
 {%- capture account_icon -%}
@@ -298,11 +318,6 @@
   {%- if show_social_media_mobile -%}
     {% render 'social-icons' %}
   {%- endif -%}
-{%- endcapture -%}
-
-{%- capture social_icons_and_second_menu -%}
-  {{ social_icons }}
-  {{ secondary_nav }}
 {%- endcapture -%}
 
 {%- capture sub_nav -%}
@@ -435,12 +450,21 @@
         {%- endif -%}
       </div>
 
+      {%- unless logo_position == 'center' and navigation_position == 'below' -%}
+        {{ search_icon }}
+      {%- endunless -%}
+
       <div class="header__row-segment header__row-segment-desktop header__row-segment-desktop--logo-left right">
         {%- if logo_position == 'left' -%}
           {{ secondary_nav }}
         {%- endif -%}
-        {{ social_icons }}
-        {{ localization_dropdowns }}
+        {%- if enable_location -%}
+          {{ location_button }}
+        {%- endif -%}
+        {%- if shop.customer_accounts_enabled -%}
+          {{ account_icon }}
+        {%- endif -%}
+        {{ cart_icon }}
       </div>
     </div>
 
@@ -480,14 +504,9 @@
 
       <div class="header__row-segment header__row-segment-desktop right {% if sub_menu != blank %}contains-nav{% endif %}">
         {{ sub_nav }}
-        {%- unless logo_position == 'center' and navigation_position == 'below' -%}
-          {{ search_icon }}
-        {%- endunless -%}
         {%- if shop.customer_accounts_enabled -%}
           {{ account_icon }}
         {%- endif -%}
-        {{ location_button }}
-        {{ cart_icon }}
       </div>
     </div>
 
@@ -1094,13 +1113,12 @@
           "type": "checkbox",
           "id": "show_featured_products",
           "label": "t:sections.meganav.settings.show_featured_products.label",
-          "default": true
+          "default": false
         },
         {
           "type": "text",
           "id": "featured_products_label",
-          "label": "t:sections.meganav.settings.featured_products_label.label",
-          "default": "Featured Hydrants"
+          "label": "t:sections.meganav.settings.featured_products_label.label"
         },
         {
           "type": "product_list",

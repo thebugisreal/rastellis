@@ -300,6 +300,12 @@
         "default": "#FFFFFF"
       },
       {
+        "type": "color",
+        "id": "color_header_navigation_background",
+        "label": "t:settings_schema.colors.settings.color_header_navigation_background.label",
+        "default": "#E7E6DE"
+      },
+      {
         "type": "header",
         "content": "t:settings_schema.colors.settings.footer__header.content"
       },

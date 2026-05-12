@@ -498,7 +498,10 @@
     "search": "Search",
     "suggestions": "Search suggestions",
     "title": "Search our site",
-    "view_all": "View all results"
+    "view_all": "View all results",
+    "close": "Close search",
+    "search_for": "Search for Beef, Chicken, Burgers...",
+    "see_all": "See all results"
   },
   "sections": {
     "blog_posts": {

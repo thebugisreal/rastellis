@@ -2,8 +2,7 @@
   position: absolute;
   top: 100%;
   margin-top: -1px;
-  background: var(--color-background);
-  border: 1px solid var(--color-text);
+  background: var(--color-navigation-background);
   color: var(--color-text);
   text-transform: none;
   overflow-y: hidden;
@@ -202,7 +201,7 @@
 
 .meganav[data-meganav-type="full_width_meganav"] {
   width: 100%;
-  max-width: var(--max-width);
+
   .meganav__primary {
     flex-grow: 1;
     .meganav__nav {
@@ -211,7 +210,9 @@
   }
 
   .meganav__inner {
-    max-width: 100%;
+    max-width: var(--max-width);
+    padding: 45px var(--spacing-5);
+    margin: 0 auto;
     gap: 20px;
   }
 }

@@ -282,7 +282,7 @@ ul.drawer-menu__sub-links {
 }
 
 .header__row.header__row-desktop {
-    @apply relative z-20 !items-center;
+    @apply !items-center;
 }
 
 .support-menu .navigation__submenu-icon {
