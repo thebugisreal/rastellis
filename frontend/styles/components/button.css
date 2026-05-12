@@ -588,7 +588,7 @@ button {
       }
 
       &:hover:not([disabled]):not(.disabled),
-      &.btn--overlay:hover:not([disabled]) {
+      &.btn--overlay:hover:not([disabled]):not(.disabled) {
         color: var(--color-text-link-light-text-hover);
 
         span {
