@@ -111,8 +111,8 @@
     --color-border: {{ settings.color_border }};
     --color-border-meta: {{ settings.color_border | color_modify: 'alpha', 0.6 }};
     --color-overlay: rgba(0, 0, 0, 0.7);
-    --color-button-disabled-state: #C0C0C0;
-    --color-callout-disabled-state: #5B5B5B;
+    --color-button-disabled-state: {{ settings.color_button_disabled_state }};
+    --color-callout-disabled-state: {{ settings.color_callout_disabled_state }};
 
     --color-background-meta: {{ color_background_meta }};
     --color-background-meta-alpha: {{ color_background_meta | color_modify: 'alpha', 0.6 }};

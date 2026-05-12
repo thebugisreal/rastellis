@@ -4526,6 +4526,15 @@
         },
         "color_product_out_stock": {
           "label": "Out of Stock"
+        },
+        "disabled_state_header": {
+          "content": "Disabled State"
+        },
+        "color_button_disabled_state": {
+          "label": "Button Disabled State"
+        },
+        "color_callout_disabled_state": {
+          "label": "Callout Disabled State"
         }
       }
     },

@@ -406,6 +406,22 @@
         "id": "color_product_out_stock",
         "label": "t:settings_schema.colors.settings.color_product_out_stock.label",
         "default": "#979797"
+      },
+      {
+        "type": "header",
+        "content": "t:settings_schema.colors.settings.disabled_state_header.content"
+      },
+      {
+        "type": "color",
+        "id": "color_button_disabled_state",
+        "label": "t:settings_schema.colors.settings.color_button_disabled_state.label",
+        "default": "#C0C0C0"
+      },
+      {
+        "type": "color",
+        "id": "color_callout_disabled_state",
+        "label": "t:settings_schema.colors.settings.color_callout_disabled_state.label",
+        "default": "#5B5B5B"
       }
     ]
   },
