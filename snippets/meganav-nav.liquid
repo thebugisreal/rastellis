@@ -24,4 +24,12 @@
   {%- for i in (1..dividers_needed) -%}
     <span class="meganav__column-rule" data-index="{{ forloop.index }}"></span>
   {%- endfor -%}
+  <div class="meganav__parent-link">
+    <a href="{{ link.url }}" class="btn btn--callout btn--dark btn--with-arrow">
+      <span>
+        {{ 'products.product.shop_all_products' | t }}
+        {% render 'icon-new', icon: 'arrow-right' %}
+      </span>
+    </a>
+  </div>
 </div>

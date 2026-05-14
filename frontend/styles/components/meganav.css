@@ -39,11 +39,10 @@
 
 .meganav__nav {
   height: 100%;
-  column-count: var(--column-count);
   column-gap: var(--spacing-12);
   position: relative;
-  padding: 0 var(--spacing-6);
   width: var(--columns-width);
+
   &.with-column-dividers .meganav__column-rule {
     position: absolute;
     width: 1px;
@@ -54,9 +53,6 @@
 
   a {
     text-decoration: none;
-  }
-  a:hover {
-    text-decoration: underline;
   }
 
   /* giant hack instead of simple column-rule style so
@@ -91,40 +87,32 @@
 
   ul[depth="0"] > li {
     break-inside: avoid;
+
+    &:hover {
+      h4 {
+        opacity: 0.5;
+      }
+    }
+
+    ul[depth="1"] > li > a:hover {
+      opacity: 0.5;
+    }
   }
 
   h4 {
     color: var(--color-text);
-    margin-bottom: 0.4em;
-    font-size: var(--font-size-heading-4-base);
+    margin-bottom: var(--spacing-4);
+    font-size: var(--font-size-body-1);
+    text-transform: uppercase;
   }
 
   li {
-    line-height: 1.4;
-    margin: 0.4em 0;
     white-space: normal;
-    &:first-child {
-      margin-top: 0 !important;
-    }
-
-    &[depth="0"] {
-      margin: 0.6em 0;
-      &.has-children:not(:first-child) {
-        margin-top: 3em;
-      }
-      &.has-children:not(:last-child) {
-        margin-bottom: 3em;
-      }
-    }
   }
 
   ul[depth="1"] > li > a {
     opacity: 0.7;
   }
-}
-
-.meganav__primary {
-  padding: var(--spacing-6) 0;
 }
 
 .meganav__secondary {
@@ -141,14 +129,21 @@
   position: relative;
   overflow: hidden;
   flex-shrink: 0;
-  height: 100%;
+  height: auto;
   width: 100%;
   min-height: var(--min-promo-height);
+  border-radius: 4px;
 
   .image {
     height: 100%;
     width: 100%;
   }
+}
+
+.meganav__promo-image-link {
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
 .meganav__promo-image {
@@ -195,8 +190,12 @@
   align-items: var(--text-horizontal-position);
 }
 
+.meganav__secondary-promo-text-heading {
+  white-space: normal;
+}
+
 .meganav__secondary-promo-text-heading + .meganav__secondary-promo-text-button {
-  margin-top: var(--spacing-6);
+  margin-top: 10px;
 }
 
 .meganav[data-meganav-type="full_width_meganav"] {
@@ -204,16 +203,27 @@
 
   .meganav__primary {
     flex-grow: 1;
+
     .meganav__nav {
       width: 100%;
+      display: flex;
+      flex-direction: column;
     }
   }
 
   .meganav__inner {
-    max-width: var(--max-width);
-    padding: 45px var(--spacing-5);
+    max-width: calc(var(--max-width) + var(--spacing-28));
+    padding: 45px var(--spacing-14);
     margin: 0 auto;
     gap: 20px;
+
+    @media (--below-1440) {
+      padding: 45px var(--spacing-10);
+    }
+  
+    @media (--below-960) {
+      padding: 45px var(--spacing-5);
+    }
   }
 }
 
@@ -224,4 +234,16 @@
 .meganav__featured-products-list {
   display: flex;
   gap: 24px;
+}
+
+.meganav__list-parent {
+  display: grid;
+  grid-template-columns: repeat(var(--column-count), 1fr);
+  gap: 24px 32px;
+}
+
+.meganav__parent-link {
+  margin-top: auto;
+  padding-top: var(--spacing-8);
+  width: fit-content;
 }
