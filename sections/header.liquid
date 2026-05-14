@@ -163,23 +163,43 @@
 {%- endcapture -%}
 
 {%- capture search_icon -%}
-  <a
-    class="
-      header__icon-touch
-      header__icon-touch--search
-      {% if settings.enable_quick_search %}no-transition{% endif %}
-    "
-    href="{{ routes.search_url }}"
-    {% if settings.enable_quick_search %}
-      data-search
-    {% endif %}
-    aria-label="{{ 'general.accessibility.open_search' | t }}"
-    aria-controls="MainQuickSearch"
-    aria-expanded="false"
-  >
-    {% render 'icon-button' with icon: 'header-search' %}
-    {% render 'icon-button' with icon: 'header-menu-close' %}
-  </a>
+  {%- if section.settings.layout == 'logo-left_nav-below' -%}
+    <div class="header__search" data-search-new>
+      {%- if settings.enable_quick_search -%}
+        {% render 'new-quick-search', custom_id: 'desktop', show_json: true %}
+      {%- else -%}
+        <form action="{{ routes.search_url }}" class="header__search-form">
+          <input
+            class="header__search-input input"
+            type="text"
+            name="q"
+            placeholder="{{ 'search.search' | t }}"
+          >
+          <button class="header__search-button" type="submit" aria-label="{{ 'search.search' | t }}">
+            {% render 'icon-new', icon: 'search' %}
+          </button>
+        </form>
+      {%- endif -%}
+    </div>
+  {%- else -%}
+    <a
+      class="
+        header__icon-touch
+        header__icon-touch--search
+        {% if settings.enable_quick_search %}no-transition{% endif %}
+      "
+      href="{{ routes.search_url }}"
+      {% if settings.enable_quick_search %}
+        data-search
+      {% endif %}
+      aria-label="{{ 'general.accessibility.open_search' | t }}"
+      aria-controls="MainQuickSearch"
+      aria-expanded="false"
+    >
+      {% render 'icon-button' with icon: 'header-search' %}
+      {% render 'icon-button' with icon: 'header-menu-close' %}
+    </a>
+  {%- endif -%}
 {%- endcapture -%}
 
 {%- capture account_icon -%}
@@ -188,21 +208,25 @@
     href="{{ routes.account_url }}"
     aria-label="{{ 'general.accessibility.go_account' | t }}"
   >
-    {% render 'icon-button' with icon: 'header-account' %}
+    {% render 'icon-new', icon: 'header-account' %}
   </a>
 {%- endcapture -%}
 
 {%- capture cart_icon -%}
   <a
-    class="header__icon-touch no-transition"
+    class="header__icon-touch header__icon-touch--cart no-transition"
     href="{{ routes.cart_url }}"
     aria-label="{{ 'general.accessibility.open_cart' | t }}"
     data-js-cart-icon="{{ section.settings.cart_icon }}"
   >
     {% assign cart_icon_name = 'header-shopping-[[ci]]' | replace: '[[ci]]', section.settings.cart_icon %}
-    {% render 'icon-button', icon: cart_icon_name %}
+    {% if section.settings.cart_icon == 'cart' %}
+      {% render 'icon-new', icon: 'header-shopping-cart' %}
+    {% else %}
+      {% render 'icon-button', icon: cart_icon_name %}
+    {% endif %}
 
-    <span data-js-cart-count>{{ cart.item_count }}</span>
+    <span data-count="{{ cart.item_count}}"><span data-js-cart-count>{{ cart.item_count }}</span></span>
   </a>
 {%- endcapture -%}
 
@@ -267,8 +291,8 @@
     data-aria-label-opened="{{ 'general.accessibility.close_menu' | t }}"
     data-js-menu-button
   >
-    {% render 'icon-button' with icon: 'header-menu' %}
-    {% render 'icon-button' with icon: 'header-menu-close' %}
+    {% render 'icon-new', icon: 'header-menu' %}
+    {% render 'icon-new', icon: 'header-menu-close' %}
   </button>
 {%- endcapture -%}
 
@@ -298,11 +322,6 @@
   {%- if show_social_media_mobile -%}
     {% render 'social-icons' %}
   {%- endif -%}
-{%- endcapture -%}
-
-{%- capture social_icons_and_second_menu -%}
-  {{ social_icons }}
-  {{ secondary_nav }}
 {%- endcapture -%}
 
 {%- capture sub_nav -%}
@@ -435,12 +454,21 @@
         {%- endif -%}
       </div>
 
+      {%- unless logo_position == 'center' and navigation_position == 'below' -%}
+        {{ search_icon }}
+      {%- endunless -%}
+
       <div class="header__row-segment header__row-segment-desktop header__row-segment-desktop--logo-left right">
         {%- if logo_position == 'left' -%}
           {{ secondary_nav }}
         {%- endif -%}
-        {{ social_icons }}
-        {{ localization_dropdowns }}
+        {%- if enable_location -%}
+          {{ location_button }}
+        {%- endif -%}
+        {%- if shop.customer_accounts_enabled -%}
+          {{ account_icon }}
+        {%- endif -%}
+        {{ cart_icon }}
       </div>
     </div>
 
@@ -480,31 +508,50 @@
 
       <div class="header__row-segment header__row-segment-desktop right {% if sub_menu != blank %}contains-nav{% endif %}">
         {{ sub_nav }}
-        {%- unless logo_position == 'center' and navigation_position == 'below' -%}
-          {{ search_icon }}
-        {%- endunless -%}
         {%- if shop.customer_accounts_enabled -%}
           {{ account_icon }}
         {%- endif -%}
-        {{ location_button }}
-        {{ cart_icon }}
       </div>
     </div>
 
     <div class="header__row header__row-mobile {% if logo_position == 'center' %}three-segment{% endif %}">
+      {%- if section.settings.layout == 'logo-left_nav-below' -%}
+        {%- assign logo_position = 'center' -%}
+      {%- endif -%}
       {%- if logo_position == 'center' -%}
         <div class="header__row-segment left">
-          {{ menu_icon }}
+          {{ location_button }}
+          {%- if shop.customer_accounts_enabled -%}
+            {{ account_icon }}
+          {%- endif -%}
         </div>
 
         {{ header_logo }}
 
         <div class="header__row-segment right">
-          {%- if shop.customer_accounts_enabled -%}
-            {{ account_icon }}
-          {%- endif -%}
           {{ cart_icon }}
+          {{ menu_icon }}
         </div>
+
+        {% if section.settings.layout == 'logo-left_nav-below' %}
+          <div class="header__search" data-search-new>
+            {%- if settings.enable_quick_search -%}
+              {% render 'new-quick-search', custom_id: 'mobile' %}
+            {%- else -%}
+              <form action="{{ routes.search_url }}" class="header__search-form">
+                <input
+                  class="header__search-input input"
+                  type="text"
+                  name="q"
+                  placeholder="{{ 'search.search' | t }}"
+                >
+                <button class="header__search-button" type="submit" aria-label="{{ 'search.search' | t }}">
+                  {% render 'icon-new', icon: 'search' %}
+                </button>
+              </form>
+            {%- endif -%}
+          </div>
+        {% endif %}
       {%- else -%}
         <div class="header__row-segment left">
           {{ header_logo }}
@@ -602,7 +649,8 @@
           "value": "logo-left_nav-below",
           "label": "t:sections.header.settings.layout.option_logo-left_nav-below"
         }
-      ]
+      ],
+      "default": "logo-left_nav-below"
     },
     {
       "id": "enable_sticky_header",
@@ -662,7 +710,7 @@
       "type": "checkbox",
       "id": "enable_locale_selector",
       "label": "t:shared.settings.disclosure.enable_locale_selector.label",
-      "default": true
+      "default": false
     },
     {
       "type": "header",
@@ -673,7 +721,7 @@
       "type": "checkbox",
       "id": "enable_country_selector",
       "label": "t:shared.settings.disclosure.enable_country_selector.label",
-      "default": true
+      "default": false
     },
     {
       "type": "header",
@@ -927,13 +975,13 @@
           "min": 1,
           "max": 3,
           "step": 1,
-          "default": 2
+          "default": 3
         },
         {
           "type": "checkbox",
           "id": "show_column_borders",
           "label": "t:sections.meganav.settings.show_column_borders.label",
-          "default": true
+          "default": false
         },
         {
           "type": "header",
@@ -1094,13 +1142,12 @@
           "type": "checkbox",
           "id": "show_featured_products",
           "label": "t:sections.meganav.settings.show_featured_products.label",
-          "default": true
+          "default": false
         },
         {
           "type": "text",
           "id": "featured_products_label",
-          "label": "t:sections.meganav.settings.featured_products_label.label",
-          "default": "Featured Hydrants"
+          "label": "t:sections.meganav.settings.featured_products_label.label"
         },
         {
           "type": "product_list",

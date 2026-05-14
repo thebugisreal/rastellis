@@ -290,6 +290,10 @@ button {
       }
     }
   }
+
+  a {
+    text-decoration: none;
+  }
 }
 
 .btn.loading {
@@ -627,6 +631,18 @@ button {
 
     &:focus:not([disabled]):not(.disabled) {
       outline-offset: 6px;
+    }
+  }
+
+  &.btn--with-arrow {
+    .icon.arrow-right {
+      width: 15px;
+      height: 8px;
+
+      &::after,
+      &::before {
+        display: none;
+      }
     }
   }
 }

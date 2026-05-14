@@ -470,7 +470,8 @@
       "vendor": "Vendor",
       "view_in_space": "View in your space",
       "view_in_space_label": "View in your space, loads item in augmented reality window",
-      "write_a_review": "Write a review"
+      "write_a_review": "Write a review",
+      "shop_all_products": "Shop All Products"
     }
   },
   "search": {
@@ -498,7 +499,10 @@
     "search": "Search",
     "suggestions": "Search suggestions",
     "title": "Search our site",
-    "view_all": "View all results"
+    "view_all": "View all results",
+    "close": "Close search",
+    "search_for": "Search for Beef, Chicken, Burgers...",
+    "see_all": "See all results"
   },
   "sections": {
     "blog_posts": {

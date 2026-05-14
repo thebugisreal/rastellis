@@ -110,7 +110,7 @@
     --color-background-transparent: {{ settings.color_site_background | color_modify: 'alpha', 0 }};
     --color-border: {{ settings.color_border }};
     --color-border-meta: {{ settings.color_border | color_modify: 'alpha', 0.6 }};
-    --color-overlay: rgba(0, 0, 0, 0.7);
+    --color-overlay: rgba(0, 0, 0, 0.4);
     --color-button-disabled-state: {{ settings.color_button_disabled_state }};
     --color-callout-disabled-state: {{ settings.color_callout_disabled_state }};
 
@@ -159,6 +159,7 @@
     --color-background-header: {{ settings.color_header_background }};
     --color-icon-header: {{ settings.color_header_text }};
     --color-shadow-header: rgba(0, 0, 0, 0.15);
+    --color-navigation-background: {{ settings.color_header_navigation_background }};
 
     --color-background-footer: {{ settings.color_footer_background }};
     --color-text-footer: {{ settings.color_footer_text }};

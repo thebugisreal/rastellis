@@ -3,18 +3,6 @@
         padding-top: calc(var(--height-header));
     }
 
-    .header__inner {
-        @apply max-w-full;
-    }
-
-    .header__row-segment.right .header__icon-touch:last-child {
-        @apply md:mr-0;
-    }
-
-    .header__row {
-        @apply mx-auto px-[20px] lg:px-[5rem] max-w-full xl:max-w-[1440px];
-    }
-
     .image__img {
         @apply w-full h-full;
     }
@@ -26,12 +14,6 @@
     .icon-button__icon,
     .icon-button__icon .icon {
         @apply w-5 h-5;
-    }
-
-    .header__icon-touch--cart,
-    .header__icon-touch--cart .icon-button,
-    .header__icon-touch--cart .icon-buttcon__icon {
-        @apply w-11;
     }
 
     .icon-button__icon {
@@ -50,10 +32,6 @@
     .header__icon-touch--search .icon-button__icon,
     .header__icon-touch--search .icon {
         @apply w-[17px] md:w-[15px] h-[17px] md:h-[15px];
-    }
-
-    .meganav__nav li[depth="0"].has-children:not(:first-child) {
-        @apply mt-11;
     }
 
     .meganav__secondary-promo-text {
@@ -79,10 +57,6 @@
             @apply w-full h-full;
         }
     }
-}
-
-.meganav__nav {
-    @apply flex;
 }
 
 html.sticky-header-enabled .shopify-section.header__outer-wrapper {
@@ -138,11 +112,6 @@ html.sticky-header-enabled .shopify-section.header__outer-wrapper {
 
 .drawer-menu__account .icon {
   object-fit: contain;
-}
-
-.header:not(.no-js) .navigation__submenu[data-depth="1"]{
-    left: auto;
-    margin-left: 0;
 }
 
 .drawer-menu__all-links {
@@ -242,24 +211,6 @@ ul.drawer-menu__sub-links {
     }
 }
 
-.meganav__nav {
-    @apply px-8;
-
-    li[depth="0"] {
-        @apply !my-0;
-    }
-}
-
-.meganav__primary {
-    @apply py-[30px];
-}
-
-.header__location-button.btn {
-    .icon {
-        @apply w-[14px];
-    }
-}
-
 .header__links-icon {
     @apply transition-all;
 }
@@ -277,12 +228,8 @@ ul.drawer-menu__sub-links {
     @apply px-5;
 }
 
-.header__links-list .header__links-icon {
-    @apply mt-0 ml-1.5;
-}
-
 .header__row.header__row-desktop {
-    @apply relative z-20 !items-center;
+    @apply !items-center;
 }
 
 .support-menu .navigation__submenu-icon {
@@ -314,12 +261,6 @@ ul.drawer-menu__sub-links {
 
 .support-menu__item .support-menu__item-heading.active .navigation__submenu-icon {
     transform: rotate(180deg) !important;
-}
-
-.header__links-primary {
-    .header__links-list>li:not(:last-child) {
-        @apply mr-8;
-    }
 }
 
 .header__inner [data-scroll-container] .scroll-overflow-indicator-wrap,
