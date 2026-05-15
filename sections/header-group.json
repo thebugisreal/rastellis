@@ -111,7 +111,6 @@
         "show_social_media": true,
         "show_social_media_mobile": true,
         "account_placement": "top",
-        "account_icon": "shopify://shop_images/icon-box.webp",
         "logo": "shopify://shop_images/logo_520x_015a08da-4f44-4e54-a531-05f3b51a0826.png",
         "logo_width": 180,
         "mobile_logo_width": 150,
