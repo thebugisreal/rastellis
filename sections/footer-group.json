@@ -140,7 +140,7 @@
         "button_background_color": "#000000",
         "button_text_color": "#ffffff",
         "enable_animation": true,
-        "divider_style": "solid",
+        "divider_style": "none",
         "section_padding": "section--vertical-padding-top-bottom",
         "link_color_scheme": "dark"
       }
