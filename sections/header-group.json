@@ -103,6 +103,7 @@
       "settings": {
         "layout": "logo-left_nav-below",
         "enable_sticky_header": true,
+        "enable_hide_header_on_scroll": true,
         "enable_expand_first": false,
         "cart_icon": "cart",
         "divider_width": "0px",
