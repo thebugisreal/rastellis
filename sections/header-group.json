@@ -51,21 +51,22 @@
         "meganav-0": {
           "type": "full_width_meganav",
           "settings": {
-            "dropdown_parent_link": "",
-            "column_count": 2,
+            "dropdown_parent_link": "Shop",
+            "column_count": 3,
             "show_column_borders": true,
             "show_featured_products": false,
             "featured_products_label": "",
             "featured_products": [],
             "product_position": "left",
             "show_promo": true,
-            "promo_width": 700,
-            "promo_height": 400,
+            "promo_width": 310,
+            "promo_height": 310,
             "secondary_position": "right",
+            "image": "shopify://shop_images/0e2cdf9b-987b-45cb-8f35-4cb792158a0d.jpg",
             "focal_point": "image_presentation",
-            "promo_text": "Newest Releases",
+            "promo_text": "USDA Prime T-Bone Steak",
             "link": "shopify://collections/all",
-            "link_text": "Discover",
+            "link_text": "Shop Now",
             "text_position": "flex-start_flex-end",
             "text_color": "#ffffff",
             "color_overlay": "#000000",
@@ -73,32 +74,36 @@
             "overlay_opacity": 33
           }
         },
-        "meganav-1": {
-          "type": "compact_meganav",
+        "full_width_meganav_iWe9Ai": {
+          "type": "full_width_meganav",
           "settings": {
-            "dropdown_parent_link": "Dresses",
-            "columns_width": 270,
-            "column_count": 1,
-            "show_column_borders": false,
+            "dropdown_parent_link": "[New] Everyday Essentials",
+            "column_count": 3,
+            "show_column_borders": true,
+            "show_featured_products": false,
+            "featured_products_label": "",
+            "featured_products": [],
+            "product_position": "left",
             "show_promo": true,
-            "promo_width": 550,
-            "promo_height": 350,
+            "promo_width": 310,
+            "promo_height": 310,
             "secondary_position": "right",
+            "image": "shopify://shop_images/Rastelli50th-V24.jpg",
             "focal_point": "image_presentation",
-            "promo_text": "Newest Releases",
+            "promo_text": "Wagyu Ground Beef",
             "link": "shopify://collections/all",
-            "link_text": "Discover",
+            "link_text": "Shop Now",
             "text_position": "flex-start_flex-end",
             "text_color": "#ffffff",
             "color_overlay": "#000000",
-            "color_overlay_gradient": "linear-gradient(180deg, rgba(0, 0, 0, 0.15) 22%, rgba(0, 0, 0, 1) 96%)",
-            "overlay_opacity": 50
+            "color_overlay_gradient": "",
+            "overlay_opacity": 30
           }
         }
       },
       "block_order": [
         "meganav-0",
-        "meganav-1"
+        "full_width_meganav_iWe9Ai"
       ],
       "settings": {
         "layout": "logo-left_nav-below",
