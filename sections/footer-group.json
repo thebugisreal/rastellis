@@ -1,15 +1,152 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "type": "footer",
   "name": "t:groups.footer_group.name",
   "sections": {
+    "multi_column_fkcGjb": {
+      "type": "multi-column",
+      "blocks": {
+        "icon_column_bAqghn": {
+          "type": "icon_column",
+          "settings": {
+            "icon": "plant",
+            "icon_width": 50,
+            "icon_width_mobile": 50,
+            "custom_icon_image": "shopify://shop_images/JointheFamilyProposalPage_CookingGuideIcon.svg",
+            "icon_position": "top-left",
+            "mobile_icon_position": "top-left",
+            "accent": "",
+            "heading": "",
+            "heading_tag": "h3",
+            "heading_font_class": "fs-heading-4-base",
+            "text": "<p>Fast, Reliable Delivery</p>",
+            "text_font_class": "fs-body-75",
+            "text_max_width": 100,
+            "link": "",
+            "link_text": "",
+            "button_style": "btn--dark",
+            "bg_color": "rgba(0,0,0,0)",
+            "border_color": "rgba(0,0,0,0)"
+          }
+        },
+        "icon_column_JJzz7c": {
+          "type": "icon_column",
+          "settings": {
+            "icon": "plant",
+            "icon_width": 50,
+            "icon_width_mobile": 50,
+            "custom_icon_image": "shopify://shop_images/JointheFamilyProposalPage_BagIcon.svg",
+            "icon_position": "top-left",
+            "mobile_icon_position": "top-left",
+            "accent": "",
+            "heading": "",
+            "heading_tag": "h3",
+            "heading_font_class": "fs-heading-4-base",
+            "text": "<p>Butcher-Level Quality</p>",
+            "text_font_class": "fs-body-75",
+            "text_max_width": 100,
+            "link": "",
+            "link_text": "",
+            "button_style": "btn--dark",
+            "bg_color": "rgba(0,0,0,0)",
+            "border_color": "rgba(0,0,0,0)"
+          }
+        },
+        "icon_column_Krg4KU": {
+          "type": "icon_column",
+          "settings": {
+            "icon": "plant",
+            "icon_width": 50,
+            "icon_width_mobile": 50,
+            "custom_icon_image": "shopify://shop_images/JointheFamilyProposalPage_RewardsIcon.svg",
+            "icon_position": "top-left",
+            "mobile_icon_position": "top-left",
+            "accent": "",
+            "heading": "",
+            "heading_tag": "h3",
+            "heading_font_class": "fs-heading-4-base",
+            "text": "<p>Trusted Food Safety</p>",
+            "text_font_class": "fs-body-75",
+            "text_max_width": 100,
+            "link": "",
+            "link_text": "",
+            "button_style": "btn--dark",
+            "bg_color": "rgba(0,0,0,0)",
+            "border_color": "rgba(0,0,0,0)"
+          }
+        },
+        "icon_column_FqFwY3": {
+          "type": "icon_column",
+          "settings": {
+            "icon": "plant",
+            "icon_width": 50,
+            "icon_width_mobile": 50,
+            "custom_icon_image": "shopify://shop_images/JointheFamilyProposalPage_CookingGuideIcon.svg",
+            "icon_position": "top-left",
+            "mobile_icon_position": "top-left",
+            "accent": "",
+            "heading": "",
+            "heading_tag": "h3",
+            "heading_font_class": "fs-heading-4-base",
+            "text": "<p>Everyday Meal Ease</p>",
+            "text_font_class": "fs-body-75",
+            "text_max_width": 100,
+            "link": "",
+            "link_text": "",
+            "button_style": "btn--dark",
+            "bg_color": "rgba(0,0,0,0)",
+            "border_color": "rgba(0,0,0,0)"
+          }
+        }
+      },
+      "block_order": [
+        "icon_column_bAqghn",
+        "icon_column_JJzz7c",
+        "icon_column_Krg4KU",
+        "icon_column_FqFwY3"
+      ],
+      "name": "t:sections.multi_column.presets.name",
+      "settings": {
+        "title": "",
+        "heading_tag": "h2",
+        "heading_font_class": "fs-heading-3-base",
+        "heading_color": "c-heading-text-dark",
+        "subheading": "",
+        "subheading_color": "c-subheading-text-dark",
+        "heading_alignment": "left",
+        "content_vertical_alignment": "top",
+        "content_background_padding": "medium",
+        "columns": "4",
+        "grid_width": 100,
+        "column_spacing": 28,
+        "row_spacing": 28,
+        "column_alignment": "left",
+        "enable_slider_mobile": false,
+        "columns_mobile": "2",
+        "column_spacing_mobile": 20,
+        "row_spacing_mobile": 20,
+        "column_alignment_mobile": "left",
+        "background_behind_columns": false,
+        "background_color": "",
+        "text_color": "#000000",
+        "button_background_color": "#000000",
+        "button_text_color": "#FFFFFF",
+        "enable_animation": true,
+        "divider_style": "none",
+        "section_padding": "section--vertical-padding-top-bottom",
+        "link_color_scheme": "dark"
+      }
+    },
     "footer": {
       "type": "footer",
-      "settings": {
-        "enable_locale_selector": true,
-        "enable_country_selector": true,
-        "show_payment_icons": true,
-        "additional_copyright_text": ""
-      },
       "blocks": {
         "footer-0": {
           "type": "text",
@@ -33,7 +170,8 @@
           "settings": {
             "collapse_on_mobile": true,
             "title": "Company",
-            "show_title_on_desktop": true
+            "show_title_on_desktop": true,
+            "link_list": "footer"
           }
         },
         "footer-3": {
@@ -41,7 +179,8 @@
           "settings": {
             "collapse_on_mobile": true,
             "title": "Links",
-            "show_title_on_desktop": true
+            "show_title_on_desktop": true,
+            "link_list": "footer"
           }
         },
         "footer-4": {
@@ -50,9 +189,11 @@
             "desktop_width": 30,
             "desktop_padding": 0,
             "collapse_on_mobile": false,
+            "title": "Newsletter",
             "show_title_on_desktop": true,
             "text": "",
-            "show_social_icons": true
+            "show_social_icons": true,
+            "enable_follow_on_shop": true
           }
         }
       },
@@ -62,8 +203,18 @@
         "footer-2",
         "footer-3",
         "footer-4"
-      ]
+      ],
+      "settings": {
+        "enable_locale_selector": true,
+        "enable_country_selector": true,
+        "show_payment_icons": true,
+        "additional_copyright_text": "",
+        "legal_links": ""
+      }
     }
   },
-  "order": ["footer"]
+  "order": [
+    "multi_column_fkcGjb",
+    "footer"
+  ]
 }
