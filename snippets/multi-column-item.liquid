@@ -100,7 +100,7 @@
         {%- endunless -%}
 
         {%- unless block.settings.heading == blank -%}
-          <{{ block.settings.heading_tag }} class="multi-column__grid-item-heading ff-heading {{ block.settings.heading_font_class }} {% if section.settings.text_color == 'rgba(0,0,0,0)' or section.settings.text_color == blank %}{{ block.settings.heading_color }}{% endif %}">
+          <{{ block.settings.heading_tag }} class="multi-column__grid-item-heading ff-subheading {{ block.settings.heading_font_class }} {% if section.settings.text_color == 'rgba(0,0,0,0)' or section.settings.text_color == blank %}{{ block.settings.heading_color }}{% endif %}">
             {{ block.settings.heading }}
           </{{ block.settings.heading_tag }}>
         {%- endunless -%}

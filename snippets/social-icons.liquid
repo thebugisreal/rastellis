@@ -30,7 +30,13 @@
             rel="noopener"
           >
             {%- if social_handle == 'facebook' -%}
-              {% render 'icon' with icon: social_handle, view_box_custom: '0 0 8 15' %}
+              {% render 'icon' with icon: social_handle, view_box_custom: '0 0 23 23' %}
+            {%- elsif social_handle == 'instagram' -%}
+              {% render 'icon' with icon: social_handle, view_box_custom: '0 0 21 21' %}
+            {%- elsif social_handle == 'tiktok' -%}
+              {% render 'icon' with icon: social_handle, view_box_custom: '0 0 20 23' %}
+            {%- elsif social_handle == 'youtube' -%}
+              {% render 'icon' with icon: social_handle, view_box_custom: '0 0 25 18' %}
             {%- else -%}
               {% render 'icon' with icon: social_handle %}
             {%- endif -%}
