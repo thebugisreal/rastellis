@@ -201,9 +201,9 @@
             "collapse_on_mobile": false,
             "title": "Newsletter",
             "show_title_on_desktop": true,
-            "text": "",
+            "text": "<p>Sign up for brand updates, special offers, and more!</p>",
             "show_social_icons": true,
-            "enable_follow_on_shop": true
+            "enable_follow_on_shop": false
           }
         }
       },
