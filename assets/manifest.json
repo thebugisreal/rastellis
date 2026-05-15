@@ -354,7 +354,7 @@
     "isEntry": true
   },
   "frontend/entrypoints/theme-design-mode.js": {
-    "file": "theme-design-mode-BK0mTvaX.js",
+    "file": "theme-design-mode-CDFHnmw7.js",
     "name": "theme-design-mode",
     "src": "frontend/entrypoints/theme-design-mode.js",
     "isEntry": true,
@@ -452,12 +452,12 @@
     ]
   },
   "frontend/entrypoints/theme.css": {
-    "file": "theme-BviF52nL.css",
+    "file": "theme-DLDCedR_.css",
     "src": "frontend/entrypoints/theme.css",
     "isEntry": true
   },
   "frontend/entrypoints/theme.js": {
-    "file": "theme-DTIIp9kz.js",
+    "file": "theme-BMd25N_v.js",
     "name": "theme",
     "src": "frontend/entrypoints/theme.js",
     "isEntry": true,
@@ -899,7 +899,7 @@
     ]
   },
   "frontend/scripts/sections/header.js": {
-    "file": "header-DaK_tmqu.js",
+    "file": "header-B1grV0pa.js",
     "name": "header",
     "src": "frontend/scripts/sections/header.js",
     "isDynamicEntry": true,
