@@ -19,7 +19,9 @@ section('footer', {
 
     function handleHeaderClick({ currentTarget }) {
       const { nextElementSibling: content } = currentTarget
-      toggle(currentTarget, 'open', !isVisible(content))
+      const willOpen = !isVisible(content)
+      toggle(currentTarget, 'open', willOpen)
+      currentTarget.setAttribute('aria-expanded', willOpen ? 'true' : 'false')
       slideStop(content)
 
       if (isVisible(content)) {

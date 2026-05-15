@@ -306,8 +306,8 @@
     },
     "newsletter_form": {
       "confirmation": "Thanks for subscribing!",
-      "email_placeholder": "Your email",
-      "submit": "Subscribe"
+      "email_placeholder": "Email Address",
+      "submit": "Sign Up"
     },
     "pagination": {
       "addresses": "addresses",

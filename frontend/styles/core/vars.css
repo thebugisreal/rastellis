@@ -30,7 +30,7 @@
 
   --spacing-unit: 4px;
   --spacing-unit-half: 2px;
-  --spacing-between-sections: fluid(20px, 40px);
+  --spacing-between-sections: fluid(20px, 56px);
 
   --spacing-1: calc(var(--spacing-unit) * 1);
   --spacing-2: calc(var(--spacing-unit) * 2);

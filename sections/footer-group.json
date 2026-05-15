@@ -14,14 +14,12 @@
         "footer-0": {
           "type": "text",
           "settings": {
-            "desktop_width": 30,
-            "desktop_padding": 0,
-            "collapse_on_mobile": false,
             "title": "",
-            "show_title_on_desktop": false,
+            "text": "",
             "image_max_width": 200,
             "image_placement": "above_text",
-            "show_social_icons": false
+            "show_social_icons": false,
+            "enable_follow_on_shop": false
           }
         },
         "footer-1": {
@@ -33,8 +31,6 @@
         "footer-2": {
           "type": "links",
           "settings": {
-            "desktop_width": 15,
-            "desktop_padding": 4,
             "collapse_on_mobile": true,
             "title": "Company",
             "show_title_on_desktop": true
@@ -43,8 +39,6 @@
         "footer-3": {
           "type": "links",
           "settings": {
-            "desktop_width": 15,
-            "desktop_padding": 4,
             "collapse_on_mobile": true,
             "title": "Links",
             "show_title_on_desktop": true

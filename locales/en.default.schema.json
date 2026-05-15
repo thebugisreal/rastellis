@@ -875,6 +875,9 @@
         "text": {
           "name": "Text and image",
           "settings": {
+            "title": {
+              "label": "Heading"
+            },
             "image_placement": {
               "label": "Image placement",
               "option_above_text": "Above text",
@@ -893,6 +896,9 @@
         },
         "additional_copyright_text": {
           "label": "Additional copyright text"
+        },
+        "legal_links": {
+          "label": "Policy links"
         },
         "enable_follow_on_shop": {
           "label": "Enable Follow on Shop"
@@ -2722,6 +2728,12 @@
         "name": "Multi-column"
       },
       "settings": {
+        "background_image": {
+          "label": "Background image"
+        },
+        "background_image_mobile": {
+          "label": "Mobile background image"
+        },
         "background_behind_columns": {
           "label": "Show background behind columns"
         },
@@ -2755,6 +2767,9 @@
         },
         "enable_slider_mobile": {
           "label": "Enable slider on mobile"
+        },
+        "grid_width": {
+          "label": "Grid width"
         },
         "header__desktop_layout": {
           "content": "Desktop layout"
