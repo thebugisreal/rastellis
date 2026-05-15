@@ -1,49 +1,63 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "type": "header",
   "name": "t:groups.header_group.name",
   "sections": {
     "announcement-bar": {
       "type": "announcement-bar",
-
-      "settings": {
-        "autoplay_enabled": true,
-        "autoplay_delay": 4,
-        "color_background": "#000000",
-        "color_text": "#ffffff"
-      },
       "blocks": {
         "announcement-bar-0": {
-          "type": "announcement"
+          "type": "announcement",
+          "settings": {
+            "title": "<p>Free standard shipping and returns on all orders</p>",
+            "title_mobile": "",
+            "link": ""
+          }
         },
         "announcement-bar-1": {
-          "type": "announcement"
+          "type": "announcement",
+          "settings": {
+            "title": "<p>Free standard shipping and returns on all orders</p>",
+            "title_mobile": "",
+            "link": ""
+          }
         }
       },
-      "block_order": ["announcement-bar-0", "announcement-bar-1"]
+      "block_order": [
+        "announcement-bar-0",
+        "announcement-bar-1"
+      ],
+      "settings": {
+        "enable_sticky_announcement_bar": "never",
+        "autoplay_enabled": true,
+        "enable_action_button": false,
+        "autoplay_delay": 4,
+        "color_background": "#000000",
+        "color_text": "#ffffff",
+        "enable_overlay": true
+      }
     },
     "header": {
       "type": "header",
-      "settings": {
-        "layout": "logo-center_nav-below",
-        "enable_sticky_header": true,
-        "divider_width": "0px",
-        "enable_locale_selector": true,
-        "enable_country_selector": true,
-        "show_social_media": true,
-        "logo_width": 120,
-        "mobile_logo_width": 90,
-        "menu": "main-menu",
-        "secondary_menu": "secondary-menu",
-        "enable_transparent_on_home": true,
-        "enable_transparent_on_collection": false,
-        "color_count_transparent": "#000000"
-      },
       "blocks": {
         "meganav-0": {
           "type": "full_width_meganav",
           "settings": {
+            "dropdown_parent_link": "",
             "column_count": 2,
             "show_column_borders": true,
+            "show_featured_products": false,
+            "featured_products_label": "",
+            "featured_products": [],
+            "product_position": "left",
             "show_promo": true,
             "promo_width": 700,
             "promo_height": 400,
@@ -73,6 +87,7 @@
             "focal_point": "image_presentation",
             "promo_text": "Newest Releases",
             "link": "shopify://collections/all",
+            "link_text": "Discover",
             "text_position": "flex-start_flex-end",
             "text_color": "#ffffff",
             "color_overlay": "#000000",
@@ -81,8 +96,45 @@
           }
         }
       },
-      "block_order": ["meganav-0", "meganav-1"]
+      "block_order": [
+        "meganav-0",
+        "meganav-1"
+      ],
+      "settings": {
+        "layout": "logo-left_nav-below",
+        "enable_sticky_header": true,
+        "enable_expand_first": false,
+        "cart_icon": "cart",
+        "divider_width": "0px",
+        "enable_locale_selector": true,
+        "enable_country_selector": true,
+        "show_social_media": true,
+        "show_social_media_mobile": true,
+        "account_placement": "top",
+        "logo": "shopify://shop_images/logo_520x_015a08da-4f44-4e54-a531-05f3b51a0826.png",
+        "logo_width": 180,
+        "mobile_logo_width": 150,
+        "menu": "new-header-menu",
+        "menu_mobile": "new-header-menu",
+        "support_menu": "",
+        "secondary_menu": "",
+        "sub_menu": "",
+        "enable_transparent_on_home": false,
+        "enable_transparent_template_list": "",
+        "color_count_transparent": "#000000",
+        "enable_location": true,
+        "location_url": "",
+        "location_text": "",
+        "location_button_style": "btn--dark",
+        "featured_banner_label": "",
+        "featured_banner_link": "",
+        "announcement_bar_linklist": "",
+        "announcement_bar_sub_content": ""
+      }
     }
   },
-  "order": ["announcement-bar", "header"]
+  "order": [
+    "announcement-bar",
+    "header"
+  ]
 }
