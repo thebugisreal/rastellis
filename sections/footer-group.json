@@ -125,7 +125,7 @@
         "content_vertical_alignment": "top",
         "content_background_padding": "medium",
         "columns": "4",
-        "grid_width": 100,
+        "grid_width": 93,
         "column_spacing": 28,
         "row_spacing": 28,
         "column_alignment": "left",
@@ -140,7 +140,7 @@
         "button_background_color": "#000000",
         "button_text_color": "#FFFFFF",
         "enable_animation": true,
-        "divider_style": "none",
+        "divider_style": "solid",
         "section_padding": "section--vertical-padding-top-bottom",
         "link_color_scheme": "dark"
       }
@@ -153,6 +153,7 @@
           "settings": {
             "title": "",
             "text": "",
+            "image": "shopify://shop_images/gf.png",
             "image_max_width": 200,
             "image_placement": "above_text",
             "show_social_icons": false,
@@ -169,12 +170,21 @@
           "type": "links",
           "settings": {
             "collapse_on_mobile": true,
-            "title": "Company",
+            "title": "Shop",
             "show_title_on_desktop": true,
             "link_list": "footer"
           }
         },
         "footer-3": {
+          "type": "links",
+          "settings": {
+            "collapse_on_mobile": true,
+            "title": "Links",
+            "show_title_on_desktop": true,
+            "link_list": "footer"
+          }
+        },
+        "links_erqFYE": {
           "type": "links",
           "settings": {
             "collapse_on_mobile": true,
@@ -202,14 +212,15 @@
         "footer-1",
         "footer-2",
         "footer-3",
+        "links_erqFYE",
         "footer-4"
       ],
       "settings": {
         "enable_locale_selector": true,
         "enable_country_selector": true,
-        "show_payment_icons": true,
-        "additional_copyright_text": "",
-        "legal_links": ""
+        "show_payment_icons": false,
+        "additional_copyright_text": "<p>Foods DTC  |  Rastelli’s Foods Group  |  Site Credit</p>",
+        "legal_links": "<p><a href=\"#\" title=\"#\">Privacy Policy</a>  |  <a href=\"#\" title=\"#\">Cookie Policy</a>  |  <a href=\"#\" title=\"#\">Terms & Cond.</a></p>"
       }
     }
   },
