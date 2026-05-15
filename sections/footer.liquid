@@ -97,34 +97,42 @@
 
     {%- case block.type -%}
       {%- when 'text' -%}
-        <div
-          class="footer__supplemental-item footer__supplemental-item--text"
-          style="--image-max-width: {{ block.settings.image_max_width | default: 200 }}px;"
-          {{ block.shopify_attributes }}
-        >
-          {%- if block.settings.title != blank -%}
-            <h4 class="footer__heading footer__heading--supplemental">{{ block.settings.title }}</h4>
-          {%- endif -%}
-          {%- if block.settings.image_placement == 'above_text' -%}
-            {{ rendered_image }}
-          {%- endif -%}
-          {%- if block.settings.text != blank -%}
-            <div class="fs-body-100 footer__text">{{ block.settings.text }}</div>
-          {%- endif -%}
-          {%- if rendered_image and block.settings.image_placement == 'below_text' -%}
-            {{ rendered_image }}
-          {%- endif -%}
+        {%- assign has_supplemental_content = false -%}
+        {%- if block.settings.title != blank or block.settings.text != blank or rendered_image != blank or block.settings.show_social_icons -%}
+          {%- assign has_supplemental_content = true -%}
+        {%- elsif shop.features.follow_on_shop? and block.settings.enable_follow_on_shop -%}
+          {%- assign has_supplemental_content = true -%}
+        {%- endif -%}
+        {%- if has_supplemental_content -%}
+          <div
+            class="footer__supplemental-item footer__supplemental-item--text"
+            style="--image-max-width: {{ block.settings.image_max_width | default: 200 }}px;"
+            {{ block.shopify_attributes }}
+          >
+            {%- if block.settings.title != blank -%}
+              <h4 class="footer__heading footer__heading--supplemental">{{ block.settings.title }}</h4>
+            {%- endif -%}
+            {%- if block.settings.image_placement == 'above_text' -%}
+              {{ rendered_image }}
+            {%- endif -%}
+            {%- if block.settings.text != blank -%}
+              <div class="fs-body-100 footer__text">{{ block.settings.text }}</div>
+            {%- endif -%}
+            {%- if rendered_image and block.settings.image_placement == 'below_text' -%}
+              {{ rendered_image }}
+            {%- endif -%}
 
-          {%- if block.settings.show_social_icons -%}
-            {% render 'social-icons' %}
-          {%- endif -%}
+            {%- if block.settings.show_social_icons -%}
+              {% render 'social-icons' %}
+            {%- endif -%}
 
-          {%- if shop.features.follow_on_shop? and block.settings.enable_follow_on_shop -%}
-            <div class="footer__follow-on-shop">
-              {{ shop | login_button: action: 'follow' }}
-            </div>
-          {%- endif -%}
-        </div>
+            {%- if shop.features.follow_on_shop? and block.settings.enable_follow_on_shop -%}
+              <div class="footer__follow-on-shop">
+                {{ shop | login_button: action: 'follow' }}
+              </div>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
       {%- when 'liquid' -%}
         {%- if block.settings.liquid != blank -%}
           <div
@@ -256,7 +264,10 @@
           {%- endif -%}
           <div class="footer__credits fs-body-75">
             <div class="footer__copyright">
-              &copy; {{ 'now' | date: '%Y' }}, {{ shop.name | link_to: '/' }} | {{ section.settings.additional_copyright_text }}
+              &copy; {{ 'now' | date: '%Y' }}, {{ shop.name | link_to: '/' }}
+              {%- if section.settings.additional_copyright_text != blank -%}
+                | {{ section.settings.additional_copyright_text }}
+              {%- endif -%}
             </div>
             {%- unless section.settings.legal_links == blank -%}
               <div class="footer__legal-links">
