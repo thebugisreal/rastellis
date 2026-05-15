@@ -6,10 +6,16 @@
   html.sticky-header-enabled & {
     position: sticky;
     top: 0;
+    transition: transform var(--duration-normal) var(--easing);
 
     @media (--above-960) {
       top: var(--header-desktop-sticky-position, 0);
     }
+  }
+
+  html.header-scroll-hidden & {
+    transform: translate3d(0, -100%, 0);
+    pointer-events: none;
   }
 
   html.sticky-header-enabled[data-enable-sticky-announcement-bar*="mobile"] & {
