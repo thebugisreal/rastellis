@@ -172,25 +172,25 @@
             "collapse_on_mobile": true,
             "title": "Shop",
             "show_title_on_desktop": true,
-            "link_list": "footer"
+            "link_list": "test-footer-shop"
           }
         },
         "footer-3": {
           "type": "links",
           "settings": {
             "collapse_on_mobile": true,
-            "title": "Links",
+            "title": "Resources",
             "show_title_on_desktop": true,
-            "link_list": "footer"
+            "link_list": "test-footer-resources"
           }
         },
         "links_erqFYE": {
           "type": "links",
           "settings": {
             "collapse_on_mobile": true,
-            "title": "Links",
+            "title": "Company",
             "show_title_on_desktop": true,
-            "link_list": "footer"
+            "link_list": "test-footer-resources-copy"
           }
         },
         "footer-4": {
