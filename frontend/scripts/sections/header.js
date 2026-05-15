@@ -38,11 +38,69 @@ const selectors = {
   disclosure: '[data-disclosure]',
 }
 
+const classes = {
+  scrollHidden: 'header-scroll-hidden',
+}
+
+function scrollHideHeader(header) {
+  let lastScrollY = window.scrollY
+  let isHidden = false
+  const scrollThreshold = 8
+  const topOffset = 32
+  const bottomOffset = 32
+
+  function shouldPreventHide() {
+    const scrollY = window.scrollY
+    const atBottom =
+      scrollY + window.innerHeight >=
+      document.documentElement.scrollHeight - bottomOffset
+
+    return (
+      document.body.classList.contains('scroll-lock') ||
+      header.classList.contains('dropdown-active') ||
+      atBottom
+    )
+  }
+
+  function setHidden(hidden) {
+    if (isHidden === hidden) return
+    isHidden = hidden
+    toggle(document.documentElement, classes.scrollHidden, hidden)
+  }
+
+  function onScroll() {
+    const scrollY = window.scrollY
+
+    if (shouldPreventHide()) {
+      setHidden(false)
+      lastScrollY = scrollY
+      return
+    }
+
+    if (scrollY <= topOffset) {
+      setHidden(false)
+      lastScrollY = scrollY
+      return
+    }
+
+    const delta = scrollY - lastScrollY
+
+    if (Math.abs(delta) < scrollThreshold) {
+      return
+    }
+
+    setHidden(delta > 0)
+    lastScrollY = scrollY
+  }
+
+  return listen(window, 'scroll', onScroll)
+}
+
 section('header', {
   crossBorder: {},
 
   onLoad() {
-    const { enableStickyHeader, transparentHeader } = this.container.dataset
+    const { enableStickyHeader, transparentHeader, enableHideHeaderOnScroll } = this.container.dataset
     this.cartCounts = qsa('[data-js-cart-count]', this.container)
     const cartIcon = qsa('[data-js-cart-icon]', this.container)
     const menuButtons = qsa('[data-js-menu-button]', this.container)
@@ -140,6 +198,10 @@ section('header', {
       this.io.observe(headerSpace)
     }
 
+    if (enableHideHeaderOnScroll) {
+      this.listeners.push(scrollHideHeader(this.container))
+    }
+
     // This will watch the height of the header and update the --height-header
     // css variable when necessary. That var gets used for the negative top margin
     // to render the page body under the transparent header
@@ -200,7 +262,8 @@ section('header', {
     this.components.forEach((c) => c.destroy())
 
     this.io && this.io.disconnect()
-    this.ro.disconnect()
+    this.ro && this.ro.disconnect()
+    remove(document.documentElement, classes.scrollHidden)
 
     Object.keys(this.crossBorder).forEach((t) => this.crossBorder[t].unload())
   },

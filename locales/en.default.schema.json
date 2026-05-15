@@ -1080,6 +1080,9 @@
         "enable_sticky_header": {
           "label": "Enable sticky header"
         },
+        "enable_hide_header_on_scroll": {
+          "label": "Hide header on scroll"
+        },
         "enable_expand_first": {
           "label": "Enable expand first menu",
           "info": "Only for Mobile"

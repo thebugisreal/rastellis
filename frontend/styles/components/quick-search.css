@@ -570,11 +570,17 @@
   }
 
   .quick-search__input {
-    height: 40px;
+    height: auto;
     padding-left: 0;
-    padding-right: 24px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-right: 16px;
+    padding-top: 17px;
+    padding-bottom: 17px;
+
+    @media (--below-960) {
+      padding-right: 12px;
+      padding-top: 11px;
+      padding-bottom: 11px;
+    }
 
     &::placeholder {
       font-family: inherit;

@@ -390,6 +390,9 @@
   {% if transparent_header_enabled %}
     data-transparent-header="true"
   {% endif %}
+  {% if section.settings.enable_hide_header_on_scroll %}
+    data-enable-hide-header-on-scroll="true"
+  {% endif %}
   class="
     header
     header--layout-{{ layout | replace: "_", "-" }}
@@ -657,6 +660,12 @@
       "type": "checkbox",
       "label": "t:sections.header.settings.enable_sticky_header.label",
       "default": true
+    },
+    {
+      "id": "enable_hide_header_on_scroll",
+      "type": "checkbox",
+      "label": "t:sections.header.settings.enable_hide_header_on_scroll.label",
+      "default": false
     },
     {
       "id": "enable_expand_first",
