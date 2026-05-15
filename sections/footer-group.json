@@ -219,7 +219,7 @@
         "enable_locale_selector": true,
         "enable_country_selector": true,
         "show_payment_icons": false,
-        "additional_copyright_text": "<p>Foods DTC  |  Rastelli’s Foods Group  |  Site Credit</p>",
+        "additional_copyright_text": "<p>Rastelli’s Foods Group  |  Site Credit</p>",
         "legal_links": "<p><a href=\"#\" title=\"#\">Privacy Policy</a>  |  <a href=\"#\" title=\"#\">Cookie Policy</a>  |  <a href=\"#\" title=\"#\">Terms & Cond.</a></p>"
       }
     }
