@@ -996,6 +996,9 @@
             "header__image": {
               "content": "Background image"
             },
+            "enable_square_ratio": {
+              "label": "Square ratio"
+            },
             "height": {
               "label": "Height"
             },
@@ -1054,6 +1057,27 @@
         },
         "spacing": {
           "label": "Grid spacing"
+        },
+        "spacing_mobile": {
+          "label": "Grid spacing (mobile)"
+        },
+        "header__padding_mobile": {
+          "content": "Mobile padding"
+        },
+        "header__padding_desktop": {
+          "content": "Desktop padding"
+        },
+        "padding_top": {
+          "label": "Top padding"
+        },
+        "padding_bottom": {
+          "label": "Bottom padding"
+        },
+        "padding_top_mobile": {
+          "label": "Top padding (mobile)"
+        },
+        "padding_bottom_mobile": {
+          "label": "Bottom padding (mobile)"
         },
         "subheading": {
           "label": "Subheading"
