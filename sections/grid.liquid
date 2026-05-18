@@ -3,7 +3,6 @@
     grid
     section
     section--divider-{{ section.settings.divider_style }}
-    {{ section.settings.section_padding }}
     {% if section.settings.full_width %}
       section--full-width
     {% endif %}
@@ -15,6 +14,12 @@
   "
   style="
     --grid-spacing: {{ section.settings.spacing }}px;
+    --grid-spacing-mobile: {{ section.settings.spacing_mobile }}px;
+    --grid-container-padding: var(--spacing-between-sections);
+    --grid-padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
+    --grid-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;
+    --grid-padding-top-desktop: {{ section.settings.padding_top_desktop }}px;
+    --grid-padding-bottom-desktop: {{ section.settings.padding_bottom_desktop }}px;
     --text-align: {{ section.settings.content_alignment }};
   "
   data-section-id="{{ section.id }}"
@@ -177,6 +182,16 @@
       "default": 24
     },
     {
+      "type": "range",
+      "id": "spacing_mobile",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.grid.settings.spacing_mobile.label",
+      "default": 8
+    },
+    {
       "type": "select",
       "id": "divider_style",
       "label": "t:shared.settings.section_style.divider_style.label",
@@ -193,28 +208,44 @@
       ]
     },
     {
-      "type": "select",
-      "id": "section_padding",
-      "label": "t:shared.settings.section_style.section_padding.label",
-      "default": "section--vertical-padding-top-bottom",
-      "options": [
-        {
-          "label": "t:shared.settings.section_style.section_padding.option_none",
-          "value": "section--vertical-padding-none"
-        },
-        {
-          "label": "t:shared.settings.section_style.section_padding.option_both",
-          "value": "section--vertical-padding-top-bottom"
-        },
-        {
-          "label": "t:shared.settings.section_style.section_padding.option_top",
-          "value": "section--vertical-padding-top-only"
-        },
-        {
-          "label": "t:shared.settings.section_style.section_padding.option_bottom",
-          "value": "section--vertical-padding-bottom-only"
-        }
-      ]
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.grid.settings.padding_top_mobile.label",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.grid.settings.padding_bottom_mobile.label",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.grid.settings.padding_top.label",
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.grid.settings.padding_bottom.label",
+      "default": 56
     },
     {
       "type": "select",
@@ -267,24 +298,32 @@
           ]
         },
         {
+          "type": "checkbox",
+          "id": "enable_square_ratio",
+          "label": "t:sections.grid.blocks.item.settings.enable_square_ratio.label",
+          "default": false
+        },
+        {
           "type": "range",
           "id": "height",
           "label": "t:sections.grid.blocks.item.settings.height.label",
           "unit": "px",
-          "min": 300,
+          "min": 100,
           "max": 800,
-          "step": 20,
-          "default": 500
+          "step": 10,
+          "default": 500,
+          "visible_if": "{{ block.settings.enable_square_ratio == false }}"
         },
         {
           "type": "range",
           "id": "mobile_height",
           "label": "t:sections.grid.blocks.item.settings.mobile_height.label",
           "unit": "px",
-          "min": 300,
+          "min": 80,
           "max": 800,
-          "step": 20,
-          "default": 500
+          "step": 10,
+          "default": 500,
+          "visible_if": "{{ block.settings.enable_square_ratio == false }}"
         },
         {
           "type": "header",

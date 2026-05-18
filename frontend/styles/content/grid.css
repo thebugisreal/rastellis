@@ -1,28 +1,14 @@
 .grid {
   &.section,
   &.section.section--full-width {
-    @media (--below-960) {
-      padding-right: min(
-        calc(var(--grid-spacing, var(--spacing-6)) / 2),
-        var(--space-outer)
-      );
-      padding-left: min(
-        calc(var(--grid-spacing, var(--spacing-6)) / 2),
-        var(--space-outer)
-      );
-    }
-  }
+    padding-top: var(--grid-padding-top-mobile);
+    padding-bottom: var(--grid-padding-bottom-mobile);
+    padding-right: var(--grid-container-padding, var(--spacing-between-sections));
+    padding-left: var(--grid-container-padding, var(--spacing-between-sections));
 
-  &.section.section--full-width {
     @media (--above-960) {
-      padding-right: min(
-        var(--grid-spacing, var(--spacing-6)),
-        var(--space-outer)
-      );
-      padding-left: min(
-        var(--grid-spacing, var(--spacing-6)),
-        var(--space-outer)
-      );
+      padding-top: var(--grid-padding-top-desktop);
+      padding-bottom: var(--grid-padding-bottom-desktop);
     }
   }
 }

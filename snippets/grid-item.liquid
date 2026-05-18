@@ -34,10 +34,13 @@
     grid-item
     grid-item--width-{{ block.settings.width }}
     grid-item--text-{{ text_position_modifier }}
+    {% if block.settings.enable_square_ratio %}grid-item--square-ratio{% endif %}
   "
   style="
-    --height: {{ block.settings.height }}px;
-    --mobile-height: {{ block.settings.mobile_height }}px;
+    {% unless block.settings.enable_square_ratio %}
+      --height: {{ block.settings.height }}px;
+      --mobile-height: {{ block.settings.mobile_height }}px;
+    {% endunless %}
     --media-fit: {{ block.settings.media_fit }};
     --text-horizontal-position: {{ horizontal_position }};
     --text-vertical-position: {{ vertical_position }};
@@ -88,7 +91,7 @@
       <div class="grid-item__text-container">
         <div class="grid-item__text-container-inner  section-blocks animation--section-blocks">
           {%- unless block.settings.accent == blank -%}
-            <p class="grid-item__accent fs-accent section-blocks__accent">
+            <p class="grid-item__accent fs-accent fs-body-bold section-blocks__accent">
               {{ block.settings.accent }}
             </p>
           {%- endunless -%}
