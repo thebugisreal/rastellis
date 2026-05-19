@@ -33,7 +33,6 @@
   style="
     --custom-height: {{ section.settings.desktop_height }}vh;
     --custom-height-mobile: {{ section.settings.mobile_height }}vh;
-    --slideshow-navigation-height: 26px;
   "
 >
   <div class="slideshow__inner swiper">
@@ -592,6 +591,22 @@
           ]
         },
         {
+          "type": "select",
+          "id": "button_color_1",
+          "label": "t:shared.settings.button_color.label",
+          "default": "btn--dark",
+          "options": [
+            {
+              "value": "btn--dark",
+              "label": "t:shared.settings.button_color.dark"
+            },
+            {
+              "value": "btn--light",
+              "label": "t:shared.settings.button_color.light"
+            }
+          ]
+        },
+        {
           "type": "header",
           "content": "t:sections.slideshow.blocks.slide.settings.header__button_2.content"
         },
@@ -620,6 +635,37 @@
               "label": "t:shared.settings.button_style.option_outline"
             }
           ]
+        },
+        {
+          "type": "select",
+          "id": "button_color_2",
+          "label": "t:shared.settings.button_color.label",
+          "default": "btn--dark",
+          "options": [
+            {
+              "value": "btn--dark",
+              "label": "t:shared.settings.button_color.dark"
+            },
+            {
+              "value": "btn--light",
+              "label": "t:shared.settings.button_color.light"
+            }
+          ]
+        },
+        {
+          "type": "header",
+          "content": "t:sections.slideshow.blocks.slide.settings.header__product_pick.content"
+        },
+        {
+          "type": "product",
+          "id": "product_pick",
+          "label": "t:sections.slideshow.blocks.slide.settings.product_pick.label"
+        },
+        {
+          "type": "text",
+          "id": "product_pick_label",
+          "label": "t:sections.slideshow.blocks.slide.settings.product_pick_label.label",
+          "default": "Ray's pick"
         },
         {
           "type": "header",

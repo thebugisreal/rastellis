@@ -16,8 +16,6 @@ const classes = {
 const selectors = {
   slide: '[data-slide]',
   swiper: '.swiper',
-  navigationPrev: '.slideshow-navigation__navigation-button--previous',
-  navigationNext: '.slideshow-navigation__navigation-button--next',
   navigationDots: '.slideshow-navigation__dots',
   navigationDot: '.slideshow-navigation__dot',
   navigationLoader: '.slideshow-navigation__dot-loader',
@@ -49,14 +47,13 @@ section('slideshow', {
       import('@/scripts/manualChunks/swiper.js').then(
         ({
           Swiper,
-          Navigation,
           Autoplay,
           Pagination,
           EffectFade,
           EffectCreative,
         }) => {
           const swiperOptions = {
-            modules: [Navigation, Pagination],
+            modules: [Pagination],
             autoHeight: true,
             slidesPerView: 1,
             grabCursor: true,
@@ -66,10 +63,6 @@ section('slideshow', {
             },
             watchSlidesProgress: true,
             loop: true,
-            navigation: {
-              nextEl: selectors.navigationNext,
-              prevEl: selectors.navigationPrev,
-            },
             preloadImages: false, // if this is true, it negates benefits of lazyloading
             pagination: {
               el: selectors.navigationDots,

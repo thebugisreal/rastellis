@@ -3731,6 +3731,15 @@
             "media_link": {
               "label": "Image link"
             },
+            "header__product_pick": {
+              "content": "Product card"
+            },
+            "product_pick": {
+              "label": "Product"
+            },
+            "product_pick_label": {
+              "label": "Label"
+            },
             "mobile_focal_point": {
               "label": "Mobile image focal point"
             },

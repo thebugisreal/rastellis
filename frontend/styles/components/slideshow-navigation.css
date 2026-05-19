@@ -2,13 +2,17 @@
   z-index: 1;
   position: absolute;
   right: 0;
-  bottom: var(--spacing-8);
+  bottom: 26px;
   left: 0;
   max-width: calc(var(--max-width) + calc(var(--space-outer) * 2));
   display: flex;
   margin: 0 auto;
   padding-right: var(--space-outer);
   padding-left: var(--space-outer);
+
+  @media (--above-960) {
+    bottom: 56px;
+  }
 
   &.slideshow-navigation--align-center {
     justify-content: center;
@@ -43,66 +47,25 @@
   display: flex;
 }
 
-.slideshow-navigation__navigation-button {
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: var(--slideshow-navigation-height);
-  width: var(--slideshow-navigation-height);
-  color: var(--color-foreground);
-  background-color: var(--color-background);
-  border-radius: 100%;
-  transition: background-color 0.2s ease, color 0.2s ease;
-
-  .icon {
-    display: flex;
-    width: 14px;
-    height: 14px;
-    transition: opacity 0.2s ease;
-  }
-
-  .user-is-tabbing &:focus,
-  &:hover {
-    .icon {
-      opacity: 0.6;
-    }
-  }
-}
-
-.slideshow-navigation__navigation-button--previous {
-  transform: rotate(90deg);
-
-  /* Icon fine adjustment */
-  .icon {
-    margin-top: 1px;
-  }
-}
-
-.slideshow-navigation__navigation-button--next {
-  transform: rotate(-90deg);
-
-  /* Icon fine adjustment */
-  .icon {
-    margin-top: 1px;
-  }
-}
-
 .slideshow-navigation__dots {
   display: flex;
+  gap: var(--spacing-1);
   align-items: center;
-  height: var(--slideshow-navigation-height);
+  height: 20px;
   padding: 0 var(--spacing-unit-half);
-  margin: 0 var(--spacing-2);
+  margin: 0;
   background-color: var(--color-background);
   border-radius: 40px;
   transition: background-color 0.2s ease;
+
+  @media (--above-720) {
+    height: 16px;
+  }
 }
 
 .slideshow-navigation__dot {
   position: relative;
-  padding: var(--spacing-3);
-  opacity: 0.4;
+  padding: var(--spacing-2);
   border-radius: 100%;
   transition: opacity 0.2s ease;
 
@@ -114,18 +77,13 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: var(--color-foreground);
+    background-color: transparent;
+    border: 2px solid var(--color-foreground);
     border-radius: 100%;
-    transition: background-color 0.2s ease;
-  }
-
-  &:hover,
-  &:focus {
-    opacity: 1;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
   }
 
   &.slideshow-navigation__dot--active {
-    opacity: 1;
     pointer-events: none;
     background-color: transparent;
 
@@ -139,7 +97,7 @@
       width: 16px;
       height: 16px;
       position: absolute;
-      border: 2px solid var(--color-foreground-transparent);
+      border: 2px solid var(--color-foreground);
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
