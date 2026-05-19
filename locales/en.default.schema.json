@@ -1083,8 +1083,8 @@
         "enable_hide_header_on_scroll": {
           "label": "Hide header on scroll"
         },
-        "enable_expand_first": {
-          "label": "Enable expand first menu",
+        "expand_submenus_inline": {
+          "label": "Expand megamenu",
           "info": "Only for Mobile"
         },
         "enable_transparent_on_home": {

@@ -83,14 +83,12 @@
   assign enable_country_selector = section.settings.enable_country_selector
   assign show_social_media = section.settings.show_social_media
   assign show_social_media_mobile = section.settings.show_social_media_mobile
-  assign account_placement = section.settings.account_placement
-  assign account_custom_icon = section.settings.account_icon
-
   assign enable_location = section.settings.enable_location
   assign location_icon = section.settings.location_icon
   assign location_url = section.settings.location_url
   assign location_text = section.settings.location_text
   assign location_button_style = section.settings.location_button_style
+  assign expand_submenus_inline = section.settings.expand_submenus_inline
 
   assign locale_selector = false
   assign country_selector = false
@@ -208,7 +206,11 @@
     href="{{ routes.account_url }}"
     aria-label="{{ 'general.accessibility.go_account' | t }}"
   >
-    {% render 'icon-new', icon: 'header-account' %}
+    {%- if section.settings.account_icon != blank -%}
+      {{ section.settings.account_icon | image_url: width: 24 | image_tag: class: 'icon' }}
+    {%- else -%}
+      {% render 'icon-new', icon: 'header-account' %}
+    {%- endif -%}
   </a>
 {%- endcapture -%}
 
@@ -577,24 +579,19 @@
   {% render 'drawer-menu',
     links: mobile_links,
     secondary_links: secondary_links,
+    secondary_menu_valid: secondary_menu_valid,
     locale_selector: locale_selector,
     country_selector: country_selector,
     mobile_menu_image_blocks: mobile_menu_image_blocks,
     social_icons_mobile: social_icons_mobile,
-    location_button: location_button,
-    button_where_to_buy: button_where_to_buy,
     show_social_media: show_social_media,
     bottom_links: announcement_bar_linklist,
     bottom_image: announcement_bar_icon,
     bottom_content: announcement_bar_sub_content,
-    location_url: location_url,
-    location_text: location_text,
-    account_placement: account_placement,
-    account_icon: account_custom_icon,
     featured_banner_image: section.settings.featured_banner_image,
     featured_banner_label: section.settings.featured_banner_label,
     featured_banner_link: section.settings.featured_banner_link,
-    enable_expand_first: section.settings.enable_expand_first,
+    expand_submenus_inline: expand_submenus_inline,
     blocks: section.blocks
   %}
 </header>
@@ -668,11 +665,11 @@
       "default": false
     },
     {
-      "id": "enable_expand_first",
+      "id": "expand_submenus_inline",
       "type": "checkbox",
-      "label": "t:sections.header.settings.enable_expand_first.label",
-      "info": "t:sections.header.settings.enable_expand_first.info",
-      "default": false
+      "label": "t:sections.header.settings.expand_submenus_inline.label",
+      "info": "t:sections.header.settings.expand_submenus_inline.info",
+      "default": true
     },
     {
       "type": "radio",
@@ -752,23 +749,6 @@
     {
       "type": "header",
       "content": "t:sections.header.settings.account_link.content"
-    },
-    {
-      "type": "select",
-      "id": "account_placement",
-      "label": "t:sections.header.settings.account_link_placement.label",
-      "info": "t:sections.header.settings.account_link_placement.info",
-      "default": "top",
-      "options": [
-        {
-          "value": "top",
-          "label": "t:sections.header.settings.account_link_placement.option_top"
-        },
-        {
-          "value": "bottom",
-          "label": "t:sections.header.settings.account_link_placement.option_bottom"
-        }
-      ]
     },
     {
       "type": "image_picker",

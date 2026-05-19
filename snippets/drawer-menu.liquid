@@ -1,6 +1,6 @@
 {% liquid
   comment
-    Renders the mobile drawer including navigation, localization, account login
+    Renders the mobile drawer including navigation and localization
 
     Required parameters:
       - links: { Object } The linklists[menu].linkslinks passed through from the header.
@@ -10,18 +10,11 @@
       - mobile_menu_image_blocks: { Object } Enabled mobile menu image blocks to pass into the drawer-menu-list snippet.
   endcomment
 
-  assign account_visible = false
   assign show_social_media = show_social_media | default: false
+  assign secondary_menu_valid = secondary_menu_valid | default: false
   assign bottom_links = bottom_links | default: ''
   assign bottom_image = bottom_image | default: ''
   assign bottom_content = bottom_content | default: ''
-  assign location_text = location_text | default: ''
-  assign location_url = location_url | default: ''
-
-  if shop.customer_accounts_enabled
-    assign account_visible = true
-  endif
-
   assign localization_option_count = 0
 
   if shop.published_locales.size > 1
@@ -48,43 +41,10 @@
       assign second_level_mobile_menu_image_link_handles = second_level_mobile_menu_image_link_handles | append: current_menu_handle | append: ', '
     endif
   endfor
-%}
 
-{% capture account_link %}
-  {% if account_visible -%}
-    <div class="flex items-center gap-3 mb-4 drawer-menu__account" data-list-item>
-      {%- if account_icon != blank -%}
-        {{ account_icon | image_url: width: 24 | image_tag: class: 'icon' }}
-      {%- else -%}
-        {%- render 'icon' with icon: 'header-account' -%}
-      {%- endif -%}
-      {%- if customer -%}
-        {%-
-            render 'button-block' with
-            wrapper_class: 'drawer-menu__account-link',
-            link: routes.account_url,
-            label: 'Account',
-            button_style: "btn--callout"
-        -%}
-        <span>/</span>
-        {%-
-            render 'button-block' with
-            link: routes.account_logout_url,
-            label: 'Logout',
-            button_style: "btn--callout"
-        -%}
-      {% else %}
-        {%-
-            render 'button-block' with
-            wrapper_class: 'drawer-menu__account-link',
-            link: routes.account_url,
-            label: 'Sign In',
-            button_style: "btn--callout"
-        -%}
-      {%- endif -%}
-    </div>
-  {% endif %}
-{% endcapture %}
+  assign expand_submenus_inline = expand_submenus_inline | default: false
+  assign drawer_menu_blocks = blocks | default: section.blocks
+%}
 
 {%- capture featured_banner -%}
   {%- if featured_banner_image != blank -%}
@@ -125,19 +85,13 @@
         <div class="flex flex-col h-full drawer-menu__contents" data-scroll-lock-ignore>
           <div class="drawer-menu__main grow" data-main role="navigation">
             <div class="h-full drawer-menu__links-wrapper animation--drawer-menu-item">
-              {%- if settings.enable_quick_search -%}
-                {% render 'quick-search', parent: 'mobile' %}
-              {%- endif -%}
-              <div class="px-5">
-                <div class="drawer-menu__actions">
-                  {%- unless account_placement == 'bottom' -%}
-                    {{ account_link }}
-                  {%- endunless -%}
-                  {{ button_where_to_buy}}
-                </div>
-
+              <div class="px-5 drawer-menu__links-wrapper-inner">
                 <div class="drawer-menu__main-nav">
-                  <ul class="drawer-menu__primary-links" data-depth="0" data-primary-container="true">
+                  <ul
+                    class="drawer-menu__primary-links{% if expand_submenus_inline %} drawer-menu__primary-links--inline-expand{% endif %}"
+                    data-depth="0"
+                    data-primary-container="true"
+                  >
                     {% render 'drawer-menu-list',
                       links: links,
                       mobile_menu_image_blocks: mobile_menu_image_blocks,
@@ -145,19 +99,14 @@
                       mobile_menu_image_aspect_ratio: mobile_menu_image_aspect_ratio,
                       mobile_menu_image_width: mobile_menu_image_width,
                       second_level_mobile_menu_image_link_handles: second_level_mobile_menu_image_link_handles,
-                      enable_expand_first: enable_expand_first,
-                      blocks: section.blocks
+                      expand_submenus_inline: expand_submenus_inline,
+                      blocks: drawer_menu_blocks
                     %}
-                    {%- if location_button != blank -%}
-                      <li class="drawer-menu__item drawer-menu__primary-button">
-                        {{- location_button -}}
-                      </li>
-                      <li class="drawer-menu__item--divider has-divider-dashed"></li>
-                    {%- endif -%}
                   </ul>
+                  {% render 'drawer-menu-promos', links: links, blocks: drawer_menu_blocks %}
                 </div>
                 {{ featured_banner }}
-                {% if secondary_links %}
+                {%- if secondary_menu_valid and secondary_links.size > 0 -%}
                   <div class="drawer-menu__sub-nav px-3 my-[22px]">
                     <div class="" data-tertiary-container="true">
                       <ul class="drawer-menu__sub-links">
@@ -167,14 +116,9 @@
                       </ul>
                     </div>
                   </div>
-                {% endif %}
-                {%- if account_placement == 'bottom' -%}
-                  <div class="mt-9">
-                    {{ account_link }}
-                  </div>
                 {%- endif -%}
                 {%- if show_social_media -%}
-                  <div class="mt-9">{% render 'social-icons' %}</div>
+                  <div class="drawer-menu__social-icons">{% render 'social-icons' %}</div>
                 {%- endif -%}
               </div>
             </div>
