@@ -284,6 +284,18 @@ ul.drawer-menu__secondary-links {
   .drawer-menu__link-title {
     display: flex;
     align-items: center;
+
+    .drawer-menu__link-title-badge {
+      font-size: 9px;
+      line-height: 1.2;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      background-color: var(--color-inline-link-dark);
+      color: var(--color-button-dark-solid-text);
+      padding: 4px;
+      border-radius: 2px;
+      overflow: hidden;
+    }
   }
 
   .drawer-menu__link-thumbnail {
