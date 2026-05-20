@@ -21,19 +21,10 @@
             "title_mobile": "",
             "link": ""
           }
-        },
-        "announcement-bar-1": {
-          "type": "announcement",
-          "settings": {
-            "title": "<p>Free standard shipping and returns on all orders</p>",
-            "title_mobile": "",
-            "link": ""
-          }
         }
       },
       "block_order": [
-        "announcement-bar-0",
-        "announcement-bar-1"
+        "announcement-bar-0"
       ],
       "settings": {
         "enable_sticky_announcement_bar": "never",
