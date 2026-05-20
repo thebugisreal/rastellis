@@ -1,0 +1,65 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "enable_animation": true,
+        "content_width": "custom",
+        "custom_content_width": 700,
+        "link_color_scheme": "dark"
+      }
+    },
+    "featured-collection-slider": {
+      "type": "featured-collection-slider",
+      "blocks": {
+        "block-0": {
+          "type": "collection",
+          "settings": {
+            "show_view_all": false,
+            "collection": "best-sellers-box",
+            "collection_name": ""
+          }
+        }
+      },
+      "block_order": [
+        "block-0"
+      ],
+      "settings": {
+        "heading": "Everyday Essentials, Butcher Quality",
+        "heading_tag": "h2",
+        "heading_alignment": "center",
+        "subheading": "",
+        "link": "",
+        "link_text": "",
+        "tab_indicator_style": "underline",
+        "bottom_link": "",
+        "bottom_link_label": "",
+        "product_aspect_ratio": "square",
+        "show_variant_row": true,
+        "show_atc": true,
+        "hide_price": true,
+        "maximum_products": 8,
+        "columns": "4",
+        "mobile_columns": "2",
+        "enable_animation": true,
+        "divider_style": "none",
+        "section_padding": "section--vertical-padding-top-bottom",
+        "link_color_scheme": "dark"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "featured-collection-slider"
+  ]
+}

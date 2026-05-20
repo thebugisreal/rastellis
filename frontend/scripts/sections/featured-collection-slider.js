@@ -64,19 +64,19 @@ section('featured-collection-slider', {
       this.carousels.push(
         Carousel(container, {
           slidesPerView: this.mobilePerView,
-          spaceBetween: 13, // matches product grid
+          spaceBetween: 12,
           navigation: {
             nextEl: nextButton,
             prevEl: prevButton,
           },
           breakpoints: {
             720: {
-              spaceBetween: 17, // matches product grid
+              spaceBetween: 20,
               slidesPerView:
                 this.perView === 5 ? this.perView - 1 : this.perView,
             },
             1200: {
-              spaceBetween: 25, // matches product grid
+              spaceBetween: 32,
               slidesPerView: this.perView,
             },
           },

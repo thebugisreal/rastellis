@@ -5,8 +5,15 @@
     * prod (product but avoiding collision with globally scoped product)
   endcomment
 
+  assign resolved_aspect_ratio = aspect_ratio | default: settings.product_listing_aspect_ratio
+  assign resolved_show_vendor = show_vendor | default: settings.product_listing_show_vendor
+  assign resolved_show_second_image = show_second_image | default: settings.product_listing_show_second_image_on_hover
+  assign resolved_enable_border = enable_border | default: settings.enable_border_on_hover
+  assign resolved_show_swatches = show_swatches | default: true
+  assign resolved_enable_quick_view = enable_quick_view | default: settings.enable_quick_view
+
   assign show_multiple_images = false
-  if settings.product_listing_show_second_image_on_hover and prod.media.size > 1
+  if resolved_show_second_image and prod.media.size > 1
     assign show_multiple_images = true
   endif
 
@@ -35,13 +42,13 @@
   assign sibling_products = prod.metafields.stiletto.sibling_collection.value.products | default: prod.metafields.stiletto.siblings_collection.value.products
 
   # Sibling swatches will override other swatches if these conditions are met
-  if settings.enable_product_card_sibling_swatches and settings.siblings_option_name != blank and sibling_products.size > 0
+  if resolved_show_swatches and settings.enable_product_card_sibling_swatches and settings.siblings_option_name != blank and sibling_products.size > 0
     assign has_hover_swatches = true
     assign show_sibling_swatches = true
     assign first_swatchified_option = settings.siblings_option_name | downcase
     assign displayed_swatch_count = sibling_products.size
 
-  elsif settings.enable_product_card_swatches
+  elsif resolved_show_swatches and settings.enable_product_card_swatches
     capture first_swatchified_option
       render 'get-first-styled-option', prod: prod, styled_options: settings.swatch_options
     endcapture
@@ -53,7 +60,7 @@
     endif
   endif
 
-  if settings.show_product_card_chips
+  if resolved_show_swatches and settings.show_product_card_chips
     capture first_chipped_option
       render 'get-first-styled-option', prod: prod, styled_options: settings.product_card_chip_options
     endcapture
@@ -78,7 +85,9 @@
 
   # Quick add takes precedence over quick view
   # Use quick view for products with variants and sold out products
-  if settings.enable_quick_add and prod.available
+  if resolved_enable_quick_view == false
+    assign quick_shop_type = 'none'
+  elsif settings.enable_quick_add and prod.available
     if product_has_variants
       assign quick_shop_type = 'quick-view'
       assign quick_shop_button_text = 'products.product.choose_options' | t
@@ -91,7 +100,7 @@
       render 'icon', icon: 'quick-add'
     endcapture
 
-  elsif settings.enable_quick_view
+  elsif resolved_enable_quick_view != false and settings.enable_quick_view
     assign quick_shop_type = 'quick-view'
     assign quick_shop_button_text = 'products.product.quick_view' | t
 
@@ -168,7 +177,7 @@
     product-item
     {% if has_hover_swatches -%} product-item--with-hover-swatches {%- endif %}
     {% if has_hover_chips -%} product-item--with-hover-chips {%- endif %}
-    {% if settings.enable_border_on_hover -%} product-item--border-on-hover {%- endif %}
+    {% if resolved_enable_border -%} product-item--border-on-hover {%- endif %}
     animation
     animation--item
     {% if has_grid_reveal -%} animation--item-initial {%- endif %}
@@ -194,7 +203,7 @@
         {% render 'image',
           image: prod.featured_media,
           wrapper_class: image_wrapper_class,
-          aspect_ratio: settings.product_listing_aspect_ratio,
+          aspect_ratio: resolved_aspect_ratio,
           object_fit: settings.product_listing_media_fit,
           include_placeholder: true,
           sizes: sizes,
@@ -205,7 +214,7 @@
           {% render 'image',
             image: second_image,
             wrapper_class: 'product-item__image product-item__image--two',
-            aspect_ratio: settings.product_listing_aspect_ratio,
+            aspect_ratio: resolved_aspect_ratio,
             object_fit: settings.product_listing_media_fit,
             include_placeholder: true,
             sizes: sizes,
@@ -235,8 +244,8 @@
     </div>
 
     <div class="product-item__meta">
-      <div class="product-item__text ta-c ">
-        <h4 class="ff-body product-item__product-title fs-product-card-title">
+      <div class="product-item__text">
+        <h4 class="ff-body product-item__product-title fs-heading-5-base">
           {%- if placeholder -%}
             {{ 'homepage.onboarding.product_title' | t }}
           {%- else -%}
@@ -244,7 +253,7 @@
           {%- endif -%}
         </h4>
 
-        {% if settings.product_listing_show_vendor and prod.vendor %}
+        {% if resolved_show_vendor and prod.vendor %}
           <h5 class="ff-body fs-body-75 product-item__product-vendor">
             {{ prod.vendor }}
           </h5>
@@ -400,6 +409,46 @@
 
       {%- if quick_shop_type != 'none' and quick_view_is_beneath -%}
         {{ quick_shop_button }}
+      {%- endif -%}
+
+      {%- if show_variant_row and placeholder != true -%}
+        {%- assign variant_title_visible = false -%}
+        {%- if current_variant.title != 'Default Title' -%}{%- assign variant_title_visible = true -%}{%- endif -%}
+        {%- if variant_title_visible or current_variant.unit_price_measurement -%}
+          <div class="product-item__variant-row">
+            <span class="product-item__variant-title ff-body fs-body-75">
+              {%- if variant_title_visible -%}{{ current_variant.title }}{%- endif -%}
+            </span>
+            <span class="product-item__unit-price ff-body fs-body-75">
+              {%- if current_variant.unit_price_measurement -%}
+                {{- current_variant.unit_price | money -}}/{{- current_variant.unit_price_measurement.reference_unit -}}
+              {%- else -%}
+                {{- current_variant.price | money -}}
+              {%- endif -%}
+            </span>
+          </div>
+        {%- endif -%}
+      {%- endif -%}
+
+      {%- if show_atc and prod.available and placeholder != true -%}
+        <div class="product-item__atc-row">
+          {%- form 'product', prod, class: 'product-item__atc-form' -%}
+            <input type="hidden" name="id" value="{{ current_variant.id }}">
+            <div class="product-item__atc-split">
+              <div class="product-item__qty-wrap">
+                <select name="quantity" class="product-item__qty-select ff-body fs-accent" aria-label="{{ 'general.accessibility.quantity' | t | default: 'Quantity' }}">
+                  {%- for i in (1..10) -%}
+                    <option value="{{ i }}">{{ i }}</option>
+                  {%- endfor -%}
+                </select>
+              </div>
+              <button type="submit" name="add" class="product-item__atc-btn ff-body fs-accent">
+                <span>{{ 'products.product.add_to_cart' | t }} &bull; {{ current_variant.price | money }}</span>
+                <div class="btn__loading-wrap"><div class="btn__loading-bar"></div></div>
+              </button>
+            </div>
+          {%- endform -%}
+        </div>
       {%- endif -%}
     </div>
     <div class="product-item__hover-container"></div>

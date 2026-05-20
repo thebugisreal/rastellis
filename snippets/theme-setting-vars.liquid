@@ -316,12 +316,21 @@
     {%- capture tagNameSettingsKey -%}custom_product_badge_group_{{ index }}_tag_names{%- endcapture -%}
     {%- capture colorSettingsKey -%}custom_product_badge_group_{{ index }}_color{%- endcapture -%}
     {%- unless settings[tagNameSettingsKey] == blank -%}
+      {%- assign badge_bg = settings[colorSettingsKey] -%}
+      {%- assign badge_brightness = badge_bg | color_brightness -%}
+      {%- if badge_brightness > 128 -%}
+        {%- assign badge_text_color = '#000000' -%}
+      {%- else -%}
+        {%- assign badge_text_color = '#ffffff' -%}
+      {%- endif -%}
       {%- assign tags = settings[tagNameSettingsKey] | downcase | split: ", " -%}
       {%- for tag in tags -%}
         .product-badge[data-handle="{{ tag | downcase | handleize }}"]{%- if forloop.last != true -%},{%- endif -%}
       {%- endfor -%}
       {
-        color: {{ settings[colorSettingsKey] }};
+        background-color: {{ badge_bg }};
+        color: {{ badge_text_color }};
+        border-color: transparent;
       }
     {% endunless %}
   {%- endfor -%}
