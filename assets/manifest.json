@@ -319,7 +319,7 @@
     "isEntry": true
   },
   "frontend/entrypoints/custom.css": {
-    "file": "custom-DlX0-AAj.css",
+    "file": "custom-CA1m_gCl.css",
     "src": "frontend/entrypoints/custom.css",
     "isEntry": true
   },
@@ -354,7 +354,7 @@
     "isEntry": true
   },
   "frontend/entrypoints/theme-design-mode.js": {
-    "file": "theme-design-mode-CDFHnmw7.js",
+    "file": "theme-design-mode-D14rTYi6.js",
     "name": "theme-design-mode",
     "src": "frontend/entrypoints/theme-design-mode.js",
     "isEntry": true,
@@ -452,12 +452,12 @@
     ]
   },
   "frontend/entrypoints/theme.css": {
-    "file": "theme-C0hsuLE_.css",
+    "file": "theme-8By5q8Ep.css",
     "src": "frontend/entrypoints/theme.css",
     "isEntry": true
   },
   "frontend/entrypoints/theme.js": {
-    "file": "theme-BMd25N_v.js",
+    "file": "theme-CSDR9aTB.js",
     "name": "theme",
     "src": "frontend/entrypoints/theme.js",
     "isEntry": true,
@@ -899,7 +899,7 @@
     ]
   },
   "frontend/scripts/sections/header.js": {
-    "file": "header-B1grV0pa.js",
+    "file": "header-BYMIty7q.js",
     "name": "header",
     "src": "frontend/scripts/sections/header.js",
     "isDynamicEntry": true,
@@ -1594,7 +1594,7 @@
     "isEntry": true
   },
   "frontend/styles/modules/header.css": {
-    "file": "header-D4LwYL_y.css",
+    "file": "header-BEjH3oq-.css",
     "src": "frontend/styles/modules/header.css",
     "isEntry": true
   },
