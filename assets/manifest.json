@@ -324,27 +324,27 @@
     "isEntry": true
   },
   "frontend/entrypoints/template-article.css": {
-    "file": "template-article-CXV1Hfdv.css",
+    "file": "template-article-BCHusDya.css",
     "src": "frontend/entrypoints/template-article.css",
     "isEntry": true
   },
   "frontend/entrypoints/template-blog.css": {
-    "file": "template-blog-C-BjQO8s.css",
+    "file": "template-blog-B00w8NJ-.css",
     "src": "frontend/entrypoints/template-blog.css",
     "isEntry": true
   },
   "frontend/entrypoints/template-customers.css": {
-    "file": "template-customers-eepw_8sk.css",
+    "file": "template-customers-Bl-AUkXd.css",
     "src": "frontend/entrypoints/template-customers.css",
     "isEntry": true
   },
   "frontend/entrypoints/template-gift-card.css": {
-    "file": "template-gift-card-CzmyjAqF.css",
+    "file": "template-gift-card-CgfgGvaS.css",
     "src": "frontend/entrypoints/template-gift-card.css",
     "isEntry": true
   },
   "frontend/entrypoints/template-password.css": {
-    "file": "template-password-Cuy-0KDL.css",
+    "file": "template-password-BAw6nuwC.css",
     "src": "frontend/entrypoints/template-password.css",
     "isEntry": true
   },
@@ -354,7 +354,7 @@
     "isEntry": true
   },
   "frontend/entrypoints/theme-design-mode.js": {
-    "file": "theme-design-mode-D14rTYi6.js",
+    "file": "theme-design-mode-Bt6glBm8.js",
     "name": "theme-design-mode",
     "src": "frontend/entrypoints/theme-design-mode.js",
     "isEntry": true,
@@ -452,12 +452,12 @@
     ]
   },
   "frontend/entrypoints/theme.css": {
-    "file": "theme-8By5q8Ep.css",
+    "file": "theme-CIr4b4cS.css",
     "src": "frontend/entrypoints/theme.css",
     "isEntry": true
   },
   "frontend/entrypoints/theme.js": {
-    "file": "theme-CSDR9aTB.js",
+    "file": "theme-BzPnagKj.js",
     "name": "theme",
     "src": "frontend/entrypoints/theme.js",
     "isEntry": true,
@@ -1248,7 +1248,7 @@
     ]
   },
   "frontend/scripts/sections/slideshow.js": {
-    "file": "slideshow-CISfbU2a.js",
+    "file": "slideshow-ChSNuOMN.js",
     "name": "slideshow",
     "src": "frontend/scripts/sections/slideshow.js",
     "isDynamicEntry": true,
@@ -1589,7 +1589,7 @@
     "isEntry": true
   },
   "frontend/styles/modules/component-shoppable.css": {
-    "file": "component-shoppable-DND5kdS_.css",
+    "file": "component-shoppable-DTjGcpbV.css",
     "src": "frontend/styles/modules/component-shoppable.css",
     "isEntry": true
   },
@@ -1609,7 +1609,7 @@
     "isEntry": true
   },
   "frontend/styles/modules/partial-shopify-product-reviews.css": {
-    "file": "partial-shopify-product-reviews-VOilm--B.css",
+    "file": "partial-shopify-product-reviews-C5mI2Qoi.css",
     "src": "frontend/styles/modules/partial-shopify-product-reviews.css",
     "isEntry": true
   },
