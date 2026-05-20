@@ -155,8 +155,10 @@
     text-decoration: underline;
     transition: opacity 0.25s;
 
-    &:hover {
-      opacity: 0.6;
+    @media (--can-hover) {
+      &:hover {
+        opacity: 0.6;
+      }
     }
 
     .link-color-scheme--light & {

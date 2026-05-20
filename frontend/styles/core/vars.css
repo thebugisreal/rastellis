@@ -1,3 +1,4 @@
+@custom-media --can-hover (hover: hover);
 @custom-media --below-480 (max-width: 479px);
 @custom-media --above-480 (min-width: 480px);
 @custom-media --below-720 (max-width: 719px);
