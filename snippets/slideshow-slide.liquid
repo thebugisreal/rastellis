@@ -12,6 +12,14 @@
     assign text_position_modifier = 'right'
   endif
 
+  assign vertical_position_modifier = 'middle'
+
+  if vertical_position == 'flex-start'
+    assign vertical_position_modifier = 'top'
+  elsif vertical_position == 'flex-end'
+    assign vertical_position_modifier = 'bottom'
+  endif
+
   assign text_position_mobile = block.settings.text_position_mobile | split: '_'
   assign horizontal_position_mobile = text_position_mobile | first
   assign vertical_position_mobile = text_position_mobile | last
@@ -40,9 +48,24 @@
   if section.index == 1 and index == 1
     assign prioritize_loading = true
   endif
+
+  assign slide_button_style_1 = block.settings.button_style_1
+  assign slide_button_style_2 = block.settings.button_style_2
+
+  if slide_button_style_1 == 'btn--dark' or slide_button_style_1 == 'btn--solid'
+    assign slide_button_style_1 = 'btn--solid'
+  elsif slide_button_style_1 == 'btn--light' or slide_button_style_1 == 'btn--outline'
+    assign slide_button_style_1 = 'btn--outline'
+  endif
+
+  if slide_button_style_2 == 'btn--dark' or slide_button_style_2 == 'btn--solid'
+    assign slide_button_style_2 = 'btn--solid'
+  elsif slide_button_style_2 == 'btn--light' or slide_button_style_2 == 'btn--outline'
+    assign slide_button_style_2 = 'btn--outline'
+  endif
 -%}
 <div
-  class="slideshow-slide swiper-slide {% if is_single_slide %}slideshow-slide--single{% endif %}"
+  class="slideshow-slide slideshow-slide--text-vertical-{{ vertical_position_modifier }} swiper-slide {% if is_single_slide %}slideshow-slide--single{% endif %}"
   style="
     --text-horizontal-position: {{ horizontal_position }};
     --text-vertical-position: {{ vertical_position }};
@@ -83,6 +106,13 @@
       -%}
     </div>
     <div class="slideshow-slide__overlay"></div>
+
+    {%- if block != blank -%}
+      {%- render 'slideshow-product-pick',
+        product_pick: block.settings.product_pick,
+        product_pick_label: block.settings.product_pick_label
+      -%}
+    {%- endif -%}
 
     <div class="slideshow-slide__text-container-wrapper">
       <div class="slideshow-slide__text-container">
@@ -137,8 +167,8 @@
               wrapper_class: "slideshow-slide__text-container-image-button section-blocks__button",
               link: block.settings.link_1,
               label: block.settings.link_text_1,
-              button_style: block.settings.button_style_1,
-              button_color: block.settings.button_color
+              button_style: slide_button_style_1,
+              button_color: block.settings.button_color_1 | default: 'btn--dark',
               is_overlay: true,
               button_alignment: text_position_modifier,
               button_alignment_mobile: text_position_modifier_mobile,
@@ -151,8 +181,8 @@
               wrapper_class: "slideshow-slide__text-container-image-button section-blocks__button",
               link: block.settings.link_2,
               label: block.settings.link_text_2,
-              button_style: block.settings.button_style_2,
-              button_color: block.settings.button_color
+              button_style: slide_button_style_2,
+              button_color: block.settings.button_color_2 | default: 'btn--dark',
               is_overlay: true,
               button_alignment: text_position_modifier,
               button_alignment_mobile: text_position_modifier_mobile,
