@@ -18,17 +18,42 @@
   endcomment
 
   assign menu_depth = depth | plus: 1 | default: 1
-  assign enable_expand_first = enable_expand_first | default: false
+  assign expand_submenus_inline = expand_submenus_inline | default: false
+  assign accordion_submenu = accordion_submenu | default: false
+  assign last_meganav_inline_parent = ''
 
   assign children_allowed = true
   if parents_only
     assign children_allowed = false
   endif
+
+  if menu_depth == 1 and expand_submenus_inline and blocks.size > 0
+    for link in links
+      if link.levels > 0
+        assign link_title_handle = link.title | handle | strip
+
+        for block in blocks
+          assign dropdown_parent_handle = block.settings.dropdown_parent_link | handle | strip
+
+          if dropdown_parent_handle != blank
+            if link.handle == dropdown_parent_handle or link_title_handle == dropdown_parent_handle
+              case block.type
+                when 'product_meganav', 'compact_meganav', 'full_width_meganav'
+                  assign last_meganav_inline_parent = link.handle
+              endcase
+            endif
+          endif
+        endfor
+      endif
+    endfor
+  endif
 -%}
 
 {%- for link in links -%}
   {%- liquid
-    assign expand_first = false
+    assign show_product = false
+    assign meganav_settings = blank
+    assign product_list = blank
     assign child_has_mobile_menu_images = false
     assign child_mobile_menu_image_aspect_ratio = blank
     assign child_mobile_menu_image_width = blank
@@ -52,8 +77,46 @@
       assign has_children = true
     endif
 
-    if forloop.first and has_children and menu_depth == 1 and enable_expand_first
-      assign expand_first = true
+    assign has_meganav_block = false
+    assign link_title_handle = link.title | handle | strip
+
+    if blocks.size > 0 and has_children
+      for block in blocks
+        assign dropdown_parent_handle = block.settings.dropdown_parent_link | handle | strip
+        if dropdown_parent_handle != blank
+          if link.handle == dropdown_parent_handle or link_title_handle == dropdown_parent_handle
+            if block.type == 'product_meganav' or block.type == 'compact_meganav' or block.type == 'full_width_meganav'
+              assign has_meganav_block = true
+              break
+            endif
+          endif
+        endif
+      endfor
+    endif
+
+    assign expand_inline = false
+    assign use_accordion = false
+
+    if has_children and expand_submenus_inline
+      if menu_depth == 1
+        if has_meganav_block
+          assign expand_inline = true
+        else
+          assign use_accordion = true
+        endif
+      elsif menu_depth > 1
+        assign use_accordion = true
+      endif
+    endif
+
+    assign drawer_link_type_class = ''
+
+    if menu_depth == 1 and expand_inline
+      assign drawer_link_type_class = 'fs-subheading-bold fs-body-300'
+    elsif accordion_submenu
+      assign drawer_link_type_class = 'fs-body-75 ff-body'
+    else
+      assign drawer_link_type_class = 'ff-heading fs-heading-4-base'
     endif
 
     assign child_is_active = false
@@ -78,7 +141,6 @@
           if block.type == 'product_meganav'
             assign show_product = true
             assign product_list = block.settings.product_list
-            assign expand_first = false
             break
           endif
         endif
@@ -88,10 +150,7 @@
         assign meganav_settings_handle = block.settings.dropdown_parent_link | handle | strip
         if link.handle == meganav_settings_handle and has_children
           if block.type == 'full_width_meganav' or block.type == 'compact_meganav'
-            assign show_promo = true
             assign meganav_settings = block.settings
-            assign meganav_type = block.type
-            assign expand_first = false
             break
           endif
         endif
@@ -102,6 +161,15 @@
   <li
     class="
       drawer-menu__item
+      {% if use_accordion -%}
+        drawer-menu__item--accordion
+      {%- endif %}
+      {% if expand_inline and menu_depth == 1 -%}
+        drawer-menu__item--inline-expand
+      {%- endif %}
+      {% if expand_inline and menu_depth == 1 and last_meganav_inline_parent != blank and link.handle == last_meganav_inline_parent -%}
+        drawer-menu__item--inline-expand-last
+      {%- endif %}
       {% if emphasized -%}
         drawer-menu__item--emphasized
       {%- endif %}
@@ -111,49 +179,31 @@
     "
     data-list-item
   >
-    <a
-      data-item="{% if has_children and expand_first == false %}parent{% else %}link{% endif %}"
-      class="drawer-menu__link {% if has_children %}no-transition{% endif %} {% if link.active or child_is_active %}active{% endif %}"
-      href="{{ link.url }}"
-      {% if has_children and expand_first == false %}
-        data-link="primary"
-        aria-haspopup="true"
-        aria-expanded="false"
-      {% endif %}
-    >
-      <div class="drawer-menu__link-title">
-        {% # Render mobile product or collection images if enabled %}
-        {% if has_mobile_menu_images %}
-          {% render 'mobile-menu-image-thumbnail',
-            link: link,
-            aspect_ratio: mobile_menu_image_aspect_ratio,
-            thumbnail_width: mobile_menu_image_width
-          %}
-        {% endif %}
+    {%- if use_accordion -%}
+      <details class="drawer-menu__accordion">
+        <summary
+          class="drawer-menu__accordion-trigger drawer-menu__link {{ drawer_link_type_class }} {% if link.active or child_is_active %}active{% endif %}"
+        >
+          <div class="drawer-menu__link-title">
+            {% if has_mobile_menu_images %}
+              {% render 'mobile-menu-image-thumbnail',
+                link: link,
+                aspect_ratio: mobile_menu_image_aspect_ratio,
+                thumbnail_width: mobile_menu_image_width
+              %}
+            {% endif %}
 
-        <span class="">
-          {{ link.title }}
-        </span>
-      </div>
-      {%- if has_children and expand_first == false -%}
-        {% render 'icon', icon: 'chevron', class: 'menu-icon' %}
-      {%- endif -%}
-    </a>
+            <span>{{ link.title }}</span>
+          </div>
+          <div class="drawer-menu__accordion-icons">
+            {% render 'icon', icon: 'plus', class: 'menu-icon', view_box_custom: '0 0 14 15' %}
+            {% render 'icon', icon: 'minus', class: 'menu-icon', view_box_custom: '0 0 14 15' %}
+          </div>
+        </summary>
 
-    {% # Render sub navigation %}
-    {%- if expand_first and link.links.size > 0 -%}
-      <ul class="drawer-menu__list drawer-menu__list--expand">
-        {% render 'drawer-menu-list', links: link.links, depth: menu_depth, parent_index: parent_index, blocks: blocks %}
-      </ul>
-    {%- elsif link.links.size > 0 and expand_first == false %}
-      <ul class="drawer-menu__list drawer-menu__list--sub drawer-menu-list--{{ menu_depth }}" aria-hidden="true">
-        {% assign header_has_link = false %}
-        {% if link.url != '#nolink' %}
-          {% assign header_has_link = true %}
-        {% endif %}
-
-        {%- capture featured_products_content -%}
-            {%- if has_children and meganav_settings.featured_products and meganav_settings.featured_products != blank -%}
+        <div class="drawer-menu__accordion-panel">
+          <ul class="drawer-menu__list drawer-menu__list--expand drawer-menu-list--{{ menu_depth }}">
+            {%- if meganav_settings.show_featured_products and meganav_settings.featured_products != blank and meganav_settings.product_position == 'left' -%}
               <li class="drawer-menu__item">
                 <div class="drawer-menu__item--featured-products">
                   {% for _product in meganav_settings.featured_products %}
@@ -162,41 +212,116 @@
                 </div>
               </li>
             {%- endif -%}
-          {%- endcapture -%}
 
-        <li class="drawer-menu__item drawer-menu__item--heading">
-          <span
-            class="drawer-menu__item--heading-back-link"
-            data-item="back"
-            aria-label="{{ 'general.accessibility.back' | t }}"
-          >
-            {% render 'icon', icon: 'arrow-long', class: 'back-link-icon' %}
-          </span>
-          <a
-            class="drawer-menu__link"
-            data-heading="true"
-            {% if header_has_link %}
-              href="{{ link.url }}"
-            {% endif %}
-          >
-            <span class="fs-body-300">{{ link.title }}</span>
-          </a>
-        </li>
+            {% render 'drawer-menu-list',
+              links: link.links,
+              depth: menu_depth,
+              parent_index: parent_index,
+              blocks: blocks,
+              has_mobile_menu_images: child_has_mobile_menu_images,
+              mobile_menu_image_aspect_ratio: child_mobile_menu_image_aspect_ratio,
+              mobile_menu_image_width: child_mobile_menu_image_width,
+              expand_submenus_inline: true,
+              accordion_submenu: true
+            %}
 
-        {% if meganav_settings.show_featured_products and meganav_settings.product_position == 'left' %}
-          {{ featured_products_content }}
+            {%- if show_product and product_list != blank -%}
+              <li class="draw-menu__item draw-menu__item--product pt-4">
+                <div class="grid grid-cols-2 gap-[10px]">
+                  {% for product in product_list %}
+                    {%- render 'product-item' with
+                        prod: product,
+                        disable_controls: false
+                    -%}
+                  {% endfor %}
+                </div>
+              </li>
+            {%- endif -%}
+
+            {%- if meganav_settings.show_featured_products and meganav_settings.featured_products != blank and meganav_settings.product_position == 'right' -%}
+              <li class="drawer-menu__item">
+                <div class="drawer-menu__item--featured-products">
+                  {% for _product in meganav_settings.featured_products %}
+                    {%- render 'product-item', prod: _product, aspect_ratio: 'square' -%}
+                  {% endfor %}
+                </div>
+              </li>
+            {%- endif -%}
+          </ul>
+        </div>
+      </details>
+    {%- elsif has_children == false -%}
+      <a
+        data-item="link"
+        class="drawer-menu__link {{ drawer_link_type_class }} {% if link.active %}active{% endif %}"
+        href="{{ link.url }}"
+      >
+        <div class="drawer-menu__link-title">
+          {% if has_mobile_menu_images %}
+            {% render 'mobile-menu-image-thumbnail',
+              link: link,
+              aspect_ratio: mobile_menu_image_aspect_ratio,
+              thumbnail_width: mobile_menu_image_width
+            %}
+          {% endif %}
+
+          <span>{{ link.title }}</span>
+        </div>
+      </a>
+    {%- else -%}
+      <a
+        data-item="{% if has_children and expand_inline == false and use_accordion == false %}parent{% else %}link{% endif %}"
+        class="drawer-menu__link {{ drawer_link_type_class }} {% if has_children and expand_inline == false %}no-transition{% endif %} {% if link.active or child_is_active %}active{% endif %}"
+        href="{{ link.url }}"
+        {% if has_children and expand_inline == false and use_accordion == false %}
+          data-link="primary"
+          aria-haspopup="true"
+          aria-expanded="false"
         {% endif %}
+      >
+        <div class="drawer-menu__link-title">
+          {% if has_mobile_menu_images %}
+            {% render 'mobile-menu-image-thumbnail',
+              link: link,
+              aspect_ratio: mobile_menu_image_aspect_ratio,
+              thumbnail_width: mobile_menu_image_width
+            %}
+          {% endif %}
 
-        {% render 'drawer-menu-list',
-          links: link.links,
-          depth: menu_depth,
-          parent_index: parent_index,
-          has_mobile_menu_images: child_has_mobile_menu_images,
-          mobile_menu_image_aspect_ratio: child_mobile_menu_image_aspect_ratio,
-          mobile_menu_image_width: child_mobile_menu_image_width
-        %}
-        {%- unless expand_first and menu_depth > 1 -%}
-          {%- if show_product -%}
+          <span>{{ link.title }}</span>
+        </div>
+        {%- if has_children and expand_inline == false -%}
+          {% render 'icon', icon: 'chevron', class: 'menu-icon' %}
+        {%- endif -%}
+      </a>
+    {%- endif -%}
+
+    {%- unless use_accordion -%}
+    {% # Inline sub navigation (primary level, expand_submenus_inline) %}
+      {%- if expand_inline and link.links.size > 0 -%}
+        <ul class="drawer-menu__list drawer-menu__list--expand drawer-menu-list--{{ menu_depth }}">
+          {%- if meganav_settings.show_featured_products and meganav_settings.featured_products != blank and meganav_settings.product_position == 'left' -%}
+            <li class="drawer-menu__item">
+              <div class="drawer-menu__item--featured-products">
+                {% for _product in meganav_settings.featured_products %}
+                  {%- render 'product-item', prod: _product, aspect_ratio: 'square' -%}
+                {% endfor %}
+              </div>
+            </li>
+          {%- endif -%}
+
+          {% render 'drawer-menu-list',
+            links: link.links,
+            depth: menu_depth,
+            parent_index: parent_index,
+            blocks: blocks,
+            has_mobile_menu_images: child_has_mobile_menu_images,
+            mobile_menu_image_aspect_ratio: child_mobile_menu_image_aspect_ratio,
+            mobile_menu_image_width: child_mobile_menu_image_width,
+            expand_submenus_inline: true
+          %}
+
+          {%- if show_product and product_list != blank -%}
             <li class="draw-menu__item draw-menu__item--product pt-4">
               <div class="grid grid-cols-2 gap-[10px]">
                 {% for product in product_list %}
@@ -208,48 +333,97 @@
               </div>
             </li>
           {%- endif -%}
-          {%- if has_children and show_promo and meganav_settings.show_promo -%}
-            {%- if meganav_type == 'full_width_meganav' or meganav_type == 'compact_meganav' -%}
-              <li class="draw-menu__item draw-menu__item--promo mt-auto">
-                <div class="mt-4 relative flex items-end !text-white aspect-[375/207]">
-                {%- if meganav_settings.link != blank -%}
-                  <a href="{{ meganav_settings.link }}" class="draw-menu__promo-image-link">
-                    {%- endif -%}
-                    {%- render 'image' with
-                        wrapper_class: "draw-menu__promo-image absolute inset-0",
-                        image: meganav_settings.image,
-                        object_fit: 'cover',
-                        focal_point: 'image_presentation',
-                        aspect_ratio: "externally_set"
-                    -%}
-                    {%- if meganav_settings.link != blank -%}
-                  </a>
-                  {%- endif -%}
-                  <div class="absolute inset-0 bg-black/40"></div>
-                  <div class="draw-menu__promo-text relative flex flex-col gap-3 py-7 px-5 text-white w-full">
-                    {% unless meganav_settings.promo_text == blank %}
-                      <h3 class="h4 text-white">{{ meganav_settings.promo_text }}</h3>
-                    {% endunless %}
-                    {% if meganav_settings.link and meganav_settings.link != blank %}
-                      {%- render 'button-block' with
-                          wrapper_class: "draw-menu__promo-button",
-                          label: meganav_settings.link_text,
-                          link: meganav_settings.link,
-                          button_style: 'btn--callout !text-white',
-                          allow_linkless: true
-                      -%}
-                    {% endif %}
+
+          {%- if meganav_settings.show_featured_products and meganav_settings.featured_products != blank and meganav_settings.product_position == 'right' -%}
+            <li class="drawer-menu__item">
+              <div class="drawer-menu__item--featured-products">
+                {% for _product in meganav_settings.featured_products %}
+                  {%- render 'product-item', prod: _product, aspect_ratio: 'square' -%}
+                {% endfor %}
+              </div>
+            </li>
+          {%- endif -%}
+        </ul>
+        {%- if menu_depth == 1 and last_meganav_inline_parent != blank and link.handle == last_meganav_inline_parent -%}
+          <div class="drawer-menu__parent-link">
+            <a href="{{ link.url }}" class="btn btn--callout btn--dark btn--with-arrow">
+              <span>
+                {{ 'products.product.shop_all_products' | t }}
+                {% render 'icon-new', icon: 'arrow-right' %}
+              </span>
+            </a>
+          </div>
+        {%- endif -%}
+      {%- elsif link.links.size > 0 and expand_inline == false -%}
+        <ul class="drawer-menu__list drawer-menu__list--sub drawer-menu-list--{{ menu_depth }}" aria-hidden="true">
+          {% assign header_has_link = false %}
+          {% if link.url != '#nolink' %}
+            {% assign header_has_link = true %}
+          {% endif %}
+
+          {%- capture featured_products_content -%}
+              {%- if has_children and meganav_settings.featured_products and meganav_settings.featured_products != blank -%}
+                <li class="drawer-menu__item">
+                  <div class="drawer-menu__item--featured-products">
+                    {% for _product in meganav_settings.featured_products %}
+                      {%- render 'product-item', prod: _product, aspect_ratio: 'square' -%}
+                    {% endfor %}
                   </div>
+                </li>
+              {%- endif -%}
+            {%- endcapture -%}
+
+          <li class="drawer-menu__item drawer-menu__item--heading">
+            <span
+              class="drawer-menu__item--heading-back-link"
+              data-item="back"
+              aria-label="{{ 'general.accessibility.back' | t }}"
+            >
+              {% render 'icon', icon: 'arrow-long', class: 'back-link-icon' %}
+            </span>
+            <a
+              class="drawer-menu__link"
+              data-heading="true"
+              {% if header_has_link %}
+                href="{{ link.url }}"
+              {% endif %}
+            >
+              <span class="fs-body-300">{{ link.title }}</span>
+            </a>
+          </li>
+
+          {% if meganav_settings.show_featured_products and meganav_settings.product_position == 'left' %}
+            {{ featured_products_content }}
+          {% endif %}
+
+          {% render 'drawer-menu-list',
+            links: link.links,
+            depth: menu_depth,
+            parent_index: parent_index,
+            has_mobile_menu_images: child_has_mobile_menu_images,
+            mobile_menu_image_aspect_ratio: child_mobile_menu_image_aspect_ratio,
+            mobile_menu_image_width: child_mobile_menu_image_width
+          %}
+          {%- unless expand_inline and menu_depth > 1 -%}
+            {%- if show_product -%}
+              <li class="draw-menu__item draw-menu__item--product pt-4">
+                <div class="grid grid-cols-2 gap-[10px]">
+                  {% for product in product_list %}
+                    {%- render 'product-item' with
+                        prod: product,
+                        disable_controls: false
+                    -%}
+                  {% endfor %}
                 </div>
               </li>
             {%- endif -%}
-          {%- endif -%}
-        {%- endunless -%}
+          {%- endunless -%}
 
-        {% if meganav_settings.show_featured_products and meganav_settings.product_position == 'right' %}
-          {{ featured_products_content }}
-        {% endif %}
-      </ul>
-    {%- endif -%}
+          {% if meganav_settings.show_featured_products and meganav_settings.product_position == 'right' %}
+            {{ featured_products_content }}
+          {% endif %}
+        </ul>
+      {%- endif -%}
+    {%- endunless -%}
   </li>
 {%- endfor -%}

@@ -1,8 +1,4 @@
 .header {
-    .drawer-menu__panel {
-        padding-top: calc(var(--height-header));
-    }
-
     .image__img {
         @apply w-full h-full;
     }
@@ -43,14 +39,12 @@
     }
 
     .social-icons {
+      @apply justify-center items-center gap-5;
+
         li,
         li .icon,
         li svg {
             @apply w-[22px] h-[22px];
-        }
-
-        li + li {
-            @apply ml-[22px];
         }
 
         .icon svg {
@@ -65,10 +59,6 @@ html.sticky-header-enabled .shopify-section.header__outer-wrapper {
 
 .header__row.header__row-desktop.lower .header__logo {
     @apply md:my-6;
-}
-
-.drawer-menu__actions {
-    @apply mb-3;
 }
 
 .drawer-menu__item {
@@ -93,8 +83,8 @@ html.sticky-header-enabled .shopify-section.header__outer-wrapper {
     }
 }
 
-.drawer-menu__primary-links > .drawer-menu__item + .drawer-menu__item {
-    @apply mt-3 pt-3 border-t border-black border-solid border-b-0;
+.drawer-menu__primary-links > .drawer-menu__item + .drawer-menu__item:not(.drawer-menu__item--inline-expand):not(.drawer-menu__item--inline-expand-last):not(:last-child) {
+    @apply pt-4;
 }
 
 .drawer-menu__main {
@@ -104,14 +94,6 @@ html.sticky-header-enabled .shopify-section.header__outer-wrapper {
 .drawer-menu__all-links[data-depth="1"],
 .drawer-menu__all-links[data-depth="2"] {
     @apply -translate-x-full;
-
-    .drawer-menu__account {
-        @apply order-1;
-    }
-}
-
-.drawer-menu__account .icon {
-  object-fit: contain;
 }
 
 .drawer-menu__all-links {
@@ -132,6 +114,10 @@ ul.drawer-menu__sub-links {
 
 .drawer-menu__links-wrapper {
     @apply flex flex-col;
+
+    &-inner {
+        @apply py-6;
+    }
 }
 
 .drawer-menu__all-links .drawer-menu__list--sub {
@@ -143,23 +129,15 @@ ul.drawer-menu__sub-links {
 }
 
 .drawer-menu__link {
-    @apply h-auto py-2;
+    @apply h-auto normal-case;
 
     .icon {
-        @apply w-2;
+        @apply w-[14px] h-[14px];
     }
 }
 
 .drawer-menu__primary-links .drawer-menu__item {
     @apply tracking-normal;
-}
-
-.drawer-menu__panel {
-    @apply pt-[calc(var(--height-header)-50px)] h-[calc(100%-var(--announcement-height))];
-
-    html.sticky-header-active & {
-        @apply h-[calc(100*var(--vh))]
-    }
 }
 
 .drawer-menu__contents {
