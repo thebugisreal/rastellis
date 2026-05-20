@@ -193,7 +193,17 @@
               %}
             {% endif %}
 
-            <span>{{ link.title }}</span>
+            <span>
+              {% assign _menu_title = link.title %}
+              {% if link.title contains '[' and link.title contains ']' %}
+                {% assign _inner = _menu_title | split: '[' | last | split: ']' | first %}
+                {% assign _tag = _inner | prepend: '[' | append: ']' %}
+                {% assign _replacement = _inner | prepend: '<span class="drawer-menu__link-title-badge">' | append: '</span>' %}
+                {{ _menu_title | replace: _tag, _replacement }}
+              {% else %}
+                {{ _menu_title }}
+              {% endif %}
+            </span>
           </div>
           <div class="drawer-menu__accordion-icons">
             {% render 'icon', icon: 'plus', class: 'menu-icon', view_box_custom: '0 0 14 15' %}
@@ -288,7 +298,17 @@
             %}
           {% endif %}
 
-          <span>{{ link.title }}</span>
+          <span>
+            {% assign _menu_title = link.title %}
+            {% if link.title contains '[' and link.title contains ']' %}
+              {% assign _inner = _menu_title | split: '[' | last | split: ']' | first %}
+              {% assign _tag = _inner | prepend: '[' | append: ']' %}
+              {% assign _replacement = _inner | prepend: '<span class="drawer-menu__link-title-badge">' | append: '</span>' %}
+              {{ _menu_title | replace: _tag, _replacement }}
+            {% else %}
+              {{ _menu_title }}
+            {% endif %}
+          </span>
         </div>
         {%- if has_children and expand_inline == false -%}
           {% render 'icon', icon: 'chevron', class: 'menu-icon' %}
