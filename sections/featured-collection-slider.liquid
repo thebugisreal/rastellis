@@ -109,6 +109,7 @@
     featured-collection-slider
     featured-collection-slider--mobile-per-view-{{ section.settings.mobile_columns }}
     featured-collection-slider--per-view-{{ section.settings.mobile_columns }}
+    {% if section.settings.tab_indicator_style == 'dot' %}featured-collection-slider--dot-indicator{% endif %}
     section
     section--includes-product-items
     section--divider-{{ section.settings.divider_style }}
@@ -125,6 +126,11 @@
   data-mobile-products-per-view="{{ section.settings.mobile_columns }}"
 >
   <div class="featured-collection-slider__inner">
+    {%- unless section.settings.background_illustration == blank -%}
+      <div class="featured-collection-slider__background-illustration" aria-hidden="true">
+        {%- render 'image', image: section.settings.background_illustration, wrapper_class: 'featured-collection-slider__background-illustration-img', include_placeholder: false -%}
+      </div>
+    {%- endunless -%}
     <div class="featured-collection-slider__meta">
       <div class="section-introduction animation--section-introduction">
         {%- unless section.settings.heading == blank -%}
@@ -164,6 +170,14 @@
     <div class="featured-collection-slider__bottom-nav">
       {{ navigation_buttons }}
     </div>
+
+    {%- unless section.settings.bottom_link == blank or section.settings.bottom_link_label == blank -%}
+      <div class="featured-collection-slider__shop-all-wrap">
+        <a href="{{ section.settings.bottom_link }}" class="featured-collection-slider__shop-all-btn ff-body fs-heading-6-base">
+          <span>{{ section.settings.bottom_link_label }}</span>
+        </a>
+      </div>
+    {%- endunless -%}
   </div>
 </div>
 
@@ -239,6 +253,31 @@
       "id": "link_text",
       "type": "text",
       "label": "t:sections.shoppable_feature.settings.link_text.label"
+    },
+    {
+      "type": "select",
+      "id": "tab_indicator_style",
+      "label": "Tab indicator style",
+      "default": "underline",
+      "options": [
+        { "value": "underline", "label": "Underline" },
+        { "value": "dot", "label": "Dot" }
+      ]
+    },
+    {
+      "type": "image_picker",
+      "id": "background_illustration",
+      "label": "Background illustration"
+    },
+    {
+      "type": "url",
+      "id": "bottom_link",
+      "label": "Bottom CTA link"
+    },
+    {
+      "type": "text",
+      "id": "bottom_link_label",
+      "label": "Bottom CTA label"
     },
     {
       "type": "header",
@@ -391,7 +430,7 @@
     {
       "type": "collection",
       "name": "t:sections.featured_collection_slider.blocks.collection.name",
-      "limit": 3,
+      "limit": 5,
       "settings": [
         {
           "type": "header",
@@ -420,7 +459,7 @@
     {
       "type": "product_list",
       "name": "t:sections.featured_collection_slider.blocks.product_list.name",
-      "limit": 3,
+      "limit": 5,
       "settings": [
         {
           "id": "product_list",
