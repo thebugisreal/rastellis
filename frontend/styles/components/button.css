@@ -52,8 +52,10 @@ button {
     transition: opacity 0.2s ease-in-out;
     min-height: unset;
 
-    &:hover {
-      opacity: 0.7;
+    @media (--can-hover) {
+      &:hover {
+        opacity: 0.7;
+      }
     }
   }
 
@@ -144,10 +146,12 @@ button {
     z-index: -2;
   }
 
-  &:hover:not([disabled]):not(.disabled) {
-    &::before {
-      opacity: 1;
-      visibility: visible;
+  @media (--can-hover) {
+    &:hover:not([disabled]):not(.disabled) {
+      &::before {
+        opacity: 1;
+        visibility: visible;
+      }
     }
   }
 
@@ -193,7 +197,15 @@ button {
     transition: var(--duration-normal) var(--easing);
   }
 
-  &:hover:not([disabled]):not(.disabled),
+  @media (--can-hover) {
+    &:hover:not([disabled]):not(.disabled) {
+      &::before {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+
   &:focus:not([disabled]):not(.disabled) {
     &::before {
       opacity: 1;
@@ -224,7 +236,12 @@ button {
   border: 1px solid var(--color-text-alpha);
   transition: color 0.2s ease, border-color 0.2s ease;
 
-  &:hover:not([disabled]),
+  @media (--can-hover) {
+    &:hover:not([disabled]) {
+      border-color: var(--color-text);
+    }
+  }
+
   &:focus:not([disabled]) {
     border-color: var(--color-text);
   }
@@ -274,7 +291,23 @@ button {
     }
   }
 
-  &:hover,
+  @media (--can-hover) {
+    &:hover {
+      background-color: transparent !important;
+
+      span {
+        &::before {
+          transform: scale3d(0, 1, 1);
+          transition-delay: 0s;
+        }
+        &::after {
+          transform: scale3d(1, 1, 1);
+          transition-delay: var(--duration-ultra-fast);
+        }
+      }
+    }
+  }
+
   &:focus {
     background-color: transparent !important;
 
@@ -364,11 +397,13 @@ button {
       background-color: var(--color-button-dark-solid-bg-hover);
     }
 
-    &:hover:not([disabled]):not(.disabled) {
-      color: var(--color-button-dark-solid-text-hover);
+    @media (--can-hover) {
+      &:hover:not([disabled]):not(.disabled) {
+        color: var(--color-button-dark-solid-text-hover);
 
-      &::before {
-        background-color: var(--color-button-dark-solid-bg-hover);
+        &::before {
+          background-color: var(--color-button-dark-solid-bg-hover);
+        }
       }
     }
 
@@ -391,8 +426,10 @@ button {
         background-color: var(--color-button-dark-solid-bg-hover);
       }
 
-      &:hover:not([disabled]):not(.disabled) {
-        color: var(--color-button-dark-solid-text-hover);
+      @media (--can-hover) {
+        &:hover:not([disabled]):not(.disabled) {
+          color: var(--color-button-dark-solid-text-hover);
+        }
       }
     }
 
@@ -410,11 +447,13 @@ button {
         background-color: transparent;
       }
 
-      &:hover:not([disabled]):not(.disabled) {
-        color: var(--color-button-dark-solid-text);
+      @media (--can-hover) {
+        &:hover:not([disabled]):not(.disabled) {
+          color: var(--color-button-dark-solid-text);
 
-        &::before {
-          background-color: var(--color-button-dark-solid-bg);
+          &::before {
+            background-color: var(--color-button-dark-solid-bg);
+          }
         }
       }
 
@@ -449,14 +488,16 @@ button {
         }
       }
 
-      &:hover:not([disabled]):not(.disabled),
-      &.btn--overlay:hover:not([disabled]):not(.disabled) {
-        color: var(--color-text-link-dark-text-hover);
+      @media (--can-hover) {
+        &:hover:not([disabled]):not(.disabled),
+        &.btn--overlay:hover:not([disabled]):not(.disabled) {
+          color: var(--color-text-link-dark-text-hover);
 
-        span {
-          &::before,
-          &::after {
-            background-color: var(--color-text-link-dark-line-hover);
+          span {
+            &::before,
+            &::after {
+              background-color: var(--color-text-link-dark-line-hover);
+            }
           }
         }
       }
@@ -490,12 +531,14 @@ button {
       background-color: var(--color-button-light-solid-bg-hover);
     }
 
-    &:hover:not([disabled]):not(.disabled) {
-      color: var(--color-button-light-solid-text-hover);
-      border-color: var(--color-button-light-solid-bg-hover);
+    @media (--can-hover) {
+      &:hover:not([disabled]):not(.disabled) {
+        color: var(--color-button-light-solid-text-hover);
+        border-color: var(--color-button-light-solid-bg-hover);
 
-      &::before {
-        background-color: var(--color-button-light-solid-bg-hover);
+        &::before {
+          background-color: var(--color-button-light-solid-bg-hover);
+        }
       }
     }
 
@@ -518,8 +561,10 @@ button {
         background-color: var(--color-button-light-solid-bg-hover);
       }
 
-      &:hover:not([disabled]):not(.disabled) {
-        color: var(--color-button-light-solid-text-hover);
+      @media (--can-hover) {
+        &:hover:not([disabled]):not(.disabled) {
+          color: var(--color-button-light-solid-text-hover);
+        }
       }
 
       &[disabled],
@@ -549,12 +594,14 @@ button {
         background-color: var(--color-button-light-solid-bg-hover);
       }
 
-      &:hover:not([disabled]):not(.disabled) {
-        color: var(--color-button-light-solid-text);
-        border: 1px solid var(--color-button-light-outline-border);
+      @media (--can-hover) {
+        &:hover:not([disabled]):not(.disabled) {
+          color: var(--color-button-light-solid-text);
+          border: 1px solid var(--color-button-light-outline-border);
 
-        &::before {
-          background-color: var(--color-button-light-solid-bg);
+          &::before {
+            background-color: var(--color-button-light-solid-bg);
+          }
         }
       }
 
@@ -589,14 +636,16 @@ button {
         }
       }
 
-      &:hover:not([disabled]):not(.disabled),
-      &.btn--overlay:hover:not([disabled]):not(.disabled) {
-        color: var(--color-text-link-light-text-hover);
+      @media (--can-hover) {
+        &:hover:not([disabled]):not(.disabled),
+        &.btn--overlay:hover:not([disabled]):not(.disabled) {
+          color: var(--color-text-link-light-text-hover);
 
-        span {
-          &::before,
-          &::after {
-            background-color: var(--color-text-link-light-line-hover);
+          span {
+            &::before,
+            &::after {
+              background-color: var(--color-text-link-light-line-hover);
+            }
           }
         }
       }
