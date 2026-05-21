@@ -4500,6 +4500,9 @@
         "color_footer_bottom_background": {
           "label": "Bottom Bar Background"
         },
+        "color_footer_bottom_text": {
+          "label": "Bottom Bar Text"
+        },
         "input_fields__header": {
           "content": "Input Fields"
         },
