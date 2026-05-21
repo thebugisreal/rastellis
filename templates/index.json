@@ -182,6 +182,106 @@
         "link_color_scheme": "dark"
       }
     },
+    "grid_Bf6wHP": {
+      "type": "grid",
+      "blocks": {
+        "item_3Mb6DX": {
+          "type": "item",
+          "settings": {
+            "width": "50",
+            "enable_square_ratio": true,
+            "height": 500,
+            "mobile_height": 500,
+            "image": "shopify://shop_images/Frame_369374.png",
+            "media_fit": "cover",
+            "focal_point": "image_presentation",
+            "mobile_focal_point": "image_presentation",
+            "text_position": "center_flex-end",
+            "accent": "",
+            "title": "Butcher’s Picks of the Week",
+            "heading_tag": "h3",
+            "heading_font_class": "fs-heading-2-base",
+            "heading_color": "c-heading-text-dark",
+            "subheading": "",
+            "subheading_tag": "h4",
+            "subheading_font_class": "fs-body-200",
+            "subheading_color": "c-subheading-text-dark",
+            "text": "",
+            "text_font_class": "fs-body-75",
+            "custom_text_color": "c-body-text-dark",
+            "link": "#",
+            "link_text": "Shop Now",
+            "button_style": "btn--dark",
+            "background_color": "",
+            "text_color": "#FFFFFF",
+            "button_background_color": "#FFFFFF",
+            "button_text_color": "#000000",
+            "color_overlay": "#000",
+            "color_overlay_gradient": "",
+            "overlay_opacity": 30
+          }
+        },
+        "item_TeNRXG": {
+          "type": "item",
+          "settings": {
+            "width": "50",
+            "enable_square_ratio": true,
+            "height": 500,
+            "mobile_height": 500,
+            "image": "shopify://shop_images/0e2cdf9b-987b-45cb-8f35-4cb792158a0d.jpg",
+            "media_fit": "cover",
+            "focal_point": "image_presentation",
+            "mobile_focal_point": "image_presentation",
+            "text_position": "center_flex-end",
+            "accent": "",
+            "title": "Wagyu ribeye Steak",
+            "heading_tag": "h3",
+            "heading_font_class": "fs-heading-2-base",
+            "heading_color": "c-heading-text-dark",
+            "subheading": "",
+            "subheading_tag": "h4",
+            "subheading_font_class": "fs-body-200",
+            "subheading_color": "c-subheading-text-dark",
+            "text": "",
+            "text_font_class": "fs-body-75",
+            "custom_text_color": "c-body-text-dark",
+            "link": "#",
+            "link_text": "Shop Now",
+            "button_style": "btn--dark",
+            "background_color": "",
+            "text_color": "#FFFFFF",
+            "button_background_color": "#FFFFFF",
+            "button_text_color": "#000000",
+            "color_overlay": "#000",
+            "color_overlay_gradient": "",
+            "overlay_opacity": 30
+          }
+        }
+      },
+      "block_order": [
+        "item_3Mb6DX",
+        "item_TeNRXG"
+      ],
+      "name": "t:sections.grid.presets.name",
+      "settings": {
+        "heading": "",
+        "heading_tag": "h2",
+        "heading_color": "c-heading-text-dark",
+        "subheading": "",
+        "subheading_color": "c-subheading-text-dark",
+        "content_alignment": "left",
+        "enable_animation": true,
+        "full_width": false,
+        "spacing": 24,
+        "spacing_mobile": 8,
+        "divider_style": "none",
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "padding_top_desktop": 56,
+        "padding_bottom_desktop": 56,
+        "link_color_scheme": "dark"
+      }
+    },
     "16549177944ec2347e": {
       "type": "rich-text",
       "blocks": {
@@ -1219,6 +1319,7 @@
   },
   "order": [
     "1654878022d8e24a9a",
+    "grid_Bf6wHP",
     "16549177944ec2347e",
     "1655855558c1ac2348",
     "16548772614c49ba39",
