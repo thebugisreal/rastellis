@@ -354,7 +354,7 @@
     "isEntry": true
   },
   "frontend/entrypoints/theme-design-mode.js": {
-    "file": "theme-design-mode-Bt6glBm8.js",
+    "file": "theme-design-mode-BgZevgRF.js",
     "name": "theme-design-mode",
     "src": "frontend/entrypoints/theme-design-mode.js",
     "isEntry": true,
@@ -452,12 +452,12 @@
     ]
   },
   "frontend/entrypoints/theme.css": {
-    "file": "theme-C7WAOIof.css",
+    "file": "theme-CP91znlQ.css",
     "src": "frontend/entrypoints/theme.css",
     "isEntry": true
   },
   "frontend/entrypoints/theme.js": {
-    "file": "theme-BzPnagKj.js",
+    "file": "theme-CqppGzFx.js",
     "name": "theme",
     "src": "frontend/entrypoints/theme.js",
     "isEntry": true,
@@ -810,17 +810,17 @@
     ]
   },
   "frontend/scripts/sections/featured-collection-slider.js": {
-    "file": "featured-collection-slider-CRSJEViP.js",
+    "file": "featured-collection-slider-BgviWrDv.js",
     "name": "featured-collection-slider",
     "src": "frontend/scripts/sections/featured-collection-slider.js",
     "isDynamicEntry": true,
     "imports": [
       "_index-BWeMscSV.js",
-      "_evx.es-D_-Lbk8t.js",
       "_carousel-eu4IY4Zw.js",
       "_product-item-Cw-fDYgY.js",
       "_list-slider-CR4Z_T1p.js",
       "_shouldAnimate-UBwZO_aC.js",
+      "_evx.es-D_-Lbk8t.js",
       "_cart-Dp1qr_mc.js",
       "_storage-CVUx8WVm.js",
       "_intersection-watcher-CQpC-SnO.js",
@@ -899,7 +899,7 @@
     ]
   },
   "frontend/scripts/sections/header.js": {
-    "file": "header-BYMIty7q.js",
+    "file": "header-DNAA2q2f.js",
     "name": "header",
     "src": "frontend/scripts/sections/header.js",
     "isDynamicEntry": true,
