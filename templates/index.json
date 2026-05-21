@@ -1,104 +1,77 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "16558445044f80743b": {
-      "type": "image-hero",
-      "blocks": {
-        "d0cd2366-7930-4809-80d7-2b38d2d4fb07": {
-          "type": "heading",
-          "settings": {
-            "heading_font_class": "fs-heading-display-2"
-          }
-        },
-        "8a49de45-4784-4f5d-adcf-b87e81e76548": {
-          "type": "subheading",
-          "settings": {
-            "subheading_font_class": "fs-body-200"
-          }
-        },
-        "d525a297-b0ac-4079-a90c-68d26f07aae7": {
-          "type": "button",
-          "settings": {
-            "link": "",
-            "button_style": "btn--solid",
-            "button_color": "btn--dark"
-          }
-        },
-        "15c58a65-cec7-4639-8936-8e3534462aff": {
-          "type": "button",
-          "settings": {
-            "link": "",
-            "button_style": "btn--outline",
-            "button_color": "btn--light"
-          }
-        }
-      },
-      "block_order": [
-        "d0cd2366-7930-4809-80d7-2b38d2d4fb07",
-        "8a49de45-4784-4f5d-adcf-b87e81e76548",
-        "d525a297-b0ac-4079-a90c-68d26f07aae7",
-        "15c58a65-cec7-4639-8936-8e3534462aff"
-      ],
-      "settings": {
-        "image_aspect": "custom",
-        "desktop_height": 70,
-        "mobile_height": 50,
-        "focal_point": "image_presentation",
-        "mobile_focal_point": "image_presentation",
-        "media_link": "",
-        "text_position": "center_center",
-        "text_color": "#ffffff",
-        "button_background_color": "#ffffff",
-        "button_text_color": "#000000",
-        "color_overlay": "#000000",
-        "color_overlay_gradient": "",
-        "overlay_opacity": 51,
-        "section_padding": "section--vertical-padding-none"
-      }
-    },
-    "1655855477ee9538e0": {
-      "type": "countdown-bar",
-      "settings": {
-        "min_height": 60,
-        "min_height_mobile": 60,
-        "year": 2023,
-        "month": "january",
-        "day": "1",
-        "hour": "0",
-        "minute": "0",
-        "hide_timer_on_complete": false,
-        "timer_complete_message": "",
-        "button_style": "btn--outline",
-        "button_color": "btn--light",
-        "focal_point": "image_presentation",
-        "mobile_focal_point": "image_presentation",
-        "text_color": "#ffffff",
-        "button_background_color": "#ffffff",
-        "button_text_color": "#000000",
-        "background_color": "#c51c26",
-        "color_overlay": "#000000",
-        "color_overlay_gradient": "",
-        "overlay_opacity": 0,
-        "full_width": true,
-        "section_padding": "section--vertical-padding-none"
-      }
-    },
     "1654878022d8e24a9a": {
       "type": "grid",
       "blocks": {
-        "165487802257d72399-2": {
+        "item_Pj9KLj": {
           "type": "item",
           "settings": {
-            "width": "33",
-            "height": 500,
-            "mobile_height": 360,
+            "width": "25",
+            "enable_square_ratio": false,
+            "height": 150,
+            "mobile_height": 80,
+            "image": "shopify://shop_images/0e2cdf9b-987b-45cb-8f35-4cb792158a0d.jpg",
             "media_fit": "cover",
             "focal_point": "image_presentation",
             "mobile_focal_point": "image_presentation",
-            "text_position": "flex-start_flex-end",
-            "accent": "",
-            "subheading_font_class": "fs-body-300",
+            "text_position": "flex-start_center",
+            "accent": "Wagyu Ground Beef",
+            "title": "",
+            "heading_tag": "h3",
+            "heading_font_class": "fs-heading-2-base",
+            "heading_color": "c-heading-text-dark",
+            "subheading": "",
+            "subheading_tag": "h4",
+            "subheading_font_class": "fs-body-200",
+            "subheading_color": "c-subheading-text-dark",
             "text": "",
             "text_font_class": "fs-body-75",
+            "custom_text_color": "c-body-text-dark",
+            "link": "",
+            "link_text": "",
+            "button_style": "btn--dark",
+            "background_color": "",
+            "text_color": "#ffffff",
+            "button_background_color": "#ffffff",
+            "button_text_color": "#000000",
+            "color_overlay": "#000000",
+            "color_overlay_gradient": "",
+            "overlay_opacity": 30
+          }
+        },
+        "165487802257d72399-2": {
+          "type": "item",
+          "settings": {
+            "width": "25",
+            "enable_square_ratio": false,
+            "height": 150,
+            "mobile_height": 80,
+            "image": "shopify://shop_images/Frame_14.png",
+            "media_fit": "cover",
+            "focal_point": "image_presentation",
+            "mobile_focal_point": "image_presentation",
+            "text_position": "flex-start_center",
+            "accent": "Organic Grass-Fed New York Strip Steak",
+            "title": "",
+            "heading_tag": "h3",
+            "heading_font_class": "fs-heading-2-base",
+            "heading_color": "c-heading-text-dark",
+            "subheading": "",
+            "subheading_tag": "h4",
+            "subheading_font_class": "fs-body-300",
+            "subheading_color": "c-subheading-text-dark",
+            "text": "",
+            "text_font_class": "fs-body-75",
+            "custom_text_color": "c-body-text-dark",
             "link": "",
             "link_text": "Shop now",
             "button_style": "btn--callout",
@@ -114,18 +87,27 @@
         "165487802257d72399-1": {
           "type": "item",
           "settings": {
-            "width": "33",
-            "height": 500,
-            "mobile_height": 360,
+            "width": "25",
+            "enable_square_ratio": false,
+            "height": 150,
+            "mobile_height": 80,
+            "image": "shopify://shop_images/Edit-16_93e6e790-e2a8-4cf1-823f-1435ea79a4f7.webp",
             "media_fit": "cover",
             "focal_point": "image_presentation",
             "mobile_focal_point": "image_presentation",
-            "text_position": "flex-start_flex-end",
-            "accent": "",
-            "title": "Grid item",
+            "text_position": "flex-start_center",
+            "accent": "Wagyu Burgers",
+            "title": "",
+            "heading_tag": "h3",
+            "heading_font_class": "fs-heading-2-base",
+            "heading_color": "c-heading-text-dark",
+            "subheading": "",
+            "subheading_tag": "h4",
             "subheading_font_class": "fs-body-300",
+            "subheading_color": "c-subheading-text-dark",
             "text": "",
             "text_font_class": "fs-body-75",
+            "custom_text_color": "c-body-text-dark",
             "link": "",
             "link_text": "",
             "button_style": "btn--callout",
@@ -141,18 +123,29 @@
         "165487802257d72399-0": {
           "type": "item",
           "settings": {
-            "width": "33",
-            "height": 600,
-            "mobile_height": 360,
+            "width": "25",
+            "enable_square_ratio": false,
+            "height": 150,
+            "mobile_height": 80,
+            "image": "shopify://shop_images/GameDay_Verbiage_1185x1024_bc7128bc-a717-4748-be81-bb2b83800860.png",
             "media_fit": "cover",
             "focal_point": "image_presentation",
             "mobile_focal_point": "image_presentation",
-            "text_position": "flex-start_flex-end",
-            "accent": "",
+            "text_position": "flex-start_center",
+            "accent": "Grass-Fed Ribeye",
+            "title": "",
+            "heading_tag": "h3",
+            "heading_font_class": "fs-heading-2-base",
+            "heading_color": "c-heading-text-dark",
+            "subheading": "",
+            "subheading_tag": "h4",
             "subheading_font_class": "fs-body-300",
+            "subheading_color": "c-subheading-text-dark",
             "text": "",
             "text_font_class": "fs-body-75",
+            "custom_text_color": "c-body-text-dark",
             "link": "",
+            "link_text": "",
             "button_style": "btn--callout",
             "background_color": "",
             "text_color": "#ffffff",
@@ -165,12 +158,28 @@
         }
       },
       "block_order": [
+        "item_Pj9KLj",
         "165487802257d72399-2",
         "165487802257d72399-1",
         "165487802257d72399-0"
       ],
       "settings": {
-        "divider_style": "solid"
+        "heading": "",
+        "heading_tag": "h2",
+        "heading_color": "c-heading-text-dark",
+        "subheading": "",
+        "subheading_color": "c-subheading-text-dark",
+        "content_alignment": "left",
+        "enable_animation": true,
+        "full_width": false,
+        "spacing": 40,
+        "spacing_mobile": 8,
+        "divider_style": "solid",
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 20,
+        "padding_top_desktop": 15,
+        "padding_bottom_desktop": 32,
+        "link_color_scheme": "dark"
       }
     },
     "16549177944ec2347e": {
@@ -179,13 +188,19 @@
         "1654917794cdc0bc3c-0": {
           "type": "heading",
           "settings": {
-            "heading_font_class": "fs-heading-3-base"
+            "title": "Rich text",
+            "heading_tag": "h2",
+            "font_family_class": "ff-primary",
+            "heading_font_class": "fs-heading-3-base",
+            "heading_color": "c-heading-text-dark"
           }
         },
         "1654917794cdc0bc3c-1": {
           "type": "text",
           "settings": {
-            "text_font_class": "fs-body-75"
+            "text": "<p>Use this text area to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+            "text_font_class": "fs-body-75",
+            "text_color": "c-body-text-dark"
           }
         }
       },
@@ -195,9 +210,12 @@
       ],
       "settings": {
         "alignment": "center_center",
+        "enable_animation": true,
         "divider_style": "solid",
+        "section_padding": "section--vertical-padding-top-bottom",
         "content_width": "custom",
-        "custom_content_width": 650
+        "custom_content_width": 650,
+        "link_color_scheme": "dark"
       }
     },
     "1655855558c1ac2348": {
@@ -224,14 +242,23 @@
       ],
       "settings": {
         "heading": "Featured collection",
+        "heading_tag": "h2",
         "subheading": "",
         "link": "",
         "link_text": "",
+        "content_alignment": "left",
+        "hide_price": false,
         "maximum_products": 8,
         "columns": "4",
         "mobile_columns": "2",
+        "show_carousel_controls": true,
+        "enable_animation": true,
         "divider_style": "solid",
-        "section_padding": "section--vertical-padding-top-bottom"
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40,
+        "padding_top_desktop": 48,
+        "padding_bottom_desktop": 48,
+        "link_color_scheme": "dark"
       }
     },
     "16548772614c49ba39": {
@@ -249,14 +276,24 @@
         "767ac6c0-8826-4284-bd74-6eb8a441d7bc"
       ],
       "settings": {
+        "heading": "Featured collection",
+        "heading_tag": "h2",
         "subheading": "",
         "link": "",
         "link_text": "View all products",
+        "content_alignment": "left",
+        "hide_price": false,
         "maximum_products": 8,
         "columns": "4",
         "mobile_columns": "2",
+        "show_carousel_controls": true,
+        "enable_animation": true,
         "divider_style": "solid",
-        "section_padding": "section--vertical-padding-top-bottom"
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40,
+        "padding_top_desktop": 48,
+        "padding_bottom_desktop": 48,
+        "link_color_scheme": "dark"
       }
     },
     "16558561315f6147d3": {
@@ -267,23 +304,36 @@
         "sale_type": "up to",
         "sale_amount": "60",
         "sale_unit": "percent_off",
+        "terms_and_conditions": "* Optional legal note",
+        "terms_vertical_offset": 0,
         "sale_font_size": 150,
         "sale_font_size_mobile": 150,
         "currency_symbol_position": "before",
+        "heading": "Announce your sale",
+        "heading_tag": "h2",
         "heading_font_class": "fs-heading-3-base",
+        "heading_color": "c-heading-text-dark",
+        "text": "<p>Highlight sale campaigns, discounts, and promotions.</p>",
+        "custom_text_color": "c-body-text-dark",
+        "link": "shopify://collections",
+        "link_text": "Button",
         "button_style": "btn--outline",
         "button_color": "btn--light",
+        "link_2": "shopify://collections",
+        "link_text_2": "Button",
         "button_style_2": "btn--outline",
         "button_color_2": "btn--light",
         "focal_point": "image_presentation",
         "mobile_focal_point": "image_presentation",
-        "text_color": "#FFFFFF",
-        "button_background_color": "#FFFFFF",
+        "text_color": "#ffffff",
+        "button_background_color": "#ffffff",
         "button_text_color": "#000000",
-        "background_color": "#C51C26",
+        "background_color": "#c51c26",
         "color_overlay": "#000",
         "color_overlay_gradient": "",
         "overlay_opacity": 0,
+        "layout": "two-columns",
+        "enable_animation": true,
         "show_frame": true,
         "full_width": false,
         "section_padding": "section--vertical-padding-top-only"
@@ -296,6 +346,7 @@
           "type": "item",
           "settings": {
             "width": "50",
+            "enable_square_ratio": false,
             "height": 500,
             "mobile_height": 500,
             "media_fit": "cover",
@@ -303,15 +354,23 @@
             "mobile_focal_point": "image_presentation",
             "text_position": "center_center",
             "accent": "",
+            "title": "Grid item",
+            "heading_tag": "h3",
+            "heading_font_class": "fs-heading-2-base",
+            "heading_color": "c-heading-text-dark",
+            "subheading": "<p>Perfect for lookbooks and editorial photography</p>",
+            "subheading_tag": "h4",
             "subheading_font_class": "fs-body-200",
+            "subheading_color": "c-subheading-text-dark",
             "text": "",
             "text_font_class": "fs-body-75",
+            "custom_text_color": "c-body-text-dark",
             "link": "",
+            "link_text": "",
             "button_style": "btn--solid",
-            "button_color": "btn--dark",
             "background_color": "",
-            "text_color": "#FFFFFF",
-            "button_background_color": "#FFFFFF",
+            "text_color": "#ffffff",
+            "button_background_color": "#ffffff",
             "button_text_color": "#000000",
             "color_overlay": "#000",
             "color_overlay_gradient": "",
@@ -322,6 +381,7 @@
           "type": "item",
           "settings": {
             "width": "50",
+            "enable_square_ratio": false,
             "height": 500,
             "mobile_height": 500,
             "media_fit": "cover",
@@ -329,16 +389,23 @@
             "mobile_focal_point": "image_presentation",
             "text_position": "center_center",
             "accent": "",
+            "title": "Grid item",
+            "heading_tag": "h3",
+            "heading_font_class": "fs-heading-2-base",
+            "heading_color": "c-heading-text-dark",
+            "subheading": "<p>Perfect for lookbooks and editorial photography</p>",
+            "subheading_tag": "h4",
             "subheading_font_class": "fs-body-200",
+            "subheading_color": "c-subheading-text-dark",
             "text": "",
             "text_font_class": "fs-body-75",
+            "custom_text_color": "c-body-text-dark",
             "link": "",
             "link_text": "",
             "button_style": "btn--solid",
-            "button_color": "btn--dark",
             "background_color": "",
-            "text_color": "#FFFFFF",
-            "button_background_color": "#FFFFFF",
+            "text_color": "#ffffff",
+            "button_background_color": "#ffffff",
             "button_text_color": "#000000",
             "color_overlay": "#000",
             "color_overlay_gradient": "",
@@ -349,6 +416,7 @@
           "type": "item",
           "settings": {
             "width": "33",
+            "enable_square_ratio": false,
             "height": 500,
             "mobile_height": 500,
             "media_fit": "cover",
@@ -356,16 +424,23 @@
             "mobile_focal_point": "image_presentation",
             "text_position": "center_center",
             "accent": "",
+            "title": "Grid item",
+            "heading_tag": "h3",
+            "heading_font_class": "fs-heading-2-base",
+            "heading_color": "c-heading-text-dark",
+            "subheading": "<p>Perfect for lookbooks and editorial photography</p>",
+            "subheading_tag": "h4",
             "subheading_font_class": "fs-body-200",
+            "subheading_color": "c-subheading-text-dark",
             "text": "",
             "text_font_class": "fs-body-75",
+            "custom_text_color": "c-body-text-dark",
             "link": "",
             "link_text": "",
             "button_style": "btn--solid",
-            "button_color": "btn--dark",
             "background_color": "",
-            "text_color": "#FFFFFF",
-            "button_background_color": "#FFFFFF",
+            "text_color": "#ffffff",
+            "button_background_color": "#ffffff",
             "button_text_color": "#000000",
             "color_overlay": "#000",
             "color_overlay_gradient": "",
@@ -376,6 +451,7 @@
           "type": "item",
           "settings": {
             "width": "33",
+            "enable_square_ratio": false,
             "height": 500,
             "mobile_height": 500,
             "media_fit": "cover",
@@ -383,16 +459,23 @@
             "mobile_focal_point": "image_presentation",
             "text_position": "center_center",
             "accent": "",
+            "title": "Grid item",
+            "heading_tag": "h3",
+            "heading_font_class": "fs-heading-2-base",
+            "heading_color": "c-heading-text-dark",
+            "subheading": "<p>Perfect for lookbooks and editorial photography</p>",
+            "subheading_tag": "h4",
             "subheading_font_class": "fs-body-200",
+            "subheading_color": "c-subheading-text-dark",
             "text": "",
             "text_font_class": "fs-body-75",
+            "custom_text_color": "c-body-text-dark",
             "link": "",
             "link_text": "",
             "button_style": "btn--solid",
-            "button_color": "btn--dark",
             "background_color": "",
-            "text_color": "#FFFFFF",
-            "button_background_color": "#FFFFFF",
+            "text_color": "#ffffff",
+            "button_background_color": "#ffffff",
             "button_text_color": "#000000",
             "color_overlay": "#000",
             "color_overlay_gradient": "",
@@ -403,6 +486,7 @@
           "type": "item",
           "settings": {
             "width": "33",
+            "enable_square_ratio": false,
             "height": 500,
             "mobile_height": 500,
             "media_fit": "cover",
@@ -410,16 +494,23 @@
             "mobile_focal_point": "image_presentation",
             "text_position": "center_center",
             "accent": "",
+            "title": "Grid item",
+            "heading_tag": "h3",
+            "heading_font_class": "fs-heading-2-base",
+            "heading_color": "c-heading-text-dark",
+            "subheading": "<p>Perfect for lookbooks and editorial photography</p>",
+            "subheading_tag": "h4",
             "subheading_font_class": "fs-body-200",
+            "subheading_color": "c-subheading-text-dark",
             "text": "",
             "text_font_class": "fs-body-75",
+            "custom_text_color": "c-body-text-dark",
             "link": "",
             "link_text": "",
             "button_style": "btn--solid",
-            "button_color": "btn--dark",
             "background_color": "",
-            "text_color": "#FFFFFF",
-            "button_background_color": "#FFFFFF",
+            "text_color": "#ffffff",
+            "button_background_color": "#ffffff",
             "button_text_color": "#000000",
             "color_overlay": "#000",
             "color_overlay_gradient": "",
@@ -430,6 +521,7 @@
           "type": "item",
           "settings": {
             "width": "100",
+            "enable_square_ratio": false,
             "height": 500,
             "mobile_height": 500,
             "media_fit": "cover",
@@ -437,16 +529,23 @@
             "mobile_focal_point": "image_presentation",
             "text_position": "center_center",
             "accent": "",
+            "title": "Grid item",
+            "heading_tag": "h3",
+            "heading_font_class": "fs-heading-2-base",
+            "heading_color": "c-heading-text-dark",
+            "subheading": "<p>Perfect for lookbooks and editorial photography</p>",
+            "subheading_tag": "h4",
             "subheading_font_class": "fs-body-200",
+            "subheading_color": "c-subheading-text-dark",
             "text": "",
             "text_font_class": "fs-body-75",
+            "custom_text_color": "c-body-text-dark",
             "link": "",
             "link_text": "",
             "button_style": "btn--solid",
-            "button_color": "btn--dark",
             "background_color": "",
-            "text_color": "#FFFFFF",
-            "button_background_color": "#FFFFFF",
+            "text_color": "#ffffff",
+            "button_background_color": "#ffffff",
             "button_text_color": "#000000",
             "color_overlay": "#000",
             "color_overlay_gradient": "",
@@ -463,14 +562,32 @@
         "48a4e426-4325-412e-a437-c11aa5b4edf2"
       ],
       "settings": {
-        "divider_style": "none"
+        "heading": "",
+        "heading_tag": "h2",
+        "heading_color": "c-heading-text-dark",
+        "subheading": "",
+        "subheading_color": "c-subheading-text-dark",
+        "content_alignment": "left",
+        "enable_animation": true,
+        "full_width": false,
+        "spacing": 24,
+        "spacing_mobile": 8,
+        "divider_style": "none",
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "padding_top_desktop": 56,
+        "padding_bottom_desktop": 56,
+        "link_color_scheme": "dark"
       }
     },
     "165488047346f59e49": {
       "type": "collection-list-slider",
       "settings": {
         "heading": "Collection list",
+        "heading_tag": "h2",
         "subheading": "",
+        "link": "shopify://collections",
+        "link_text": "View all collections",
         "columns": "5",
         "mobile_columns": "2",
         "collection_list": [],
@@ -479,26 +596,39 @@
         "overlay_title_background_style": "gradient",
         "overlay_text_color": "#ffffff",
         "overlay_title_background": "#000000",
+        "enable_animation": true,
         "divider_style": "solid",
-        "section_padding": "section--vertical-padding-top-bottom"
+        "section_padding": "section--vertical-padding-top-bottom",
+        "link_color_scheme": "dark"
       }
     },
     "1654913893935a57bd": {
       "type": "image-with-text-split",
       "blocks": {
         "1654913893d03d0b33-0": {
-          "type": "accent"
+          "type": "accent",
+          "settings": {
+            "accent": "Accent"
+          }
         },
         "1654913893d03d0b33-1": {
           "type": "heading",
           "settings": {
-            "heading_font_class": "fs-heading-1-base"
+            "title": "Image with text split",
+            "heading_tag": "h2",
+            "font_family_class": "ff-primary",
+            "heading_font_class": "fs-heading-1-base",
+            "heading_color": "c-heading-text-dark"
           }
         },
         "1654913893d03d0b33-2": {
           "type": "subheading",
           "settings": {
-            "subheading_font_class": "fs-body-200"
+            "subheading": "Use these sections to promote a particular feature with editorial photography.",
+            "subheading_tag": "h3",
+            "font_family_class": "ff-primary",
+            "subheading_font_class": "fs-body-200",
+            "subheading_color": "c-subheading-text-dark"
           }
         },
         "63e2f450-ccdf-4ba0-8c95-8e7b01b5c7f5": {
@@ -512,6 +642,7 @@
           "type": "button",
           "settings": {
             "link": "",
+            "link_text": "Read more",
             "button_style": "btn--outline",
             "button_color": "btn--light"
           }
@@ -525,8 +656,8 @@
         "7f329234-f652-4947-8f09-cad43d072028"
       ],
       "settings": {
-        "image_position": "right",
-        "image_mobile_position": "above-content",
+        "media_position": "right",
+        "media_mobile_position": "above-content",
         "image_padding": "none",
         "aspect_ratio": "natural",
         "focal_point": "image_presentation",
@@ -535,7 +666,9 @@
         "text_color": "#ffffff",
         "button_background_color": "#ffffff",
         "button_text_color": "#ffffff",
-        "section_padding": "section--vertical-padding-top-bottom"
+        "enable_animation": true,
+        "section_padding": "section--vertical-padding-top-bottom",
+        "link_color_scheme": "dark"
       }
     },
     "165489980473ecbf41": {
@@ -544,19 +677,28 @@
         "1654899804e4fc48ec-0": {
           "type": "heading",
           "settings": {
-            "heading_font_class": "fs-heading-display-3"
+            "title": "Image with text",
+            "heading_tag": "h2",
+            "font_family_class": "ff-primary",
+            "heading_font_class": "fs-heading-display-3",
+            "heading_color": "c-heading-text-dark"
           }
         },
         "1654899804e4fc48ec-1": {
           "type": "subheading",
           "settings": {
-            "subheading_font_class": "fs-body-200"
+            "subheading": "Use these sections to promote a particular feature with editorial photography",
+            "subheading_tag": "h3",
+            "font_family_class": "ff-primary",
+            "subheading_font_class": "fs-body-200",
+            "subheading_color": "c-subheading-text-dark"
           }
         },
         "1654899804e4fc48ec-2": {
           "type": "button",
           "settings": {
             "link": "",
+            "link_text": "Read more",
             "button_style": "btn--solid",
             "button_color": "btn--dark"
           }
@@ -568,7 +710,7 @@
         "1654899804e4fc48ec-2"
       ],
       "settings": {
-        "image_position": "left",
+        "media_position": "right",
         "text_alignment": "center",
         "aspect_ratio": "natural",
         "focal_point": "image_presentation",
@@ -580,8 +722,10 @@
         "text_color": "#000000",
         "button_background_color": "#000000",
         "button_text_color": "#ffffff",
+        "enable_animation": true,
         "divider_style": "solid",
-        "section_padding": "section--vertical-padding-top-bottom"
+        "section_padding": "section--vertical-padding-top-bottom",
+        "link_color_scheme": "dark"
       }
     },
     "1654880426b1f83355": {
@@ -590,19 +734,28 @@
         "16548804264c48a1d9-0": {
           "type": "heading",
           "settings": {
-            "heading_font_class": "fs-heading-display-3"
+            "title": "Image with text",
+            "heading_tag": "h2",
+            "font_family_class": "ff-primary",
+            "heading_font_class": "fs-heading-display-3",
+            "heading_color": "c-heading-text-dark"
           }
         },
         "16548804264c48a1d9-1": {
           "type": "subheading",
           "settings": {
-            "subheading_font_class": "fs-body-200"
+            "subheading": "Use these sections to promote a particular feature with editorial photography",
+            "subheading_tag": "h3",
+            "font_family_class": "ff-primary",
+            "subheading_font_class": "fs-body-200",
+            "subheading_color": "c-subheading-text-dark"
           }
         },
         "16548804264c48a1d9-2": {
           "type": "button",
           "settings": {
             "link": "",
+            "link_text": "Read more",
             "button_style": "btn--solid",
             "button_color": "btn--dark"
           }
@@ -614,7 +767,7 @@
         "16548804264c48a1d9-2"
       ],
       "settings": {
-        "image_position": "right",
+        "media_position": "right",
         "text_alignment": "center",
         "aspect_ratio": "natural",
         "focal_point": "image_presentation",
@@ -626,8 +779,10 @@
         "text_color": "#000000",
         "button_background_color": "#000000",
         "button_text_color": "#ffffff",
+        "enable_animation": true,
         "divider_style": "none",
-        "section_padding": "section--vertical-padding-top-bottom"
+        "section_padding": "section--vertical-padding-top-bottom",
+        "link_color_scheme": "dark"
       }
     },
     "16558561940a4fe50f": {
@@ -641,7 +796,9 @@
             "aspect_ratio": "square",
             "focal_point": "image_presentation",
             "show_rating": true,
-            "rating": 5
+            "rating": 5,
+            "quote": "\"Add customer reviews and testimonials to showcase your store’s happy customers.\"",
+            "author": "– Author's name"
           }
         },
         "1655856194e7b43695-1": {
@@ -652,7 +809,9 @@
             "aspect_ratio": "square",
             "focal_point": "image_presentation",
             "show_rating": true,
-            "rating": 4.5
+            "rating": 4.5,
+            "quote": "\"Add customer reviews and testimonials to showcase your store’s happy customers.\"",
+            "author": "– Author's name"
           }
         },
         "1655856194e7b43695-2": {
@@ -663,7 +822,9 @@
             "aspect_ratio": "square",
             "focal_point": "image_presentation",
             "show_rating": true,
-            "rating": 5
+            "rating": 5,
+            "quote": "\"Add customer reviews and testimonials to showcase your store’s happy customers.\"",
+            "author": "– Author's name"
           }
         }
       },
@@ -677,6 +838,7 @@
         "quote_font": "heading",
         "background_color": "#000000",
         "text_color": "#ffffff",
+        "enable_animation": true,
         "divider_style": "none",
         "section_padding": "section--vertical-padding-top-bottom"
       }
@@ -718,35 +880,68 @@
         "image_position": "left",
         "image_size": 50,
         "aspect_ratio": "portrait_alt",
+        "heading": "Shoppable image - editorial",
+        "heading_tag": "h2",
+        "heading_color": "c-heading-text-dark",
+        "heading_max_width": 1000,
+        "subheading": "<p>Use this section to highlight different products within an image with an integrated carousel</p>",
+        "subheading_color": "c-subheading-text-dark",
+        "subheading_max_width": 1000,
         "link": "",
+        "link_text": "Shop now",
         "button_style": "btn--callout",
+        "button_color": "btn--dark",
+        "enable_animation": true,
         "divider_style": "solid",
-        "content_position_desktop": "inside"
+        "section_padding": "section--vertical-padding-top-bottom",
+        "content_position_desktop": "inside",
+        "content_position_mobile": "above",
+        "content_padding_y": 0,
+        "content_padding_x": 40,
+        "content_padding_y_mobile": 0,
+        "content_padding_x_mobile": 0,
+        "hide_hotspots": false,
+        "enable_full_width": false,
+        "text_color": "#111111",
+        "link_color_scheme": "dark"
       }
     },
     "1654916105fd939f8f": {
       "type": "video-hero",
       "blocks": {
         "1654916105bea353be-0": {
-          "type": "accent"
+          "type": "accent",
+          "settings": {
+            "accent": "Accent"
+          }
         },
         "1654916105bea353be-1": {
           "type": "heading",
           "settings": {
-            "heading_font_class": "fs-heading-display-3"
+            "title": "Video hero",
+            "heading_tag": "h2",
+            "font_family_class": "ff-primary",
+            "heading_font_class": "fs-heading-display-3",
+            "heading_color": "c-heading-text-dark"
           }
         },
         "535519ef-68f5-42dd-8ad6-15ab68afaa95": {
           "type": "subheading",
           "settings": {
-            "subheading_font_class": "fs-body-200"
+            "subheading": "Use this section to promote a particular feature with editorial video.",
+            "subheading_tag": "h3",
+            "font_family_class": "ff-primary",
+            "subheading_font_class": "fs-body-200",
+            "subheading_color": "c-subheading-text-dark"
           }
         },
         "39a1cced-a841-48eb-bf01-2041e2134155": {
           "type": "play-button",
           "settings": {
+            "video_source": "external",
             "video_url": "",
             "aspect_ratio": "landscape",
+            "text": "Watch now",
             "icon_style": "light"
           }
         }
@@ -761,17 +956,20 @@
         "image_aspect": "custom",
         "desktop_height": 65,
         "mobile_height": 50,
-        "video_url": "",
         "media_link": "",
         "focal_point": "image_presentation",
+        "focal_point_mobile": "image_presentation",
         "text_position": "center_flex-end",
+        "text_position_mobile": "center_center",
         "text_color": "#ffffff",
         "button_background_color": "#ffffff",
         "button_text_color": "#000000",
         "color_overlay": "#000000",
         "color_overlay_gradient": "linear-gradient(180deg, rgba(0, 0, 0, 0.24) 38%, rgba(0, 0, 0, 1) 100%)",
         "overlay_opacity": 67,
-        "section_padding": "section--vertical-padding-none"
+        "enable_animation": true,
+        "section_padding": "section--vertical-padding-none",
+        "link_color_scheme": "dark"
       }
     },
     "16548801325228c324": {
@@ -780,6 +978,7 @@
         "heading": "Blog posts",
         "subheading": "",
         "button_link": "",
+        "link_text": "View all posts",
         "display_type": "all",
         "blog": "news",
         "max_articles": 2,
@@ -789,8 +988,12 @@
         "show_excerpt": true,
         "show_featured_image": true,
         "aspect_ratio": "landscape",
+        "enable_slider": false,
+        "show_pagination": false,
+        "enable_animation": true,
         "divider_style": "solid",
-        "section_padding": "section--vertical-padding-top-bottom"
+        "section_padding": "section--vertical-padding-top-bottom",
+        "link_color_scheme": "dark"
       }
     },
     "1655748277aeb95c8a": {
@@ -799,7 +1002,11 @@
         "1655748276a16c587f-0": {
           "type": "heading",
           "settings": {
-            "heading_font_class": "fs-heading-1-base"
+            "title": "Image with text",
+            "heading_tag": "h2",
+            "font_family_class": "ff-primary",
+            "heading_font_class": "fs-heading-1-base",
+            "heading_color": "c-heading-text-dark"
           }
         },
         "a20757dc-e69a-44d7-a715-2a5d06580517": {
@@ -809,13 +1016,19 @@
         "1655748276a16c587f-1": {
           "type": "subheading",
           "settings": {
-            "subheading_font_class": "fs-body-200"
+            "subheading": "Use these sections to promote a particular feature with editorial photography",
+            "subheading_tag": "h3",
+            "font_family_class": "ff-primary",
+            "subheading_font_class": "fs-body-200",
+            "subheading_color": "c-subheading-text-dark"
           }
         },
         "2c5ae3e6-0766-4bad-aff5-a724000e1ddd": {
           "type": "text",
           "settings": {
-            "text_font_class": "fs-body-75"
+            "text": "<p>Use these sections to promote a particular feature with editorial photography</p>",
+            "text_font_class": "fs-body-75",
+            "custom_text_color": "c-body-text-dark"
           }
         },
         "6bfc7d96-f5a5-41c5-b66f-6b8eb23d8a52": {
@@ -825,19 +1038,26 @@
         "737ce2a8-7a79-4050-901a-b48412cad79e": {
           "type": "subheading",
           "settings": {
-            "subheading_font_class": "fs-body-200"
+            "subheading": "Use these sections to promote a particular feature with editorial photography",
+            "subheading_tag": "h3",
+            "font_family_class": "ff-primary",
+            "subheading_font_class": "fs-body-200",
+            "subheading_color": "c-subheading-text-dark"
           }
         },
         "78b87e77-53f6-4b58-828a-36ba7eeaa4f1": {
           "type": "text",
           "settings": {
-            "text_font_class": "fs-body-75"
+            "text": "<p>Use these sections to promote a particular feature with editorial photography</p>",
+            "text_font_class": "fs-body-75",
+            "custom_text_color": "c-body-text-dark"
           }
         },
         "1655748276a16c587f-2": {
           "type": "button",
           "settings": {
             "link": "",
+            "link_text": "Read more",
             "button_style": "btn--outline",
             "button_color": "btn--light"
           }
@@ -854,7 +1074,7 @@
         "1655748276a16c587f-2"
       ],
       "settings": {
-        "image_position": "left",
+        "media_position": "right",
         "text_alignment": "left",
         "aspect_ratio": "square",
         "focal_point": "image_presentation",
@@ -866,8 +1086,10 @@
         "text_color": "#000000",
         "button_background_color": "#000000",
         "button_text_color": "#ffffff",
+        "enable_animation": true,
         "divider_style": "solid",
-        "section_padding": "section--vertical-padding-top-bottom"
+        "section_padding": "section--vertical-padding-top-bottom",
+        "link_color_scheme": "dark"
       }
     },
     "165489278903cc3881": {
@@ -883,27 +1105,39 @@
         "da0d8502-d1a9-42c4-946f-f3143ddb712c": {
           "type": "heading",
           "settings": {
-            "heading_font_class": "fs-heading-1-base"
+            "title": "Image with text split",
+            "heading_tag": "h2",
+            "font_family_class": "ff-primary",
+            "heading_font_class": "fs-heading-1-base",
+            "heading_color": "c-heading-text-dark"
           }
         },
         "16548927896be1844d-2": {
           "type": "subheading",
           "settings": {
-            "subheading_font_class": "fs-body-200"
+            "subheading": "Use these sections to promote a particular feature with editorial photography.",
+            "subheading_tag": "h3",
+            "font_family_class": "ff-primary",
+            "subheading_font_class": "fs-body-200",
+            "subheading_color": "c-subheading-text-dark"
           }
         },
         "82fd259e-87e0-4232-9b45-72472ceab4dc": {
           "type": "button",
           "settings": {
             "link": "",
-            "button_style": "btn--callout"
+            "link_text": "Read more",
+            "button_style": "btn--callout",
+            "button_color": "btn--dark"
           }
         },
         "7792bb9a-dddb-46ca-9045-e26f6f6948b5": {
           "type": "button",
           "settings": {
             "link": "",
-            "button_style": "btn--callout"
+            "link_text": "Read more",
+            "button_style": "btn--callout",
+            "button_color": "btn--dark"
           }
         }
       },
@@ -915,8 +1149,8 @@
         "7792bb9a-dddb-46ca-9045-e26f6f6948b5"
       ],
       "settings": {
-        "image_position": "right",
-        "image_mobile_position": "above-content",
+        "media_position": "right",
+        "media_mobile_position": "above-content",
         "image_padding": "none",
         "aspect_ratio": "landscape",
         "focal_point": "image_presentation",
@@ -925,7 +1159,9 @@
         "text_color": "#d1d8c0",
         "button_background_color": "#d1d8c0",
         "button_text_color": "#ffffff",
-        "section_padding": "section--vertical-padding-top-only"
+        "enable_animation": true,
+        "section_padding": "section--vertical-padding-top-only",
+        "link_color_scheme": "dark"
       }
     },
     "d71df2af-ba99-428a-9772-57ebe99ef94d": {
@@ -936,11 +1172,16 @@
           "settings": {
             "width": "600",
             "title": "Subscribe to our newsletter",
+            "heading_tag": "h2",
             "heading_font_class": "fs-heading-4-base",
+            "heading_color": "c-heading-text-dark",
             "subheading": "",
+            "subheading_tag": "h3",
             "subheading_font_class": "fs-body-300",
+            "subheading_color": "c-subheading-text-dark",
             "text": "<p>Include a short sentence describing what someone can expect from your newsletter.</p>",
-            "text_font_class": "fs-body-75"
+            "text_font_class": "fs-body-75",
+            "custom_text_color": "c-body-text-dark"
           }
         },
         "template--15305459073231__d71df2af-ba99-428a-9772-57ebe99ef94d-1668035253c173f759-1": {
@@ -959,24 +1200,24 @@
         "spacing_mode": "between",
         "alignment": "left",
         "focal_point": "image_presentation",
+        "focal_point_mobile": "image_presentation",
         "background_color": "#f5f5f5",
         "text_color": "#000000",
         "input_color": "#000000",
         "input_background": "#fff",
         "button_background_color": "#000000",
-        "button_text_color": "#FFFFFF",
+        "button_text_color": "#ffffff",
         "color_overlay": "#000",
         "color_overlay_gradient": "",
         "overlay_opacity": 0,
         "enable_animation": true,
         "divider_style": "none",
-        "section_padding": "section--vertical-padding-top-bottom"
+        "section_padding": "section--vertical-padding-top-bottom",
+        "link_color_scheme": "dark"
       }
     }
   },
   "order": [
-    "16558445044f80743b",
-    "1655855477ee9538e0",
     "1654878022d8e24a9a",
     "16549177944ec2347e",
     "1655855558c1ac2348",
