@@ -8,8 +8,8 @@ import shouldAnimate from '@/scripts/lib/animation/shouldAnimate'
 
 const selectors = {
   navItems: '.featured-collection-slider__navigation-list-item',
-  sliderContainer: '.featured-collection-slider__content.carousel',
-  navControls: '.featured-collection-slider__carousel-controls',
+  sliderContainer: '.carousel',
+  navButtons: '.featured-collection-slider__navigation-buttons',
 }
 
 const classes = {
@@ -32,14 +32,14 @@ section('featured-collection-slider', {
   },
 
   _initCarousels() {
-    const { productsPerView, mobileProductsPerView, showCarouselControls } =
+    const { productsPerView, mobileProductsPerView, enableCarouselNavigation } =
       this.container.dataset
-    const enableCarouselControls = showCarouselControls !== 'false'
+    const hasCarouselNavigation = enableCarouselNavigation === 'true'
     this.perView = parseInt(productsPerView, 10)
-    const mobileColumns = parseFloat(mobileProductsPerView, 10)
-    this.mobilePerView = Number.isInteger(mobileColumns)
-      ? mobileColumns * 1.05
-      : mobileColumns
+    const mobilePerViewSetting = parseFloat(mobileProductsPerView)
+    this.mobilePerView = Number.isInteger(mobilePerViewSetting)
+      ? mobilePerViewSetting * 1.05
+      : mobilePerViewSetting
 
     this.productItem = ProductItem(this.container)
     this.carouselsElements = qsa(selectors.sliderContainer, this.container)
@@ -53,47 +53,36 @@ section('featured-collection-slider', {
     )
 
     this.carouselsElements.forEach((container, index) => {
-      const navigationWrapper = qs(
-        `[data-navigation="${index}"]`,
-        this.container,
-      )
-      const nextButton = enableCarouselControls
+      const navigationWrapper = hasCarouselNavigation
+        ? qs(`[data-navigation="${index}"]`, this.container)
+        : null
+      const nextButton = navigationWrapper
         ? qs('[data-next]', navigationWrapper)
         : null
-      const prevButton = enableCarouselControls
+      const prevButton = navigationWrapper
         ? qs('[data-prev]', navigationWrapper)
-        : null
-      const paginationEl = enableCarouselControls
-        ? qs('.swiper-pagination', navigationWrapper)
         : null
 
       const carouselOptions = {
         slidesPerView: this.mobilePerView,
-        spaceBetween: 16, // matches product grid
+        spaceBetween: 16,
         breakpoints: {
           720: {
-            spaceBetween: 24, // matches product grid
+            spaceBetween: 20,
             slidesPerView:
               this.perView === 5 ? this.perView - 1 : this.perView,
           },
           1200: {
-            spaceBetween: 32, // matches product grid
+            spaceBetween: 32,
             slidesPerView: this.perView,
           },
         },
       }
 
-      if (enableCarouselControls && nextButton && prevButton) {
+      if (nextButton && prevButton) {
         carouselOptions.navigation = {
           nextEl: nextButton,
           prevEl: prevButton,
-        }
-      }
-
-      if (enableCarouselControls && paginationEl) {
-        carouselOptions.pagination = {
-          el: paginationEl,
-          clickable: true,
         }
       }
 
@@ -129,6 +118,8 @@ section('featured-collection-slider', {
   },
 
   _show(index) {
+    const navigationWrapper = qs(`[data-navigation="${index}"]`, this.container)
+    if (navigationWrapper) add(navigationWrapper, classes.visible)
     const collection = qs(`[data-collection="${index}"]`, this.container)
 
     if (this.navControls.length) {

@@ -829,6 +829,26 @@
       "name": "Featured collection slider",
       "presets": {
         "name": "Featured collection slider"
+      },
+      "settings": {
+        "padding_top": {
+          "label": "Top"
+        },
+        "padding_bottom": {
+          "label": "Bottom"
+        },
+        "content_alignment": {
+          "label": "Content alignment"
+        },
+        "enable_carousel_navigation": {
+          "label": "Carousel navigation"
+        },
+        "header__padding_mobile": {
+          "content": "Mobile padding"
+        },
+        "header__padding_desktop": {
+          "content": "Desktop padding"
+        }
       }
     },
     "featured_product": {

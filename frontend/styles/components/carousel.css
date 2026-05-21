@@ -43,6 +43,7 @@
 .carousel__navigation-button {
   display: flex;
   align-items: center;
+  color: var(--color-text);
 
   &.swiper-button-disabled {
     opacity: 0.2;
@@ -55,6 +56,11 @@
   .icon {
     width: 34px;
     height: 34px;
+  }
+
+  .icon.icon-carousel-navigation-arrow {
+    width: 38px;
+    height: 21px;
   }
 }
 
