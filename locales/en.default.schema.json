@@ -793,6 +793,26 @@
       "name": "Featured collection slider",
       "presets": {
         "name": "Featured collection slider"
+      },
+      "settings": {
+        "padding_top": {
+          "label": "Top"
+        },
+        "padding_bottom": {
+          "label": "Bottom"
+        },
+        "content_alignment": {
+          "label": "Content alignment"
+        },
+        "enable_carousel_navigation": {
+          "label": "Carousel navigation"
+        },
+        "header__padding_mobile": {
+          "content": "Mobile padding"
+        },
+        "header__padding_desktop": {
+          "content": "Desktop padding"
+        }
       }
     },
     "featured_product": {
@@ -5290,6 +5310,7 @@
       "column_count": {
         "columns": {
           "option_1": "1",
+          "option_1_1": "1.1",
           "option_2": "2",
           "option_3": "3",
           "option_4": "4",

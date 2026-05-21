@@ -22,6 +22,8 @@
   assign mobile_column_count = 2
   if product_columns_mobile == 1
     assign mobile_column_count = 1
+  elsif product_columns_mobile == '1.1'
+    assign mobile_column_count = 1.1
   endif
 
   case product_columns_desktop
@@ -245,11 +247,11 @@
 
     <div class="product-item__meta">
       <div class="product-item__text">
-        <h4 class="ff-body product-item__product-title fs-heading-5-base">
+        <h4 class="fs-body-bold product-item__product-title fs-heading-5-base">
           {%- if placeholder -%}
             {{ 'homepage.onboarding.product_title' | t }}
           {%- else -%}
-            <a href="{{ prod.url }}">{{ prod.title }}</a>
+            <a class="fs-body-bold fs-heading-5-base" href="{{ prod.url }}">{{ prod.title }}</a>
           {%- endif -%}
         </h4>
 
@@ -436,13 +438,13 @@
             <input type="hidden" name="id" value="{{ current_variant.id }}">
             <div class="product-item__atc-split">
               <div class="product-item__qty-wrap">
-                <select name="quantity" class="product-item__qty-select ff-body fs-accent" aria-label="{{ 'general.accessibility.quantity' | t | default: 'Quantity' }}">
+                <select name="quantity" class="product-item__qty-select ff-body-bold fs-accent" aria-label="{{ 'general.accessibility.quantity' | t | default: 'Quantity' }}">
                   {%- for i in (1..10) -%}
                     <option value="{{ i }}">{{ i }}</option>
                   {%- endfor -%}
                 </select>
               </div>
-              <button type="submit" name="add" class="product-item__atc-btn ff-body fs-accent">
+              <button type="submit" name="add" class="product-item__atc-btn ff-body-bold fs-accent">
                 <span>{{ 'products.product.add_to_cart' | t }} &bull; {{ current_variant.price | money }}</span>
                 <div class="btn__loading-wrap"><div class="btn__loading-bar"></div></div>
               </button>

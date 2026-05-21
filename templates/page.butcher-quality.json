@@ -73,7 +73,7 @@
       "settings": {
         "heading": "Explore Butcher-Quality Meats",
         "heading_tag": "h2",
-        "heading_alignment": "center",
+        "content_alignment": "center",
         "subheading": "",
         "link": "",
         "link_text": "",

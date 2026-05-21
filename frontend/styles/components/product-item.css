@@ -294,7 +294,7 @@
 
 .product-item__text {
   width: 100%;
-  margin: var(--spacing-4) auto var(--spacing-2);
+  margin: var(--spacing-3) auto 0;
 
   > *:not(:empty):not(:last-child) {
     margin-bottom: var(--spacing-unit-half);
