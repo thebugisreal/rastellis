@@ -1,0 +1,67 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "enable_animation": true,
+        "content_width": "custom",
+        "custom_content_width": 700,
+        "link_color_scheme": "dark"
+      }
+    },
+    "spend-and-save": {
+      "type": "spend-and-save",
+      "blocks": {
+        "row-1": {
+          "type": "row",
+          "settings": {
+            "feature_name": "Everyday shop (~$100)",
+            "col1_value": "Similar total, but higher quality cuts and portion control",
+            "col2_value": "Standard shelf pricing, inconsistent cuts and portions"
+          }
+        },
+        "row-2": {
+          "type": "row",
+          "settings": {
+            "feature_name": "Stock-up trip (~$150)",
+            "col1_value": "Spend $150+, save 10% automatically at checkout",
+            "col2_value": "Small % off with store card or weekly deals"
+          }
+        },
+        "row-3": {
+          "type": "row",
+          "settings": {
+            "feature_name": "Big freezer fill (~$250+)",
+            "col1_value": "Spend $250+, save 20% on your whole meat order",
+            "col2_value": "Rare promos; per-item deals may not stack"
+          }
+        },
+        "row-4": {
+          "type": "row",
+          "settings": {
+            "feature_name": "Total savings",
+            "col1_value": "Up to 25% plus free shipping when you stock up",
+            "col2_value": "Up to ~5% in typical weekly promos"
+          }
+        }
+      },
+      "block_order": ["row-1", "row-2", "row-3", "row-4"],
+      "settings": {
+        "heading": "Butcher Quality, Unmatched Value",
+        "body": "<p>Nearly 50 years of protein expertise. Butcher-quality cuts, portion-controlled for scale, without the premium price tag.</p>",
+        "badge_image": "",
+        "feature_header_label": "Cart Size",
+        "col1_label": "Us",
+        "col1_logo": "",
+        "col2_label": "Supermarkets",
+        "col2_logo": "",
+        "enable_animation": true,
+        "divider_style": "none",
+        "section_padding": "section--vertical-padding-top-bottom",
+        "link_color_scheme": "dark"
+      }
+    }
+  },
+  "order": ["main", "spend-and-save"]
+}
