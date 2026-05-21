@@ -182,6 +182,107 @@
         "link_color_scheme": "dark"
       }
     },
+    "slideshow_hymqjE": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_xmJqjW": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/birthday-back-desktop.png",
+            "focal_point": "image_presentation",
+            "mobile_focal_point": "image_presentation",
+            "media_link": "",
+            "text_position": "center_center",
+            "text_position_mobile": "center_center",
+            "accent": "",
+            "title": "Stock Up. Save More. Eat Better.",
+            "heading_tag": "h2",
+            "heading_font_class": "fs-heading-1-base",
+            "heading_color": "c-heading-text-dark",
+            "subheading": "",
+            "subheading_tag": "h3",
+            "subheading_font_class": "fs-body-200",
+            "subheading_color": "c-subheading-text-dark",
+            "text": "",
+            "text_font_class": "fs-body-75",
+            "custom_text_color": "c-body-text-dark",
+            "link_1": "#",
+            "link_text_1": "Shop Butcher's Picks",
+            "button_style_1": "btn--dark",
+            "button_color_1": "btn--light",
+            "link_2": "#",
+            "link_text_2": "Our Story",
+            "button_style_2": "btn--dark",
+            "button_color_2": "btn--light",
+            "product_pick": "",
+            "product_pick_label": "Ray's pick",
+            "text_color": "#FFFFFF",
+            "button_background_color": "#FFFFFF",
+            "button_text_color": "#000000",
+            "color_overlay": "#000",
+            "color_overlay_gradient": "",
+            "overlay_opacity": 40
+          }
+        },
+        "slide_m3VTrE": {
+          "type": "slide",
+          "settings": {
+            "focal_point": "image_presentation",
+            "mobile_focal_point": "image_presentation",
+            "media_link": "",
+            "text_position": "center_center",
+            "text_position_mobile": "center_center",
+            "accent": "",
+            "title": "Slide",
+            "heading_tag": "h2",
+            "heading_font_class": "fs-heading-2-base",
+            "heading_color": "c-heading-text-dark",
+            "subheading": "",
+            "subheading_tag": "h3",
+            "subheading_font_class": "fs-body-200",
+            "subheading_color": "c-subheading-text-dark",
+            "text": "<p>Use this section to make a bold statement</p>",
+            "text_font_class": "fs-body-75",
+            "custom_text_color": "c-body-text-dark",
+            "link_1": "",
+            "link_text_1": "Read more",
+            "button_style_1": "btn--dark",
+            "button_color_1": "btn--dark",
+            "link_2": "",
+            "link_text_2": "Read more",
+            "button_style_2": "btn--dark",
+            "button_color_2": "btn--dark",
+            "product_pick": "",
+            "product_pick_label": "Ray's pick",
+            "text_color": "#FFFFFF",
+            "button_background_color": "#FFFFFF",
+            "button_text_color": "#000000",
+            "color_overlay": "#000",
+            "color_overlay_gradient": "",
+            "overlay_opacity": 40
+          }
+        }
+      },
+      "block_order": [
+        "slide_xmJqjW",
+        "slide_m3VTrE"
+      ],
+      "name": "t:sections.slideshow.presets.name",
+      "settings": {
+        "image_aspect": "custom",
+        "desktop_height": 70,
+        "mobile_height": 60,
+        "enable_autoplay": true,
+        "duration_autoplay": 6,
+        "navigation_alignment": "center",
+        "navigation_color_foreground": "#fff",
+        "navigation_color_background": "",
+        "navigation_background_opacity": 100,
+        "enable_animation": true,
+        "section_padding": "none",
+        "link_color_scheme": "dark"
+      }
+    },
     "grid_Bf6wHP": {
       "type": "grid",
       "blocks": {
@@ -1319,6 +1420,7 @@
   },
   "order": [
     "1654878022d8e24a9a",
+    "slideshow_hymqjE",
     "grid_Bf6wHP",
     "16549177944ec2347e",
     "1655855558c1ac2348",
