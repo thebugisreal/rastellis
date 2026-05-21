@@ -460,7 +460,7 @@
 
 .footer__bottom {
   background-color: var(--color-footer-bottom-background);
-  color: var(--color-inline-link-light);
+  color: var(--color-footer-bottom-text);
 }
 
 .footer__bottom-container {

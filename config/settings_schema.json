@@ -328,6 +328,12 @@
         "default": "#272727"
       },
       {
+        "type": "color",
+        "id": "color_footer_bottom_text",
+        "label": "t:settings_schema.colors.settings.color_footer_bottom_text.label",
+        "default": "#FFFFFF"
+      },
+      {
         "type": "header",
         "content": "t:settings_schema.colors.settings.input_fields__header.content"
       },
