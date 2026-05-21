@@ -258,6 +258,7 @@
     }
 
     &.multi-column__grid-item-inner--icon-middle-center {
+      flex-direction: row;
       justify-content: center;
       align-items: center;
 
@@ -309,6 +310,7 @@
     }
 
     &.multi-column__grid-item-inner--icon-mobile-middle-center {
+      flex-direction: row;
       justify-content: center;
       align-items: center;
 

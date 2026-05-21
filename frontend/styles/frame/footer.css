@@ -452,15 +452,14 @@
     border: 1px solid var(--color-inline-link-dark);
 
     &:hover {
-      color: var(--color-text-footer-subdued);
-      background: var(--color-inline-link-light);
       color: var(--color-text-footer);
+      background: var(--color-inline-link-light);
     }
   }
 }
 
 .footer__bottom {
-  background-color: var(--color-text-footer);
+  background-color: var(--color-footer-bottom-background);
   color: var(--color-inline-link-light);
 }
 
