@@ -38,6 +38,9 @@ const classes = {
 // Extra space we add to the height of the inner container
 const formatHeight = h => h + 8 + "px";
 
+// Matches --duration-fast on drawer-menu__accordion-panel style
+const ACCORDION_CLOSE_DURATION = 300;
+
 const menu = node => {
   const drawerMenuAnimation = animateDrawerMenu(node);
   // Entire links container
@@ -265,7 +268,10 @@ const menu = node => {
       },
       { once: true },
     );
-    accordionCloseTimeout = setTimeout(finishAccordionClose, 350);
+    accordionCloseTimeout = setTimeout(
+      finishAccordionClose,
+      ACCORDION_CLOSE_DURATION,
+    );
   }
 
   function handleLocalizationClick(e) {

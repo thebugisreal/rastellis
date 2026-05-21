@@ -433,7 +433,7 @@ ul.drawer-menu__secondary-links {
   }
 
   & > .drawer-menu__item--inline-expand-last {
-    border-bottom: 1px solid #C9C9C4;
+    border-bottom: 1px solid color-mix(in srgb, var(--color-text) 20%, transparent);
     padding-top: var(--spacing-8);
     margin-bottom: var(--spacing-2);
 
