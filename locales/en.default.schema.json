@@ -781,6 +781,33 @@
       }
     },
     "featured_collection_slider": {
+      "settings": {
+        "header__padding_mobile": {
+          "content": "Mobile padding"
+        },
+        "header__padding_desktop": {
+          "content": "Desktop padding"
+        },
+        "padding_top": {
+          "label": "Top"
+        },
+        "padding_bottom": {
+          "label": "Bottom"
+        },
+        "content_alignment": {
+          "label": "Alignment"
+        },
+        "header__sticker": {
+          "content": "Sticker"
+        },
+        "sticker_image": {
+          "label": "Image"
+        },
+        "show_carousel_controls": {
+          "label": "Carousel navigation",
+          "info": "Dots on mobile and arrows on desktop for the product carousel."
+        }
+      },
       "blocks": {
         "collection": {
           "name": "Collection",
@@ -5320,6 +5347,7 @@
       "column_count": {
         "columns": {
           "option_1": "1",
+          "option_1_1": "1.1",
           "option_2": "2",
           "option_3": "3",
           "option_4": "4",

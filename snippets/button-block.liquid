@@ -14,6 +14,7 @@
   buttons_can_inline: Boolean (True if buttons can become inline depending on their position within the block order)
   forloop: obj (required if buttons_can_inline: true)
   button_attributes: String (optional)
+  button_icon: String (optional) icon name passed to icon snippet, rendered after label
   type: String (optional) linkless button type. ("button" or "submit")
 {% endcomment %}
 
@@ -71,7 +72,12 @@
         {{ button_style | default: 'btn--solid' }}
         {{ button_color | default: 'btn--dark' }}"
     >
-      <span>{{ label }}</span>
+      <span class="button-block__label{% if button_icon != blank %} button-block__label--has-icon{% endif %}">
+        {{ label }}
+        {%- if button_icon != blank -%}
+          {%- render 'icon', icon: button_icon -%}
+        {%- endif -%}
+      </span>
     </{{ button_tag }}>
   </div>
 

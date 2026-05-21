@@ -10,8 +10,7 @@
 
 .slideshow-slide__inner {
   --slideshow-content-inset-inline: calc(
-    (100% - min(100%, calc(var(--max-width) + var(--space-outer) * 2))) / 2 +
-      var(--space-outer)
+    (100% - min(100%, calc(var(--max-width) + var(--space-outer) * 2))) / 2 + var(--space-outer)
   );
 
   position: relative;
