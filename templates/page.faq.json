@@ -6,319 +6,77 @@
       "settings": {
         "enable_animation": true,
         "content_width": "custom",
-        "custom_content_width": 700
+        "custom_content_width": 700,
+        "link_color_scheme": "dark"
       }
     },
-    "rich-text-1": {
-      "type": "rich-text",
+    "collapsible-row-list": {
+      "type": "collapsible-row-list",
       "blocks": {
         "block-0": {
-          "type": "heading",
+          "type": "item",
           "settings": {
-            "title": "FAQ",
-            "heading_font_class": "fs-heading-1-base"
+            "expand_by_default": true,
+            "icon": "none",
+            "title": "What are the best methods for thawing my products?",
+            "text": "<p>For best results, thaw in the refrigerator. You can thaw meat and poultry in packaging, but remove seafood from packaging. For quick thawing, submerge vacuum-sealed items in cold water for 30–45 minutes. Avoid microwaves—they dry out the product. Only microwave-thaw if cooking immediately.</p>"
           }
         },
         "block-1": {
-          "type": "spacer",
+          "type": "item",
           "settings": {
-            "space": 12
+            "expand_by_default": false,
+            "icon": "none",
+            "title": "Can I use a business address or PO Box for my delivery address?",
+            "text": ""
           }
         },
         "block-2": {
-          "type": "text",
+          "type": "item",
           "settings": {
-            "text_font_class": "fs-body-75"
+            "expand_by_default": false,
+            "icon": "none",
+            "title": "My box arrived with melted dry ice, is it still safe to eat?",
+            "text": ""
           }
         },
         "block-3": {
-          "type": "spacer",
+          "type": "item",
           "settings": {
-            "space": 12
+            "expand_by_default": false,
+            "icon": "none",
+            "title": "What are the best methods for thawing my products?",
+            "text": ""
           }
         }
       },
       "block_order": ["block-0", "block-1", "block-2", "block-3"],
       "settings": {
-        "alignment": "center_center",
+        "title": "FAQs",
+        "heading_tag": "h2",
+        "heading_font_class": "fs-heading-2-base",
+        "heading_color": "c-heading-text-dark",
+        "subheading": "",
+        "subheading_tag": "h3",
+        "subheading_font_class": "fs-body-200",
+        "subheading_color": "c-subheading-text-dark",
+        "heading_alignment": "left",
+        "layout": "side",
+        "background_illustration": "",
+        "video_source": "external",
+        "video": null,
+        "video_url": "",
+        "side_by_side": "above",
+        "side_by_side_desktop": "right",
+        "item_heading_font": "body",
         "enable_animation": true,
         "divider_style": "none",
         "section_padding": "section--vertical-padding-top-bottom",
-        "content_width": "custom",
-        "custom_content_width": 700
-      }
-    },
-    "rich-text-2": {
-      "type": "rich-text",
-      "blocks": {
-        "block-0": {
-          "type": "heading",
-          "settings": {
-            "title": "Orders",
-            "heading_font_class": "fs-heading-3-base"
-          }
-        },
-        "block-1": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Below are some of are common questions about orders</p>",
-            "text_font_class": "fs-body-75"
-          }
-        }
-      },
-      "block_order": ["block-0", "block-1"],
-      "settings": {
-        "alignment": "center_center",
-        "enable_animation": false,
-        "divider_style": "none",
-        "section_padding": "section--vertical-padding-top-bottom",
-        "content_width": "custom",
-        "custom_content_width": 700
-      }
-    },
-    "collapsible-row-list-1": {
-      "type": "collapsible-row-list",
-      "blocks": {
-        "block-0": {
-          "type": "item",
-          "settings": {
-            "expand_by_default": false,
-            "icon": "none"
-          }
-        },
-        "block-1": {
-          "type": "item",
-          "settings": {
-            "expand_by_default": false,
-            "icon": "none"
-          }
-        },
-        "block-2": {
-          "type": "item",
-          "settings": {
-            "expand_by_default": false,
-            "icon": "none"
-          }
-        },
-        "block-3": {
-          "type": "item",
-          "settings": {
-            "expand_by_default": false,
-            "icon": "none"
-          }
-        }
-      },
-      "block_order": ["block-0", "block-1", "block-2", "block-3"],
-      "settings": {
-        "title": "",
-        "heading_font_class": "fs-heading-3-base",
-        "heading_alignment": "left",
-        "item_heading_font": "body",
-        "enable_animation": false,
-        "divider_style": "none",
-        "section_padding": "section--vertical-padding-bottom-only",
-        "content_width": "custom",
-        "custom_content_width": 850
-      }
-    },
-    "rich-text-3": {
-      "type": "rich-text",
-      "blocks": {
-        "block-0": {
-          "type": "heading",
-          "settings": {
-            "title": "Shipping & Returns",
-            "heading_font_class": "fs-heading-3-base"
-          }
-        },
-        "block-1": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Below are some common questions about shipping, returns, and exchanges</p>",
-            "text_font_class": "fs-body-75"
-          }
-        }
-      },
-      "block_order": ["block-0", "block-1"],
-      "settings": {
-        "alignment": "center_center",
-        "enable_animation": false,
-        "divider_style": "none",
-        "section_padding": "section--vertical-padding-top-bottom",
-        "content_width": "custom",
-        "custom_content_width": 700
-      }
-    },
-    "collapsible-row-list-2": {
-      "type": "collapsible-row-list",
-      "blocks": {
-        "block-0": {
-          "type": "item",
-          "settings": {
-            "expand_by_default": false,
-            "icon": "none"
-          }
-        },
-        "block-1": {
-          "type": "item",
-          "settings": {
-            "expand_by_default": false,
-            "icon": "none"
-          }
-        },
-        "block-2": {
-          "type": "item",
-          "settings": {
-            "expand_by_default": false,
-            "icon": "none"
-          }
-        },
-        "block-3": {
-          "type": "item",
-          "settings": {
-            "expand_by_default": false,
-            "icon": "none"
-          }
-        }
-      },
-      "block_order": ["block-0", "block-1", "block-2", "block-3"],
-      "settings": {
-        "title": "",
-        "heading_font_class": "fs-heading-3-base",
-        "heading_alignment": "left",
-        "item_heading_font": "body",
-        "enable_animation": false,
-        "divider_style": "none",
-        "section_padding": "section--vertical-padding-bottom-only",
-        "content_width": "custom",
-        "custom_content_width": 850
-      }
-    },
-    "rich-text-4": {
-      "type": "rich-text",
-      "blocks": {
-        "block-0": {
-          "type": "heading",
-          "settings": {
-            "title": "Products",
-            "heading_font_class": "fs-heading-3-base"
-          }
-        },
-        "block-1": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Below are some common questions about our products</p>",
-            "text_font_class": "fs-body-75"
-          }
-        }
-      },
-      "block_order": ["block-0", "block-1"],
-      "settings": {
-        "alignment": "center_center",
-        "enable_animation": false,
-        "divider_style": "none",
-        "section_padding": "section--vertical-padding-top-bottom",
-        "content_width": "custom",
-        "custom_content_width": 700
-      }
-    },
-    "collapsible-row-list-3": {
-      "type": "collapsible-row-list",
-      "blocks": {
-        "block-0": {
-          "type": "item",
-          "settings": {
-            "expand_by_default": false,
-            "icon": "none"
-          }
-        },
-        "block-1": {
-          "type": "item",
-          "settings": {
-            "expand_by_default": false,
-            "icon": "none"
-          }
-        },
-        "block-2": {
-          "type": "item",
-          "settings": {
-            "expand_by_default": false,
-            "icon": "none"
-          }
-        },
-        "block-3": {
-          "type": "item",
-          "settings": {
-            "expand_by_default": false,
-            "icon": "none"
-          }
-        }
-      },
-      "block_order": ["block-0", "block-1", "block-2", "block-3"],
-      "settings": {
-        "title": "",
-        "heading_font_class": "fs-heading-3-base",
-        "heading_alignment": "left",
-        "item_heading_font": "body",
-        "enable_animation": false,
-        "divider_style": "none",
-        "section_padding": "section--vertical-padding-bottom-only",
-        "content_width": "custom",
-        "custom_content_width": 850
-      }
-    },
-    "rich-text-5": {
-      "type": "rich-text",
-      "blocks": {
-        "block-0": {
-          "type": "heading",
-          "settings": {
-            "title": "Didn't find your answer?",
-            "heading_font_class": "fs-heading-3-base"
-          }
-        },
-        "block-1": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Don't hesitate to contact us</p>",
-            "text_font_class": "fs-body-75"
-          }
-        },
-        "block-2": {
-          "type": "button",
-          "settings": {
-            "link_text": "Contact us",
-            "button_style": "btn--solid",
-            "button_color": "btn--dark"
-          }
-        },
-        "block-3": {
-          "type": "spacer",
-          "settings": {
-            "space": 12
-          }
-        }
-      },
-      "block_order": ["block-0", "block-1", "block-2", "block-3"],
-      "settings": {
-        "alignment": "center_center",
-        "enable_animation": true,
-        "divider_style": "none",
-        "section_padding": "section--vertical-padding-top-bottom",
-        "content_width": "custom",
-        "custom_content_width": 700
+        "content_width": "full",
+        "custom_content_width": 700,
+        "link_color_scheme": "dark"
       }
     }
   },
-  "order": [
-    "main",
-    "rich-text-1",
-    "rich-text-2",
-    "collapsible-row-list-1",
-    "rich-text-3",
-    "collapsible-row-list-2",
-    "rich-text-4",
-    "collapsible-row-list-3",
-    "rich-text-5"
-  ]
+  "order": ["main", "collapsible-row-list"]
 }

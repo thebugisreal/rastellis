@@ -37,3 +37,53 @@
     width: 50%;
   }
 }
+
+/* Side layout: heading column left, FAQ list right */
+.collapsible-row-list--side {
+  .collapsible-row-list__inner {
+    position: relative;
+    max-width: 100%;
+    padding: 0 var(--spacing-16);
+
+    @media (--above-960) {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--spacing-8);
+    }
+  }
+
+  .collapsible-row-list__heading {
+    margin-bottom: var(--spacing-8);
+
+    @media (--above-960) {
+      flex: 0 0 300px;
+      margin-bottom: 0;
+    }
+  }
+
+  .collapsible-row-list__list {
+    flex: 1;
+    min-width: 0;
+  }
+
+  /* Typography corrections to match design */
+  .collapsible-row-list-item__trigger {
+    font-size: var(--font-size-heading-5-base);
+    font-weight: var(--font-weight-body-bold);
+  }
+
+  .collapsible-row-list-item__text {
+    font-size: var(--font-size-body-1);
+  }
+}
+
+/* Background illustration */
+.collapsible-row-list__background-illustration {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 569px;
+  pointer-events: none;
+  opacity: 0.1;
+  overflow: hidden;
+}
