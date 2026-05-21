@@ -319,7 +319,7 @@
     "isEntry": true
   },
   "frontend/entrypoints/custom.css": {
-    "file": "custom-CA1m_gCl.css",
+    "file": "custom-Dnfzm1LW.css",
     "src": "frontend/entrypoints/custom.css",
     "isEntry": true
   },
@@ -354,7 +354,7 @@
     "isEntry": true
   },
   "frontend/entrypoints/theme-design-mode.js": {
-    "file": "theme-design-mode-BgZevgRF.js",
+    "file": "theme-design-mode-CPZZr9xJ.js",
     "name": "theme-design-mode",
     "src": "frontend/entrypoints/theme-design-mode.js",
     "isEntry": true,
@@ -452,12 +452,12 @@
     ]
   },
   "frontend/entrypoints/theme.css": {
-    "file": "theme-CP91znlQ.css",
+    "file": "theme-PW8BWWtx.css",
     "src": "frontend/entrypoints/theme.css",
     "isEntry": true
   },
   "frontend/entrypoints/theme.js": {
-    "file": "theme-CqppGzFx.js",
+    "file": "theme-CnvA6Vwa.js",
     "name": "theme",
     "src": "frontend/entrypoints/theme.js",
     "isEntry": true,
@@ -810,7 +810,7 @@
     ]
   },
   "frontend/scripts/sections/featured-collection-slider.js": {
-    "file": "featured-collection-slider-BgviWrDv.js",
+    "file": "featured-collection-slider-gdbum75D.js",
     "name": "featured-collection-slider",
     "src": "frontend/scripts/sections/featured-collection-slider.js",
     "isDynamicEntry": true,
