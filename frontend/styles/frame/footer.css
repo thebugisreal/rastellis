@@ -459,7 +459,7 @@
 }
 
 .footer__bottom {
-  background-color: var(--color-text-footer);
+  background-color: var(--color-footer-bottom-background);
   color: var(--color-inline-link-light);
 }
 
