@@ -1,0 +1,39 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "enable_animation": true,
+        "content_width": "custom",
+        "custom_content_width": 700,
+        "link_color_scheme": "dark"
+      }
+    },
+    "text-cta-strip": {
+      "type": "text-cta-strip",
+      "settings": {
+        "text": "<p>Can be cooked from frozen or thawed. Season after the first flip so flavors absorb into the hot side. After searing both sides, move to the cooler side and cook to desired doneness. Whether you grill, broil or pan sear your burger make sure you cook to an internal temperature of at least 155°F.</p>",
+        "cta_image": "shopify://shop_images/Group_8527.png",
+        "cta_link": "",
+        "enable_animation": true,
+        "divider_style": "none",
+        "section_padding": "section--vertical-padding-none",
+        "link_color_scheme": "dark"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "text-cta-strip"
+  ]
+}
