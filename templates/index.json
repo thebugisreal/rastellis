@@ -627,7 +627,7 @@
         "maximum_products": 8,
         "columns": "4",
         "mobile_columns": "2",
-        "show_carousel_controls": true,
+        "show_carousel_controls": false,
         "enable_animation": true,
         "divider_style": "none",
         "padding_top_mobile": 40,
