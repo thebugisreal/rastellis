@@ -414,7 +414,7 @@
           "settings": {
             "icon": "plant",
             "icon_width": 200,
-            "icon_width_mobile": 200,
+            "icon_width_mobile": 150,
             "custom_icon_image": "shopify://shop_images/Headline_for_Hero.svg",
             "icon_position": "top-center",
             "mobile_icon_position": "top-center",
@@ -437,7 +437,7 @@
           "settings": {
             "icon": "plant",
             "icon_width": 200,
-            "icon_width_mobile": 200,
+            "icon_width_mobile": 150,
             "custom_icon_image": "shopify://shop_images/Headline_for_Hero_3.svg",
             "icon_position": "top-center",
             "mobile_icon_position": "top-center",
@@ -460,7 +460,7 @@
           "settings": {
             "icon": "plant",
             "icon_width": 200,
-            "icon_width_mobile": 200,
+            "icon_width_mobile": 150,
             "custom_icon_image": "shopify://shop_images/Headline_for_Hero_1.svg",
             "icon_position": "top-center",
             "mobile_icon_position": "top-center",
@@ -483,7 +483,7 @@
           "settings": {
             "icon": "plant",
             "icon_width": 200,
-            "icon_width_mobile": 200,
+            "icon_width_mobile": 150,
             "custom_icon_image": "shopify://shop_images/Headline_for_Hero_2.svg",
             "icon_position": "top-center",
             "mobile_icon_position": "top-center",
