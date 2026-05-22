@@ -409,80 +409,104 @@
     "multi_column_pftXnd": {
       "type": "multi-column",
       "blocks": {
-        "column_gdM4XR": {
-          "type": "column",
+        "icon_column_9jhmHg": {
+          "type": "icon_column",
           "settings": {
+            "icon": "plant",
+            "icon_width": 200,
+            "icon_width_mobile": 200,
+            "custom_icon_image": "shopify://shop_images/Headline_for_Hero.svg",
+            "icon_position": "top-center",
+            "mobile_icon_position": "top-center",
             "accent": "",
-            "heading": "Column",
+            "heading": "",
             "heading_tag": "h3",
             "heading_font_class": "fs-heading-4-base",
-            "heading_color": "c-heading-text-dark",
-            "text": "<p>Use text to focus on your chosen product, collection, or blog post.</p>",
+            "text": "<p>Years of Experience</p>",
             "text_font_class": "fs-body-75",
-            "custom_text_color": "c-body-text-dark",
             "text_max_width": 100,
             "link": "",
             "link_text": "",
-            "button_style": "btn--dark"
+            "button_style": "btn--dark",
+            "bg_color": "#ffffff",
+            "border_color": "#ffffff"
           }
         },
-        "column_fcUkdw": {
-          "type": "column",
+        "icon_column_wbiqnF": {
+          "type": "icon_column",
           "settings": {
+            "icon": "plant",
+            "icon_width": 200,
+            "icon_width_mobile": 200,
+            "custom_icon_image": "shopify://shop_images/Headline_for_Hero_3.svg",
+            "icon_position": "top-center",
+            "mobile_icon_position": "top-center",
             "accent": "",
-            "heading": "Column",
+            "heading": "",
             "heading_tag": "h3",
             "heading_font_class": "fs-heading-4-base",
-            "heading_color": "c-heading-text-dark",
-            "text": "<p>Use text to focus on your chosen product, collection, or blog post.</p>",
+            "text": "<p>Pounds of Grinds Per Day</p>",
             "text_font_class": "fs-body-75",
-            "custom_text_color": "c-body-text-dark",
             "text_max_width": 100,
             "link": "",
             "link_text": "",
-            "button_style": "btn--dark"
+            "button_style": "btn--dark",
+            "bg_color": "#ffffff",
+            "border_color": "#ffffff"
           }
         },
-        "column_c4DTCW": {
-          "type": "column",
+        "icon_column_pfentg": {
+          "type": "icon_column",
           "settings": {
+            "icon": "plant",
+            "icon_width": 200,
+            "icon_width_mobile": 200,
+            "custom_icon_image": "shopify://shop_images/Headline_for_Hero_1.svg",
+            "icon_position": "top-center",
+            "mobile_icon_position": "top-center",
             "accent": "",
-            "heading": "Column",
+            "heading": "",
             "heading_tag": "h3",
             "heading_font_class": "fs-heading-4-base",
-            "heading_color": "c-heading-text-dark",
-            "text": "<p>Use text to focus on your chosen product, collection, or blog post.</p>",
+            "text": "<p>Generations of Family Operated</p>",
             "text_font_class": "fs-body-75",
-            "custom_text_color": "c-body-text-dark",
             "text_max_width": 100,
             "link": "",
             "link_text": "",
-            "button_style": "btn--dark"
+            "button_style": "btn--dark",
+            "bg_color": "#ffffff",
+            "border_color": "#ffffff"
           }
         },
-        "column_PmkLRT": {
-          "type": "column",
+        "icon_column_UCeBnH": {
+          "type": "icon_column",
           "settings": {
+            "icon": "plant",
+            "icon_width": 200,
+            "icon_width_mobile": 200,
+            "custom_icon_image": "shopify://shop_images/Headline_for_Hero_2.svg",
+            "icon_position": "top-center",
+            "mobile_icon_position": "top-center",
             "accent": "",
-            "heading": "Column",
+            "heading": "",
             "heading_tag": "h3",
             "heading_font_class": "fs-heading-4-base",
-            "heading_color": "c-heading-text-dark",
-            "text": "<p>Use text to focus on your chosen product, collection, or blog post.</p>",
+            "text": "<p>Around the Clock Production</p>",
             "text_font_class": "fs-body-75",
-            "custom_text_color": "c-body-text-dark",
             "text_max_width": 100,
             "link": "",
             "link_text": "",
-            "button_style": "btn--dark"
+            "button_style": "btn--dark",
+            "bg_color": "#ffffff",
+            "border_color": "#ffffff"
           }
         }
       },
       "block_order": [
-        "column_gdM4XR",
-        "column_fcUkdw",
-        "column_c4DTCW",
-        "column_PmkLRT"
+        "icon_column_9jhmHg",
+        "icon_column_wbiqnF",
+        "icon_column_pfentg",
+        "icon_column_UCeBnH"
       ],
       "name": "t:sections.multi_column.presets.name",
       "settings": {
