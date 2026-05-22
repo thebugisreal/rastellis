@@ -314,8 +314,8 @@
         "divider_style": "solid",
         "padding_top_mobile": 40,
         "padding_bottom_mobile": 40,
-        "padding_top_desktop": 48,
-        "padding_bottom_desktop": 48,
+        "padding_top_desktop": 32,
+        "padding_bottom_desktop": 40,
         "link_color_scheme": "dark"
       }
     },
