@@ -44,7 +44,7 @@ section('featured-collection-slider', {
     this.productItem = ProductItem(this.container)
     this.carouselsElements = qsa(selectors.sliderContainer, this.container)
     this.navItems = qsa(selectors.navItems, this.container)
-    this.navControls = qsa(selectors.navControls, this.container)
+    this.navigationButtons = qsa(selectors.navButtons, this.container)
 
     this.navItems.forEach((button) =>
       this.events.push(
@@ -102,7 +102,7 @@ section('featured-collection-slider', {
 
   _hideAll() {
     remove(this.navItems, classes.selected)
-    remove(this.navControls, classes.visible)
+    remove(this.navigationButtons, classes.visible)
 
     remove(this.carouselsElements, classes.initReveal)
     remove(this.carouselsElements, classes.reveal)
@@ -121,14 +121,6 @@ section('featured-collection-slider', {
     const navigationWrapper = qs(`[data-navigation="${index}"]`, this.container)
     if (navigationWrapper) add(navigationWrapper, classes.visible)
     const collection = qs(`[data-collection="${index}"]`, this.container)
-
-    if (this.navControls.length) {
-      const navigationWrapper = qs(
-        `[data-navigation="${index}"]`,
-        this.container,
-      )
-      add(navigationWrapper, classes.visible)
-    }
 
     if (this.navItems.length) {
       const navigationItem = qs(
