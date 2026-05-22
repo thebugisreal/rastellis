@@ -1,0 +1,26 @@
+{%- liquid
+  assign wave_desktop = settings.wave_image_desktop
+  assign wave_mobile = settings.wave_image_mobile
+
+  if wave_mobile == blank
+    assign wave_mobile = wave_desktop
+  endif
+-%}
+{%- if wave_desktop != blank or wave_mobile != blank -%}
+  <div
+    class="wave wave--{{ position }}"
+    aria-hidden="true"
+  >
+    {%- render 'image',
+      wrapper_class: 'wave__image',
+      image: wave_desktop,
+      mobile_image: wave_mobile,
+      sizes: '100vw',
+      aspect_ratio: 'natural',
+      object_fit: 'cover',
+      src_set_type: 'full-width',
+      no_crop: true,
+      prioritize_loading: false
+    -%}
+  </div>
+{%- endif -%}

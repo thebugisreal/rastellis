@@ -202,6 +202,11 @@
   font-weight: var(--font-subheading-2-weight) !important;
 }
 
+.ff-subheading.ff-body {
+  font-family: var(--font-body) !important;
+  font-weight: var(--font-body-weight) !important;
+}
+
 .ff-subheading.ff-secondary.fs-subheading-bold {
   font-weight: var(--font-subheading-2-bold-weight) !important;
 }

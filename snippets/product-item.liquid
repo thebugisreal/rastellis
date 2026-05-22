@@ -6,11 +6,11 @@
   endcomment
 
   assign resolved_aspect_ratio = aspect_ratio | default: settings.product_listing_aspect_ratio
-  assign resolved_show_vendor = show_vendor | default: settings.product_listing_show_vendor
-  assign resolved_show_second_image = show_second_image | default: settings.product_listing_show_second_image_on_hover
-  assign resolved_enable_border = enable_border | default: settings.enable_border_on_hover
-  assign resolved_show_swatches = show_swatches | default: true
-  assign resolved_enable_quick_view = enable_quick_view | default: settings.enable_quick_view
+  assign resolved_show_vendor = show_vendor | default: settings.product_listing_show_vendor, allow_false: true
+  assign resolved_show_second_image = show_second_image | default: settings.product_listing_show_second_image_on_hover, allow_false: true
+  assign resolved_enable_border = enable_border | default: settings.enable_border_on_hover, allow_false: true
+  assign resolved_show_swatches = show_swatches | default: true, allow_false: true
+  assign resolved_enable_quick_view = enable_quick_view | default: settings.enable_quick_view, allow_false: true
 
   assign show_multiple_images = false
   if resolved_show_second_image and prod.media.size > 1
@@ -423,7 +423,7 @@
             </span>
             <span class="product-item__unit-price ff-body fs-body-75">
               {%- if current_variant.unit_price_measurement -%}
-                {{- current_variant.unit_price | money -}}/{{- current_variant.unit_price_measurement.reference_unit -}}
+                {{- current_variant.unit_price | money -}}/{%- if current_variant.unit_price_measurement.reference_value != 1 -%}{{ current_variant.unit_price_measurement.reference_value }}{%- endif -%}{{ current_variant.unit_price_measurement.reference_unit -}}
               {%- else -%}
                 {{- current_variant.price | money -}}
               {%- endif -%}
@@ -432,7 +432,7 @@
         {%- endif -%}
       {%- endif -%}
 
-      {%- if show_atc and prod.available and placeholder != true -%}
+      {%- if show_atc and prod.available and placeholder != true and prod.has_only_default_variant -%}
         <div class="product-item__atc-row">
           {%- form 'product', prod, class: 'product-item__atc-form' -%}
             <input type="hidden" name="id" value="{{ current_variant.id }}">
