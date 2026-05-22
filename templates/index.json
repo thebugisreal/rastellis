@@ -414,7 +414,7 @@
           "settings": {
             "icon": "plant",
             "icon_width": 200,
-            "icon_width_mobile": 150,
+            "icon_width_mobile": 100,
             "custom_icon_image": "shopify://shop_images/Headline_for_Hero.svg",
             "icon_position": "top-center",
             "mobile_icon_position": "top-center",
