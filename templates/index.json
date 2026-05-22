@@ -578,6 +578,7 @@
         "item_aCU43n",
         "item_HPmgzT"
       ],
+      "disabled": true,
       "name": "Stat Group",
       "settings": {
         "heading": "Stat Group",
@@ -596,22 +597,30 @@
     "featured_collection_slider_ViCgkA": {
       "type": "featured-collection-slider",
       "blocks": {
+        "collection_dgWkKK": {
+          "type": "collection",
+          "settings": {
+            "collection": "best-sellers-box",
+            "collection_name": "Best Sellers"
+          }
+        },
         "collection_GPc8Re": {
           "type": "collection",
           "settings": {
-            "collection": "",
+            "collection": "beef",
             "collection_name": "First collection"
           }
         },
         "collection_cYRX7P": {
           "type": "collection",
           "settings": {
-            "collection": "",
+            "collection": "hamburger",
             "collection_name": "Second collection"
           }
         }
       },
       "block_order": [
+        "collection_dgWkKK",
         "collection_GPc8Re",
         "collection_cYRX7P"
       ],
@@ -622,7 +631,7 @@
         "subheading": "",
         "link": "",
         "link_text": "",
-        "content_alignment": "left",
+        "content_alignment": "center",
         "hide_price": false,
         "maximum_products": 8,
         "columns": "4",
