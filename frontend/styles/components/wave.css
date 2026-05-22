@@ -1,0 +1,96 @@
+.wave {
+  --wave-height: 24px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: var(--wave-height);
+  overflow: hidden;
+  display: none;
+  pointer-events: none;
+  z-index: 2;
+  line-height: 0;
+
+  @media (--above-720) {
+    --wave-height: 32px;
+  }
+
+  &.wave--bottom {
+    bottom: 0;
+  }
+
+  &.wave--top {
+    top: 0;
+  }
+
+  .wave__image.image {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+
+    .image__inner {
+      width: 100%;
+      height: 100%;
+    }
+
+    .image__img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+  }
+
+  &.wave--bottom .wave__image.image .image__img {
+    object-position: top center;
+
+    @media (--below-720) {
+      object-position: bottom center;
+    }
+  }
+
+  &.wave--top .wave__image.image .image__img {
+    object-position: bottom center;
+    transform: scaleY(-1);
+
+    @media (--below-720) {
+      object-position: top center;
+    }
+  }
+}
+
+.rough-border--top-desktop {
+  .wave.wave--top {
+    @media (--above-720) {
+      display: block;
+    }
+  }
+}
+
+.rough-border--top-mobile {
+  .wave.wave--top {
+    @media (--below-720) {
+      display: block;
+    }
+  }
+}
+
+.rough-border--bottom-desktop {
+  .wave.wave--bottom {
+    @media (--above-720) {
+      display: block;
+    }
+  }
+}
+
+.rough-border--bottom-mobile {
+  .wave.wave--bottom {
+    @media (--below-720) {
+      display: block;
+    }
+  }
+}
+
+.has-rough-border {
+  overflow: visible;
+}

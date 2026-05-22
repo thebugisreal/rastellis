@@ -5,6 +5,7 @@
   video: URL
   controls: Bool (optional)
   loop: Bool (optional)
+  video_pause: Bool (optional, default true)
   wrapper_class: String
   aspect_ratio: String
   focal_alignment: String
@@ -19,6 +20,11 @@
   unless loop
     assign video_should_loop = false
   endunless
+
+  assign show_video_pause = true
+  if video_pause == false
+    assign show_video_pause = false
+  endif
 -%}
 
 <div
@@ -48,5 +54,7 @@
       poster="{{poster}}"
     {% endif %}
   ></video>
-  {% render 'video-pause' %}
+  {%- if show_video_pause -%}
+    {% render 'video-pause' %}
+  {%- endif -%}
 </div>

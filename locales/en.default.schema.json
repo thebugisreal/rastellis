@@ -838,7 +838,29 @@
           "label": "Bottom"
         },
         "content_alignment": {
-          "label": "Content alignment"
+          "label": "Content alignment",
+          "option_center": "Center",
+          "option_left": "Left"
+        },
+        "tab_indicator_style": {
+          "label": "Tab indicator style",
+          "option_dot": "Dot",
+          "option_underline": "Underline"
+        },
+        "background_illustration": {
+          "label": "Background illustration"
+        },
+        "bottom_link": {
+          "label": "Bottom CTA link"
+        },
+        "bottom_link_label": {
+          "label": "Bottom CTA label"
+        },
+        "show_variant_row": {
+          "label": "Variant and unit price row"
+        },
+        "show_atc": {
+          "label": "Add to Cart button"
         },
         "enable_carousel_navigation": {
           "label": "Carousel navigation"
@@ -1477,6 +1499,21 @@
         },
         "text_position_mobile": {
           "label": "Mobile text position"
+        },
+        "rough_border": {
+          "info": "Rough border SVGs are uploaded in Theme settings, under Rough border."
+        },
+        "enable_wave_top_desktop": {
+          "label": "Rough border top"
+        },
+        "enable_wave_bottom_desktop": {
+          "label": "Rough border bottom"
+        },
+        "enable_wave_top_mobile": {
+          "label": "Rough border top (mobile)"
+        },
+        "enable_wave_bottom_mobile": {
+          "label": "Rough border bottom (mobile)"
         }
       }
     },
@@ -4301,6 +4338,18 @@
         }
       }
     },
+    "rough_border": {
+      "name": "Rough border",
+      "settings": {
+        "wave_image_desktop": {
+          "label": "Desktop"
+        },
+        "wave_image_mobile": {
+          "label": "Mobile",
+          "info": "Optional. Uses desktop SVG when empty."
+        }
+      }
+    },
     "blog": {
       "name": "Blog",
       "settings": {
@@ -5934,7 +5983,8 @@
         "label": "Type Face",
         "options": {
           "primary": "Primary",
-          "secondary": "Secondary"
+          "secondary": "Secondary",
+          "body": "Body"
         }
       },
       "button_color": {

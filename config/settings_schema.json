@@ -1617,6 +1617,22 @@
     ]
   },
   {
+    "name": "t:settings_schema.rough_border.name",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "wave_image_desktop",
+        "label": "t:settings_schema.rough_border.settings.wave_image_desktop.label"
+      },
+      {
+        "type": "image_picker",
+        "id": "wave_image_mobile",
+        "label": "t:settings_schema.rough_border.settings.wave_image_mobile.label",
+        "info": "t:settings_schema.rough_border.settings.wave_image_mobile.info"
+      }
+    ]
+  },
+  {
     "name": "t:settings_schema.product.name",
     "settings": [
       {
