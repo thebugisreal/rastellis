@@ -451,8 +451,8 @@
             "link": "",
             "link_text": "",
             "button_style": "btn--dark",
-            "bg_color": "#ffffff",
-            "border_color": "#ffffff"
+            "bg_color": "rgba(0,0,0,0)",
+            "border_color": "rgba(0,0,0,0)"
           }
         },
         "icon_column_pfentg": {
@@ -474,8 +474,8 @@
             "link": "",
             "link_text": "",
             "button_style": "btn--dark",
-            "bg_color": "#ffffff",
-            "border_color": "#ffffff"
+            "bg_color": "rgba(0,0,0,0)",
+            "border_color": "rgba(0,0,0,0)"
           }
         },
         "icon_column_UCeBnH": {
@@ -497,8 +497,8 @@
             "link": "",
             "link_text": "",
             "button_style": "btn--dark",
-            "bg_color": "#ffffff",
-            "border_color": "#ffffff"
+            "bg_color": "rgba(0,0,0,0)",
+            "border_color": "rgba(0,0,0,0)"
           }
         }
       },
