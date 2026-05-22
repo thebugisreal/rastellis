@@ -281,6 +281,10 @@
         "navigation_background_opacity": 100,
         "enable_animation": true,
         "section_padding": "none",
+        "enable_wave_top_desktop": false,
+        "enable_wave_bottom_desktop": false,
+        "enable_wave_top_mobile": false,
+        "enable_wave_bottom_mobile": false,
         "link_color_scheme": "dark"
       }
     },
@@ -290,6 +294,7 @@
         "16558555587b915de6-0": {
           "type": "collection",
           "settings": {
+            "show_view_all": true,
             "collection": "beef",
             "collection_name": "First collection"
           }
@@ -301,22 +306,28 @@
       "settings": {
         "heading": "Everyday Essentials, Butcher Quality",
         "heading_tag": "h2",
+        "content_alignment": "center",
         "subheading": "",
         "link": "",
         "link_text": "",
-        "content_alignment": "center",
+        "tab_indicator_style": "underline",
+        "bottom_link": "",
+        "bottom_link_label": "",
+        "product_aspect_ratio": "square",
+        "show_variant_row": true,
+        "show_atc": true,
         "hide_price": false,
         "maximum_products": 8,
         "columns": "4",
         "mobile_columns": "1.1",
-        "show_carousel_controls": true,
+        "enable_carousel_navigation": true,
         "enable_animation": true,
         "divider_style": "solid",
+        "link_color_scheme": "dark",
         "padding_top_mobile": 40,
         "padding_bottom_mobile": 40,
         "padding_top_desktop": 32,
-        "padding_bottom_desktop": 40,
-        "link_color_scheme": "dark"
+        "padding_bottom_desktop": 40
       }
     },
     "image_hero_HDWaRp": {
@@ -395,9 +406,9 @@
         "overlay_opacity": 40,
         "enable_animation": true,
         "section_padding": "section--vertical-padding-none",
-        "enable_wave_top_desktop": true,
+        "enable_wave_top_desktop": false,
         "enable_wave_bottom_desktop": true,
-        "enable_wave_top_mobile": true,
+        "enable_wave_top_mobile": false,
         "enable_wave_bottom_mobile": true,
         "link_color_scheme": "dark"
       }
@@ -600,6 +611,7 @@
         "collection_dgWkKK": {
           "type": "collection",
           "settings": {
+            "show_view_all": true,
             "collection": "best-sellers-box",
             "collection_name": "Best Sellers"
           }
@@ -607,6 +619,7 @@
         "collection_GPc8Re": {
           "type": "collection",
           "settings": {
+            "show_view_all": true,
             "collection": "beef",
             "collection_name": "First collection"
           }
@@ -614,6 +627,7 @@
         "collection_cYRX7P": {
           "type": "collection",
           "settings": {
+            "show_view_all": true,
             "collection": "hamburger",
             "collection_name": "Second collection"
           }
@@ -628,22 +642,28 @@
       "settings": {
         "heading": "Featured collection",
         "heading_tag": "h2",
+        "content_alignment": "center",
         "subheading": "",
         "link": "",
         "link_text": "",
-        "content_alignment": "center",
+        "tab_indicator_style": "underline",
+        "bottom_link": "",
+        "bottom_link_label": "",
+        "product_aspect_ratio": "square",
+        "show_variant_row": true,
+        "show_atc": true,
         "hide_price": false,
         "maximum_products": 8,
         "columns": "4",
         "mobile_columns": "2",
-        "show_carousel_controls": false,
+        "enable_carousel_navigation": true,
         "enable_animation": true,
         "divider_style": "none",
+        "link_color_scheme": "dark",
         "padding_top_mobile": 40,
         "padding_bottom_mobile": 40,
         "padding_top_desktop": 48,
-        "padding_bottom_desktop": 48,
-        "link_color_scheme": "dark"
+        "padding_bottom_desktop": 48
       }
     },
     "blog_posts_rmdkRw": {
