@@ -395,10 +395,10 @@
         "overlay_opacity": 40,
         "enable_animation": true,
         "section_padding": "section--vertical-padding-none",
-        "enable_wave_top_desktop": false,
+        "enable_wave_top_desktop": true,
         "enable_wave_bottom_desktop": true,
         "enable_wave_top_mobile": true,
-        "enable_wave_bottom_mobile": false,
+        "enable_wave_bottom_mobile": true,
         "link_color_scheme": "dark"
       }
     },
