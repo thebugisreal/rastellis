@@ -308,7 +308,7 @@
         "hide_price": false,
         "maximum_products": 8,
         "columns": "4",
-        "mobile_columns": "2",
+        "mobile_columns": "1.1",
         "show_carousel_controls": true,
         "enable_animation": true,
         "divider_style": "solid",
