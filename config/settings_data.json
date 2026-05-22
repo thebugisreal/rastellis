@@ -103,6 +103,8 @@
     "typography_button_mobile": "14",
     "typography_button_uppercase": false,
     "typography_button_line_height": "1.1",
+    "wave_image_desktop": "shopify://shop_images/Desktop-Background-Grunge-Divider.svg",
+    "wave_image_mobile": "shopify://shop_images/Mobile-Background-Grunge-Divider.svg",
     "sale_badge_format": "percent_off",
     "custom_product_badge_group_1_tag_names": "Beef",
     "custom_product_badge_group_1_color": "#3C9342",
