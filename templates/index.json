@@ -350,8 +350,8 @@
         "button_jTbjUH": {
           "type": "button",
           "settings": {
-            "link": "",
-            "link_text": "Read more",
+            "link": "shopify://pages/our-story",
+            "link_text": "Our Story",
             "button_style": "btn--solid",
             "button_color": "btn--light"
           }
@@ -359,8 +359,8 @@
         "button_bjgGBF": {
           "type": "button",
           "settings": {
-            "link": "",
-            "link_text": "Read more",
+            "link": "shopify://collections/beef",
+            "link_text": "Food Sourcing & Safety",
             "button_style": "btn--solid",
             "button_color": "btn--light"
           }
