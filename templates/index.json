@@ -336,7 +336,7 @@
             "title": "America’s Personal Butcher, Since Day One",
             "font_family_class": "ff-primary",
             "heading_font_class": "fs-heading-2-base",
-            "heading_color": "c-heading-text-dark"
+            "heading_color": "c-heading-text-light"
           }
         },
         "text_HHxDDN": {
@@ -344,7 +344,7 @@
           "settings": {
             "text": "<p>For over 50 years, Rastelli’s has delivered butcher-selected meats and responsibly sourced seafood with the care and craft of a neighborhood shop.</p>",
             "text_font_class": "fs-body-75",
-            "custom_text_color": "c-body-text-dark"
+            "custom_text_color": "c-body-text-light"
           }
         },
         "button_jTbjUH": {
