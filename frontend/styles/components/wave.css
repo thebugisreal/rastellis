@@ -21,6 +21,7 @@
 
   &.wave--top {
     top: 0;
+    z-index: 10;
   }
 
   .wave__image.image {
@@ -43,52 +44,30 @@
 
   &.wave--bottom .wave__image.image .image__img {
     object-position: top center;
-
-    @media (--below-720) {
-      object-position: bottom center;
-    }
   }
 
   &.wave--top .wave__image.image .image__img {
-    object-position: bottom center;
+    object-position: top center;
     transform: scaleY(-1);
-
-    @media (--below-720) {
-      object-position: top center;
-    }
   }
 }
 
-.rough-border--top-desktop {
-  .wave.wave--top {
-    @media (--above-720) {
-      display: block;
-    }
+@media (--below-720) {
+  .rough-border--top-mobile .wave.wave--top,
+  .rough-border--bottom-mobile .wave.wave--bottom {
+    display: block;
   }
 }
 
-.rough-border--top-mobile {
-  .wave.wave--top {
-    @media (--below-720) {
-      display: block;
-    }
+@media (--above-720) {
+  .rough-border--top-desktop .wave.wave--top,
+  .rough-border--bottom-desktop .wave.wave--bottom {
+    display: block;
   }
 }
 
-.rough-border--bottom-desktop {
-  .wave.wave--bottom {
-    @media (--above-720) {
-      display: block;
-    }
-  }
-}
-
-.rough-border--bottom-mobile {
-  .wave.wave--bottom {
-    @media (--below-720) {
-      display: block;
-    }
-  }
+.shopify-section:has(.has-rough-border) {
+  overflow: visible;
 }
 
 .has-rough-border {
