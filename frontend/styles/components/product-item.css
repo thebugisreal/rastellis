@@ -417,12 +417,6 @@
   }
 }
 
-.product-item .product-badge {
-  font-family: var(--font-body);
-  font-weight: var(--font-weight-body-bold);
-  letter-spacing: 0.0909em;
-}
-
 .product-item__hover-action-wrap {
   position: absolute;
   right: 0;

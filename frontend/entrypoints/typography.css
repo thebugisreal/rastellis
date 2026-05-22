@@ -94,7 +94,6 @@
   /*** Custom Sizes ***/
   --font-size-listing-title: var(--global-font-size-body-1);
   --font-size-button-x-small: var(--global-font-size-body-2);
-  --font-size-product-badge: var(--global-font-size-body-2);
   --font-size-navigation-base: var(--global-font-size-body-1);
   --logo-font-size: var(--global-font-size-heading-1);
 }

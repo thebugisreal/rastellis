@@ -1499,21 +1499,6 @@
         },
         "text_position_mobile": {
           "label": "Mobile text position"
-        },
-        "rough_border": {
-          "info": "Rough border SVGs are uploaded in Theme settings, under Rough border."
-        },
-        "enable_wave_top_desktop": {
-          "label": "Rough border top"
-        },
-        "enable_wave_bottom_desktop": {
-          "label": "Rough border bottom"
-        },
-        "enable_wave_top_mobile": {
-          "label": "Rough border top (mobile)"
-        },
-        "enable_wave_bottom_mobile": {
-          "label": "Rough border bottom (mobile)"
         }
       }
     },
@@ -5802,6 +5787,21 @@
       },
       "overlay_opacity": {
         "label": "Overlay opacity"
+      },
+      "rough_border": {
+        "info": "Rough border SVGs are uploaded in Theme settings, under Rough border.",
+        "enable_wave_top_desktop": {
+          "label": "Rough border top"
+        },
+        "enable_wave_bottom_desktop": {
+          "label": "Rough border bottom"
+        },
+        "enable_wave_top_mobile": {
+          "label": "Rough border top (mobile)"
+        },
+        "enable_wave_bottom_mobile": {
+          "label": "Rough border bottom (mobile)"
+        }
       },
       "pagination": {
         "label": "Pagination",
