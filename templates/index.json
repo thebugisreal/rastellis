@@ -163,6 +163,7 @@
         "165487802257d72399-1",
         "165487802257d72399-0"
       ],
+      "disabled": true,
       "settings": {
         "heading": "",
         "heading_tag": "h2",
@@ -216,8 +217,8 @@
             "button_color_2": "btn--light",
             "product_pick": "",
             "product_pick_label": "Ray's pick",
-            "text_color": "#FFFFFF",
-            "button_background_color": "#FFFFFF",
+            "text_color": "#ffffff",
+            "button_background_color": "#ffffff",
             "button_text_color": "#000000",
             "color_overlay": "#000",
             "color_overlay_gradient": "",
@@ -255,8 +256,8 @@
             "button_color_2": "btn--dark",
             "product_pick": "",
             "product_pick_label": "Ray's pick",
-            "text_color": "#FFFFFF",
-            "button_background_color": "#FFFFFF",
+            "text_color": "#ffffff",
+            "button_background_color": "#ffffff",
             "button_text_color": "#000000",
             "color_overlay": "#000",
             "color_overlay_gradient": "",
@@ -268,6 +269,7 @@
         "slide_xmJqjW",
         "slide_m3VTrE"
       ],
+      "disabled": true,
       "name": "t:sections.slideshow.presets.name",
       "settings": {
         "image_aspect": "custom",
@@ -315,8 +317,8 @@
             "link_text": "Shop Now",
             "button_style": "btn--dark",
             "background_color": "",
-            "text_color": "#FFFFFF",
-            "button_background_color": "#FFFFFF",
+            "text_color": "#ffffff",
+            "button_background_color": "#ffffff",
             "button_text_color": "#000000",
             "color_overlay": "#000",
             "color_overlay_gradient": "",
@@ -351,8 +353,8 @@
             "link_text": "Shop Now",
             "button_style": "btn--dark",
             "background_color": "",
-            "text_color": "#FFFFFF",
-            "button_background_color": "#FFFFFF",
+            "text_color": "#ffffff",
+            "button_background_color": "#ffffff",
             "button_text_color": "#000000",
             "color_overlay": "#000",
             "color_overlay_gradient": "",
@@ -364,6 +366,7 @@
         "item_3Mb6DX",
         "item_TeNRXG"
       ],
+      "disabled": true,
       "name": "t:sections.grid.presets.name",
       "settings": {
         "heading": "",
@@ -410,6 +413,7 @@
         "1654917794cdc0bc3c-0",
         "1654917794cdc0bc3c-1"
       ],
+      "disabled": true,
       "settings": {
         "alignment": "center_center",
         "enable_animation": true,
@@ -442,6 +446,7 @@
         "16558555587b915de6-0",
         "16558555587b915de6-1"
       ],
+      "disabled": true,
       "settings": {
         "heading": "Featured collection",
         "heading_tag": "h2",
@@ -477,6 +482,7 @@
       "block_order": [
         "767ac6c0-8826-4284-bd74-6eb8a441d7bc"
       ],
+      "disabled": true,
       "settings": {
         "heading": "Featured collection",
         "heading_tag": "h2",
@@ -500,6 +506,7 @@
     },
     "16558561315f6147d3": {
       "type": "sales-banner",
+      "disabled": true,
       "settings": {
         "min_height": 300,
         "min_height_mobile": 500,
@@ -763,6 +770,7 @@
         "765a5e2e-93df-44f3-aa92-3c26e95174c2",
         "48a4e426-4325-412e-a437-c11aa5b4edf2"
       ],
+      "disabled": true,
       "settings": {
         "heading": "",
         "heading_tag": "h2",
@@ -784,6 +792,7 @@
     },
     "165488047346f59e49": {
       "type": "collection-list-slider",
+      "disabled": true,
       "settings": {
         "heading": "Collection list",
         "heading_tag": "h2",
@@ -857,6 +866,7 @@
         "63e2f450-ccdf-4ba0-8c95-8e7b01b5c7f5",
         "7f329234-f652-4947-8f09-cad43d072028"
       ],
+      "disabled": true,
       "settings": {
         "media_position": "right",
         "media_mobile_position": "above-content",
@@ -911,6 +921,7 @@
         "1654899804e4fc48ec-1",
         "1654899804e4fc48ec-2"
       ],
+      "disabled": true,
       "settings": {
         "media_position": "right",
         "text_alignment": "center",
@@ -968,6 +979,7 @@
         "16548804264c48a1d9-1",
         "16548804264c48a1d9-2"
       ],
+      "disabled": true,
       "settings": {
         "media_position": "right",
         "text_alignment": "center",
@@ -1035,6 +1047,7 @@
         "1655856194e7b43695-1",
         "1655856194e7b43695-2"
       ],
+      "disabled": true,
       "settings": {
         "image_size": "small",
         "quote_font": "heading",
@@ -1078,6 +1091,7 @@
         "16548834735b1dc2a7-1",
         "16548834735b1dc2a7-2"
       ],
+      "disabled": true,
       "settings": {
         "image_position": "left",
         "image_size": 50,
@@ -1154,6 +1168,7 @@
         "535519ef-68f5-42dd-8ad6-15ab68afaa95",
         "39a1cced-a841-48eb-bf01-2041e2134155"
       ],
+      "disabled": true,
       "settings": {
         "image_aspect": "custom",
         "desktop_height": 65,
@@ -1176,6 +1191,7 @@
     },
     "16548801325228c324": {
       "type": "blog-posts",
+      "disabled": true,
       "settings": {
         "heading": "Blog posts",
         "subheading": "",
@@ -1275,6 +1291,7 @@
         "78b87e77-53f6-4b58-828a-36ba7eeaa4f1",
         "1655748276a16c587f-2"
       ],
+      "disabled": true,
       "settings": {
         "media_position": "right",
         "text_alignment": "left",
@@ -1350,6 +1367,7 @@
         "82fd259e-87e0-4232-9b45-72472ceab4dc",
         "7792bb9a-dddb-46ca-9045-e26f6f6948b5"
       ],
+      "disabled": true,
       "settings": {
         "media_position": "right",
         "media_mobile_position": "above-content",
@@ -1398,6 +1416,7 @@
         "template--15305459073231__d71df2af-ba99-428a-9772-57ebe99ef94d-1668035253c173f759-0",
         "template--15305459073231__d71df2af-ba99-428a-9772-57ebe99ef94d-1668035253c173f759-1"
       ],
+      "disabled": true,
       "settings": {
         "spacing_mode": "between",
         "alignment": "left",
@@ -1415,6 +1434,85 @@
         "enable_animation": true,
         "divider_style": "none",
         "section_padding": "section--vertical-padding-top-bottom",
+        "link_color_scheme": "dark"
+      }
+    },
+    "image_hero_HDWaRp": {
+      "type": "image-hero",
+      "blocks": {
+        "image_KiMCFW": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Group_8460.svg",
+            "image_size": 200,
+            "image_size_mobile": 200
+          }
+        },
+        "heading_Ca7WTj": {
+          "type": "heading",
+          "settings": {
+            "title": "America’s Personal Butcher, Since Day One",
+            "font_family_class": "ff-primary",
+            "heading_font_class": "fs-heading-2-base",
+            "heading_color": "c-heading-text-dark"
+          }
+        },
+        "text_HHxDDN": {
+          "type": "text",
+          "settings": {
+            "text": "<p>For over 50 years, Rastelli’s has delivered butcher-selected meats and responsibly sourced seafood with the care and craft of a neighborhood shop.</p>",
+            "text_font_class": "fs-body-75",
+            "custom_text_color": "c-body-text-dark"
+          }
+        },
+        "button_jTbjUH": {
+          "type": "button",
+          "settings": {
+            "link": "",
+            "link_text": "Read more",
+            "button_style": "btn--solid",
+            "button_color": "btn--light"
+          }
+        },
+        "button_bjgGBF": {
+          "type": "button",
+          "settings": {
+            "link": "",
+            "link_text": "Read more",
+            "button_style": "btn--solid",
+            "button_color": "btn--light"
+          }
+        }
+      },
+      "block_order": [
+        "image_KiMCFW",
+        "heading_Ca7WTj",
+        "text_HHxDDN",
+        "button_jTbjUH",
+        "button_bjgGBF"
+      ],
+      "name": "t:sections.image_hero.presets.name",
+      "settings": {
+        "enable_hero_video": true,
+        "video_url_hero": "https://cdn.shopify.com/videos/c/o/v/a1d5f3335c094463aab93dc028f52e37.mp4",
+        "enable_box_container": false,
+        "image_size": "contain",
+        "image_aspect": "custom",
+        "desktop_height": 100,
+        "mobile_height": 100,
+        "focal_point": "image_presentation",
+        "mobile_focal_point": "image_presentation",
+        "media_link": "",
+        "text_position": "center_center",
+        "text_position_mobile": "center_center",
+        "text_color": "#FFFFFF",
+        "button_background_color": "#FFFFFF",
+        "button_text_color": "#000000",
+        "color_overlay": "#000",
+        "color_overlay_gradient": "",
+        "overlay_opacity": 40,
+        "enable_animation": true,
+        "section_padding": "section--vertical-padding-none",
         "link_color_scheme": "dark"
       }
     }
@@ -1438,6 +1536,7 @@
     "16548801325228c324",
     "1655748277aeb95c8a",
     "165489278903cc3881",
-    "d71df2af-ba99-428a-9772-57ebe99ef94d"
+    "d71df2af-ba99-428a-9772-57ebe99ef94d",
+    "image_hero_HDWaRp"
   ]
 }
