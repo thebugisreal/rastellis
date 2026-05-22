@@ -313,7 +313,7 @@
         "image_aspect": "custom",
         "desktop_height": 75,
         "mobile_height": 60,
-        "enable_autoplay": true,
+        "enable_autoplay": false,
         "duration_autoplay": 6,
         "navigation_alignment": "center",
         "navigation_color_foreground": "#fff",
