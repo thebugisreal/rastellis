@@ -403,3 +403,25 @@
   margin-top: var(--spacing-5);
 }
 
+.multi-column__grid-item--column {
+  &.multi-column__grid-item--heading-custom-font {
+    .multi-column__grid-item-heading {
+      font-family: var(--custom-font-family);
+      font-weight: var(--custom-font-weight);
+      line-height: var(--custom-line-height);
+      font-size: var(--custom-font-size-desktop);
+
+      @media (--below-720) {
+        font-size: var(--custom-font-size-mobile);
+      }
+    }
+  }
+
+  .multi-column__grid-item-text {
+    margin-top: var(--spacing-3);
+
+    @media (--below-720) {
+      margin-top: var(--spacing-2);
+    }
+  }
+}
