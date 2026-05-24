@@ -2656,7 +2656,27 @@
     "multi_column": {
       "blocks": {
         "column": {
-          "name": "Column"
+          "name": "Column",
+          "settings": {
+            "enable_heading_custom_font": {
+              "label": "Enable heading custom font"
+            },
+            "custom_font_family": {
+              "label": "Custom font family"
+            },
+            "custom_font_weight": {
+              "label": "Custom font weight"
+            },
+            "custom_line_height": {
+              "label": "Custom line height"
+            },
+            "custom_font_size_desktop": {
+              "label": "Custom font size (desktop)"
+            },
+            "custom_font_size_mobile": {
+              "label": "Custom font size (mobile)"
+            }
+          }
         },
         "icon_column": {
           "name": "Column with icon",
