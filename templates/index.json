@@ -456,104 +456,104 @@
     "multi_column_pftXnd": {
       "type": "multi-column",
       "blocks": {
-        "icon_column_9jhmHg": {
-          "type": "icon_column",
+        "column_YejBMm": {
+          "type": "column",
           "settings": {
-            "icon": "plant",
-            "icon_width": 200,
-            "icon_width_mobile": 150,
-            "custom_icon_image": "shopify://shop_images/Headline_for_Hero_f1041d95-39ce-4f10-ad38-0edc3312c670.svg",
-            "icon_position": "top-center",
-            "mobile_icon_position": "top-center",
             "accent": "",
-            "heading": "",
+            "heading": "50",
             "heading_tag": "h3",
             "heading_font_class": "fs-heading-4-base",
+            "heading_color": "c-heading-text-dark",
+            "enable_heading_custom_font": true,
+            "custom_font_family": "Antiquel Script",
+            "custom_font_weight": 400,
+            "custom_line_height": 0.9,
+            "custom_font_size_desktop": 75,
+            "custom_font_size_mobile": 46,
             "text": "<p>Years of Experience</p>",
             "text_font_class": "fs-body-75",
+            "custom_text_color": "c-body-text-dark",
             "text_max_width": 100,
             "link": "",
             "link_text": "",
-            "button_style": "btn--dark",
-            "bg_color": "rgba(0,0,0,0)",
-            "border_color": "rgba(0,0,0,0)"
+            "button_style": "btn--dark"
           }
         },
-        "icon_column_wbiqnF": {
-          "type": "icon_column",
+        "column_tLqdGa": {
+          "type": "column",
           "settings": {
-            "icon": "plant",
-            "icon_width": 200,
-            "icon_width_mobile": 150,
-            "custom_icon_image": "shopify://shop_images/Frame_369407.svg",
-            "icon_position": "top-center",
-            "mobile_icon_position": "top-center",
             "accent": "",
-            "heading": "",
+            "heading": "160k",
             "heading_tag": "h3",
             "heading_font_class": "fs-heading-4-base",
+            "heading_color": "c-heading-text-dark",
+            "enable_heading_custom_font": true,
+            "custom_font_family": "Antiquel Script",
+            "custom_font_weight": 400,
+            "custom_line_height": 0.9,
+            "custom_font_size_desktop": 75,
+            "custom_font_size_mobile": 46,
             "text": "<p>Pounds of Grinds Per Day</p>",
             "text_font_class": "fs-body-75",
+            "custom_text_color": "c-body-text-dark",
             "text_max_width": 100,
             "link": "",
             "link_text": "",
-            "button_style": "btn--dark",
-            "bg_color": "rgba(0,0,0,0)",
-            "border_color": "rgba(0,0,0,0)"
+            "button_style": "btn--dark"
           }
         },
-        "icon_column_pfentg": {
-          "type": "icon_column",
+        "column_wJpkiM": {
+          "type": "column",
           "settings": {
-            "icon": "plant",
-            "icon_width": 200,
-            "icon_width_mobile": 150,
-            "custom_icon_image": "shopify://shop_images/Headline_for_Hero_1.svg",
-            "icon_position": "top-center",
-            "mobile_icon_position": "top-center",
             "accent": "",
-            "heading": "",
+            "heading": "3",
             "heading_tag": "h3",
             "heading_font_class": "fs-heading-4-base",
+            "heading_color": "c-heading-text-dark",
+            "enable_heading_custom_font": true,
+            "custom_font_family": "Antiquel Script",
+            "custom_font_weight": 400,
+            "custom_line_height": 0.9,
+            "custom_font_size_desktop": 75,
+            "custom_font_size_mobile": 46,
             "text": "<p>Generations of Family Operated</p>",
             "text_font_class": "fs-body-75",
+            "custom_text_color": "c-body-text-dark",
             "text_max_width": 100,
             "link": "",
             "link_text": "",
-            "button_style": "btn--dark",
-            "bg_color": "rgba(0,0,0,0)",
-            "border_color": "rgba(0,0,0,0)"
+            "button_style": "btn--dark"
           }
         },
-        "icon_column_UCeBnH": {
-          "type": "icon_column",
+        "column_4Cqnkr": {
+          "type": "column",
           "settings": {
-            "icon": "plant",
-            "icon_width": 200,
-            "icon_width_mobile": 150,
-            "custom_icon_image": "shopify://shop_images/Headline_for_Hero_2.svg",
-            "icon_position": "top-center",
-            "mobile_icon_position": "top-center",
             "accent": "",
-            "heading": "",
+            "heading": "24/7",
             "heading_tag": "h3",
             "heading_font_class": "fs-heading-4-base",
+            "heading_color": "c-heading-text-dark",
+            "enable_heading_custom_font": true,
+            "custom_font_family": "Antiquel Script",
+            "custom_font_weight": 400,
+            "custom_line_height": 0.9,
+            "custom_font_size_desktop": 75,
+            "custom_font_size_mobile": 46,
             "text": "<p>Around the Clock Production</p>",
             "text_font_class": "fs-body-75",
+            "custom_text_color": "c-body-text-dark",
             "text_max_width": 100,
             "link": "",
             "link_text": "",
-            "button_style": "btn--dark",
-            "bg_color": "rgba(0,0,0,0)",
-            "border_color": "rgba(0,0,0,0)"
+            "button_style": "btn--dark"
           }
         }
       },
       "block_order": [
-        "icon_column_9jhmHg",
-        "icon_column_wbiqnF",
-        "icon_column_pfentg",
-        "icon_column_UCeBnH"
+        "column_YejBMm",
+        "column_tLqdGa",
+        "column_wJpkiM",
+        "column_4Cqnkr"
       ],
       "name": "t:sections.multi_column.presets.name",
       "settings": {
