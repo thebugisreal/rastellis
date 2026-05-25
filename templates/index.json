@@ -570,7 +570,7 @@
         "grid_width": 100,
         "column_spacing": 32,
         "row_spacing": 40,
-        "column_alignment": "left",
+        "column_alignment": "center",
         "enable_slider_mobile": false,
         "columns_mobile": "2",
         "column_spacing_mobile": 20,
