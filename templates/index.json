@@ -575,7 +575,7 @@
         "columns_mobile": "2",
         "column_spacing_mobile": 20,
         "row_spacing_mobile": 20,
-        "column_alignment_mobile": "left",
+        "column_alignment_mobile": "center",
         "background_behind_columns": false,
         "background_color": "",
         "text_color": "#000000",
