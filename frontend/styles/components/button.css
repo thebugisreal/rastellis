@@ -674,6 +674,21 @@ button {
         bottom: 0;
         height: 1px;
       }
+
+      &:has(.icon) {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--spacing-1);
+
+        &::before,
+        &::after {
+          height: 2px;
+        }
+
+        .icon {
+          flex-shrink: 0;
+        }
+      }
     }
 
     &:focus:not([disabled]):not(.disabled) {

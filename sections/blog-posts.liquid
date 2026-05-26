@@ -1,34 +1,46 @@
 {%- render 'asset' with 'template-blog.css' -%}
 
+{%- comment -%} theme-check-disable UnusedAssign {%- endcomment -%}
 {%- liquid
   assign blog = blogs[section.settings.blog]
 
-  if section.settings.button_link != blank
-    assign button_link = section.settings.button_link
-  elsif blog != blank
-    assign button_link = blog.url
-  endif
+  assign featured_video_url = blank
+  assign featured_video_label = blank
+  assign replace_article_position = 0
+  assign has_featured_video = false
+
+  for block in section.blocks
+    if block.type == 'video'
+      assign featured_video_url = block.settings.video_url
+      assign featured_video_label = block.settings.overlay_text
+      assign replace_article_position = block.settings.replace_article_position | strip | plus: 0
+
+      if featured_video_url != blank
+        assign has_featured_video = true
+      endif
+
+      break
+    endif
+  endfor
 -%}
+{%- comment -%} theme-check-enable UnusedAssign {%- endcomment -%}
 
 {%- capture section_header -%}
-  <div class="section-introduction animation--section-introduction">
+  <div class="section-introduction animation--section-introduction blog-posts__header">
     {%- if section.settings.heading != blank -%}
       <h2 class="blog-posts__heading ff-heading fs-heading-3-base section-introduction__heading">
         {{ section.settings.heading }}
       </h2>
     {%- endif -%}
-    {%- unless section.settings.subheading == blank -%}
-      <div class="blog-posts__subheading ff-body fs-body-100 section-introduction__subheading rte">
-        {{ section.settings.subheading }}
-      </div>
-    {%- endunless -%}
     {%- if section.settings.link_text -%}
       {%-
         render 'button-block' with
-        wrapper_class: "blog-posts__header-button section-introduction__button",
-        link: button_link,
+        wrapper_class: "blog-posts__header-button blog-posts__header-button--desktop section-introduction__button",
+        link: section.settings.button_link | default: blog.url,
         label: section.settings.link_text,
-        button_style: "btn--callout"
+        button_style: "btn--callout",
+        icon: "arrow-long",
+        view_box_custom: "0 0 16 9"
       -%}
     {%- endif -%}
   </div>
@@ -39,8 +51,8 @@
   class="
     blog-posts
     section
+    section--vertical-padding-large
     section--divider-{{ section.settings.divider_style }}
-    {{ section.settings.section_padding }}
     {% if settings.enable_section_animations and section.settings.enable_animation %}
       animation
       animation--blog-posts
@@ -49,74 +61,117 @@
   "
   data-section-id="{{ section.id }}"
   data-section-type="blog-posts"
-  data-enable-slider="{{ section.settings.enable_slider }}"
-  data-enable-pagination="{{ section.settings.show_pagination }}"
 >
   {{ section_header }}
 
-  {%- if section.settings.enable_slider -%}
-    <div class="carousel swiper">
-  {%- endif -%}
-  <div class="{% if section.settings.enable_slider %}carousel__wrapper swiper-wrapper{% else %}blog-posts__grid{% endif %}">
-    {%- if section.settings.display_type == 'selected' and section.blocks.size > 0 -%}
-      {%- for block in section.blocks -%}
-        {%- if section.settings.enable_slider -%}
+  <div class="carousel swiper">
+    <div class="carousel__wrapper swiper-wrapper">
+      {%- if section.settings.display_type == 'selected' and section.blocks.size > 0 -%}
+        {%- assign article_index = 0 -%}
+        {%- for block in section.blocks -%}
+          {%- if block.type != 'article' -%}
+            {%- continue -%}
+          {%- endif -%}
+
+          {%- assign article_index = article_index | plus: 1 -%}
+
           <div class="carousel__slide swiper-slide">
-        {%- endif -%}
-        {%- if block.settings.article != blank -%}
-          {%
-            render 'article-item' with
-            blog_article: block.settings.article,
-            aspect_ratio: section.settings.aspect_ratio,
-            show_author: section.settings.show_author,
-            show_date: section.settings.show_date,
-            show_tags: section.settings.show_tags,
-            show_excerpt: section.settings.show_excerpt,
-            show_featured_image: section.settings.show_featured_image
-          %}
-        {%- else -%}
-          {% render 'article-item' with aspect_ratio: section.settings.aspect_ratio %}
-        {%- endif -%}
-        {%- if section.settings.enable_slider -%}
+            {%- if block.settings.article != blank -%}
+              {%- if has_featured_video and replace_article_position == article_index -%}
+                {%
+                  render 'article-item' with
+                  blog_article: block.settings.article,
+                  aspect_ratio: section.settings.aspect_ratio,
+                  show_author: section.settings.show_author,
+                  show_date: section.settings.show_date,
+                  show_tags: section.settings.show_tags,
+                  show_excerpt: section.settings.show_excerpt,
+                  show_featured_image: section.settings.show_featured_image,
+                  show_read_button: false,
+                  use_featured_video: true,
+                  featured_video_url: featured_video_url,
+                  featured_video_label: featured_video_label
+                %}
+              {%- else -%}
+                {%
+                  render 'article-item' with
+                  blog_article: block.settings.article,
+                  aspect_ratio: section.settings.aspect_ratio,
+                  show_author: section.settings.show_author,
+                  show_date: section.settings.show_date,
+                  show_tags: section.settings.show_tags,
+                  show_excerpt: section.settings.show_excerpt,
+                  show_featured_image: section.settings.show_featured_image,
+                  show_read_button: false
+                %}
+              {%- endif -%}
+            {%- else -%}
+              {% render 'article-item' with aspect_ratio: section.settings.aspect_ratio %}
+            {%- endif -%}
           </div>
-        {%- endif -%}
-      {%- endfor -%}
-    {%- elsif section.settings.display_type == 'all' and blog != blank and blog.articles.size > 0 -%}
-      {%- for blog_article in blog.articles limit: section.settings.max_articles -%}
-        {%- if section.settings.enable_slider -%}
+        {%- endfor -%}
+      {%- elsif section.settings.display_type == 'all' and blog != blank and blog.articles.size > 0 -%}
+        {%- for blog_article in blog.articles limit: section.settings.max_articles -%}
           <div class="carousel__slide swiper-slide">
-        {%- endif -%}
-        {%
-          render 'article-item' with
-          blog_article: blog_article,
-          blog: blog,
-          aspect_ratio: section.settings.aspect_ratio,
-          show_author: section.settings.show_author,
-          show_date: section.settings.show_date,
-          show_tags: section.settings.show_tags,
-          show_excerpt: section.settings.show_excerpt,
-          show_featured_image: section.settings.show_featured_image
-        %}
-        {%- if section.settings.enable_slider -%}
+            {%- if has_featured_video and replace_article_position == forloop.index -%}
+              {%
+                render 'article-item' with
+                blog_article: blog_article,
+                blog: blog,
+                aspect_ratio: section.settings.aspect_ratio,
+                show_author: section.settings.show_author,
+                show_date: section.settings.show_date,
+                show_tags: section.settings.show_tags,
+                show_excerpt: section.settings.show_excerpt,
+                show_featured_image: section.settings.show_featured_image,
+                show_read_button: false,
+                use_featured_video: true,
+                featured_video_url: featured_video_url,
+                featured_video_label: featured_video_label
+              %}
+            {%- else -%}
+              {%
+                render 'article-item' with
+                blog_article: blog_article,
+                blog: blog,
+                aspect_ratio: section.settings.aspect_ratio,
+                show_author: section.settings.show_author,
+                show_date: section.settings.show_date,
+                show_tags: section.settings.show_tags,
+                show_excerpt: section.settings.show_excerpt,
+                show_featured_image: section.settings.show_featured_image,
+                show_read_button: false
+              %}
+            {%- endif -%}
           </div>
-        {%- endif -%}
-      {%- endfor -%}
-    {%- elsif section.settings.display_type != 'selected' -%}
-      {%- for i in (1..section.settings.max_articles) -%}
-        {%- if section.settings.enable_slider -%}
+        {%- endfor -%}
+      {%- elsif section.settings.display_type != 'selected' -%}
+        {%- for i in (1..section.settings.max_articles) -%}
           <div class="carousel__slide swiper-slide">
-        {%- endif -%}
-        {% render 'article-item', aspect_ratio: section.settings.aspect_ratio %}
-        {%- if section.settings.enable_slider -%}
+            {% render 'article-item', aspect_ratio: section.settings.aspect_ratio %}
           </div>
-        {%- endif -%}
-      {%- endfor -%}
-    {%- endif -%}
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
   </div>
-  {%- if section.settings.show_pagination -%}
-    <div class="swiper-pagination"></div>
+
+  {%- if section.settings.show_navigation -%}
+    <div class="blog-posts__navigation">
+      {%- render 'carousel-navigation' with wrapper_class: 'blog-posts__navigation-buttons animation--controls' -%}
+    </div>
   {%- endif -%}
-  {%- if section.settings.enable_slider -%}
+
+  {%- if section.settings.link_text -%}
+    <div class="blog-posts__mobile-button">
+      {%-
+        render 'button-block' with
+        wrapper_class: "blog-posts__header-button blog-posts__header-button--mobile section-introduction__button",
+        link: section.settings.button_link | default: blog.url,
+        label: section.settings.link_text,
+        button_style: "btn--callout",
+        icon: "arrow-long",
+        view_box_custom: "0 0 16 9"
+      -%}
     </div>
   {%- endif -%}
 </div>
@@ -135,11 +190,6 @@
       "type": "text",
       "label": "t:sections.blog_posts.settings.heading.label",
       "default": "Blog posts"
-    },
-    {
-      "id": "subheading",
-      "type": "richtext",
-      "label": "t:sections.blog_posts.settings.subheading.label"
     },
     {
       "id": "button_link",
@@ -221,7 +271,7 @@
       "type": "select",
       "id": "aspect_ratio",
       "label": "t:sections.blog_posts.settings.aspect_ratio.label",
-      "default": "landscape",
+      "default": "portrait_alt",
       "options": [
         {
           "value": "natural",
@@ -236,6 +286,10 @@
           "label": "t:shared.settings.aspect_ratio.option_portrait"
         },
         {
+          "value": "portrait_alt",
+          "label": "t:shared.settings.aspect_ratio.option_portrait_alt"
+        },
+        {
           "value": "landscape",
           "label": "t:shared.settings.aspect_ratio.option_landscape"
         }
@@ -247,15 +301,9 @@
     },
     {
       "type": "checkbox",
-      "id": "enable_slider",
-      "label": "t:sections.blog_posts.settings.enable_slider.label",
-      "default": false
-    },
-    {
-      "type": "checkbox",
-      "id": "show_pagination",
-      "label": "t:sections.blog_posts.settings.show_pagination.label",
-      "default": false
+      "id": "show_navigation",
+      "label": "t:shared.settings.show_navigation_buttons.label",
+      "default": true
     },
     {
       "type": "header",
@@ -335,6 +383,35 @@
           "type": "article",
           "id": "article",
           "label": "t:sections.blog_posts.blocks.article.settings.article.label"
+        }
+      ]
+    },
+    {
+      "type": "video",
+      "name": "t:sections.blog_posts.blocks.video.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "t:sections.blog_posts.blocks.video.settings.video__header.content"
+        },
+        {
+          "type": "url",
+          "id": "video_url",
+          "label": "t:sections.video_hero.settings.video_url.label",
+          "info": "t:sections.video_hero.settings.video_url.info"
+        },
+        {
+          "type": "text",
+          "id": "overlay_text",
+          "label": "t:sections.blog_posts.blocks.video.settings.overlay_text.label",
+          "default": "User Created Recipe"
+        },
+        {
+          "type": "text",
+          "id": "replace_article_position",
+          "label": "t:sections.blog_posts.blocks.video.settings.replace_article_position.label",
+          "info": "t:sections.blog_posts.blocks.video.settings.replace_article_position.info"
         }
       ]
     }

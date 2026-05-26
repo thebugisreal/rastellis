@@ -91,6 +91,21 @@
               "label": "Article"
             }
           }
+        },
+        "video": {
+          "name": "Video",
+          "settings": {
+            "video__header": {
+              "content": "Video"
+            },
+            "replace_article_position": {
+              "label": "Replace article position",
+              "info": "Enter the position number of the article to replace its featured image with this video. For example, enter 1 to replace the first article."
+            },
+            "overlay_text": {
+              "label": "Title"
+            }
+          }
         }
       },
       "name": "Blog posts",
@@ -104,8 +119,8 @@
         "enable_slider": {
           "label": "Enable slider"
         },
-        "show_pagination": {
-          "label": "Show pagination dots"
+        "show_navigation": {
+          "label": "Show navigation"
         },
         "article_options__header": {
           "content": "Article options"

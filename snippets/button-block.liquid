@@ -16,6 +16,8 @@
   button_attributes: String (optional)
   button_icon: String (optional) icon name passed to icon snippet, rendered after label
   type: String (optional) linkless button type. ("button" or "submit")
+  icon: String (optional) icon name for callout buttons
+  view_box_custom: String (optional) custom SVG viewBox for the icon
 {% endcomment %}
 
 {%- liquid
@@ -72,10 +74,14 @@
         {{ button_style | default: 'btn--solid' }}
         {{ button_color | default: 'btn--dark' }}"
     >
-      <span class="button-block__label{% if button_icon != blank %} button-block__label--has-icon{% endif %}">
-        {{ label }}
-        {%- if button_icon != blank -%}
-          {%- render 'icon', icon: button_icon -%}
+      <span>
+        {{- label -}}
+        {%- if icon != blank -%}
+          {%- if view_box_custom != blank -%}
+            {%- render 'icon', icon: icon, view_box_custom: view_box_custom -%}
+          {%- else -%}
+            {%- render 'icon', icon: icon -%}
+          {%- endif -%}
         {%- endif -%}
       </span>
     </{{ button_tag }}>

@@ -54,6 +54,16 @@
     padding-top: 0;
   }
 
+  &.section--vertical-padding-large {
+    padding-top: var(--spacing-10);
+    padding-bottom: var(--spacing-10);
+
+    @media (--above-720) {
+      padding-top: var(--spacing-20);
+      padding-bottom: var(--spacing-20);
+    }
+  }
+
   &.section--includes-product-items {
     &.section--vertical-padding-none,
     &.section--vertical-padding-top-only {
