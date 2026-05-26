@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.0.0 - 2026-05-26
+## CHANGED:
+- RAS-178 Homepage Slideshow — style fixes for slideshow section on homepage
+- RAS-60 Footer — update footer styles on desktop; fix footer bugs; update color settings; update column block custom heading font; add custom spacing top/bottom setting to multi-column
+- RAS-179 Featured Collection Slider — update and fix styles for featured collection slider on homepage
+- RAS-180 Image Hero — update styles for image hero on homepage
+
 ## v3.13.0 - 2025-07-30
 ## CHANGED:
 - BBF-94 Fix blank page when clicking back button
