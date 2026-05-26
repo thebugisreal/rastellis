@@ -319,7 +319,7 @@
     "isEntry": true
   },
   "frontend/entrypoints/custom.css": {
-    "file": "custom-DyorEopz.css",
+    "file": "custom-BLweU5YO.css",
     "src": "frontend/entrypoints/custom.css",
     "isEntry": true
   },
@@ -354,7 +354,7 @@
     "isEntry": true
   },
   "frontend/entrypoints/theme-design-mode.js": {
-    "file": "theme-design-mode-DRltT_vS.js",
+    "file": "theme-design-mode-DbVMaeNy.js",
     "name": "theme-design-mode",
     "src": "frontend/entrypoints/theme-design-mode.js",
     "isEntry": true,
@@ -452,12 +452,12 @@
     ]
   },
   "frontend/entrypoints/theme.css": {
-    "file": "theme-Bk2_uyEw.css",
+    "file": "theme-DwFZ-IX_.css",
     "src": "frontend/entrypoints/theme.css",
     "isEntry": true
   },
   "frontend/entrypoints/theme.js": {
-    "file": "theme-DYD-OD_N.js",
+    "file": "theme-U6z9tZ_q.js",
     "name": "theme",
     "src": "frontend/entrypoints/theme.js",
     "isEntry": true,
@@ -646,7 +646,7 @@
     ]
   },
   "frontend/scripts/sections/blog-posts.js": {
-    "file": "blog-posts-Btvf_aBi.js",
+    "file": "blog-posts-MNJ71ziY.js",
     "name": "blog-posts",
     "src": "frontend/scripts/sections/blog-posts.js",
     "isDynamicEntry": true,
@@ -657,6 +657,9 @@
       "_shouldAnimate-UBwZO_aC.js",
       "_carousel-eu4IY4Zw.js",
       "_media-queries-CokWIw5y.js"
+    ],
+    "dynamicImports": [
+      "frontend/scripts/lib/video-control.js"
     ]
   },
   "frontend/scripts/sections/collapsible-row-list.js": {
