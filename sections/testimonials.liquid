@@ -1,8 +1,22 @@
 {%- liquid
-  assign has_background_color = false
+  assign has_background_image = false
+  if section.settings.background_image != blank
+    assign has_background_image = true
+  endif
 
-  if section.settings.background_color != blank and section.settings.background_color != 'rgba(0,0,0,0)'
-    assign has_background_color = true
+  assign has_wave_top = false
+  if section.settings.enable_wave_top_desktop or section.settings.enable_wave_top_mobile
+    assign has_wave_top = true
+  endif
+
+  assign has_wave_bottom = false
+  if section.settings.enable_wave_bottom_desktop or section.settings.enable_wave_bottom_mobile
+    assign has_wave_bottom = true
+  endif
+
+  assign has_rough_border = false
+  if has_wave_top or has_wave_bottom
+    assign has_rough_border = true
   endif
 -%}
 
@@ -44,19 +58,24 @@
   data-section-type="testimonials"
   class="
     testimonials
-    {% if has_background_color %}
+    {% if has_background_image %}
       testimonials--has-background
     {% endif %}
-    {% unless has_background_color %}
+    {% unless has_background_image %}
       {{ section_classes }}
     {% endunless %}
+    {% if section.settings.enable_wave_top_desktop %}rough-border--top-desktop{% endif %}
+    {% if section.settings.enable_wave_top_mobile %}rough-border--top-mobile{% endif %}
+    {% if section.settings.enable_wave_bottom_desktop %}rough-border--bottom-desktop{% endif %}
+    {% if section.settings.enable_wave_bottom_mobile %}rough-border--bottom-mobile{% endif %}
+    {% if has_rough_border %}has-rough-border{% endif %}
     {% if settings.enable_section_animations and section.settings.enable_animation %}
       animation
       animation--testimonials
     {% endif %}
   "
   style="
-    {% if has_background_color %}
+    {% if section.settings.background_color != blank and section.settings.background_color != 'rgba(0,0,0,0)' %}
       --section-background-color: {{ section.settings.background_color }};
     {% endif %}
     --color-text-section: {{ section.settings.text_color }};
@@ -65,10 +84,27 @@
   "
   data-block-count="{{ section.blocks.size }}"
 >
+  {%- if has_wave_top -%}
+    {%- render 'wave', position: 'top' -%}
+  {%- endif -%}
+
+  {%- if has_background_image -%}
+    <div class="testimonials__background-image-wrapper">
+      {%- render 'image',
+        wrapper_class: 'testimonials__background-image',
+        image: section.settings.background_image,
+        sizes: '100vw',
+        focal_point: section.settings.background_image_focal_point,
+        no_crop: true,
+        src_set_type: 'full-width'
+      -%}
+    </div>
+  {%- endif -%}
+
   <div
     class="
       testimonials__inner
-      {% if has_background_color %}
+      {% if has_background_image %}
         {{ section_classes }}
       {% endif %}
     "
@@ -91,6 +127,10 @@
       {{ next_nav_button }}
     </div>
   </div>
+
+  {%- if has_wave_bottom -%}
+    {%- render 'wave', position: 'bottom' -%}
+  {%- endif -%}
 </div>
 
 {% schema %}
@@ -155,6 +195,47 @@
     },
     {
       "type": "header",
+      "content": "t:shared.settings.header__background_image.content"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "t:sections.testimonials.settings.background_image.label"
+    },
+    {
+      "id": "background_image_focal_point",
+      "type": "select",
+      "label": "t:shared.settings.focal_point.label",
+      "options": [
+        {
+          "label": "t:shared.settings.focal_point.option_image",
+          "value": "image_presentation"
+        },
+        {
+          "label": "t:shared.settings.focal_point.option_center",
+          "value": "center"
+        },
+        {
+          "label": "t:shared.settings.focal_point.option_top",
+          "value": "top"
+        },
+        {
+          "label": "t:shared.settings.focal_point.option_bottom",
+          "value": "bottom"
+        },
+        {
+          "label": "t:shared.settings.focal_point.option_left",
+          "value": "left"
+        },
+        {
+          "label": "t:shared.settings.focal_point.option_right",
+          "value": "right"
+        }
+      ],
+      "default": "image_presentation"
+    },
+    {
+      "type": "header",
       "content": "t:shared.settings.section_style.header_style.content"
     },
     {
@@ -197,6 +278,34 @@
           "label": "t:shared.settings.section_style.section_padding.option_bottom", "value": "section--vertical-padding-bottom-only"
         }
       ]
+    },
+    {
+      "type": "paragraph",
+      "content": "t:shared.settings.rough_border.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_wave_top_desktop",
+      "label": "t:shared.settings.rough_border.enable_wave_top_desktop.label",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_wave_bottom_desktop",
+      "label": "t:shared.settings.rough_border.enable_wave_bottom_desktop.label",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_wave_top_mobile",
+      "label": "t:shared.settings.rough_border.enable_wave_top_mobile.label",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_wave_bottom_mobile",
+      "label": "t:shared.settings.rough_border.enable_wave_bottom_mobile.label",
+      "default": false
     }
   ],
   "blocks": [
@@ -231,35 +340,9 @@
           "label": "t:sections.testimonials.blocks.testimonial.settings.image.label"
         },
         {
-          "type": "select",
-          "id": "aspect_ratio",
-          "label": "t:sections.testimonials.blocks.testimonial.settings.aspect_ratio.label",
-          "default": "square",
-          "options": [
-            {
-              "value": "natural",
-              "label": "t:shared.settings.aspect_ratio.option_natural"
-            },
-            {
-              "value": "square",
-              "label": "t:shared.settings.aspect_ratio.option_square"
-            },
-            {
-              "value": "portrait",
-              "label": "t:shared.settings.aspect_ratio.option_portrait"
-            },
-            {
-              "value": "landscape",
-              "label": "t:shared.settings.aspect_ratio.option_landscape"
-            }
-          ]
-        },
-        {
-          "id": "focal_point",
-          "type": "select",
-          "label": "t:shared.settings.focal_point.label",
-          "options": [{"label":"t:shared.settings.focal_point.option_image","value":"image_presentation"},{"label":"t:shared.settings.focal_point.option_center","value":"center"},{"label":"t:shared.settings.focal_point.option_top","value":"top"},{"label":"t:shared.settings.focal_point.option_bottom","value":"bottom"},{"label":"t:shared.settings.focal_point.option_left","value":"left"},{"label":"t:shared.settings.focal_point.option_right","value":"right"}],
-          "default": "image_presentation"
+          "type": "image_picker",
+          "id": "sticker",
+          "label": "t:sections.testimonials.blocks.testimonial.settings.sticker.label"
         },
         {
           "type": "header",

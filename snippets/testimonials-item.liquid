@@ -11,71 +11,33 @@
     assign image_sizes_fraction = 0.40
   elsif image_size == "large"
     assign image_sizes_fraction = 0.50
+  else
+    assign image_sizes_fraction = 0.40
+  endif
+
+  assign pick_product = block.settings.product
+  assign pick_price = blank
+
+  if pick_product != blank
+    assign lowest_price = pick_product.price_min | money
+
+    if pick_product.variants.size > 1
+      assign pick_price = 'sections.slideshow.product_pick.starting_at_price_html' | t: price: lowest_price
+    else
+      assign pick_price = lowest_price
+    endif
   endif
 -%}
 
-{% capture image_sizes_attribute -%}
-  (min-width: 720px) calc((100vw - (2 * clamp(18px, 3.3vw, 3.3vw))) * {{ image_sizes_fraction }}), 83.3vw
+{% capture product_pick_image_sizes -%}
+  (min-width: 720px) calc((100vw - (2 * clamp(18px, 3.3vw, 3.3vw))) * {{ image_sizes_fraction }} * 0.5), 75px
 {%- endcapture %}
-
-{% capture product_image %}
-  <figure class="testimonials__item-product">
-    {%- capture wrapper_tag -%}
-      {%- if block.settings.product != blank %}a{% else %}div{% endif -%}
-    {%- endcapture -%}
-    {%- capture wrapper_attributes -%}
-      {%- if block.settings.product != blank -%}
-        href="{{ block.settings.product.url }}" aria-label="{{ block.settings.product.title }}"
-      {%- endif -%}
-    {%- endcapture -%}
-
-    <{{ wrapper_tag }} {{ wrapper_attributes }}>
-      {%
-        render 'image' with
-        image: product_image,
-        wrapper_class: 'testimonials__item-product-image',
-        aspect_ratio: block.settings.aspect_ratio,
-        focal_point: block.settings.focal_point,
-        include_placeholder: true,
-        sizes: image_sizes_attribute
-      %}
-    </{{ wrapper_tag }}>
-
-    {%- if block.settings.product != blank -%}
-      <figcaption class="testimonials__item-product-title fs-product-card-title">
-        {{ block.settings.product.title }}
-      </figcaption>
-    {%- endif -%}
-  </figure>
-{% endcapture %}
-
-{% capture quote %}
-  <div class="testimonials__item-content">
-    {%- if block.settings.show_rating -%}
-      <div class="testimonials__item-stars">
-        {%- render 'star-rating', rating: block.settings.rating -%}
-      </div>
-    {%- endif -%}
-
-    {%- if block.settings.quote != blank -%}
-      <blockquote class="testimonials__item-quote {% if quote_font == 'heading' %}ff-subheading fs-heading-4-base {% else %}ff-body fs-body-300 fs-body-350-above-720{% endif %}">
-        {{ block.settings.quote }}
-      </blockquote>
-    {%- endif -%}
-
-    {%- if block.settings.author != blank -%}
-      <cite class="testimonials__item-author ff-body t-opacity-60">
-        <span>{{ block.settings.author }}</span>
-      </cite>
-    {%- endif -%}
-  </div>
-{% endcapture %}
 
 <div
   class="
-    testimonials__item swiper-slide
+    testimonials__item
     testimonials__item--image-{{ image_size }}
-    testimonials__item--image-placement-{{ block.settings.image_position }}
+    swiper-slide
     animation--item
   "
   {% unless forloop.first %}
@@ -84,11 +46,78 @@
   data-index="{{ forloop.index0 }}"
   {{ block.shopify_attributes }}
 >
-  {%- if block.settings.image_position == 'left' -%}
-    {{ product_image }}
-    {{ quote }}
-  {%- else -%}
-    {{ quote }}
-    {{ product_image }}
-  {%- endif -%}
+  <div class="testimonials__item-panel">
+    <div class="testimonials__item-content">
+      {%- if block.settings.quote != blank -%}
+        <blockquote class="testimonials__item-quote {% if quote_font == 'heading' %}ff-subheading fs-heading-4-base{% else %}ff-body fs-body-300 fs-body-350-above-720{% endif %}">
+          {{ block.settings.quote }}
+        </blockquote>
+      {%- endif -%}
+
+      {%- if block.settings.show_rating or block.settings.author != blank -%}
+        <div class="testimonials__item-meta">
+          {%- if block.settings.show_rating -%}
+            <div class="testimonials__item-stars">
+              {%- render 'star-rating', rating: block.settings.rating -%}
+            </div>
+          {%- endif -%}
+
+          {%- if block.settings.author != blank -%}
+            <cite class="testimonials__item-author ff-subheading ff-secondary">
+              <span>{{ block.settings.author }}</span>
+            </cite>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    {%- if pick_product != blank -%}
+      <div class="testimonials__item-product-pick">
+        <div class="testimonials__item-product-pick-card">
+          {%- if product_image != blank -%}
+            <a
+              class="testimonials__item-product-pick-image"
+              href="{{ pick_product.url }}"
+              aria-hidden="true"
+              tabindex="-1"
+            >
+              {%
+                render 'image',
+                image: product_image,
+                wrapper_class: 'testimonials__item-product-pick-image-wrapper',
+                aspect_ratio: 'square',
+                sizes: product_pick_image_sizes
+              %}
+            </a>
+          {%- endif -%}
+
+          <div class="testimonials__item-product-pick-content">
+            <a class="testimonials__item-product-pick-title fs-body-75" href="{{ pick_product.url }}">
+              {{ pick_product.title }}
+            </a>
+            {%- if pick_price != blank -%}
+              <p class="testimonials__item-product-pick-price fs-body-75">
+                {{ pick_price }}
+              </p>
+            {%- endif -%}
+          </div>
+
+          <a class="testimonials__item-product-pick-button btn btn--dark btn--small" href="{{ pick_product.url }}">
+            <span>{{ 'sections.slideshow.product_pick.shop' | t }}</span>
+          </a>
+        </div>
+      </div>
+    {%- endif -%}
+
+    {%- if block.settings.sticker != blank -%}
+      <div class="testimonials__item-sticker" aria-hidden="true">
+        {%- render 'image',
+          image: block.settings.sticker,
+          wrapper_class: 'testimonials__item-sticker-image',
+          sizes: '440px',
+          aspect_ratio: 'natural'
+        -%}
+      </div>
+    {%- endif -%}
+  </div>
 </div>

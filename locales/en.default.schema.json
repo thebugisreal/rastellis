@@ -3968,6 +3968,9 @@
             },
             "show_rating": {
               "label": "Show rating"
+            },
+            "sticker": {
+              "label": "Sticker"
             }
           }
         }
@@ -3977,6 +3980,9 @@
         "name": "Testimonials"
       },
       "settings": {
+        "background_image": {
+          "label": "Background image"
+        },
         "image_size": {
           "label": "Product image size",
           "option_large": "Large",

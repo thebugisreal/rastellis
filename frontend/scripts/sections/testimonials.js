@@ -13,7 +13,7 @@ const selectors = {
   swiper: '.swiper',
   navigationNext: '.testimonials__navigation-button--next',
   navigationPrev: '.testimonials__navigation-button--prev',
-  productImage: '.testimonials__item-product-image',
+  productImage: '.testimonials__item-product-pick-image',
 }
 
 section('testimonials', {
@@ -82,8 +82,11 @@ section('testimonials', {
   },
 
   setMobileButtonOffset() {
-    // Mobile paddles should vertically center on the image instead of the item
+    if (window.matchMedia(getMediaQuery('above-720')).matches) return
+
     const firstImage = qs(selectors.productImage, this.container)
+    if (!firstImage) return
+
     const mobileButtonHeight = 34
     const halfMobileButtonHeight = mobileButtonHeight / 2
     const halfImageHeight = firstImage.offsetHeight / 2
