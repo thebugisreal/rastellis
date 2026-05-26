@@ -41,7 +41,7 @@
           -%}
 
           <a
-            class="navigation__submenu-trigger no-transition has-icon{% if child_is_active %} active{% endif %}"
+            class="navigation__submenu-trigger ff-body fs-body-75 no-transition has-icon{% if child_is_active %} active{% endif %}"
             data-dropdown-trigger
             data-link
             aria-haspopup="true"
@@ -49,7 +49,7 @@
             href="{{ link.url }}"
           >
             <span class="navigation__submenu-child-link">
-              <label>{{ link.title }}</label>
+              <span>{{ link.title }}</span>
               {% render 'icon' with icon: 'chevron-small', class: "navigation__submenu-icon" %}
             </span>
           </a>
@@ -58,7 +58,7 @@
         {%- else -%}
           <a
             href="{{ link.url }}"
-            class="{% if link.active %}active{% endif %}"
+            class="ff-body fs-body-75 {% if link.active %}active{% endif %}"
             {% if link.active %}
               aria-current="page"
             {% endif %}

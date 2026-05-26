@@ -3,6 +3,25 @@
   if section.settings.background_color == blank or section.settings.background_color == 'rgba(0,0,0,0)'
     assign background_exists = false
   endif
+
+  assign has_background_image = false
+  if section.settings.background_image != blank or section.settings.background_image_mobile != blank
+    assign has_background_image = true
+  endif
+
+  assign multi_column_background_image = section.settings.background_image
+  assign multi_column_background_image_mobile = section.settings.background_image_mobile
+  if multi_column_background_image == blank and multi_column_background_image_mobile != blank
+    assign multi_column_background_image = multi_column_background_image_mobile
+    assign multi_column_background_image_mobile = blank
+  endif
+
+  assign multi_column_inner_has_icon_column = false
+  for block in section.blocks
+    if block.type == 'icon_column'
+      assign multi_column_inner_has_icon_column = true
+    endif
+  endfor
 -%}
 
 <div
@@ -12,6 +31,9 @@
   data-mobile-columns-per-view="{{ section.settings.columns_mobile }}"
   class="
     multi-column
+    {% if has_background_image %}
+      multi-column--has-background-image
+    {% endif %}
     {% if section.settings.background_behind_columns and background_exists %}
       multi-column--background-behind-column
     {% endif %}
@@ -35,17 +57,44 @@
     --grid-gap-column-mobile: {{ section.settings.column_spacing_mobile }}px;
     --grid-gap-row-desktop: {{ section.settings.row_spacing }}px;
     --grid-gap-row-mobile: {{ section.settings.row_spacing_mobile }}px;
+    --multi-column-grid-width: {{ section.settings.grid_width | default: 100 }}%;
+    {% if section.settings.enable_custom_spacing %}
+      --section-padding-top: {{ section.settings.padding_top }}px;
+      --section-padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
+      --section-padding-bottom: {{ section.settings.padding_bottom }}px;
+      --section-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;
+    {% endif %}
     {% render 'overlay-button-vars', color_button_text: section.settings.button_text_color, color_button_background: section.settings.button_background_color %}
   "
 >
+  {%- if has_background_image and multi_column_background_image != blank -%}
+    <div class="multi-column__background-image-wrapper">
+      {%- render 'image',
+        wrapper_class: 'multi-column__background-image',
+        image: multi_column_background_image,
+        mobile_image: multi_column_background_image_mobile,
+        sizes: '100vw',
+        focal_point: 'image_presentation',
+        mobile_focal_point: 'image_presentation',
+        src_set_type: 'full-width',
+        animate: true
+      -%}
+    </div>
+  {%- endif -%}
   <div
     class="
       multi-column__inner
       section
       {{ section.settings.section_padding }}
       section--divider-{{ section.settings.divider_style }}
-      carousel
-      swiper
+      {% if section.settings.enable_slider_mobile %}
+        carousel
+        swiper
+      {% endif %}
+      {% if multi_column_inner_has_icon_column %}multi-column__inner--icon-column{% endif %}
+      {% if section.settings.enable_custom_spacing %}
+        section--custom-spacing-enabled
+      {% endif %}
     "
   >
     <div class="multi-column__introduction section-introduction animation--section-introduction">
@@ -61,7 +110,7 @@
         </div>
       {% endunless %}
     </div>
-    <div class="multi-column__grid carousel__wrapper swiper-wrapper">
+    <div class="multi-column__grid {% if section.settings.enable_slider_mobile %}carousel__wrapper swiper-wrapper{% endif %}">
       {%- for block in section.blocks -%}
         {%- render 'multi-column-item', block: block, columns: section.settings.columns -%}
       {%- endfor -%}
@@ -286,9 +335,19 @@
     },
     {
       "type": "range",
+      "id": "grid_width",
+      "label": "t:sections.multi_column.settings.grid_width.label",
+      "min": 20,
+      "max": 100,
+      "step": 1,
+      "default": 100,
+      "unit": "%"
+    },
+    {
+      "type": "range",
       "id": "column_spacing",
       "label": "t:sections.multi_column.settings.column_spacing.label",
-      "min": 4,
+      "min": 0,
       "max": 48,
       "step": 4,
       "default": 28,
@@ -298,7 +357,7 @@
       "type": "range",
       "id": "row_spacing",
       "label": "t:sections.multi_column.settings.row_spacing.label",
-      "min": 4,
+      "min": 0,
       "max": 48,
       "step": 4,
       "default": 28,
@@ -392,6 +451,20 @@
     },
     {
       "type": "header",
+      "content": "t:shared.settings.header__background_image.content"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "t:sections.multi_column.settings.background_image.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image_mobile",
+      "label": "t:sections.multi_column.settings.background_image_mobile.label"
+    },
+    {
+      "type": "header",
       "content": "t:shared.settings.header_color.content"
     },
     {
@@ -473,6 +546,57 @@
           "value": "section--vertical-padding-bottom-only"
         }
       ]
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_custom_spacing",
+      "label": "t:shared.settings.enable_custom_spacing.label",
+      "info": "t:shared.settings.enable_custom_spacing.info",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "t:shared.settings.padding_top.label",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "default": 40,
+      "unit": "px",
+      "visible_if": "{{ section.settings.enable_custom_spacing }}"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "t:shared.settings.padding_top_mobile.label",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "default": 40,
+      "unit": "px",
+      "visible_if": "{{ section.settings.enable_custom_spacing }}"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "t:shared.settings.padding_bottom.label",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "default": 40,
+      "unit": "px",
+      "visible_if": "{{ section.settings.enable_custom_spacing }}"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "t:shared.settings.padding_bottom_mobile.label",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "default": 40,
+      "unit": "px",
+      "visible_if": "{{ section.settings.enable_custom_spacing }}"
     },
     {
       "type": "select",
@@ -588,6 +712,58 @@
           ]
         },
         {
+          "type": "checkbox",
+          "id": "enable_heading_custom_font",
+          "label": "t:sections.multi_column.blocks.column.settings.enable_heading_custom_font.label",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "custom_font_family",
+          "label": "t:sections.multi_column.blocks.column.settings.custom_font_family.label",
+          "visible_if": "{{ block.settings.enable_heading_custom_font }}"
+        },
+        {
+          "type": "range",
+          "id": "custom_font_weight",
+          "label": "t:sections.multi_column.blocks.column.settings.custom_font_weight.label",
+          "min": 100,
+          "max": 900,
+          "step": 100,
+          "default": 400,
+          "visible_if": "{{ block.settings.enable_heading_custom_font }}"
+        },
+        {
+          "type": "range",
+          "id": "custom_line_height",
+          "label": "t:sections.multi_column.blocks.column.settings.custom_line_height.label",
+          "min": 0.5,
+          "max": 2,
+          "step": 0.1,
+          "default": 1.0,
+          "visible_if": "{{ block.settings.enable_heading_custom_font }}"
+        },
+        {
+          "type": "range",
+          "id": "custom_font_size_desktop",
+          "label": "t:sections.multi_column.blocks.column.settings.custom_font_size_desktop.label",
+          "min": 10,
+          "max": 100,
+          "step": 1,
+          "default": 16,
+          "visible_if": "{{ block.settings.enable_heading_custom_font }}"
+        },
+        {
+          "type": "range",
+          "id": "custom_font_size_mobile",
+          "label": "t:sections.multi_column.blocks.column.settings.custom_font_size_mobile.label",
+          "min": 10,
+          "max": 100,
+          "step": 1,
+          "default": 16,
+          "visible_if": "{{ block.settings.enable_heading_custom_font }}"
+        },
+        {
           "type": "richtext",
           "id": "text",
           "label": "t:sections.multi_column.blocks.shared.settings.text.label",
@@ -679,7 +855,7 @@
           "type": "range",
           "id": "image_width",
           "label": "t:sections.multi_column.blocks.image_column.settings.image_width.label",
-          "min": 50,
+          "min": 10,
           "max": 100,
           "step": 1,
           "default": 100,
@@ -1118,6 +1294,7 @@
             { "label": "t:shared.settings.alignment_matrix.option_top_center", "value": "top-center" },
             { "label": "t:shared.settings.alignment_matrix.option_top_right", "value": "top-right" },
             { "label": "t:shared.settings.alignment_matrix.option_middle_left", "value": "middle-left" },
+            { "label": "t:shared.settings.alignment_matrix.option_middle_center", "value": "middle-center" },
             { "label": "t:shared.settings.alignment_matrix.option_middle_right", "value": "middle-right" },
             { "label": "t:shared.settings.alignment_matrix.option_bottom_left", "value": "bottom-left" },
             { "label": "t:shared.settings.alignment_matrix.option_bottom_center", "value": "bottom-center" },
@@ -1134,6 +1311,7 @@
             { "label": "t:shared.settings.alignment_matrix.option_top_center", "value": "top-center" },
             { "label": "t:shared.settings.alignment_matrix.option_top_right", "value": "top-right" },
             { "label": "t:shared.settings.alignment_matrix.option_middle_left", "value": "middle-left" },
+            { "label": "t:shared.settings.alignment_matrix.option_middle_center", "value": "middle-center" },
             { "label": "t:shared.settings.alignment_matrix.option_middle_right", "value": "middle-right" },
             { "label": "t:shared.settings.alignment_matrix.option_bottom_left", "value": "bottom-left" },
             { "label": "t:shared.settings.alignment_matrix.option_bottom_center", "value": "bottom-center" },

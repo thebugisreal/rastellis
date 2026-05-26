@@ -1,104 +1,77 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "16558445044f80743b": {
-      "type": "image-hero",
-      "blocks": {
-        "d0cd2366-7930-4809-80d7-2b38d2d4fb07": {
-          "type": "heading",
-          "settings": {
-            "heading_font_class": "fs-heading-display-2"
-          }
-        },
-        "8a49de45-4784-4f5d-adcf-b87e81e76548": {
-          "type": "subheading",
-          "settings": {
-            "subheading_font_class": "fs-body-200"
-          }
-        },
-        "d525a297-b0ac-4079-a90c-68d26f07aae7": {
-          "type": "button",
-          "settings": {
-            "link": "",
-            "button_style": "btn--solid",
-            "button_color": "btn--dark"
-          }
-        },
-        "15c58a65-cec7-4639-8936-8e3534462aff": {
-          "type": "button",
-          "settings": {
-            "link": "",
-            "button_style": "btn--outline",
-            "button_color": "btn--light"
-          }
-        }
-      },
-      "block_order": [
-        "d0cd2366-7930-4809-80d7-2b38d2d4fb07",
-        "8a49de45-4784-4f5d-adcf-b87e81e76548",
-        "d525a297-b0ac-4079-a90c-68d26f07aae7",
-        "15c58a65-cec7-4639-8936-8e3534462aff"
-      ],
-      "settings": {
-        "image_aspect": "custom",
-        "desktop_height": 70,
-        "mobile_height": 50,
-        "focal_point": "image_presentation",
-        "mobile_focal_point": "image_presentation",
-        "media_link": "",
-        "text_position": "center_center",
-        "text_color": "#ffffff",
-        "button_background_color": "#ffffff",
-        "button_text_color": "#000000",
-        "color_overlay": "#000000",
-        "color_overlay_gradient": "",
-        "overlay_opacity": 51,
-        "section_padding": "section--vertical-padding-none"
-      }
-    },
-    "1655855477ee9538e0": {
-      "type": "countdown-bar",
-      "settings": {
-        "min_height": 60,
-        "min_height_mobile": 60,
-        "year": 2023,
-        "month": "january",
-        "day": "1",
-        "hour": "0",
-        "minute": "0",
-        "hide_timer_on_complete": false,
-        "timer_complete_message": "",
-        "button_style": "btn--outline",
-        "button_color": "btn--light",
-        "focal_point": "image_presentation",
-        "mobile_focal_point": "image_presentation",
-        "text_color": "#ffffff",
-        "button_background_color": "#ffffff",
-        "button_text_color": "#000000",
-        "background_color": "#c51c26",
-        "color_overlay": "#000000",
-        "color_overlay_gradient": "",
-        "overlay_opacity": 0,
-        "full_width": true,
-        "section_padding": "section--vertical-padding-none"
-      }
-    },
     "1654878022d8e24a9a": {
       "type": "grid",
       "blocks": {
-        "165487802257d72399-2": {
+        "item_Pj9KLj": {
           "type": "item",
           "settings": {
-            "width": "33",
-            "height": 500,
-            "mobile_height": 360,
+            "width": "25",
+            "enable_square_ratio": false,
+            "height": 150,
+            "mobile_height": 80,
+            "image": "shopify://shop_images/0e2cdf9b-987b-45cb-8f35-4cb792158a0d.jpg",
             "media_fit": "cover",
             "focal_point": "image_presentation",
             "mobile_focal_point": "image_presentation",
-            "text_position": "flex-start_flex-end",
-            "accent": "",
-            "subheading_font_class": "fs-body-300",
+            "text_position": "flex-start_center",
+            "accent": "Wagyu Ground Beef",
+            "title": "",
+            "heading_tag": "h3",
+            "heading_font_class": "fs-heading-2-base",
+            "heading_color": "c-heading-text-dark",
+            "subheading": "",
+            "subheading_tag": "h4",
+            "subheading_font_class": "fs-body-200",
+            "subheading_color": "c-subheading-text-dark",
             "text": "",
             "text_font_class": "fs-body-75",
+            "custom_text_color": "c-body-text-dark",
+            "link": "",
+            "link_text": "",
+            "button_style": "btn--dark",
+            "background_color": "",
+            "text_color": "#ffffff",
+            "button_background_color": "#ffffff",
+            "button_text_color": "#000000",
+            "color_overlay": "#000000",
+            "color_overlay_gradient": "",
+            "overlay_opacity": 30
+          }
+        },
+        "165487802257d72399-2": {
+          "type": "item",
+          "settings": {
+            "width": "25",
+            "enable_square_ratio": false,
+            "height": 150,
+            "mobile_height": 80,
+            "image": "shopify://shop_images/Frame_14.png",
+            "media_fit": "cover",
+            "focal_point": "image_presentation",
+            "mobile_focal_point": "image_presentation",
+            "text_position": "flex-start_center",
+            "accent": "Organic Grass-Fed New York Strip Steak",
+            "title": "",
+            "heading_tag": "h3",
+            "heading_font_class": "fs-heading-2-base",
+            "heading_color": "c-heading-text-dark",
+            "subheading": "",
+            "subheading_tag": "h4",
+            "subheading_font_class": "fs-body-300",
+            "subheading_color": "c-subheading-text-dark",
+            "text": "",
+            "text_font_class": "fs-body-75",
+            "custom_text_color": "c-body-text-dark",
             "link": "",
             "link_text": "Shop now",
             "button_style": "btn--callout",
@@ -114,18 +87,27 @@
         "165487802257d72399-1": {
           "type": "item",
           "settings": {
-            "width": "33",
-            "height": 500,
-            "mobile_height": 360,
+            "width": "25",
+            "enable_square_ratio": false,
+            "height": 150,
+            "mobile_height": 80,
+            "image": "shopify://shop_images/Edit-16_93e6e790-e2a8-4cf1-823f-1435ea79a4f7.webp",
             "media_fit": "cover",
             "focal_point": "image_presentation",
             "mobile_focal_point": "image_presentation",
-            "text_position": "flex-start_flex-end",
-            "accent": "",
-            "title": "Grid item",
+            "text_position": "flex-start_center",
+            "accent": "Wagyu Burgers",
+            "title": "",
+            "heading_tag": "h3",
+            "heading_font_class": "fs-heading-2-base",
+            "heading_color": "c-heading-text-dark",
+            "subheading": "",
+            "subheading_tag": "h4",
             "subheading_font_class": "fs-body-300",
+            "subheading_color": "c-subheading-text-dark",
             "text": "",
             "text_font_class": "fs-body-75",
+            "custom_text_color": "c-body-text-dark",
             "link": "",
             "link_text": "",
             "button_style": "btn--callout",
@@ -141,18 +123,29 @@
         "165487802257d72399-0": {
           "type": "item",
           "settings": {
-            "width": "33",
-            "height": 600,
-            "mobile_height": 360,
+            "width": "25",
+            "enable_square_ratio": false,
+            "height": 150,
+            "mobile_height": 80,
+            "image": "shopify://shop_images/GameDay_Verbiage_1185x1024_bc7128bc-a717-4748-be81-bb2b83800860.png",
             "media_fit": "cover",
             "focal_point": "image_presentation",
             "mobile_focal_point": "image_presentation",
-            "text_position": "flex-start_flex-end",
-            "accent": "",
+            "text_position": "flex-start_center",
+            "accent": "Grass-Fed Ribeye",
+            "title": "",
+            "heading_tag": "h3",
+            "heading_font_class": "fs-heading-2-base",
+            "heading_color": "c-heading-text-dark",
+            "subheading": "",
+            "subheading_tag": "h4",
             "subheading_font_class": "fs-body-300",
+            "subheading_color": "c-subheading-text-dark",
             "text": "",
             "text_font_class": "fs-body-75",
+            "custom_text_color": "c-body-text-dark",
             "link": "",
+            "link_text": "",
             "button_style": "btn--callout",
             "background_color": "",
             "text_color": "#ffffff",
@@ -165,39 +158,174 @@
         }
       },
       "block_order": [
+        "item_Pj9KLj",
         "165487802257d72399-2",
         "165487802257d72399-1",
         "165487802257d72399-0"
       ],
       "settings": {
-        "divider_style": "solid"
+        "heading": "",
+        "heading_tag": "h2",
+        "heading_color": "c-heading-text-dark",
+        "subheading": "",
+        "subheading_color": "c-subheading-text-dark",
+        "content_alignment": "left",
+        "enable_animation": true,
+        "full_width": false,
+        "spacing": 40,
+        "spacing_mobile": 8,
+        "divider_style": "solid",
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 20,
+        "padding_top_desktop": 15,
+        "padding_bottom_desktop": 32,
+        "link_color_scheme": "dark"
       }
     },
-    "16549177944ec2347e": {
-      "type": "rich-text",
+    "slideshow_hymqjE": {
+      "type": "slideshow",
       "blocks": {
-        "1654917794cdc0bc3c-0": {
-          "type": "heading",
+        "slide_xmJqjW": {
+          "type": "slide",
           "settings": {
-            "heading_font_class": "fs-heading-3-base"
+            "image": "shopify://shop_images/birthday-back-desktop.png",
+            "focal_point": "image_presentation",
+            "mobile_focal_point": "image_presentation",
+            "media_link": "",
+            "text_position": "center_center",
+            "text_position_mobile": "center_center",
+            "accent": "",
+            "title": "Stock Up. Save More. Eat Better.",
+            "heading_tag": "h2",
+            "heading_font_class": "fs-heading-1-base",
+            "heading_color": "c-heading-text-dark",
+            "subheading": "",
+            "subheading_tag": "h3",
+            "subheading_font_class": "fs-body-200",
+            "subheading_color": "c-subheading-text-dark",
+            "text": "",
+            "text_font_class": "fs-body-75",
+            "custom_text_color": "c-body-text-dark",
+            "link_1": "#",
+            "link_text_1": "Shop Butcher's Picks",
+            "button_style_1": "btn--dark",
+            "button_color_1": "btn--light",
+            "link_2": "#",
+            "link_text_2": "Our Story",
+            "button_style_2": "btn--dark",
+            "button_color_2": "btn--light",
+            "product_pick": "wagyu-filet-mignon",
+            "product_pick_label": "Ray's pick",
+            "text_color": "#ffffff",
+            "button_background_color": "#ffffff",
+            "button_text_color": "#000000",
+            "color_overlay": "#000",
+            "color_overlay_gradient": "",
+            "overlay_opacity": 10
           }
         },
-        "1654917794cdc0bc3c-1": {
-          "type": "text",
+        "slide_6Uzj6D": {
+          "type": "slide",
           "settings": {
-            "text_font_class": "fs-body-75"
+            "image": "shopify://shop_images/Edit-16_93e6e790-e2a8-4cf1-823f-1435ea79a4f7.webp",
+            "focal_point": "image_presentation",
+            "mobile_focal_point": "image_presentation",
+            "media_link": "",
+            "text_position": "center_center",
+            "text_position_mobile": "center_center",
+            "accent": "",
+            "title": "Stock Up. Save More. Eat Better.",
+            "heading_tag": "h2",
+            "heading_font_class": "fs-heading-1-base",
+            "heading_color": "c-heading-text-dark",
+            "subheading": "",
+            "subheading_tag": "h3",
+            "subheading_font_class": "fs-body-200",
+            "subheading_color": "c-subheading-text-dark",
+            "text": "",
+            "text_font_class": "fs-body-75",
+            "custom_text_color": "c-body-text-dark",
+            "link_1": "#",
+            "link_text_1": "Shop Butcher's Picks",
+            "button_style_1": "btn--dark",
+            "button_color_1": "btn--light",
+            "link_2": "#",
+            "link_text_2": "Our Story",
+            "button_style_2": "btn--dark",
+            "button_color_2": "btn--light",
+            "product_pick": "wagyu-filet-mignon",
+            "product_pick_label": "Ray's pick",
+            "text_color": "#ffffff",
+            "button_background_color": "#ffffff",
+            "button_text_color": "#000000",
+            "color_overlay": "#000",
+            "color_overlay_gradient": "",
+            "overlay_opacity": 10
+          }
+        },
+        "slide_qyhmtD": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Edit-16_93e6e790-e2a8-4cf1-823f-1435ea79a4f7.webp",
+            "focal_point": "image_presentation",
+            "mobile_focal_point": "image_presentation",
+            "media_link": "",
+            "text_position": "center_center",
+            "text_position_mobile": "center_flex-start",
+            "accent": "",
+            "title": "Stock Up. Save More. Eat Better.",
+            "heading_tag": "h2",
+            "heading_font_class": "fs-heading-1-base",
+            "heading_color": "c-heading-text-dark",
+            "subheading": "",
+            "subheading_tag": "h3",
+            "subheading_font_class": "fs-body-200",
+            "subheading_color": "c-subheading-text-dark",
+            "text": "",
+            "text_font_class": "fs-body-75",
+            "custom_text_color": "c-body-text-dark",
+            "link_1": "#",
+            "link_text_1": "Shop Butcher's Picks",
+            "button_style_1": "btn--dark",
+            "button_color_1": "btn--light",
+            "link_2": "#",
+            "link_text_2": "Our Story",
+            "button_style_2": "btn--dark",
+            "button_color_2": "btn--light",
+            "product_pick": "wagyu-filet-mignon",
+            "product_pick_label": "Ray's pick",
+            "text_color": "#ffffff",
+            "button_background_color": "#ffffff",
+            "button_text_color": "#000000",
+            "color_overlay": "#000",
+            "color_overlay_gradient": "",
+            "overlay_opacity": 10
           }
         }
       },
       "block_order": [
-        "1654917794cdc0bc3c-0",
-        "1654917794cdc0bc3c-1"
+        "slide_xmJqjW",
+        "slide_6Uzj6D",
+        "slide_qyhmtD"
       ],
+      "name": "t:sections.slideshow.presets.name",
       "settings": {
-        "alignment": "center_center",
-        "divider_style": "solid",
-        "content_width": "custom",
-        "custom_content_width": 650
+        "image_aspect": "custom",
+        "desktop_height": 75,
+        "mobile_height": 60,
+        "enable_autoplay": false,
+        "duration_autoplay": 6,
+        "navigation_alignment": "center",
+        "navigation_color_foreground": "#af0440",
+        "navigation_color_background": "#ffffff",
+        "navigation_background_opacity": 100,
+        "enable_animation": true,
+        "section_padding": "none",
+        "enable_wave_top_desktop": false,
+        "enable_wave_bottom_desktop": true,
+        "enable_wave_top_mobile": false,
+        "enable_wave_bottom_mobile": true,
+        "link_color_scheme": "dark"
       }
     },
     "1655855558c1ac2348": {
@@ -207,770 +335,559 @@
           "type": "collection",
           "settings": {
             "show_view_all": true,
-            "collection": "",
+            "collection": "beef",
             "collection_name": "First collection"
           }
+        }
+      },
+      "block_order": [
+        "16558555587b915de6-0"
+      ],
+      "settings": {
+        "heading": "Everyday Essentials, Butcher Quality",
+        "heading_tag": "h2",
+        "content_alignment": "center",
+        "subheading": "",
+        "link": "",
+        "link_text": "",
+        "tab_indicator_style": "underline",
+        "bottom_link": "",
+        "bottom_link_label": "",
+        "product_aspect_ratio": "square",
+        "show_variant_row": true,
+        "show_atc": true,
+        "hide_price": false,
+        "maximum_products": 8,
+        "columns": "4",
+        "mobile_columns": "1.1",
+        "enable_carousel_navigation": true,
+        "enable_animation": true,
+        "divider_style": "solid",
+        "link_color_scheme": "dark",
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40,
+        "padding_top_desktop": 32,
+        "padding_bottom_desktop": 40
+      }
+    },
+    "image_hero_HDWaRp": {
+      "type": "image-hero",
+      "blocks": {
+        "image_KiMCFW": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Group_8460.svg",
+            "image_size": 200,
+            "image_size_mobile": 200
+          }
         },
-        "16558555587b915de6-1": {
+        "heading_Ca7WTj": {
+          "type": "heading",
+          "settings": {
+            "title": "America’s Personal Butcher, Since Day One",
+            "font_family_class": "ff-primary",
+            "heading_font_class": "fs-heading-2-base",
+            "heading_color": "c-heading-text-light"
+          }
+        },
+        "text_HHxDDN": {
+          "type": "text",
+          "settings": {
+            "text": "<p>For over 50 years, Rastelli’s has delivered butcher-selected meats and responsibly sourced seafood with the care and craft of a neighborhood shop.</p>",
+            "text_font_class": "fs-body-75",
+            "custom_text_color": "c-body-text-light"
+          }
+        },
+        "button_jTbjUH": {
+          "type": "button",
+          "settings": {
+            "link": "shopify://pages/our-story",
+            "link_text": "Our Story",
+            "button_style": "btn--solid",
+            "button_color": "btn--light"
+          }
+        },
+        "button_bjgGBF": {
+          "type": "button",
+          "settings": {
+            "link": "shopify://collections/beef",
+            "link_text": "Food Sourcing & Safety",
+            "button_style": "btn--solid",
+            "button_color": "btn--light"
+          }
+        }
+      },
+      "block_order": [
+        "image_KiMCFW",
+        "heading_Ca7WTj",
+        "text_HHxDDN",
+        "button_jTbjUH",
+        "button_bjgGBF"
+      ],
+      "name": "t:sections.image_hero.presets.name",
+      "settings": {
+        "enable_hero_video": true,
+        "video_url_hero": "https://cdn.shopify.com/videos/c/o/v/a1d5f3335c094463aab93dc028f52e37.mp4",
+        "enable_box_container": false,
+        "image_size": "contain",
+        "image_aspect": "custom",
+        "desktop_height": 100,
+        "mobile_height": 100,
+        "focal_point": "image_presentation",
+        "mobile_focal_point": "image_presentation",
+        "media_link": "",
+        "text_position": "center_center",
+        "text_position_mobile": "center_center",
+        "text_color": "#ffffff",
+        "button_background_color": "#ffffff",
+        "button_text_color": "#000000",
+        "color_overlay": "#000",
+        "color_overlay_gradient": "",
+        "overlay_opacity": 40,
+        "enable_animation": true,
+        "section_padding": "section--vertical-padding-none",
+        "enable_wave_top_desktop": false,
+        "enable_wave_bottom_desktop": true,
+        "enable_wave_top_mobile": false,
+        "enable_wave_bottom_mobile": true,
+        "link_color_scheme": "dark"
+      }
+    },
+    "multi_column_pftXnd": {
+      "type": "multi-column",
+      "blocks": {
+        "column_YejBMm": {
+          "type": "column",
+          "settings": {
+            "accent": "",
+            "heading": "50",
+            "heading_tag": "h3",
+            "heading_font_class": "fs-heading-4-base",
+            "heading_color": "c-heading-text-dark",
+            "enable_heading_custom_font": true,
+            "custom_font_family": "Antiquel Script",
+            "custom_font_weight": 400,
+            "custom_line_height": 0.9,
+            "custom_font_size_desktop": 75,
+            "custom_font_size_mobile": 46,
+            "text": "<p>Years of Experience</p>",
+            "text_font_class": "fs-body-75",
+            "custom_text_color": "c-body-text-dark",
+            "text_max_width": 100,
+            "link": "",
+            "link_text": "",
+            "button_style": "btn--dark"
+          }
+        },
+        "column_tLqdGa": {
+          "type": "column",
+          "settings": {
+            "accent": "",
+            "heading": "160k",
+            "heading_tag": "h3",
+            "heading_font_class": "fs-heading-4-base",
+            "heading_color": "c-heading-text-dark",
+            "enable_heading_custom_font": true,
+            "custom_font_family": "Antiquel Script",
+            "custom_font_weight": 400,
+            "custom_line_height": 0.9,
+            "custom_font_size_desktop": 75,
+            "custom_font_size_mobile": 46,
+            "text": "<p>Pounds of Grinds Per Day</p>",
+            "text_font_class": "fs-body-75",
+            "custom_text_color": "c-body-text-dark",
+            "text_max_width": 100,
+            "link": "",
+            "link_text": "",
+            "button_style": "btn--dark"
+          }
+        },
+        "column_wJpkiM": {
+          "type": "column",
+          "settings": {
+            "accent": "",
+            "heading": "3",
+            "heading_tag": "h3",
+            "heading_font_class": "fs-heading-4-base",
+            "heading_color": "c-heading-text-dark",
+            "enable_heading_custom_font": true,
+            "custom_font_family": "Antiquel Script",
+            "custom_font_weight": 400,
+            "custom_line_height": 0.9,
+            "custom_font_size_desktop": 75,
+            "custom_font_size_mobile": 46,
+            "text": "<p>Generations of Family Operated</p>",
+            "text_font_class": "fs-body-75",
+            "custom_text_color": "c-body-text-dark",
+            "text_max_width": 100,
+            "link": "",
+            "link_text": "",
+            "button_style": "btn--dark"
+          }
+        },
+        "column_4Cqnkr": {
+          "type": "column",
+          "settings": {
+            "accent": "",
+            "heading": "24/7",
+            "heading_tag": "h3",
+            "heading_font_class": "fs-heading-4-base",
+            "heading_color": "c-heading-text-dark",
+            "enable_heading_custom_font": true,
+            "custom_font_family": "Antiquel Script",
+            "custom_font_weight": 400,
+            "custom_line_height": 0.9,
+            "custom_font_size_desktop": 75,
+            "custom_font_size_mobile": 46,
+            "text": "<p>Around the Clock Production</p>",
+            "text_font_class": "fs-body-75",
+            "custom_text_color": "c-body-text-dark",
+            "text_max_width": 100,
+            "link": "",
+            "link_text": "",
+            "button_style": "btn--dark"
+          }
+        }
+      },
+      "block_order": [
+        "column_YejBMm",
+        "column_tLqdGa",
+        "column_wJpkiM",
+        "column_4Cqnkr"
+      ],
+      "name": "t:sections.multi_column.presets.name",
+      "settings": {
+        "title": "",
+        "heading_tag": "h2",
+        "heading_font_class": "fs-heading-3-base",
+        "heading_color": "c-heading-text-dark",
+        "subheading": "",
+        "subheading_color": "c-subheading-text-dark",
+        "heading_alignment": "left",
+        "content_vertical_alignment": "top",
+        "content_background_padding": "medium",
+        "columns": "4",
+        "grid_width": 100,
+        "column_spacing": 32,
+        "row_spacing": 40,
+        "column_alignment": "center",
+        "enable_slider_mobile": false,
+        "columns_mobile": "2",
+        "column_spacing_mobile": 20,
+        "row_spacing_mobile": 20,
+        "column_alignment_mobile": "center",
+        "background_behind_columns": false,
+        "background_color": "",
+        "text_color": "#000000",
+        "button_background_color": "#000000",
+        "button_text_color": "#ffffff",
+        "enable_animation": true,
+        "divider_style": "none",
+        "section_padding": "section--vertical-padding-top-bottom",
+        "enable_custom_spacing": true,
+        "padding_top": 120,
+        "padding_top_mobile": 40,
+        "padding_bottom": 80,
+        "padding_bottom_mobile": 40,
+        "link_color_scheme": "dark"
+      }
+    },
+    "stat_group_3dGmdC": {
+      "type": "stat-group",
+      "blocks": {
+        "item_8xbAYW": {
+          "type": "item",
+          "settings": {
+            "number_count": 50,
+            "unit": "%",
+            "title": "This is an example of a text"
+          }
+        },
+        "item_aMHNVj": {
+          "type": "item",
+          "settings": {
+            "number_count": 50,
+            "unit": "%",
+            "title": "This is an example of a text"
+          }
+        },
+        "item_aCU43n": {
+          "type": "item",
+          "settings": {
+            "number_count": 50,
+            "unit": "%",
+            "title": "This is an example of a text"
+          }
+        },
+        "item_HPmgzT": {
+          "type": "item",
+          "settings": {
+            "number_count": 50,
+            "unit": "%",
+            "title": "This is an example of a text"
+          }
+        }
+      },
+      "block_order": [
+        "item_8xbAYW",
+        "item_aMHNVj",
+        "item_aCU43n",
+        "item_HPmgzT"
+      ],
+      "disabled": true,
+      "name": "Stat Group",
+      "settings": {
+        "heading": "Stat Group",
+        "heading_tag": "h2",
+        "rounded": false,
+        "duration": 1500,
+        "enable_animation": false,
+        "section_padding": "section--vertical-padding-top-bottom",
+        "type_background": "solid",
+        "background_color": "#f7f7f7",
+        "background_gradient_color": "",
+        "text_color": "#000000",
+        "border_color": "#e5e5e5"
+      }
+    },
+    "featured_collection_slider_ViCgkA": {
+      "type": "featured-collection-slider",
+      "blocks": {
+        "collection_dgWkKK": {
           "type": "collection",
           "settings": {
             "show_view_all": true,
-            "collection": "",
+            "collection": "best-sellers-box",
+            "collection_name": "Best Sellers"
+          }
+        },
+        "collection_GPc8Re": {
+          "type": "collection",
+          "settings": {
+            "show_view_all": true,
+            "collection": "beef",
+            "collection_name": "First collection"
+          }
+        },
+        "collection_cYRX7P": {
+          "type": "collection",
+          "settings": {
+            "show_view_all": true,
+            "collection": "hamburger",
             "collection_name": "Second collection"
           }
         }
       },
       "block_order": [
-        "16558555587b915de6-0",
-        "16558555587b915de6-1"
+        "collection_dgWkKK",
+        "collection_GPc8Re",
+        "collection_cYRX7P"
       ],
+      "name": "t:sections.featured_collection_slider.presets.name",
       "settings": {
         "heading": "Featured collection",
+        "heading_tag": "h2",
+        "content_alignment": "center",
         "subheading": "",
         "link": "",
         "link_text": "",
+        "tab_indicator_style": "dot",
+        "bottom_link": "",
+        "bottom_link_label": "",
+        "product_aspect_ratio": "square",
+        "show_variant_row": true,
+        "show_atc": true,
+        "hide_price": false,
         "maximum_products": 8,
         "columns": "4",
         "mobile_columns": "2",
-        "divider_style": "solid",
-        "section_padding": "section--vertical-padding-top-bottom"
-      }
-    },
-    "16548772614c49ba39": {
-      "type": "featured-collection-slider",
-      "blocks": {
-        "767ac6c0-8826-4284-bd74-6eb8a441d7bc": {
-          "type": "collection",
-          "settings": {
-            "show_view_all": true,
-            "collection": "",
-            "collection_name": "Collection"
-          }
-        }
-      },
-      "block_order": [
-        "767ac6c0-8826-4284-bd74-6eb8a441d7bc"
-      ],
-      "settings": {
-        "subheading": "",
-        "link": "",
-        "link_text": "View all products",
-        "maximum_products": 8,
-        "columns": "4",
-        "mobile_columns": "2",
-        "divider_style": "solid",
-        "section_padding": "section--vertical-padding-top-bottom"
-      }
-    },
-    "16558561315f6147d3": {
-      "type": "sales-banner",
-      "settings": {
-        "min_height": 300,
-        "min_height_mobile": 500,
-        "sale_type": "up to",
-        "sale_amount": "60",
-        "sale_unit": "percent_off",
-        "sale_font_size": 150,
-        "sale_font_size_mobile": 150,
-        "currency_symbol_position": "before",
-        "heading_font_class": "fs-heading-3-base",
-        "button_style": "btn--outline",
-        "button_color": "btn--light",
-        "button_style_2": "btn--outline",
-        "button_color_2": "btn--light",
-        "focal_point": "image_presentation",
-        "mobile_focal_point": "image_presentation",
-        "text_color": "#FFFFFF",
-        "button_background_color": "#FFFFFF",
-        "button_text_color": "#000000",
-        "background_color": "#C51C26",
-        "color_overlay": "#000",
-        "color_overlay_gradient": "",
-        "overlay_opacity": 0,
-        "show_frame": true,
-        "full_width": false,
-        "section_padding": "section--vertical-padding-top-only"
-      }
-    },
-    "1655747757d7226f15": {
-      "type": "grid",
-      "blocks": {
-        "e866e078-81cd-4f2b-8678-817de7dc830a": {
-          "type": "item",
-          "settings": {
-            "width": "50",
-            "height": 500,
-            "mobile_height": 500,
-            "media_fit": "cover",
-            "focal_point": "image_presentation",
-            "mobile_focal_point": "image_presentation",
-            "text_position": "center_center",
-            "accent": "",
-            "subheading_font_class": "fs-body-200",
-            "text": "",
-            "text_font_class": "fs-body-75",
-            "link": "",
-            "button_style": "btn--solid",
-            "button_color": "btn--dark",
-            "background_color": "",
-            "text_color": "#FFFFFF",
-            "button_background_color": "#FFFFFF",
-            "button_text_color": "#000000",
-            "color_overlay": "#000",
-            "color_overlay_gradient": "",
-            "overlay_opacity": 30
-          }
-        },
-        "c832af30-0b0e-4968-9284-ab8633c9a7c3": {
-          "type": "item",
-          "settings": {
-            "width": "50",
-            "height": 500,
-            "mobile_height": 500,
-            "media_fit": "cover",
-            "focal_point": "image_presentation",
-            "mobile_focal_point": "image_presentation",
-            "text_position": "center_center",
-            "accent": "",
-            "subheading_font_class": "fs-body-200",
-            "text": "",
-            "text_font_class": "fs-body-75",
-            "link": "",
-            "link_text": "",
-            "button_style": "btn--solid",
-            "button_color": "btn--dark",
-            "background_color": "",
-            "text_color": "#FFFFFF",
-            "button_background_color": "#FFFFFF",
-            "button_text_color": "#000000",
-            "color_overlay": "#000",
-            "color_overlay_gradient": "",
-            "overlay_opacity": 30
-          }
-        },
-        "c51c0355-4ad0-4933-b13d-f827c724bcf5": {
-          "type": "item",
-          "settings": {
-            "width": "33",
-            "height": 500,
-            "mobile_height": 500,
-            "media_fit": "cover",
-            "focal_point": "image_presentation",
-            "mobile_focal_point": "image_presentation",
-            "text_position": "center_center",
-            "accent": "",
-            "subheading_font_class": "fs-body-200",
-            "text": "",
-            "text_font_class": "fs-body-75",
-            "link": "",
-            "link_text": "",
-            "button_style": "btn--solid",
-            "button_color": "btn--dark",
-            "background_color": "",
-            "text_color": "#FFFFFF",
-            "button_background_color": "#FFFFFF",
-            "button_text_color": "#000000",
-            "color_overlay": "#000",
-            "color_overlay_gradient": "",
-            "overlay_opacity": 30
-          }
-        },
-        "c49fee52-014f-4275-968c-dc288d31fd2b": {
-          "type": "item",
-          "settings": {
-            "width": "33",
-            "height": 500,
-            "mobile_height": 500,
-            "media_fit": "cover",
-            "focal_point": "image_presentation",
-            "mobile_focal_point": "image_presentation",
-            "text_position": "center_center",
-            "accent": "",
-            "subheading_font_class": "fs-body-200",
-            "text": "",
-            "text_font_class": "fs-body-75",
-            "link": "",
-            "link_text": "",
-            "button_style": "btn--solid",
-            "button_color": "btn--dark",
-            "background_color": "",
-            "text_color": "#FFFFFF",
-            "button_background_color": "#FFFFFF",
-            "button_text_color": "#000000",
-            "color_overlay": "#000",
-            "color_overlay_gradient": "",
-            "overlay_opacity": 30
-          }
-        },
-        "765a5e2e-93df-44f3-aa92-3c26e95174c2": {
-          "type": "item",
-          "settings": {
-            "width": "33",
-            "height": 500,
-            "mobile_height": 500,
-            "media_fit": "cover",
-            "focal_point": "image_presentation",
-            "mobile_focal_point": "image_presentation",
-            "text_position": "center_center",
-            "accent": "",
-            "subheading_font_class": "fs-body-200",
-            "text": "",
-            "text_font_class": "fs-body-75",
-            "link": "",
-            "link_text": "",
-            "button_style": "btn--solid",
-            "button_color": "btn--dark",
-            "background_color": "",
-            "text_color": "#FFFFFF",
-            "button_background_color": "#FFFFFF",
-            "button_text_color": "#000000",
-            "color_overlay": "#000",
-            "color_overlay_gradient": "",
-            "overlay_opacity": 30
-          }
-        },
-        "48a4e426-4325-412e-a437-c11aa5b4edf2": {
-          "type": "item",
-          "settings": {
-            "width": "100",
-            "height": 500,
-            "mobile_height": 500,
-            "media_fit": "cover",
-            "focal_point": "image_presentation",
-            "mobile_focal_point": "image_presentation",
-            "text_position": "center_center",
-            "accent": "",
-            "subheading_font_class": "fs-body-200",
-            "text": "",
-            "text_font_class": "fs-body-75",
-            "link": "",
-            "link_text": "",
-            "button_style": "btn--solid",
-            "button_color": "btn--dark",
-            "background_color": "",
-            "text_color": "#FFFFFF",
-            "button_background_color": "#FFFFFF",
-            "button_text_color": "#000000",
-            "color_overlay": "#000",
-            "color_overlay_gradient": "",
-            "overlay_opacity": 30
-          }
-        }
-      },
-      "block_order": [
-        "e866e078-81cd-4f2b-8678-817de7dc830a",
-        "c832af30-0b0e-4968-9284-ab8633c9a7c3",
-        "c51c0355-4ad0-4933-b13d-f827c724bcf5",
-        "c49fee52-014f-4275-968c-dc288d31fd2b",
-        "765a5e2e-93df-44f3-aa92-3c26e95174c2",
-        "48a4e426-4325-412e-a437-c11aa5b4edf2"
-      ],
-      "settings": {
-        "divider_style": "none"
-      }
-    },
-    "165488047346f59e49": {
-      "type": "collection-list-slider",
-      "settings": {
-        "heading": "Collection list",
-        "subheading": "",
-        "columns": "5",
-        "mobile_columns": "2",
-        "collection_list": [],
-        "collection_listing_aspect_ratio": "portrait",
-        "label_style": "overlay",
-        "overlay_title_background_style": "gradient",
-        "overlay_text_color": "#ffffff",
-        "overlay_title_background": "#000000",
-        "divider_style": "solid",
-        "section_padding": "section--vertical-padding-top-bottom"
-      }
-    },
-    "1654913893935a57bd": {
-      "type": "image-with-text-split",
-      "blocks": {
-        "1654913893d03d0b33-0": {
-          "type": "accent"
-        },
-        "1654913893d03d0b33-1": {
-          "type": "heading",
-          "settings": {
-            "heading_font_class": "fs-heading-1-base"
-          }
-        },
-        "1654913893d03d0b33-2": {
-          "type": "subheading",
-          "settings": {
-            "subheading_font_class": "fs-body-200"
-          }
-        },
-        "63e2f450-ccdf-4ba0-8c95-8e7b01b5c7f5": {
-          "type": "image",
-          "settings": {
-            "image_size": 250,
-            "image_size_mobile": 200
-          }
-        },
-        "7f329234-f652-4947-8f09-cad43d072028": {
-          "type": "button",
-          "settings": {
-            "link": "",
-            "button_style": "btn--outline",
-            "button_color": "btn--light"
-          }
-        }
-      },
-      "block_order": [
-        "1654913893d03d0b33-0",
-        "1654913893d03d0b33-1",
-        "1654913893d03d0b33-2",
-        "63e2f450-ccdf-4ba0-8c95-8e7b01b5c7f5",
-        "7f329234-f652-4947-8f09-cad43d072028"
-      ],
-      "settings": {
-        "image_position": "right",
-        "image_mobile_position": "above-content",
-        "image_padding": "none",
-        "aspect_ratio": "natural",
-        "focal_point": "image_presentation",
-        "content_alignment": "center",
-        "background_color": "#0b3b3e",
-        "text_color": "#ffffff",
-        "button_background_color": "#ffffff",
-        "button_text_color": "#ffffff",
-        "section_padding": "section--vertical-padding-top-bottom"
-      }
-    },
-    "165489980473ecbf41": {
-      "type": "image-with-text",
-      "blocks": {
-        "1654899804e4fc48ec-0": {
-          "type": "heading",
-          "settings": {
-            "heading_font_class": "fs-heading-display-3"
-          }
-        },
-        "1654899804e4fc48ec-1": {
-          "type": "subheading",
-          "settings": {
-            "subheading_font_class": "fs-body-200"
-          }
-        },
-        "1654899804e4fc48ec-2": {
-          "type": "button",
-          "settings": {
-            "link": "",
-            "button_style": "btn--solid",
-            "button_color": "btn--dark"
-          }
-        }
-      },
-      "block_order": [
-        "1654899804e4fc48ec-0",
-        "1654899804e4fc48ec-1",
-        "1654899804e4fc48ec-2"
-      ],
-      "settings": {
-        "image_position": "left",
-        "text_alignment": "center",
-        "aspect_ratio": "natural",
-        "focal_point": "image_presentation",
-        "image_caption": "",
-        "show_small_image": true,
-        "image_small_aspect_ratio": "natural",
-        "image_small_focal_point": "center",
-        "background_color": "#ffffff",
-        "text_color": "#000000",
-        "button_background_color": "#000000",
-        "button_text_color": "#ffffff",
-        "divider_style": "solid",
-        "section_padding": "section--vertical-padding-top-bottom"
-      }
-    },
-    "1654880426b1f83355": {
-      "type": "image-with-text",
-      "blocks": {
-        "16548804264c48a1d9-0": {
-          "type": "heading",
-          "settings": {
-            "heading_font_class": "fs-heading-display-3"
-          }
-        },
-        "16548804264c48a1d9-1": {
-          "type": "subheading",
-          "settings": {
-            "subheading_font_class": "fs-body-200"
-          }
-        },
-        "16548804264c48a1d9-2": {
-          "type": "button",
-          "settings": {
-            "link": "",
-            "button_style": "btn--solid",
-            "button_color": "btn--dark"
-          }
-        }
-      },
-      "block_order": [
-        "16548804264c48a1d9-0",
-        "16548804264c48a1d9-1",
-        "16548804264c48a1d9-2"
-      ],
-      "settings": {
-        "image_position": "right",
-        "text_alignment": "center",
-        "aspect_ratio": "natural",
-        "focal_point": "image_presentation",
-        "image_caption": "",
-        "show_small_image": true,
-        "image_small_aspect_ratio": "natural",
-        "image_small_focal_point": "center",
-        "background_color": "",
-        "text_color": "#000000",
-        "button_background_color": "#000000",
-        "button_text_color": "#ffffff",
+        "enable_carousel_navigation": true,
+        "enable_animation": true,
         "divider_style": "none",
-        "section_padding": "section--vertical-padding-top-bottom"
+        "link_color_scheme": "dark",
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40,
+        "padding_top_desktop": 48,
+        "padding_bottom_desktop": 48
       }
     },
-    "16558561940a4fe50f": {
-      "type": "testimonials",
-      "blocks": {
-        "1655856194e7b43695-0": {
-          "type": "testimonial",
-          "settings": {
-            "product": "",
-            "image_position": "right",
-            "aspect_ratio": "square",
-            "focal_point": "image_presentation",
-            "show_rating": true,
-            "rating": 5
-          }
-        },
-        "1655856194e7b43695-1": {
-          "type": "testimonial",
-          "settings": {
-            "product": "",
-            "image_position": "right",
-            "aspect_ratio": "square",
-            "focal_point": "image_presentation",
-            "show_rating": true,
-            "rating": 4.5
-          }
-        },
-        "1655856194e7b43695-2": {
-          "type": "testimonial",
-          "settings": {
-            "product": "",
-            "image_position": "right",
-            "aspect_ratio": "square",
-            "focal_point": "image_presentation",
-            "show_rating": true,
-            "rating": 5
-          }
-        }
-      },
-      "block_order": [
-        "1655856194e7b43695-0",
-        "1655856194e7b43695-1",
-        "1655856194e7b43695-2"
-      ],
-      "settings": {
-        "image_size": "small",
-        "quote_font": "heading",
-        "background_color": "#000000",
-        "text_color": "#ffffff",
-        "divider_style": "none",
-        "section_padding": "section--vertical-padding-top-bottom"
-      }
-    },
-    "16548834739d532589": {
-      "type": "shoppable-feature",
-      "blocks": {
-        "16548834735b1dc2a7-0": {
-          "type": "hotspot",
-          "settings": {
-            "product_item": "",
-            "horizontal_position": 37,
-            "vertical_position": 69
-          }
-        },
-        "16548834735b1dc2a7-1": {
-          "type": "hotspot",
-          "settings": {
-            "product_item": "",
-            "horizontal_position": 43,
-            "vertical_position": 37
-          }
-        },
-        "16548834735b1dc2a7-2": {
-          "type": "hotspot",
-          "settings": {
-            "product_item": "",
-            "horizontal_position": 63,
-            "vertical_position": 18
-          }
-        }
-      },
-      "block_order": [
-        "16548834735b1dc2a7-0",
-        "16548834735b1dc2a7-1",
-        "16548834735b1dc2a7-2"
-      ],
-      "settings": {
-        "image_position": "left",
-        "image_size": 50,
-        "aspect_ratio": "portrait_alt",
-        "link": "",
-        "button_style": "btn--callout",
-        "divider_style": "solid",
-        "content_position_desktop": "inside"
-      }
-    },
-    "1654916105fd939f8f": {
-      "type": "video-hero",
-      "blocks": {
-        "1654916105bea353be-0": {
-          "type": "accent"
-        },
-        "1654916105bea353be-1": {
-          "type": "heading",
-          "settings": {
-            "heading_font_class": "fs-heading-display-3"
-          }
-        },
-        "535519ef-68f5-42dd-8ad6-15ab68afaa95": {
-          "type": "subheading",
-          "settings": {
-            "subheading_font_class": "fs-body-200"
-          }
-        },
-        "39a1cced-a841-48eb-bf01-2041e2134155": {
-          "type": "play-button",
-          "settings": {
-            "video_url": "",
-            "aspect_ratio": "landscape",
-            "icon_style": "light"
-          }
-        }
-      },
-      "block_order": [
-        "1654916105bea353be-0",
-        "1654916105bea353be-1",
-        "535519ef-68f5-42dd-8ad6-15ab68afaa95",
-        "39a1cced-a841-48eb-bf01-2041e2134155"
-      ],
-      "settings": {
-        "image_aspect": "custom",
-        "desktop_height": 65,
-        "mobile_height": 50,
-        "video_url": "",
-        "media_link": "",
-        "focal_point": "image_presentation",
-        "text_position": "center_flex-end",
-        "text_color": "#ffffff",
-        "button_background_color": "#ffffff",
-        "button_text_color": "#000000",
-        "color_overlay": "#000000",
-        "color_overlay_gradient": "linear-gradient(180deg, rgba(0, 0, 0, 0.24) 38%, rgba(0, 0, 0, 1) 100%)",
-        "overlay_opacity": 67,
-        "section_padding": "section--vertical-padding-none"
-      }
-    },
-    "16548801325228c324": {
+    "blog_posts_rmdkRw": {
       "type": "blog-posts",
+      "name": "t:sections.blog_posts.presets.name",
       "settings": {
         "heading": "Blog posts",
         "subheading": "",
         "button_link": "",
+        "link_text": "View all posts",
         "display_type": "all",
-        "blog": "news",
-        "max_articles": 2,
+        "blog": "",
+        "max_articles": 4,
         "show_tags": true,
-        "show_author": false,
+        "show_author": true,
         "show_date": true,
         "show_excerpt": true,
         "show_featured_image": true,
-        "aspect_ratio": "landscape",
-        "divider_style": "solid",
-        "section_padding": "section--vertical-padding-top-bottom"
+        "aspect_ratio": "portrait",
+        "enable_slider": false,
+        "show_pagination": false,
+        "enable_animation": true,
+        "divider_style": "none",
+        "section_padding": "section--vertical-padding-top-bottom",
+        "link_color_scheme": "dark"
       }
     },
-    "1655748277aeb95c8a": {
-      "type": "image-with-text",
+    "grid_TpNtEH": {
+      "type": "grid",
       "blocks": {
-        "1655748276a16c587f-0": {
-          "type": "heading",
+        "item_qPr8bQ": {
+          "type": "item",
           "settings": {
-            "heading_font_class": "fs-heading-1-base"
-          }
-        },
-        "a20757dc-e69a-44d7-a715-2a5d06580517": {
-          "type": "border",
-          "settings": {}
-        },
-        "1655748276a16c587f-1": {
-          "type": "subheading",
-          "settings": {
-            "subheading_font_class": "fs-body-200"
-          }
-        },
-        "2c5ae3e6-0766-4bad-aff5-a724000e1ddd": {
-          "type": "text",
-          "settings": {
-            "text_font_class": "fs-body-75"
-          }
-        },
-        "6bfc7d96-f5a5-41c5-b66f-6b8eb23d8a52": {
-          "type": "border",
-          "settings": {}
-        },
-        "737ce2a8-7a79-4050-901a-b48412cad79e": {
-          "type": "subheading",
-          "settings": {
-            "subheading_font_class": "fs-body-200"
-          }
-        },
-        "78b87e77-53f6-4b58-828a-36ba7eeaa4f1": {
-          "type": "text",
-          "settings": {
-            "text_font_class": "fs-body-75"
-          }
-        },
-        "1655748276a16c587f-2": {
-          "type": "button",
-          "settings": {
+            "width": "50",
+            "enable_square_ratio": false,
+            "height": 500,
+            "mobile_height": 500,
+            "media_fit": "cover",
+            "focal_point": "image_presentation",
+            "mobile_focal_point": "image_presentation",
+            "text_position": "center_center",
+            "accent": "",
+            "title": "Grid item",
+            "heading_tag": "h3",
+            "heading_font_class": "fs-heading-2-base",
+            "heading_color": "c-heading-text-dark",
+            "subheading": "<p>Perfect for lookbooks and editorial photography</p>",
+            "subheading_tag": "h4",
+            "subheading_font_class": "fs-body-200",
+            "subheading_color": "c-subheading-text-dark",
+            "text": "",
+            "text_font_class": "fs-body-75",
+            "custom_text_color": "c-body-text-dark",
             "link": "",
-            "button_style": "btn--outline",
-            "button_color": "btn--light"
+            "link_text": "",
+            "button_style": "btn--dark",
+            "background_color": "",
+            "text_color": "#ffffff",
+            "button_background_color": "#ffffff",
+            "button_text_color": "#000000",
+            "color_overlay": "#000",
+            "color_overlay_gradient": "",
+            "overlay_opacity": 30
+          }
+        },
+        "item_caCwPg": {
+          "type": "item",
+          "settings": {
+            "width": "50",
+            "enable_square_ratio": false,
+            "height": 500,
+            "mobile_height": 500,
+            "media_fit": "cover",
+            "focal_point": "image_presentation",
+            "mobile_focal_point": "image_presentation",
+            "text_position": "center_center",
+            "accent": "",
+            "title": "Grid item",
+            "heading_tag": "h3",
+            "heading_font_class": "fs-heading-2-base",
+            "heading_color": "c-heading-text-dark",
+            "subheading": "<p>Perfect for lookbooks and editorial photography</p>",
+            "subheading_tag": "h4",
+            "subheading_font_class": "fs-body-200",
+            "subheading_color": "c-subheading-text-dark",
+            "text": "",
+            "text_font_class": "fs-body-75",
+            "custom_text_color": "c-body-text-dark",
+            "link": "",
+            "link_text": "",
+            "button_style": "btn--dark",
+            "background_color": "",
+            "text_color": "#ffffff",
+            "button_background_color": "#ffffff",
+            "button_text_color": "#000000",
+            "color_overlay": "#000",
+            "color_overlay_gradient": "",
+            "overlay_opacity": 30
           }
         }
       },
       "block_order": [
-        "1655748276a16c587f-0",
-        "a20757dc-e69a-44d7-a715-2a5d06580517",
-        "1655748276a16c587f-1",
-        "2c5ae3e6-0766-4bad-aff5-a724000e1ddd",
-        "6bfc7d96-f5a5-41c5-b66f-6b8eb23d8a52",
-        "737ce2a8-7a79-4050-901a-b48412cad79e",
-        "78b87e77-53f6-4b58-828a-36ba7eeaa4f1",
-        "1655748276a16c587f-2"
+        "item_qPr8bQ",
+        "item_caCwPg"
       ],
+      "name": "t:sections.grid.presets.name",
       "settings": {
-        "image_position": "left",
-        "text_alignment": "left",
-        "aspect_ratio": "square",
-        "focal_point": "image_presentation",
-        "image_caption": "",
-        "show_small_image": false,
-        "image_small_aspect_ratio": "square",
-        "image_small_focal_point": "center",
+        "heading": "",
+        "heading_tag": "h2",
+        "heading_color": "c-heading-text-dark",
+        "subheading": "",
+        "subheading_color": "c-subheading-text-dark",
+        "content_alignment": "left",
+        "enable_animation": true,
+        "full_width": false,
+        "spacing": 24,
+        "spacing_mobile": 8,
+        "divider_style": "none",
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "padding_top_desktop": 56,
+        "padding_bottom_desktop": 56,
+        "link_color_scheme": "dark"
+      }
+    },
+    "testimonials_qM7QCB": {
+      "type": "testimonials",
+      "blocks": {
+        "testimonial_9HYbTz": {
+          "type": "testimonial",
+          "settings": {
+            "product": "",
+            "image_position": "right",
+            "aspect_ratio": "square",
+            "focal_point": "image_presentation",
+            "show_rating": true,
+            "rating": 5,
+            "quote": "\"Add customer reviews and testimonials to showcase your store’s happy customers.\"",
+            "author": "– Author's name"
+          }
+        },
+        "testimonial_GrRYFE": {
+          "type": "testimonial",
+          "settings": {
+            "product": "",
+            "image_position": "right",
+            "aspect_ratio": "square",
+            "focal_point": "image_presentation",
+            "show_rating": true,
+            "rating": 5,
+            "quote": "\"Add customer reviews and testimonials to showcase your store’s happy customers.\"",
+            "author": "– Author's name"
+          }
+        },
+        "testimonial_AiVaCJ": {
+          "type": "testimonial",
+          "settings": {
+            "product": "",
+            "image_position": "right",
+            "aspect_ratio": "square",
+            "focal_point": "image_presentation",
+            "show_rating": true,
+            "rating": 5,
+            "quote": "\"Add customer reviews and testimonials to showcase your store’s happy customers.\"",
+            "author": "– Author's name"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_9HYbTz",
+        "testimonial_GrRYFE",
+        "testimonial_AiVaCJ"
+      ],
+      "name": "t:sections.testimonials.presets.name",
+      "settings": {
+        "image_size": "small",
+        "quote_font": "heading",
         "background_color": "",
         "text_color": "#000000",
-        "button_background_color": "#000000",
-        "button_text_color": "#ffffff",
-        "divider_style": "solid",
-        "section_padding": "section--vertical-padding-top-bottom"
-      }
-    },
-    "165489278903cc3881": {
-      "type": "image-with-text-split",
-      "blocks": {
-        "cec1e4e1-4b28-4709-8d1a-c986ad40425b": {
-          "type": "image",
-          "settings": {
-            "image_size": 160,
-            "image_size_mobile": 110
-          }
-        },
-        "da0d8502-d1a9-42c4-946f-f3143ddb712c": {
-          "type": "heading",
-          "settings": {
-            "heading_font_class": "fs-heading-1-base"
-          }
-        },
-        "16548927896be1844d-2": {
-          "type": "subheading",
-          "settings": {
-            "subheading_font_class": "fs-body-200"
-          }
-        },
-        "82fd259e-87e0-4232-9b45-72472ceab4dc": {
-          "type": "button",
-          "settings": {
-            "link": "",
-            "button_style": "btn--callout"
-          }
-        },
-        "7792bb9a-dddb-46ca-9045-e26f6f6948b5": {
-          "type": "button",
-          "settings": {
-            "link": "",
-            "button_style": "btn--callout"
-          }
-        }
-      },
-      "block_order": [
-        "cec1e4e1-4b28-4709-8d1a-c986ad40425b",
-        "da0d8502-d1a9-42c4-946f-f3143ddb712c",
-        "16548927896be1844d-2",
-        "82fd259e-87e0-4232-9b45-72472ceab4dc",
-        "7792bb9a-dddb-46ca-9045-e26f6f6948b5"
-      ],
-      "settings": {
-        "image_position": "right",
-        "image_mobile_position": "above-content",
-        "image_padding": "none",
-        "aspect_ratio": "landscape",
-        "focal_point": "image_presentation",
-        "content_alignment": "center",
-        "background_color": "#562a26",
-        "text_color": "#d1d8c0",
-        "button_background_color": "#d1d8c0",
-        "button_text_color": "#ffffff",
-        "section_padding": "section--vertical-padding-top-only"
-      }
-    },
-    "d71df2af-ba99-428a-9772-57ebe99ef94d": {
-      "type": "newsletter-compact",
-      "blocks": {
-        "template--15305459073231__d71df2af-ba99-428a-9772-57ebe99ef94d-1668035253c173f759-0": {
-          "type": "text_content",
-          "settings": {
-            "width": "600",
-            "title": "Subscribe to our newsletter",
-            "heading_font_class": "fs-heading-4-base",
-            "subheading": "",
-            "subheading_font_class": "fs-body-300",
-            "text": "<p>Include a short sentence describing what someone can expect from your newsletter.</p>",
-            "text_font_class": "fs-body-75"
-          }
-        },
-        "template--15305459073231__d71df2af-ba99-428a-9772-57ebe99ef94d-1668035253c173f759-1": {
-          "type": "newsletter_signup",
-          "settings": {
-            "signup_link_text": "Sign up",
-            "footer_text": "<p>By completing this form, you are signing up to receive our emails and can unsubscribe at any time.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "template--15305459073231__d71df2af-ba99-428a-9772-57ebe99ef94d-1668035253c173f759-0",
-        "template--15305459073231__d71df2af-ba99-428a-9772-57ebe99ef94d-1668035253c173f759-1"
-      ],
-      "settings": {
-        "spacing_mode": "between",
-        "alignment": "left",
-        "focal_point": "image_presentation",
-        "background_color": "#f5f5f5",
-        "text_color": "#000000",
-        "input_color": "#000000",
-        "input_background": "#fff",
-        "button_background_color": "#000000",
-        "button_text_color": "#FFFFFF",
-        "color_overlay": "#000",
-        "color_overlay_gradient": "",
-        "overlay_opacity": 0,
         "enable_animation": true,
         "divider_style": "none",
         "section_padding": "section--vertical-padding-top-bottom"
@@ -978,24 +895,15 @@
     }
   },
   "order": [
-    "16558445044f80743b",
-    "1655855477ee9538e0",
     "1654878022d8e24a9a",
-    "16549177944ec2347e",
+    "slideshow_hymqjE",
     "1655855558c1ac2348",
-    "16548772614c49ba39",
-    "16558561315f6147d3",
-    "1655747757d7226f15",
-    "165488047346f59e49",
-    "1654913893935a57bd",
-    "165489980473ecbf41",
-    "1654880426b1f83355",
-    "16558561940a4fe50f",
-    "16548834739d532589",
-    "1654916105fd939f8f",
-    "16548801325228c324",
-    "1655748277aeb95c8a",
-    "165489278903cc3881",
-    "d71df2af-ba99-428a-9772-57ebe99ef94d"
+    "image_hero_HDWaRp",
+    "multi_column_pftXnd",
+    "stat_group_3dGmdC",
+    "featured_collection_slider_ViCgkA",
+    "blog_posts_rmdkRw",
+    "grid_TpNtEH",
+    "testimonials_qM7QCB"
   ]
 }

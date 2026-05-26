@@ -22,8 +22,7 @@ button {
   --button-height-x-small: 34px;
   --button-padding-large: calc(1em * var(--button-padding-multiplier))
     calc(2.31em * var(--button-padding-multiplier));
-  --button-padding-normal: calc(0.777em * var(--button-padding-multiplier))
-    calc(1.777em * var(--button-padding-multiplier));
+  --button-padding-normal: 15px 16px;
   --button-padding-small: calc(0.555em * var(--button-padding-multiplier))
     calc(1.333em * var(--button-padding-multiplier));
   --button-padding-x-small: calc(0.444em * var(--button-padding-multiplier))
@@ -39,6 +38,7 @@ button {
   word-break: break-word;
   font-family: var(--font-button);
   font-weight: var(--font-button-weight);
+  gap: 10px;
 
   &:disabled {
     pointer-events: none;
@@ -52,8 +52,10 @@ button {
     transition: opacity 0.2s ease-in-out;
     min-height: unset;
 
-    &:hover {
-      opacity: 0.7;
+    @media (--can-hover) {
+      &:hover {
+        opacity: 0.7;
+      }
     }
   }
 
@@ -77,6 +79,7 @@ button {
   text-transform: var(--text-transform-button);
   line-height: var(--line-height-button);
   letter-spacing: var(--letter-spacing-button);
+  border-radius: 6px;
 }
 
 .btn.btn--small {
@@ -143,11 +146,24 @@ button {
     z-index: -2;
   }
 
-  &:hover:not([disabled]),
-  &:focus:not([disabled]) {
+  @media (--can-hover) {
+    &:hover:not([disabled]):not(.disabled) {
+      &::before {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+
+  &[disabled],
+  &.disabled {
+    opacity: 1;
+    color: var(--color-text);
+    border-color: var(--color-button-disabled-state);
+    background-color: var(--color-button-disabled-state);
+
     &::before {
-      opacity: 1;
-      visibility: visible;
+      background-color: var(--color-button-disabled-state);
     }
   }
 
@@ -156,7 +172,7 @@ button {
   }
 
   &.btn--overlay {
-    border: 1px solid;
+    border: 1.5px solid;
   }
 }
 
@@ -181,11 +197,31 @@ button {
     transition: var(--duration-normal) var(--easing);
   }
 
-  &:hover:not([disabled]),
-  &:focus:not([disabled]) {
+  @media (--can-hover) {
+    &:hover:not([disabled]):not(.disabled) {
+      &::before {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+
+  &:focus:not([disabled]):not(.disabled) {
     &::before {
       opacity: 1;
       visibility: visible;
+    }
+  }
+
+  &[disabled],
+  &.disabled {
+    opacity: 1;
+    color: var(--color-text);
+    border-color: var(--color-button-disabled-state);
+    background-color: var(--color-button-disabled-state);
+
+    &::before {
+      background-color: var(--color-button-disabled-state);
     }
   }
 
@@ -200,7 +236,12 @@ button {
   border: 1px solid var(--color-text-alpha);
   transition: color 0.2s ease, border-color 0.2s ease;
 
-  &:hover:not([disabled]),
+  @media (--can-hover) {
+    &:hover:not([disabled]) {
+      border-color: var(--color-text);
+    }
+  }
+
   &:focus:not([disabled]) {
     border-color: var(--color-text);
   }
@@ -218,6 +259,8 @@ button {
   font-size: var(--font-size-button);
   line-height: 1.2;
   transition: color 0.1s ease;
+  border-radius: 0.1px;
+  gap: var(--spacing-2);
 
   span {
     position: relative;
@@ -248,7 +291,23 @@ button {
     }
   }
 
-  &:hover,
+  @media (--can-hover) {
+    &:hover {
+      background-color: transparent !important;
+
+      span {
+        &::before {
+          transform: scale3d(0, 1, 1);
+          transition-delay: 0s;
+        }
+        &::after {
+          transform: scale3d(1, 1, 1);
+          transition-delay: var(--duration-ultra-fast);
+        }
+      }
+    }
+  }
+
   &:focus {
     background-color: transparent !important;
 
@@ -262,6 +321,10 @@ button {
         transition-delay: var(--duration-ultra-fast);
       }
     }
+  }
+
+  a {
+    text-decoration: none;
   }
 }
 
@@ -322,6 +385,7 @@ button {
   &.btn--dark {
     /* Primary = Dark Solid Button (Figma Design) */
     color: var(--color-button-dark-solid-text);
+    border: 1px solid;
     border-color: var(--color-button-dark-solid-bg);
     background-color: var(--color-button-dark-solid-bg);
 
@@ -333,20 +397,20 @@ button {
       background-color: var(--color-button-dark-solid-bg-hover);
     }
 
-    &:hover:not([disabled]),
-    &:focus:not([disabled]) {
-      color: var(--color-button-dark-solid-text-hover);
-      border-color: var(--color-button-dark-solid-bg-hover);
+    @media (--can-hover) {
+      &:hover:not([disabled]):not(.disabled) {
+        color: var(--color-button-dark-solid-text-hover);
 
-      &::before {
-        background-color: var(--color-button-dark-solid-bg-hover);
+        &::before {
+          background-color: var(--color-button-dark-solid-bg-hover);
+        }
       }
     }
 
-    &:focus:not([disabled]) {
-      outline: 1px solid;
-      outline-color: var(--color-focus-dark);
-      outline-offset: 2px;
+    &:focus-visible:not([disabled]):not(.disabled),
+    &:focus:not([disabled]):not(.disabled) {
+      outline: 3px solid var(--color-focus-dark);
+      outline-offset: 3px;
     }
 
     &.btn--overlay {
@@ -362,9 +426,10 @@ button {
         background-color: var(--color-button-dark-solid-bg-hover);
       }
 
-      &:hover:not([disabled]),
-      &:focus:not([disabled]) {
-        color: var(--color-button-dark-solid-text-hover);
+      @media (--can-hover) {
+        &:hover:not([disabled]):not(.disabled) {
+          color: var(--color-button-dark-solid-text-hover);
+        }
       }
     }
 
@@ -382,13 +447,25 @@ button {
         background-color: transparent;
       }
 
-      &:hover:not([disabled]),
-      &:focus:not([disabled]) {
-        color: var(--color-button-dark-solid-text-hover);
-        border-color: var(--color-button-dark-solid-bg-hover);
+      @media (--can-hover) {
+        &:hover:not([disabled]):not(.disabled) {
+          color: var(--color-button-dark-solid-text);
+
+          &::before {
+            background-color: var(--color-button-dark-solid-bg);
+          }
+        }
+      }
+
+      &[disabled],
+      &.disabled {
+        opacity: 1;
+        color: var(--color-text);
+        border-color: var(--color-button-disabled-state);
+        background-color: var(--color-button-disabled-state);
 
         &::before {
-          background-color: var(--color-button-dark-solid-bg-hover);
+          background-color: var(--color-button-disabled-state);
         }
       }
     }
@@ -411,14 +488,29 @@ button {
         }
       }
 
-      &:hover:not([disabled]),
-      &.btn--overlay:hover:not([disabled]) {
-        color: var(--color-text-link-dark-text-hover);
+      @media (--can-hover) {
+        &:hover:not([disabled]):not(.disabled),
+        &.btn--overlay:hover:not([disabled]):not(.disabled) {
+          color: var(--color-text-link-dark-text-hover);
+
+          span {
+            &::before,
+            &::after {
+              background-color: var(--color-text-link-dark-line-hover);
+            }
+          }
+        }
+      }
+
+      &[disabled],
+      &.disabled {
+        opacity: 1;
+        color: var(--color-callout-disabled-state);
 
         span {
           &::before,
           &::after {
-            background-color: var(--color-text-link-dark-line-hover);
+            background-color: var(--color-callout-disabled-state);
           }
         }
       }
@@ -439,20 +531,21 @@ button {
       background-color: var(--color-button-light-solid-bg-hover);
     }
 
-    &:hover:not([disabled]),
-    &:focus:not([disabled]) {
-      color: var(--color-button-light-solid-text-hover);
-      border-color: var(--color-button-light-solid-bg-hover);
+    @media (--can-hover) {
+      &:hover:not([disabled]):not(.disabled) {
+        color: var(--color-button-light-solid-text-hover);
+        border-color: var(--color-button-light-solid-bg-hover);
 
-      &::before {
-        background-color: var(--color-button-light-solid-bg-hover);
+        &::before {
+          background-color: var(--color-button-light-solid-bg-hover);
+        }
       }
     }
 
-    &:focus:not([disabled]) {
+    &:focus:not([disabled]):not(.disabled) {
       outline: 1px solid;
       outline-color: var(--color-focus-light);
-      outline-offset: 2px;
+      outline-offset: var(--spacing-1);
     }
 
     &.btn--overlay {
@@ -468,9 +561,22 @@ button {
         background-color: var(--color-button-light-solid-bg-hover);
       }
 
-      &:hover:not([disabled]),
-      &:focus:not([disabled]) {
-        color: var(--color-button-light-solid-text-hover);
+      @media (--can-hover) {
+        &:hover:not([disabled]):not(.disabled) {
+          color: var(--color-button-light-solid-text-hover);
+        }
+      }
+
+      &[disabled],
+      &.disabled {
+        opacity: 1;
+        color: var(--color-text);
+        border-color: var(--color-button-disabled-state);
+        background-color: var(--color-button-disabled-state);
+
+        &::before {
+          background-color: var(--color-button-disabled-state);
+        }
       }
     }
 
@@ -488,13 +594,26 @@ button {
         background-color: var(--color-button-light-solid-bg-hover);
       }
 
-      &:hover:not([disabled]),
-      &:focus:not([disabled]) {
-        color: var(--color-button-light-solid-text-hover);
-        border-color: var(--color-button-light-solid-bg-hover);
+      @media (--can-hover) {
+        &:hover:not([disabled]):not(.disabled) {
+          color: var(--color-button-light-solid-text);
+          border: 1px solid var(--color-button-light-outline-border);
+
+          &::before {
+            background-color: var(--color-button-light-solid-bg);
+          }
+        }
+      }
+
+      &[disabled],
+      &.disabled {
+        opacity: 1;
+        color: var(--color-text);
+        border-color: var(--color-button-disabled-state);
+        background-color: var(--color-button-disabled-state);
 
         &::before {
-          background-color: var(--color-button-light-solid-bg-hover);
+          background-color: var(--color-button-disabled-state);
         }
       }
     }
@@ -517,14 +636,29 @@ button {
         }
       }
 
-      &:hover:not([disabled]),
-      &.btn--overlay:hover:not([disabled]) {
-        color: var(--color-text-link-light-text-hover);
+      @media (--can-hover) {
+        &:hover:not([disabled]):not(.disabled),
+        &.btn--overlay:hover:not([disabled]):not(.disabled) {
+          color: var(--color-text-link-light-text-hover);
+
+          span {
+            &::before,
+            &::after {
+              background-color: var(--color-text-link-light-line-hover);
+            }
+          }
+        }
+      }
+
+      &[disabled],
+      &.disabled {
+        opacity: 1;
+        color: var(--color-callout-disabled-state);
 
         span {
           &::before,
           &::after {
-            background-color: var(--color-text-link-light-line-hover);
+            background-color: var(--color-callout-disabled-state);
           }
         }
       }
@@ -539,6 +673,37 @@ button {
       &::after {
         bottom: 0;
         height: 1px;
+      }
+
+      &:has(.icon) {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--spacing-1);
+
+        &::before,
+        &::after {
+          height: 2px;
+        }
+
+        .icon {
+          flex-shrink: 0;
+        }
+      }
+    }
+
+    &:focus:not([disabled]):not(.disabled) {
+      outline-offset: 6px;
+    }
+  }
+
+  &.btn--with-arrow {
+    .icon.arrow-right {
+      width: 15px;
+      height: 8px;
+
+      &::after,
+      &::before {
+        display: none;
       }
     }
   }

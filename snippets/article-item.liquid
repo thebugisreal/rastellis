@@ -21,6 +21,15 @@
 
   assign article_categories = settings.article_categories | downcase
   assign blog_content = blog_article.excerpt_or_content | strip_html
+
+  assign article_item_has_no_image = false
+  if show_featured_image != true
+    assign article_item_has_no_image = true
+  elsif use_featured_video and featured_video_url != blank
+    assign article_item_has_no_image = false
+  elsif blog_article != blank and blog_article.image == blank
+    assign article_item_has_no_image = true
+  endif
 -%}
 
 {%- capture tag_list -%}
@@ -50,8 +59,9 @@
 <{{ tag_wrapper }}
   class="
     article-item
-    {% if blog_article != blank and blog_article.image == blank or show_featured_image != true %}article-item--has-no-image{% endif %}
+    {% if article_item_has_no_image %}article-item--has-no-image{% endif %}
     {% if is_featured %}article-item--is-featured{% endif %}
+    {% if use_featured_video and featured_video_url != blank %}article-item--featured-video{% endif %}
     {% if class != blank %} {{ class }}{% endif %}
     animation--article-item
     hover
@@ -60,7 +70,50 @@
 >
   <div class="article-item__inner relative" role="group" aria-label="article">
     {%- if blog_article != blank -%}
-      {%- if show_featured_image and blog_article.image -%}
+      {%- if show_featured_image and use_featured_video and featured_video_url != blank -%}
+        {%- assign video_poster = blog_article.image | image_url: width: 400 -%}
+        {%- assign video_wrapper_class = 'article-item__video-media rounded-lg aspect-ratio--' | append: aspect_ratio -%}
+        <div
+          class="article-item__image-wrapper"
+          {% if featured_article_image_width %}
+            style="--featured-image-width: {{ featured_article_image_width }}%"
+          {% endif %}
+        >
+          <video-control class="article-item__video-control">
+            <div class="article-item__video-wrapper">
+              {%- render 'video',
+                video: featured_video_url,
+                poster: video_poster,
+                controls: false,
+                video_pause: false,
+                loop: true,
+                wrapper_class: video_wrapper_class
+              -%}
+              {%- if featured_video_label != blank -%}
+                <p class="article-item__video-label ff-subheading ff-secondary fs-body-200">{{ featured_video_label }}</p>
+              {%- endif -%}
+              <div class="article-item__video-button">
+                <button
+                  type="button"
+                  class="video-play-button js-button-video played"
+                  aria-label="{{ 'general.accessibility.play_video' | t }}"
+                  aria-pressed="false"
+                >
+                  <span class="video-button-content--play" aria-hidden="true">
+                    {%- render 'play-icon', class: 'article-item__video-button-icon' -%}
+                  </span>
+                  <span class="video-button-content--pause" aria-hidden="true">
+                    {%- render 'pause-icon', class: 'article-item__video-button-icon' -%}
+                  </span>
+                </button>
+              </div>
+              <h3 class="article-item__video-title fs-heading-5-base">
+                <a class="fs-heading-5-base fs-body-bold" href="{{ blog_article.url }}">{{ blog_article.title }}</a>
+              </h3>
+            </div>
+          </video-control>
+        </div>
+      {%- elsif show_featured_image and blog_article.image -%}
         <a
           href="{{ blog_article.url }}"
           class="article-item__image-wrapper"
@@ -71,7 +124,7 @@
         >
           {%-
             render 'image' with
-            wrapper_class: "article-item__image rounded-lg",
+            wrapper_class: "article-item__image rounded",
             image: blog_article.image,
             sizes: image_sizes,
             aspect_ratio: aspect_ratio,
@@ -80,7 +133,8 @@
         </a>
       {%- endif -%}
 
-      <div class="article-item__content static mt-4 p-0">
+      {%- unless show_featured_image and use_featured_video and featured_video_url != blank -%}
+      <div class="article-item__content static mt-2 p-0">
         <div class="article-item__content-inner">
           {%- if tag_list != blank -%}
             <div class="article-item__tags absolute top-4 right-4 flex-row-reverse mb-0">
@@ -90,8 +144,8 @@
             </div>
           {%- endif -%}
 
-          <h3 class="article-item__title mb-1.5 {% if is_featured %}fs-heading-3-base{% else %}label{% endif %}">
-            <a class="text-base font-bold" href="{{ blog_article.url }}">{{ blog_article.title }}</a>
+          <h3 class="article-item__title fs-heading-5-base">
+            <a class="fs-heading-5-base fs-body-bold" href="{{ blog_article.url }}">{{ blog_article.title }}</a>
           </h3>
 
           {%- if show_author or show_date -%}
@@ -115,19 +169,22 @@
             </div>
           {%- endif -%}
 
-          {%- assign button_label = 'blogs.article.read' | t -%}
-          {%- if blog.url contains 'press' or blog.url contains 'events' -%}
-            {%- assign button_label = 'blogs.article.read_article' | t -%}
-          {%- endif -%}
-          {%-
-            render 'button-block' with
-            wrapper_class: "article-item__read-button font-bold",
-            link: blog_article.url,
-            label: button_label,
-            button_style: "btn--link p-0 text-sm"
-          -%}
+          {%- unless show_read_button == false -%}
+            {%- assign button_label = 'blogs.article.read' | t -%}
+            {%- if blog.url contains 'press' or blog.url contains 'events' -%}
+              {%- assign button_label = 'blogs.article.read_article' | t -%}
+            {%- endif -%}
+            {%-
+              render 'button-block' with
+              wrapper_class: "article-item__read-button font-bold",
+              link: blog_article.url,
+              label: button_label,
+              button_style: "btn--link p-0 text-sm"
+            -%}
+          {%- endunless -%}
         </div>
       </div>
+      {%- endunless -%}
     {%- else -%}
       <div class="article-item__image-wrapper">
         {%-
@@ -140,7 +197,7 @@
       </div>
       <div class="article-item__content static mt-4 p-0">
         <div class="article-item__content-inner p-0">
-          <h3 class="article-item__title mb-1.5 label">{{ 'homepage.onboarding.blog_title' | t }}</h3>
+          <h3 class="article-item__title fs-heading-5-base">{{ 'homepage.onboarding.blog_title' | t }}</h3>
           <p class="article-item__meta">
             <span>
               {{- 'blogs.article.by' | t }}

@@ -1,0 +1,65 @@
+{%- if links.size > 0 and blocks.size > 0 -%}
+  <div class="drawer-menu__promos">
+    {%- for link in links -%}
+      {%- liquid
+        assign meganav_settings = blank
+
+        if link.levels > 0
+          assign link_title_handle = link.title | handle | strip
+
+          for block in blocks
+            assign meganav_handle = block.settings.dropdown_parent_link | handle | strip
+            if meganav_handle != blank
+              if link.handle == meganav_handle or link_title_handle == meganav_handle
+                if block.type == 'full_width_meganav' or block.type == 'compact_meganav'
+                  assign meganav_settings = block.settings
+                  break
+                endif
+              endif
+            endif
+          endfor
+        endif
+      -%}
+
+      {%- if meganav_settings.show_promo -%}
+        <article class="drawer-menu__promo">
+          {%- if meganav_settings.link != blank -%}
+            <a href="{{ meganav_settings.link }}" class="drawer-menu__promo-card">
+          {%- else -%}
+            <div class="drawer-menu__promo-card">
+          {%- endif -%}
+            <div class="drawer-menu__promo-media">
+              {%- render 'image' with
+                wrapper_class: 'drawer-menu__promo-image',
+                image: meganav_settings.image,
+                sizes: '120px',
+                focal_point: meganav_settings.focal_point,
+                aspect_ratio: 'square',
+                object_fit: 'cover'
+              -%}
+            </div>
+            <div class="drawer-menu__promo-content">
+              {%- if meganav_settings.promo_text != blank -%}
+                <h3 class="drawer-menu__promo-heading ff-subheading fs-heading-6-base">
+                  {{ meganav_settings.promo_text }}
+                </h3>
+              {%- endif -%}
+              {%- if meganav_settings.link != blank and meganav_settings.link_text != blank -%}
+                <span class="drawer-menu__promo-cta btn btn--callout btn--dark btn--with-arrow">
+                  <span>
+                    {{ meganav_settings.link_text }}
+                    {% render 'icon-new', icon: 'arrow-right' %}
+                  </span>
+                </span>
+              {%- endif -%}
+            </div>
+          {%- if meganav_settings.link != blank -%}
+            </a>
+          {%- else -%}
+            </div>
+          {%- endif -%}
+        </article>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+{%- endif -%}

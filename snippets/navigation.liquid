@@ -30,6 +30,8 @@
     <li
       {% if has_children and can_show_children %}
         data-submenu-parent
+      {% else %}
+        data-default-nav-link
       {% endif %}
     >
       {%- if has_children and can_show_children -%}
@@ -80,11 +82,19 @@
           aria-controls="{{ sub_menu_id }}"
           {{ trigger_additional_attributes }}
         >
-          <span class="link-hover">
-            {{ link.title }}
+          <span class="link-hover navigation__submenu-title">
+            {% assign _menu_title = link.title %}
+            {% if link.title contains '[' and link.title contains ']' %}
+              {% assign _inner = _menu_title | split: '[' | last | split: ']' | first %}
+              {% assign _tag = _inner | prepend: '[' | append: ']' %}
+              {% assign _replacement = _inner | prepend: '<span class="navigation__submenu-title-badge">' | append: '</span>' %}
+                {{ _menu_title | replace: _tag, _replacement }}
+              {% else %}
+                {{ _menu_title }}
+            {% endif %}
           </span>
           <span class="header__links-icon">
-            {% render 'icon' with icon: 'chevron-small' %}
+            {% render 'icon-new' with icon: 'chevron-down' %}
           </span>
         </{{ trigger_tag }}>
 
@@ -113,7 +123,7 @@
             aria-current="page"
           {% endif %}
         >
-          <span class="link-hover">
+          <span class="link-hover navigation__submenu-title">
             {{ link.title }}
           </span>
         </a>

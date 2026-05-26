@@ -1,3 +1,4 @@
+@custom-media --can-hover (hover: hover);
 @custom-media --below-480 (max-width: 479px);
 @custom-media --above-480 (min-width: 480px);
 @custom-media --below-720 (max-width: 719px);
@@ -8,6 +9,8 @@
 @custom-media --above-1200 (min-width: 1200px);
 @custom-media --below-1400 (max-width: 1399px);
 @custom-media --above-1400 (min-width: 1400px);
+@custom-media --below-1440 (max-width: 1439px);
+@custom-media --above-1440 (min-width: 1440px);
 
 :root {
   --media-below-480: (max-width: 479px);
@@ -20,7 +23,7 @@
   --media-above-1200: (min-width: 1200px);
   --media-below-1400: (max-width: 1399px);
   --media-above-1400: (min-width: 1400px);
-  --max-width: 1400px;
+  --max-width: 1328px;
   --max-width-narrow: 747px;
   --flyout-mobile-gap: var(--spacing-9);
   --flyout-width: calc(375px + var(--flyout-mobile-gap));
@@ -30,7 +33,7 @@
 
   --spacing-unit: 4px;
   --spacing-unit-half: 2px;
-  --spacing-between-sections: fluid(20px, 40px);
+  --spacing-between-sections: fluid(20px, 56px);
 
   --spacing-1: calc(var(--spacing-unit) * 1);
   --spacing-2: calc(var(--spacing-unit) * 2);
@@ -44,12 +47,14 @@
   --spacing-10: calc(var(--spacing-unit) * 10);
   --spacing-11: calc(var(--spacing-unit) * 11);
   --spacing-12: calc(var(--spacing-unit) * 12);
+  --spacing-14: calc(var(--spacing-unit) * 14);
   --spacing-15: calc(var(--spacing-unit) * 15);
   --spacing-16: calc(var(--spacing-unit) * 16);
   --spacing-17: calc(var(--spacing-unit) * 17);
   --spacing-18: calc(var(--spacing-unit) * 18);
   --spacing-20: calc(var(--spacing-unit) * 20);
   --spacing-25: calc(var(--spacing-unit) * 25);
+  --spacing-28: calc(var(--spacing-unit) * 28);
   --spacing-30: calc(var(--spacing-unit) * 30);
 
   --box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.06);
@@ -77,13 +82,7 @@
 
   /* Space around the outside of the page */
 
-  --space-outer: 3.3vw;
-
-  @supports (padding: 0 clamp(18px, 3.3vw, 3.3vw)) {
-    @media (--below-720) {
-      --space-outer: clamp(18px, 3.3vw, 3.3vw);
-    }
-  }
+  --space-outer: fluid(20px, 56px);
 
   --height-input: 48px;
   --quick-buy-button-height: 60px;

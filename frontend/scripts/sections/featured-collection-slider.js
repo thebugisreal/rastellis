@@ -1,6 +1,5 @@
 import section from '@/scripts/glow/section'
 import { qs, qsa, listen, add, remove, contains } from '@fluorescent/dom'
-import { emit, on } from 'evx'
 
 import Carousel from '@/scripts/lib/carousel'
 import ProductItem from '@/scripts/lib/product-item'
@@ -10,7 +9,7 @@ import shouldAnimate from '@/scripts/lib/animation/shouldAnimate'
 const selectors = {
   navItems: '.featured-collection-slider__navigation-list-item',
   sliderContainer: '.carousel',
-  navButtons: '.carousel__navigation-buttons',
+  navButtons: '.featured-collection-slider__navigation-buttons',
 }
 
 const classes = {
@@ -33,14 +32,14 @@ section('featured-collection-slider', {
   },
 
   _initCarousels() {
-    const { productsPerView, mobileProductsPerView } = this.container.dataset
+    const { productsPerView, mobileProductsPerView, enableCarouselNavigation } =
+      this.container.dataset
+    const hasCarouselNavigation = enableCarouselNavigation === 'true'
     this.perView = parseInt(productsPerView, 10)
-    this.mobilePerView = parseInt(mobileProductsPerView, 10) * 1.05
-    // 1.05 factor gives us a "peek" without CSS hacks
-    // TODO: encapsulate this in carousel instead of duplication wherever
-    // we call on carousel.  Can also simplify the config that we pass in
-    // to something like perViewSmall, perViewMedium, perViewLarge and same with
-    // spaceBetween?
+    const mobilePerViewSetting = parseFloat(mobileProductsPerView)
+    this.mobilePerView = Number.isInteger(mobilePerViewSetting)
+      ? mobilePerViewSetting * 1.05
+      : mobilePerViewSetting
 
     this.productItem = ProductItem(this.container)
     this.carouselsElements = qsa(selectors.sliderContainer, this.container)
@@ -54,34 +53,40 @@ section('featured-collection-slider', {
     )
 
     this.carouselsElements.forEach((container, index) => {
-      const navigationWrapper = qs(
-        `[data-navigation="${index}"]`,
-        this.container,
-      )
-      const nextButton = qs('[data-next]', navigationWrapper)
-      const prevButton = qs('[data-prev]', navigationWrapper)
+      const navigationWrapper = hasCarouselNavigation
+        ? qs(`[data-navigation="${index}"]`, this.container)
+        : null
+      const nextButton = navigationWrapper
+        ? qs('[data-next]', navigationWrapper)
+        : null
+      const prevButton = navigationWrapper
+        ? qs('[data-prev]', navigationWrapper)
+        : null
 
-      this.carousels.push(
-        Carousel(container, {
-          slidesPerView: this.mobilePerView,
-          spaceBetween: 13, // matches product grid
-          navigation: {
-            nextEl: nextButton,
-            prevEl: prevButton,
+      const carouselOptions = {
+        slidesPerView: this.mobilePerView,
+        spaceBetween: 16,
+        breakpoints: {
+          720: {
+            spaceBetween: 20,
+            slidesPerView:
+              this.perView === 5 ? this.perView - 1 : this.perView,
           },
-          breakpoints: {
-            720: {
-              spaceBetween: 17, // matches product grid
-              slidesPerView:
-                this.perView === 5 ? this.perView - 1 : this.perView,
-            },
-            1200: {
-              spaceBetween: 25, // matches product grid
-              slidesPerView: this.perView,
-            },
+          1200: {
+            spaceBetween: 32,
+            slidesPerView: this.perView,
           },
-        }),
-      )
+        },
+      }
+
+      if (nextButton && prevButton) {
+        carouselOptions.navigation = {
+          nextEl: nextButton,
+          prevEl: prevButton,
+        }
+      }
+
+      this.carousels.push(Carousel(container, carouselOptions))
     })
   },
 
@@ -114,7 +119,7 @@ section('featured-collection-slider', {
 
   _show(index) {
     const navigationWrapper = qs(`[data-navigation="${index}"]`, this.container)
-    add(navigationWrapper, classes.visible)
+    if (navigationWrapper) add(navigationWrapper, classes.visible)
     const collection = qs(`[data-collection="${index}"]`, this.container)
 
     if (this.navItems.length) {

@@ -1,20 +1,4 @@
 .header {
-    .drawer-menu__panel {
-        padding-top: calc(var(--height-header));
-    }
-
-    .header__inner {
-        @apply max-w-full;
-    }
-
-    .header__row-segment.right .header__icon-touch:last-child {
-        @apply md:mr-0;
-    }
-
-    .header__row {
-        @apply mx-auto px-[20px] lg:px-[5rem] max-w-full xl:max-w-[1440px];
-    }
-
     .image__img {
         @apply w-full h-full;
     }
@@ -26,12 +10,6 @@
     .icon-button__icon,
     .icon-button__icon .icon {
         @apply w-5 h-5;
-    }
-
-    .header__icon-touch--cart,
-    .header__icon-touch--cart .icon-button,
-    .header__icon-touch--cart .icon-buttcon__icon {
-        @apply w-11;
     }
 
     .icon-button__icon {
@@ -52,10 +30,6 @@
         @apply w-[17px] md:w-[15px] h-[17px] md:h-[15px];
     }
 
-    .meganav__nav li[depth="0"].has-children:not(:first-child) {
-        @apply mt-11;
-    }
-
     .meganav__secondary-promo-text {
         @apply p-5 lg:p-8;
 
@@ -65,14 +39,12 @@
     }
 
     .social-icons {
+      @apply justify-center items-center gap-5;
+
         li,
         li .icon,
         li svg {
             @apply w-[22px] h-[22px];
-        }
-
-        li + li {
-            @apply ml-[22px];
         }
 
         .icon svg {
@@ -81,20 +53,12 @@
     }
 }
 
-.meganav__nav {
-    @apply flex;
-}
-
 html.sticky-header-enabled .shopify-section.header__outer-wrapper {
     @apply md:top-0;
 }
 
 .header__row.header__row-desktop.lower .header__logo {
     @apply md:my-6;
-}
-
-.drawer-menu__actions {
-    @apply mb-3;
 }
 
 .drawer-menu__item {
@@ -119,8 +83,8 @@ html.sticky-header-enabled .shopify-section.header__outer-wrapper {
     }
 }
 
-.drawer-menu__primary-links > .drawer-menu__item + .drawer-menu__item {
-    @apply mt-3 pt-3 border-t border-black border-solid border-b-0;
+.drawer-menu__primary-links > .drawer-menu__item + .drawer-menu__item:not(.drawer-menu__item--inline-expand):not(.drawer-menu__item--inline-expand-last):not(:last-child) {
+    @apply pt-4;
 }
 
 .drawer-menu__main {
@@ -130,19 +94,6 @@ html.sticky-header-enabled .shopify-section.header__outer-wrapper {
 .drawer-menu__all-links[data-depth="1"],
 .drawer-menu__all-links[data-depth="2"] {
     @apply -translate-x-full;
-
-    .drawer-menu__account {
-        @apply order-1;
-    }
-}
-
-.drawer-menu__account .icon {
-  object-fit: contain;
-}
-
-.header:not(.no-js) .navigation__submenu[data-depth="1"]{
-    left: auto;
-    margin-left: 0;
 }
 
 .drawer-menu__all-links {
@@ -163,6 +114,10 @@ ul.drawer-menu__sub-links {
 
 .drawer-menu__links-wrapper {
     @apply flex flex-col;
+
+    &-inner {
+        @apply py-6;
+    }
 }
 
 .drawer-menu__all-links .drawer-menu__list--sub {
@@ -174,23 +129,15 @@ ul.drawer-menu__sub-links {
 }
 
 .drawer-menu__link {
-    @apply h-auto py-2;
+    @apply h-auto normal-case;
 
     .icon {
-        @apply w-2;
+        @apply w-[14px] h-[14px];
     }
 }
 
 .drawer-menu__primary-links .drawer-menu__item {
     @apply tracking-normal;
-}
-
-.drawer-menu__panel {
-    @apply pt-[calc(var(--height-header)-50px)] h-[calc(100%-var(--announcement-height))];
-
-    html.sticky-header-active & {
-        @apply h-[calc(100*var(--vh))]
-    }
 }
 
 .drawer-menu__contents {
@@ -242,24 +189,6 @@ ul.drawer-menu__sub-links {
     }
 }
 
-.meganav__nav {
-    @apply px-8;
-
-    li[depth="0"] {
-        @apply !my-0;
-    }
-}
-
-.meganav__primary {
-    @apply py-[30px];
-}
-
-.header__location-button.btn {
-    .icon {
-        @apply w-[14px];
-    }
-}
-
 .header__links-icon {
     @apply transition-all;
 }
@@ -277,12 +206,8 @@ ul.drawer-menu__sub-links {
     @apply px-5;
 }
 
-.header__links-list .header__links-icon {
-    @apply mt-0 ml-1.5;
-}
-
 .header__row.header__row-desktop {
-    @apply relative z-20 !items-center;
+    @apply !items-center;
 }
 
 .support-menu .navigation__submenu-icon {
@@ -314,12 +239,6 @@ ul.drawer-menu__sub-links {
 
 .support-menu__item .support-menu__item-heading.active .navigation__submenu-icon {
     transform: rotate(180deg) !important;
-}
-
-.header__links-primary {
-    .header__links-list>li:not(:last-child) {
-        @apply mr-8;
-    }
 }
 
 .header__inner [data-scroll-container] .scroll-overflow-indicator-wrap,

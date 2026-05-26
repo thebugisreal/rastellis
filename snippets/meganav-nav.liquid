@@ -6,7 +6,7 @@
     {% for link in link.links %}
       <li class="{% if link.links.size > 0 %} has-children{% endif %}" depth="0">
         <h4>
-          <a href="{{ link.url }}">{{ link.title }}</a>
+          <a href="{{ link.url }}" class="ff-subheading fs-body-300">{{ link.title }}</a>
         </h4>
         {% if link.links %}
           <ul depth="1">
@@ -24,4 +24,12 @@
   {%- for i in (1..dividers_needed) -%}
     <span class="meganav__column-rule" data-index="{{ forloop.index }}"></span>
   {%- endfor -%}
+  <div class="meganav__parent-link">
+    <a href="{{ link.url }}" class="btn btn--callout btn--dark btn--with-arrow">
+      <span>
+        {{ 'products.product.shop_all_products' | t }}
+        {% render 'icon-new', icon: 'arrow-right' %}
+      </span>
+    </a>
+  </div>
 </div>

@@ -8,6 +8,21 @@
     assign has_navigation = true
     assign is_single_slide = false
   endif
+
+  assign has_wave_top = false
+  if section.settings.enable_wave_top_desktop or section.settings.enable_wave_top_mobile
+    assign has_wave_top = true
+  endif
+
+  assign has_wave_bottom = false
+  if section.settings.enable_wave_bottom_desktop or section.settings.enable_wave_bottom_mobile
+    assign has_wave_bottom = true
+  endif
+
+  assign has_rough_border = false
+  if has_wave_top or has_wave_bottom
+    assign has_rough_border = true
+  endif
 -%}
 
 <div
@@ -24,6 +39,11 @@
       animation
       animation--slideshow
     {% endif %}
+    {% if section.settings.enable_wave_top_desktop %}rough-border--top-desktop{% endif %}
+    {% if section.settings.enable_wave_top_mobile %}rough-border--top-mobile{% endif %}
+    {% if section.settings.enable_wave_bottom_desktop %}rough-border--bottom-desktop{% endif %}
+    {% if section.settings.enable_wave_bottom_mobile %}rough-border--bottom-mobile{% endif %}
+    {% if has_rough_border %}has-rough-border{% endif %}
     link-color-scheme--{{ section.settings.link_color_scheme }}
   "
   data-section-id="{{ section.id }}"
@@ -33,9 +53,11 @@
   style="
     --custom-height: {{ section.settings.desktop_height }}vh;
     --custom-height-mobile: {{ section.settings.mobile_height }}vh;
-    --slideshow-navigation-height: 26px;
   "
 >
+  {%- if has_wave_top -%}
+    {%- render 'wave', position: 'top' -%}
+  {%- endif -%}
   <div class="slideshow__inner swiper">
     <div class="slideshow__carousel swiper-wrapper" data-slideshow>
       {%- for block in section.blocks -%}
@@ -67,6 +89,9 @@
       -%}
     {%- endif -%}
   </div>
+  {%- if has_wave_bottom -%}
+    {%- render 'wave', position: 'bottom' -%}
+  {%- endif -%}
 </div>
 
 {% schema %}
@@ -214,6 +239,34 @@
           "value": "bottom-only"
         }
       ]
+    },
+    {
+      "type": "paragraph",
+      "content": "t:shared.settings.rough_border.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_wave_top_desktop",
+      "label": "t:shared.settings.rough_border.enable_wave_top_desktop.label",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_wave_bottom_desktop",
+      "label": "t:shared.settings.rough_border.enable_wave_bottom_desktop.label",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_wave_top_mobile",
+      "label": "t:shared.settings.rough_border.enable_wave_top_mobile.label",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_wave_bottom_mobile",
+      "label": "t:shared.settings.rough_border.enable_wave_bottom_mobile.label",
+      "default": false
     },
     {
       "type": "select",
@@ -592,6 +645,22 @@
           ]
         },
         {
+          "type": "select",
+          "id": "button_color_1",
+          "label": "t:shared.settings.button_color.label",
+          "default": "btn--dark",
+          "options": [
+            {
+              "value": "btn--dark",
+              "label": "t:shared.settings.button_color.dark"
+            },
+            {
+              "value": "btn--light",
+              "label": "t:shared.settings.button_color.light"
+            }
+          ]
+        },
+        {
           "type": "header",
           "content": "t:sections.slideshow.blocks.slide.settings.header__button_2.content"
         },
@@ -620,6 +689,37 @@
               "label": "t:shared.settings.button_style.option_outline"
             }
           ]
+        },
+        {
+          "type": "select",
+          "id": "button_color_2",
+          "label": "t:shared.settings.button_color.label",
+          "default": "btn--dark",
+          "options": [
+            {
+              "value": "btn--dark",
+              "label": "t:shared.settings.button_color.dark"
+            },
+            {
+              "value": "btn--light",
+              "label": "t:shared.settings.button_color.light"
+            }
+          ]
+        },
+        {
+          "type": "header",
+          "content": "t:sections.slideshow.blocks.slide.settings.header__product_pick.content"
+        },
+        {
+          "type": "product",
+          "id": "product_pick",
+          "label": "t:sections.slideshow.blocks.slide.settings.product_pick.label"
+        },
+        {
+          "type": "text",
+          "id": "product_pick_label",
+          "label": "t:sections.slideshow.blocks.slide.settings.product_pick_label.label",
+          "default": "Ray's pick"
         },
         {
           "type": "header",

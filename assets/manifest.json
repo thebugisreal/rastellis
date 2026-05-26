@@ -319,32 +319,32 @@
     "isEntry": true
   },
   "frontend/entrypoints/custom.css": {
-    "file": "custom-DNRXigxx.css",
+    "file": "custom-BLweU5YO.css",
     "src": "frontend/entrypoints/custom.css",
     "isEntry": true
   },
   "frontend/entrypoints/template-article.css": {
-    "file": "template-article-Cd_6ZfOD.css",
+    "file": "template-article-BCHusDya.css",
     "src": "frontend/entrypoints/template-article.css",
     "isEntry": true
   },
   "frontend/entrypoints/template-blog.css": {
-    "file": "template-blog-CVoHDvl8.css",
+    "file": "template-blog-B00w8NJ-.css",
     "src": "frontend/entrypoints/template-blog.css",
     "isEntry": true
   },
   "frontend/entrypoints/template-customers.css": {
-    "file": "template-customers-BkVu7QKQ.css",
+    "file": "template-customers-Bl-AUkXd.css",
     "src": "frontend/entrypoints/template-customers.css",
     "isEntry": true
   },
   "frontend/entrypoints/template-gift-card.css": {
-    "file": "template-gift-card-jvwf1PD9.css",
+    "file": "template-gift-card-CgfgGvaS.css",
     "src": "frontend/entrypoints/template-gift-card.css",
     "isEntry": true
   },
   "frontend/entrypoints/template-password.css": {
-    "file": "template-password-DaI3klx4.css",
+    "file": "template-password-BAw6nuwC.css",
     "src": "frontend/entrypoints/template-password.css",
     "isEntry": true
   },
@@ -354,7 +354,7 @@
     "isEntry": true
   },
   "frontend/entrypoints/theme-design-mode.js": {
-    "file": "theme-design-mode-DAUU6y_X.js",
+    "file": "theme-design-mode-DbVMaeNy.js",
     "name": "theme-design-mode",
     "src": "frontend/entrypoints/theme-design-mode.js",
     "isEntry": true,
@@ -452,12 +452,12 @@
     ]
   },
   "frontend/entrypoints/theme.css": {
-    "file": "theme-BX-_ymhN.css",
+    "file": "theme-DwFZ-IX_.css",
     "src": "frontend/entrypoints/theme.css",
     "isEntry": true
   },
   "frontend/entrypoints/theme.js": {
-    "file": "theme-BvSsx83C.js",
+    "file": "theme-U6z9tZ_q.js",
     "name": "theme",
     "src": "frontend/entrypoints/theme.js",
     "isEntry": true,
@@ -530,7 +530,7 @@
     ]
   },
   "frontend/entrypoints/typography.css": {
-    "file": "typography-CkkGoBTm.css",
+    "file": "typography-CTB-Mx4p.css",
     "src": "frontend/entrypoints/typography.css",
     "isEntry": true
   },
@@ -646,7 +646,7 @@
     ]
   },
   "frontend/scripts/sections/blog-posts.js": {
-    "file": "blog-posts-Btvf_aBi.js",
+    "file": "blog-posts-MNJ71ziY.js",
     "name": "blog-posts",
     "src": "frontend/scripts/sections/blog-posts.js",
     "isDynamicEntry": true,
@@ -657,6 +657,9 @@
       "_shouldAnimate-UBwZO_aC.js",
       "_carousel-eu4IY4Zw.js",
       "_media-queries-CokWIw5y.js"
+    ],
+    "dynamicImports": [
+      "frontend/scripts/lib/video-control.js"
     ]
   },
   "frontend/scripts/sections/collapsible-row-list.js": {
@@ -810,17 +813,17 @@
     ]
   },
   "frontend/scripts/sections/featured-collection-slider.js": {
-    "file": "featured-collection-slider-CRSJEViP.js",
+    "file": "featured-collection-slider-BEEn_O99.js",
     "name": "featured-collection-slider",
     "src": "frontend/scripts/sections/featured-collection-slider.js",
     "isDynamicEntry": true,
     "imports": [
       "_index-BWeMscSV.js",
-      "_evx.es-D_-Lbk8t.js",
       "_carousel-eu4IY4Zw.js",
       "_product-item-Cw-fDYgY.js",
       "_list-slider-CR4Z_T1p.js",
       "_shouldAnimate-UBwZO_aC.js",
+      "_evx.es-D_-Lbk8t.js",
       "_cart-Dp1qr_mc.js",
       "_storage-CVUx8WVm.js",
       "_intersection-watcher-CQpC-SnO.js",
@@ -860,7 +863,7 @@
     ]
   },
   "frontend/scripts/sections/footer.js": {
-    "file": "footer-D_aabhGy.js",
+    "file": "footer-CUM39Rtc.js",
     "name": "footer",
     "src": "frontend/scripts/sections/footer.js",
     "isDynamicEntry": true,
@@ -899,7 +902,7 @@
     ]
   },
   "frontend/scripts/sections/header.js": {
-    "file": "header-DaK_tmqu.js",
+    "file": "header-DNAA2q2f.js",
     "name": "header",
     "src": "frontend/scripts/sections/header.js",
     "isDynamicEntry": true,
@@ -1248,7 +1251,7 @@
     ]
   },
   "frontend/scripts/sections/slideshow.js": {
-    "file": "slideshow-CISfbU2a.js",
+    "file": "slideshow-ChSNuOMN.js",
     "name": "slideshow",
     "src": "frontend/scripts/sections/slideshow.js",
     "isDynamicEntry": true,
@@ -1589,12 +1592,12 @@
     "isEntry": true
   },
   "frontend/styles/modules/component-shoppable.css": {
-    "file": "component-shoppable-t8tsAzzn.css",
+    "file": "component-shoppable-DTjGcpbV.css",
     "src": "frontend/styles/modules/component-shoppable.css",
     "isEntry": true
   },
   "frontend/styles/modules/header.css": {
-    "file": "header-Rd1bZO1T.css",
+    "file": "header-BEjH3oq-.css",
     "src": "frontend/styles/modules/header.css",
     "isEntry": true
   },
@@ -1609,7 +1612,7 @@
     "isEntry": true
   },
   "frontend/styles/modules/partial-shopify-product-reviews.css": {
-    "file": "partial-shopify-product-reviews-GlljoWl3.css",
+    "file": "partial-shopify-product-reviews-C5mI2Qoi.css",
     "src": "frontend/styles/modules/partial-shopify-product-reviews.css",
     "isEntry": true
   },

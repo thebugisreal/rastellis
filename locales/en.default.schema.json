@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "groups": {
     "footer_group": {
@@ -82,6 +91,21 @@
               "label": "Article"
             }
           }
+        },
+        "video": {
+          "name": "Video",
+          "settings": {
+            "video__header": {
+              "content": "Video"
+            },
+            "replace_article_position": {
+              "label": "Replace article position",
+              "info": "Enter the position number of the article to replace its featured image with this video. For example, enter 1 to replace the first article."
+            },
+            "overlay_text": {
+              "label": "Title"
+            }
+          }
         }
       },
       "name": "Blog posts",
@@ -95,8 +119,8 @@
         "enable_slider": {
           "label": "Enable slider"
         },
-        "show_pagination": {
-          "label": "Show pagination dots"
+        "show_navigation": {
+          "label": "Show navigation"
         },
         "article_options__header": {
           "content": "Article options"
@@ -772,6 +796,33 @@
       }
     },
     "featured_collection_slider": {
+      "settings": {
+        "header__padding_mobile": {
+          "content": "Mobile padding"
+        },
+        "header__padding_desktop": {
+          "content": "Desktop padding"
+        },
+        "padding_top": {
+          "label": "Top"
+        },
+        "padding_bottom": {
+          "label": "Bottom"
+        },
+        "content_alignment": {
+          "label": "Alignment"
+        },
+        "header__sticker": {
+          "content": "Sticker"
+        },
+        "sticker_image": {
+          "label": "Image"
+        },
+        "show_carousel_controls": {
+          "label": "Carousel navigation",
+          "info": "Dots on mobile and arrows on desktop for the product carousel."
+        }
+      },
       "blocks": {
         "collection": {
           "name": "Collection",
@@ -793,6 +844,48 @@
       "name": "Featured collection slider",
       "presets": {
         "name": "Featured collection slider"
+      },
+      "settings": {
+        "padding_top": {
+          "label": "Top"
+        },
+        "padding_bottom": {
+          "label": "Bottom"
+        },
+        "content_alignment": {
+          "label": "Content alignment",
+          "option_center": "Center",
+          "option_left": "Left"
+        },
+        "tab_indicator_style": {
+          "label": "Tab indicator style",
+          "option_dot": "Dot",
+          "option_underline": "Underline"
+        },
+        "background_illustration": {
+          "label": "Background illustration"
+        },
+        "bottom_link": {
+          "label": "Bottom CTA link"
+        },
+        "bottom_link_label": {
+          "label": "Bottom CTA label"
+        },
+        "show_variant_row": {
+          "label": "Variant and unit price row"
+        },
+        "show_atc": {
+          "label": "Add to Cart button"
+        },
+        "enable_carousel_navigation": {
+          "label": "Carousel navigation"
+        },
+        "header__padding_mobile": {
+          "content": "Mobile padding"
+        },
+        "header__padding_desktop": {
+          "content": "Desktop padding"
+        }
       }
     },
     "featured_product": {
@@ -875,6 +968,9 @@
         "text": {
           "name": "Text and image",
           "settings": {
+            "title": {
+              "label": "Heading"
+            },
             "image_placement": {
               "label": "Image placement",
               "option_above_text": "Above text",
@@ -893,6 +989,9 @@
         },
         "additional_copyright_text": {
           "label": "Additional copyright text"
+        },
+        "legal_links": {
+          "label": "Policy links"
         },
         "enable_follow_on_shop": {
           "label": "Enable Follow on Shop"
@@ -996,6 +1095,9 @@
             "header__image": {
               "content": "Background image"
             },
+            "enable_square_ratio": {
+              "label": "Square ratio"
+            },
             "height": {
               "label": "Height"
             },
@@ -1055,6 +1157,27 @@
         "spacing": {
           "label": "Grid spacing"
         },
+        "spacing_mobile": {
+          "label": "Grid spacing (mobile)"
+        },
+        "header__padding_mobile": {
+          "content": "Mobile padding"
+        },
+        "header__padding_desktop": {
+          "content": "Desktop padding"
+        },
+        "padding_top": {
+          "label": "Top padding"
+        },
+        "padding_bottom": {
+          "label": "Bottom padding"
+        },
+        "padding_top_mobile": {
+          "label": "Top padding (mobile)"
+        },
+        "padding_bottom_mobile": {
+          "label": "Bottom padding (mobile)"
+        },
         "subheading": {
           "label": "Subheading"
         }
@@ -1080,8 +1203,11 @@
         "enable_sticky_header": {
           "label": "Enable sticky header"
         },
-        "enable_expand_first": {
-          "label": "Enable expand first menu",
+        "enable_hide_header_on_scroll": {
+          "label": "Hide header on scroll"
+        },
+        "expand_submenus_inline": {
+          "label": "Expand megamenu",
           "info": "Only for Mobile"
         },
         "enable_transparent_on_home": {
@@ -2650,7 +2776,27 @@
     "multi_column": {
       "blocks": {
         "column": {
-          "name": "Column"
+          "name": "Column",
+          "settings": {
+            "enable_heading_custom_font": {
+              "label": "Enable heading custom font"
+            },
+            "custom_font_family": {
+              "label": "Custom font family"
+            },
+            "custom_font_weight": {
+              "label": "Custom font weight"
+            },
+            "custom_line_height": {
+              "label": "Custom line height"
+            },
+            "custom_font_size_desktop": {
+              "label": "Custom font size (desktop)"
+            },
+            "custom_font_size_mobile": {
+              "label": "Custom font size (mobile)"
+            }
+          }
         },
         "icon_column": {
           "name": "Column with icon",
@@ -2722,6 +2868,12 @@
         "name": "Multi-column"
       },
       "settings": {
+        "background_image": {
+          "label": "Background image"
+        },
+        "background_image_mobile": {
+          "label": "Mobile background image"
+        },
         "background_behind_columns": {
           "label": "Show background behind columns"
         },
@@ -2755,6 +2907,9 @@
         },
         "enable_slider_mobile": {
           "label": "Enable slider on mobile"
+        },
+        "grid_width": {
+          "label": "Grid width"
         },
         "header__desktop_layout": {
           "content": "Desktop layout"
@@ -3707,6 +3862,15 @@
             "media_link": {
               "label": "Image link"
             },
+            "header__product_pick": {
+              "content": "Product card"
+            },
+            "product_pick": {
+              "label": "Product"
+            },
+            "product_pick_label": {
+              "label": "Label"
+            },
             "mobile_focal_point": {
               "label": "Mobile image focal point"
             },
@@ -4194,6 +4358,18 @@
         }
       }
     },
+    "rough_border": {
+      "name": "Rough border",
+      "settings": {
+        "wave_image_desktop": {
+          "label": "Desktop"
+        },
+        "wave_image_mobile": {
+          "label": "Mobile",
+          "info": "Optional. Uses desktop SVG when empty."
+        }
+      }
+    },
     "blog": {
       "name": "Blog",
       "settings": {
@@ -4476,11 +4652,20 @@
         "color_header_transparent_text": {
           "label": "Transparent Nav Text Color"
         },
+        "color_header_navigation_background": {
+          "label": "Navigation Background Color"
+        },
         "color_footer_text": {
           "label": "Text"
         },
         "color_footer_background": {
           "label": "Background Color"
+        },
+        "color_footer_bottom_background": {
+          "label": "Bottom Bar Background"
+        },
+        "color_footer_bottom_text": {
+          "label": "Bottom Bar Text"
         },
         "input_fields__header": {
           "content": "Input Fields"
@@ -4526,6 +4711,15 @@
         },
         "color_product_out_stock": {
           "label": "Out of Stock"
+        },
+        "disabled_state_header": {
+          "content": "Disabled State"
+        },
+        "color_button_disabled_state": {
+          "label": "Button Disabled State"
+        },
+        "color_callout_disabled_state": {
+          "label": "Callout Disabled State"
         }
       }
     },
@@ -4598,10 +4792,10 @@
           "content": "Heading 6"
         },
         "header_subheading_1": {
-          "content": "Subheading 1"
+          "content": "Subheading - Primary font"
         },
         "header_subheading_2": {
-          "content": "Subheading 2"
+          "content": "Subheading - Secondary font"
         },
         "header_blog_body": {
           "content": "Blog body"
@@ -4645,7 +4839,10 @@
           "label": "Font Family"
         },
         "header_heading": {
-          "content": "Heading"
+          "content": "Heading - Primary font"
+        },
+        "header_heading_5-6": {
+          "content": "Heading - Secondary font"
         },
         "header_subheading": {
           "content": "Subheading"
@@ -5245,6 +5442,7 @@
       "column_count": {
         "columns": {
           "option_1": "1",
+          "option_1_1": "1.1",
           "option_2": "2",
           "option_3": "3",
           "option_4": "4",
@@ -5625,6 +5823,21 @@
       "overlay_opacity": {
         "label": "Overlay opacity"
       },
+      "rough_border": {
+        "info": "Rough border SVGs are uploaded in Theme settings, under Rough border.",
+        "enable_wave_top_desktop": {
+          "label": "Rough border top"
+        },
+        "enable_wave_bottom_desktop": {
+          "label": "Rough border bottom"
+        },
+        "enable_wave_top_mobile": {
+          "label": "Rough border top (mobile)"
+        },
+        "enable_wave_bottom_mobile": {
+          "label": "Rough border bottom (mobile)"
+        }
+      },
       "pagination": {
         "label": "Pagination",
         "options__1": "Infinite",
@@ -5805,13 +6018,30 @@
         "label": "Type Face",
         "options": {
           "primary": "Primary",
-          "secondary": "Secondary"
+          "secondary": "Secondary",
+          "body": "Body"
         }
       },
       "button_color": {
         "label": "Button Color",
         "dark": "Dark",
         "light": "Light"
+      },
+      "enable_custom_spacing": {
+        "label": "Enable custom spacing",
+        "info": "This will override the section padding settings."
+      },
+      "padding_top": {
+        "label": "Padding top"
+      },
+      "padding_top_mobile": {
+        "label": "Mobile padding top"
+      },
+      "padding_bottom": {
+        "label": "Padding bottom"
+      },
+      "padding_bottom_mobile": {
+        "label": "Mobile padding bottom"
       }
     },
     "column": {

@@ -188,6 +188,29 @@
   letter-spacing: var(--font-navigation-base-letter-spacing);
 }
 
+.ff-heading.ff-secondary {
+  font-family: var(--font-heading-2) !important;
+  font-weight: var(--font-heading-2-weight) !important;
+}
+
+.ff-heading.ff-secondary.fs-heading-bold {
+  font-weight: var(--font-heading-2-bold-weight) !important;
+}
+
+.ff-subheading.ff-secondary {
+  font-family: var(--font-subheading-2) !important;
+  font-weight: var(--font-subheading-2-weight) !important;
+}
+
+.ff-subheading.ff-body {
+  font-family: var(--font-body) !important;
+  font-weight: var(--font-body-weight) !important;
+}
+
+.ff-subheading.ff-secondary.fs-subheading-bold {
+  font-weight: var(--font-subheading-2-bold-weight) !important;
+}
+
 .c-heading-text-dark {
   color: var(--color-heading-text-dark);
 }
@@ -217,8 +240,10 @@ a.link {
   text-decoration: underline;
   transition: opacity 0.25s;
 
-  &:hover {
-    opacity: 0.6;
+  @media (--can-hover) {
+    &:hover {
+      opacity: 0.6;
+    }
   }
 }
 

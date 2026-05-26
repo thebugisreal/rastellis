@@ -29,6 +29,21 @@
   if section.settings.image_aspect == 'original'
     assign placeholder_aspect_ratio = 'square'
   endif
+
+  assign has_wave_top = false
+  if section.settings.enable_wave_top_desktop or section.settings.enable_wave_top_mobile
+    assign has_wave_top = true
+  endif
+
+  assign has_wave_bottom = false
+  if section.settings.enable_wave_bottom_desktop or section.settings.enable_wave_bottom_mobile
+    assign has_wave_bottom = true
+  endif
+
+  assign has_rough_border = false
+  if has_wave_top or has_wave_bottom
+    assign has_rough_border = true
+  endif
 -%}
 
 <div
@@ -50,6 +65,11 @@
     {% if section.settings.enable_hero_video == true and section.settings.video_url_hero != blank %}
       js-video-media
     {% endif %}
+    {% if section.settings.enable_wave_top_desktop %}rough-border--top-desktop{% endif %}
+    {% if section.settings.enable_wave_top_mobile %}rough-border--top-mobile{% endif %}
+    {% if section.settings.enable_wave_bottom_desktop %}rough-border--bottom-desktop{% endif %}
+    {% if section.settings.enable_wave_bottom_mobile %}rough-border--bottom-mobile{% endif %}
+    {% if has_rough_border %}has-rough-border{% endif %}
     link-color-scheme--{{ section.settings.link_color_scheme }}
   "
   data-section-id="{{ section.id }}"
@@ -71,6 +91,9 @@
     {% render 'overlay-button-vars' with color_button_text: section.settings.button_text_color, color_button_background: section.settings.button_background_color %}
   "
 >
+  {%- if has_wave_top -%}
+    {%- render 'wave', position: 'top' -%}
+  {%- endif -%}
   <div class="image-hero__inner">
     {%- if section.settings.enable_hero_video == true and section.settings.video_url_hero != blank -%}
       <video-control class="hero__media-container">
@@ -81,22 +104,26 @@
             video: section.settings.video_url_hero,
             poster: video_poster,
             controls: false,
-            video_pause: "false",
-            loop: true
+            video_pause: false,
+            loop: true,
+            wrapper_class: 'hero__video'
           -%}
-          <div class="absolute right-0 bottom-0 p-[14px] md:p-[22px] z-[100]">
-            <button class="flex p-0 video-play-button js-button-video played" aria-label="Play/pause" aria-pressed="false">
-              <span class="flex items-center video-button-content--play">
+          <div class="absolute right-0 bottom-0 p-5 md:p-[56px] z-[100]">
+            <button
+              type="button"
+              class="flex p-0 video-play-button js-button-video played"
+              aria-label="{{ 'general.accessibility.play_video' | t }}"
+              aria-pressed="false"
+            >
+              <span class="flex items-center video-button-content--play" aria-hidden="true">
                 {%- render "play-icon",
-                  class: "w-[10px]"
+                  class: "w-[32px]"
                 -%}
-                <span class="ml-1 ff-heading">{{ 'general.accessibility.play' | t }}</span>
               </span>
-              <span class="flex items-center video-button-content--pause">
+              <span class="flex items-center video-button-content--pause" aria-hidden="true">
                 {%- render "pause-icon",
-                  class: "w-[10px]"
+                  class: "w-[32px]"
                 -%}
-                <span class="ml-1 ff-heading">{{ 'general.accessibility.pause' | t }}</span>
               </span>
             </button>
           </div>
@@ -122,8 +149,8 @@
     {% endif %}
     <div class="image-hero__overlay"></div>
 
-    <div class="image-hero__text-container-wrapper max-w-full lg:pb-[72px] {% if section.settings.enable_hero_video == true %} image-hero__text-video !absolute {% endif %}">
-      <div class="image-hero__text-container max-w-[530px]">
+    <div class="image-hero__text-container-wrapper max-w-full {% if section.settings.enable_hero_video == true %} image-hero__text-video !absolute {% endif %}">
+      <div class="image-hero__text-container max-w-[538px]">
         {%- unless section.settings.media_link == blank -%}
           <a
             href="{{ section.settings.media_link }}"
@@ -143,19 +170,19 @@
                 {%- endunless -%}
               {%- when 'heading' -%}
                 {%- unless block.settings.title == blank -%}
-                  <h2 class="image-hero__text-container-heading ff-heading {{ block.settings.heading_font_class }} {{ block.settings.font_family_class  }} {% if section.settings.text_color == 'rgba(0,0,0,0)' or section.settings.text_color == blank %}{{ block.settings.heading_color }}{% endif %} section-blocks__heading">
+                  <h2 class="image-hero__text-container-heading ff-heading {{ block.settings.heading_font_class }} {{ block.settings.font_family_class }} {{ block.settings.heading_color }} section-blocks__heading">
                     {{ block.settings.title }}
                   </h2>
                 {%- endunless -%}
               {%- when 'subheading' -%}
                 {%- unless block.settings.subheading == blank -%}
-                  <h2 class="image-hero__text-container-subheading ff-subheading {{ block.settings.subheading_font_class }} {{ block.settings.font_family_class  }} {% if section.settings.text_color == 'rgba(0,0,0,0)' or section.settings.text_color == blank %}{{ block.settings.subheading_color }}{% endif %} section-blocks__subheading">
+                  <h2 class="image-hero__text-container-subheading ff-subheading {{ block.settings.subheading_font_class }} {{ block.settings.font_family_class }} {{ block.settings.subheading_color }} section-blocks__subheading">
                     {{ block.settings.subheading }}
                   </h2>
                 {%- endunless -%}
               {%- when 'text' -%}
                 {%- unless block.settings.text == blank -%}
-                  <div class="image-hero__text-container-text rte ff-body {{ block.settings.text_font_class }} section-blocks__text {% if section.settings.text_color == 'rgba(0,0,0,0)' or section.settings.text_color == blank %}{{ block.settings.custom_text_color }}{% endif %} mt-[4px] mb-[16px] md:mb-[24px] md:mt-[8px]">
+                  <div class="image-hero__text-container-text rte ff-body {{ block.settings.text_font_class }} {{ block.settings.custom_text_color }} section-blocks__text">
                       {{ block.settings.text }}
                   </div>
                 {%- endunless -%}
@@ -209,6 +236,9 @@
       </div>
     </div>
   </div>
+  {%- if has_wave_bottom -%}
+    {%- render 'wave', position: 'bottom' -%}
+  {%- endif -%}
 </div>
 
 {% schema %}
@@ -429,6 +459,34 @@
       ]
     },
     {
+      "type": "paragraph",
+      "content": "t:shared.settings.rough_border.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_wave_top_desktop",
+      "label": "t:shared.settings.rough_border.enable_wave_top_desktop.label",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_wave_bottom_desktop",
+      "label": "t:shared.settings.rough_border.enable_wave_bottom_desktop.label",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_wave_top_mobile",
+      "label": "t:shared.settings.rough_border.enable_wave_top_mobile.label",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_wave_bottom_mobile",
+      "label": "t:shared.settings.rough_border.enable_wave_bottom_mobile.label",
+      "default": false
+    },
+    {
       "type": "select",
       "id": "link_color_scheme",
       "label": "t:shared.settings.link_color_scheme.label",
@@ -557,6 +615,10 @@
             {
               "value": "ff-secondary",
               "label": "t:shared.settings.font_family_class.options.secondary"
+            },
+            {
+              "value": "ff-body",
+              "label": "t:shared.settings.font_family_class.options.body"
             }
           ]
         },
@@ -573,6 +635,14 @@
             {
               "value": "fs-body-200",
               "label": "t:shared.settings.subheading_font_class.option_subheading_2"
+            },
+            {
+              "value": "fs-body-75",
+              "label": "t:shared.settings.text_font_class.option_body_1"
+            },
+            {
+              "value": "fs-body-50",
+              "label": "t:shared.settings.text_font_class.option_body_2"
             }
           ]
         },

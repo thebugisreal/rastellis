@@ -1,28 +1,118 @@
-.featured-collection-slider__meta {
+.featured-collection-slider.section {
+  padding-top: var(--section-padding-top-mobile);
+  padding-bottom: var(--section-padding-bottom-mobile);
+
+  @media (--above-720) {
+    padding-top: var(--section-padding-top-desktop);
+    padding-bottom: var(--section-padding-bottom-desktop);
+  }
+}
+
+.shopify-section:has(.featured-collection-slider--has-background-illustration) {
+  overflow: visible;
+}
+
+.featured-collection-slider--has-background-illustration {
+  z-index: 1;
+}
+
+.featured-collection-slider__inner {
+  position: relative;
+}
+
+.featured-collection-slider__bottom-nav {
+  display: flex;
+  justify-content: center;
+
   .featured-collection-slider__navigation-buttons {
     display: none;
+    gap: var(--spacing-5);
+    margin-left: 0;
 
-    @media (--above-720) {
-      &.visible {
-        display: flex;
-      }
+    /* Hide the whole wrapper when Swiper locks all buttons (no overflow) */
+    &:has(.swiper-button-lock) {
+      display: none;
     }
+
+    .carousel__navigation-button--forward,
+    .carousel__navigation-button--back {
+      margin: var(--spacing-8) 0;
+    }
+  }
+}
+
+.featured-collection-slider--carousel-navigation
+  .featured-collection-slider__bottom-nav
+  .featured-collection-slider__navigation-buttons.visible {
+  display: flex;
+}
+
+.featured-collection-slider .section-introduction > .featured-collection-slider__heading {
+  margin-bottom: var(--spacing-1);
+}
+
+.featured-collection-slider__meta:not(:has(.featured-collection-slider__meta-controls))
+  .section-introduction
+  > .featured-collection-slider__heading {
+  margin-bottom: var(--spacing-8);
+}
+
+.featured-collection-slider__meta--align-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .section-introduction {
+    text-align: center;
+    width: 100%;
+  }
+
+  .featured-collection-slider__meta-controls {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .featured-collection-slider__navigation-list {
+    justify-content: center;
+    width: fit-content;
+    max-width: 100%;
+    margin-inline: auto;
   }
 }
 
 .featured-collection-slider__meta-controls {
   display: flex;
+  margin-top: var(--spacing-6);
+  margin-bottom: var(--spacing-6);
+
+  @media (--above-720) {
+    margin-top: var(--spacing-5);
+    margin-bottom: var(--spacing-10);
+  }
+}
+
+.featured-collection-slider__meta-controls--align-center {
+  justify-content: center;
+
+  .featured-collection-slider__navigation-list {
+    justify-content: center;
+    width: fit-content;
+    max-width: 100%;
+    margin-inline: auto;
+  }
 }
 
 .featured-collection-slider__navigation-list {
   display: flex;
   flex-wrap: wrap;
+  row-gap: 10px;
+  column-gap: 20px;
   padding: 0;
   margin: 0;
   list-style: none;
 
-  li {
-    margin-right: var(--spacing-6);
+  @media (--above-720) {
+    gap: var(--spacing-10);
   }
 
   .no-js & {
@@ -33,15 +123,18 @@
 .featured-collection-slider__navigation-list-item {
   display: flex;
   flex-direction: column;
-  margin-bottom: var(--spacing-7);
-  opacity: 0.7;
+  align-items: center;
+  margin-bottom: 0;
+  color: var(--color-text);
+  opacity: 0.5;
 
-  @media (--above-720) {
-    margin-bottom: var(--spacing-8);
-  }
-
-  &.selected {
+  &.selected,
+  &:hover {
     opacity: 1;
+
+    .featured-collection-slider__navigation-indicator {
+      opacity: 1;
+    }
 
     .indicator {
       width: 100%;
@@ -54,6 +147,21 @@
     height: 2px;
     background-color: var(--color-text);
     transition: width var(--duration-normal) var(--easing);
+  }
+
+  .featured-collection-slider__navigation-indicator {
+    display: flex;
+    margin-top: var(--spacing-2);
+    width: 13px;
+    height: 12px;
+    opacity: 0;
+    transition: opacity var(--duration-normal) var(--easing);
+
+    .icon {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
   }
 }
 
@@ -90,6 +198,101 @@
 
   &.visible {
     display: block;
+    z-index: 2;
+  }
+}
+
+/* Dot indicator variant */
+.featured-collection-slider--dot-indicator {
+  .featured-collection-slider__navigation-list-item {
+    .indicator {
+      display: none;
+    }
+
+    .featured-collection-slider__navigation-indicator {
+      display: flex;
+      margin-top: var(--spacing-2);
+      width: 13px;
+      height: 12px;
+      color: var(--color-inline-link-dark);
+      opacity: 0;
+      transition: opacity var(--duration-normal) var(--easing);
+
+      .icon {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    &.selected,
+    &:hover {
+      .featured-collection-slider__navigation-indicator {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+/* Background illustration */
+.featured-collection-slider__background-illustration {
+  display: none;
+  position: absolute;
+  top: -124px;
+  right: -84px;
+  z-index: 2;
+  width: 404px;
+  aspect-ratio: 404 / 343;
+  pointer-events: none;
+
+  @media (--above-720) {
+    display: block;
+  }
+
+  & .featured-collection-slider__background-illustration-img {
+    width: 100%;
+    height: 100%;
+
+    & .image__inner,
+    & .image__img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+    }
+  }
+}
+
+/* Bottom full-width CTA */
+.featured-collection-slider__shop-all-wrap {
+  padding: var(--spacing-10) var(--spacing-14);
+  margin-top: var(--spacing-6);
+
+  @media (--above-720) {
+    margin-top: var(--spacing-10);
+  }
+}
+
+.featured-collection-slider__shop-all-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-2);
+  width: 100%;
+  height: 53px;
+  border: 1px solid var(--color-button-dark-outline-border);
+  border-radius: 500px;
+  background: transparent;
+  color: var(--color-button-dark-outline-text);
+  text-decoration: none;
+  font-weight: var(--font-weight-body-bold);
+  transition: background-color var(--duration-fast) var(--easing),
+    border-color var(--duration-fast) var(--easing),
+    color var(--duration-fast) var(--easing);
+
+  &:hover {
+    background-color: var(--color-button-dark-solid-text);
+    border-color: var(--color-button-dark-solid-text);
   }
 }
 

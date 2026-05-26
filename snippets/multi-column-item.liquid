@@ -42,7 +42,17 @@
   </figure>
 {%- endcapture -%}
 
-<div class="multi-column__grid-item carousel__slide swiper-slide" {{ block.shopify_attributes }}>
+<div class="multi-column__grid-item multi-column__grid-item--{{ block.type }} {% if block.settings.enable_heading_custom_font %}multi-column__grid-item--heading-custom-font{% endif %} carousel__slide swiper-slide" {{ block.shopify_attributes }}
+  {% if block.settings.enable_heading_custom_font %}
+    style="
+      --custom-font-family: {{ block.settings.custom_font_family }};
+      --custom-font-weight: {{ block.settings.custom_font_weight }};
+      --custom-line-height: {{ block.settings.custom_line_height }};
+      --custom-font-size-desktop: {{ block.settings.custom_font_size_desktop }}px;
+      --custom-font-size-mobile: {{ block.settings.custom_font_size_mobile }}px;
+    "
+  {% endif %}
+>
   {%- if block.type == 'icon_column' -%}
     {%- liquid
       assign icon_position = 'multi-column__grid-item-inner--icon-' | append: block.settings.icon_position
@@ -100,7 +110,7 @@
         {%- endunless -%}
 
         {%- unless block.settings.heading == blank -%}
-          <{{ block.settings.heading_tag }} class="multi-column__grid-item-heading ff-heading {{ block.settings.heading_font_class }} {% if section.settings.text_color == 'rgba(0,0,0,0)' or section.settings.text_color == blank %}{{ block.settings.heading_color }}{% endif %}">
+          <{{ block.settings.heading_tag }} class="multi-column__grid-item-heading ff-subheading {{ block.settings.heading_font_class }} {% if section.settings.text_color == 'rgba(0,0,0,0)' or section.settings.text_color == blank %}{{ block.settings.heading_color }}{% endif %}">
             {{ block.settings.heading }}
           </{{ block.settings.heading_tag }}>
         {%- endunless -%}

@@ -2,17 +2,12 @@ import section from '@/scripts/glow/section'
 import animateBlogPosts from '@/scripts/lib/animation/blog-posts'
 import shouldAnimate from '@/scripts/lib/animation/shouldAnimate'
 import Carousel from '@/scripts/lib/carousel'
-import { qs } from '@fluorescent/dom'
+
+import('@/scripts/lib/video-control.js')
 
 section('blog-posts', {
   onLoad() {
-    const { enableSlider, enablePagination } = this.container.dataset
-    this.enablePagination = enablePagination
-    this.sliderPagination = qs('.swiper-pagination', this.container)
-
-    if (enableSlider) {
-      this._initCarousel()
-    }
+    this._initCarousel()
 
     if (shouldAnimate(this.container)) {
       this.animateBlogPosts = animateBlogPosts(this.container)
@@ -21,20 +16,12 @@ section('blog-posts', {
 
   _initCarousel() {
     this.carousel = Carousel(this.container, {
-      slidesPerView: 1,
-      spaceBetween: 12,
-      pagination: {
-        el: this.enablePagination == 'true' ? this.sliderPagination : null,
-        clickable: true,
-      },
+      slidesPerView: 1.1,
+      spaceBetween: 16,
       breakpoints: {
         720: {
-          spaceBetween: 16,
-          slidesPerView: 2,
-        },
-        1024: {
-          spaceBetween: 24,
-          slidesPerView: 2,
+          spaceBetween: 32,
+          slidesPerView: 4,
         },
       },
     })

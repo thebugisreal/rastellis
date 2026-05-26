@@ -10,16 +10,17 @@
 .product-badge {
   display: flex;
   align-items: center;
-  line-height: 1em;
-  font-size: var(--font-size-body-2);
-  padding: 0.3em 0.3em;
+  font-size: var(--font-size-subheading-1);
+  line-height: var(--line-height-subheading-1);
+  text-transform: var(--text-transform-subheading-1);
+  letter-spacing: var(--letter-spacing-subheading-1);
+  font-weight: 700;
+  padding: 6px 4px 4px;
   background: var(--color-background);
   color: var(--color-text);
   border: 1px solid currentColor;
-  margin-right: var(--spacing-2);
-  margin-bottom: var(--spacing-2);
-  padding: 0.3em 0.3em;
-  font-size: var(--font-size-product-badge);
+  border-radius: 4px;
+  height: 26px;
 }
 
 .product-badge--sale {

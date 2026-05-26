@@ -23,16 +23,23 @@ const sel = {
   form: ".drawer-menu__form",
   localeInput: "[data-locale-input]",
   currencyInput: "[data-currency-input]",
+  accordion: ".drawer-menu__accordion",
+  accordionTrigger: ".drawer-menu__accordion-trigger",
+  accordionPanel: ".drawer-menu__accordion-panel",
 };
 
 const classes = {
   active: "active",
   visible: "visible",
   countrySelector: "drawer-menu__list--country-selector",
+  accordionClosing: "is-closing",
 };
 
 // Extra space we add to the height of the inner container
 const formatHeight = h => h + 8 + "px";
+
+// Matches --duration-fast on drawer-menu__accordion-panel style
+const ACCORDION_CLOSE_DURATION = 300;
 
 const menu = node => {
   const drawerMenuAnimation = animateDrawerMenu(node);
@@ -75,6 +82,7 @@ const menu = node => {
   // Every individual menu item
   const items = node.querySelectorAll(sel.item);
   items.forEach(item => item.addEventListener("click", handleItem));
+  node.addEventListener("click", clickAccordion);
 
   function handleItem(e) {
     const { item } = e.currentTarget.dataset;
@@ -238,6 +246,34 @@ const menu = node => {
     navigate((linksDepth -= 1));
   }
 
+  function clickAccordion(e) {
+    const accordion = e.target.closest(sel.accordionTrigger)?.closest(sel.accordion);
+    const accordionPanel = accordion?.querySelector(sel.accordionPanel);
+    if (!accordion?.open || !accordionPanel) return;
+
+    e.preventDefault();
+    accordion.classList.add(classes.accordionClosing);
+
+    let accordionCloseTimeout;
+    const finishAccordionClose = () => {
+      clearTimeout(accordionCloseTimeout);
+      accordion.classList.remove(classes.accordionClosing);
+      accordion.open = false;
+    };
+
+    accordionPanel.addEventListener(
+      "transitionend",
+      transitionEvent => {
+        if (transitionEvent.target === accordionPanel) finishAccordionClose();
+      },
+      { once: true },
+    );
+    accordionCloseTimeout = setTimeout(
+      finishAccordionClose,
+      ACCORDION_CLOSE_DURATION,
+    );
+  }
+
   function handleLocalizationClick(e) {
     e.preventDefault();
     navigatePrimary(1);
@@ -278,6 +314,7 @@ const menu = node => {
     // closeBtn.removeEventListener('click', close);
     // searchLink.removeEventListener('click', openSearch);
     items.forEach(item => item.removeEventListener("click", handleItem));
+    node.removeEventListener("click", clickAccordion);
     enableBodyScroll(node);
     document.body.classList.remove("scroll-lock");
     document.body.style.top = "";

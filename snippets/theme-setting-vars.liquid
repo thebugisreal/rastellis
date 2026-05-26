@@ -89,7 +89,9 @@
 
 <style>
   {% if settings.font_heading_type == 'shopify' %}{{ settings.shopify_font_heading_family | font_face: font_display: 'swap' }}{% endif %}
+  {% if settings.font_heading_2_type == 'shopify' %}{{ settings.shopify_font_heading_2_family | font_face: font_display: 'swap' }}{% endif %}
   {% if settings.font_subheading_type == 'shopify' %}{{ settings.shopify_font_subheading_family | font_face: font_display: 'swap' }}{% endif %}
+  {% if settings.font_subheading_2_type == 'shopify' %}{{ settings.shopify_font_subheading_2_family | font_face: font_display: 'swap' }}{% endif %}
   {% if settings.font_body_type == 'shopify' %}{{ settings.shopify_font_body_family | font_face: font_display: 'swap' }}{% endif %}
   {% if settings.font_button_type == 'shopify' %}{{ settings.shopify_font_button_family | font_face: font_display: 'swap' }}{% endif %}
   :root {
@@ -108,7 +110,9 @@
     --color-background-transparent: {{ settings.color_site_background | color_modify: 'alpha', 0 }};
     --color-border: {{ settings.color_border }};
     --color-border-meta: {{ settings.color_border | color_modify: 'alpha', 0.6 }};
-    --color-overlay: rgba(0, 0, 0, 0.7);
+    --color-overlay: rgba(0, 0, 0, 0.4);
+    --color-button-disabled-state: {{ settings.color_button_disabled_state }};
+    --color-callout-disabled-state: {{ settings.color_callout_disabled_state }};
 
     --color-background-meta: {{ color_background_meta }};
     --color-background-meta-alpha: {{ color_background_meta | color_modify: 'alpha', 0.6 }};
@@ -155,10 +159,13 @@
     --color-background-header: {{ settings.color_header_background }};
     --color-icon-header: {{ settings.color_header_text }};
     --color-shadow-header: rgba(0, 0, 0, 0.15);
+    --color-navigation-background: {{ settings.color_header_navigation_background }};
 
     --color-background-footer: {{ settings.color_footer_background }};
     --color-text-footer: {{ settings.color_footer_text }};
     --color-text-footer-subdued: {{ settings.color_footer_text | color_modify: 'alpha', 0.7 }};
+    --color-footer-bottom-background: {{ settings.color_footer_bottom_background }};
+    --color-footer-bottom-text: {{ settings.color_footer_bottom_text }};
 
     /* New Product Colors from Figma Design */
     --color-product-sale-price: {{ settings.color_product_sale_price }};
@@ -232,15 +239,21 @@
 
     /* Font family */
     --global-font-family-heading: {% if settings.font_heading_type == 'shopify' %}{{ settings.shopify_font_heading_family.family }}{% else %}{{ settings.font_heading_family }}{% endif %};
+    --global-font-family-heading-2: {% if settings.font_heading_2_type == 'shopify' %}{{ settings.shopify_font_heading_2_family.family }}{% else %}{{ settings.font_heading_2_family }}{% endif %};
     --global-font-family-subheading: {% if settings.font_subheading_type == 'shopify' %}{{ settings.shopify_font_subheading_family.family }}{% else %}{{ settings.font_subheading_family }}{% endif %};
+    --global-font-family-subheading-2: {% if settings.font_subheading_2_type == 'shopify' %}{{ settings.shopify_font_subheading_2_family.family }}{% else %}{{ settings.font_subheading_2_family }}{% endif %};
     --global-font-family-body: {% if settings.font_body_type == 'shopify' %}{{ settings.shopify_font_body_family.family }}{% else %}{{ settings.font_body_family }}{% endif %};
     --global-font-family-button: {% if settings.font_button_type == 'shopify' %}{{ settings.shopify_font_button_family.family }}{% else %}{{ settings.font_button_family }}{% endif %};
 
     /* Font weight */
     --global-font-weight-heading: {{ settings.font_heading_weight }};
     --global-font-weight-heading-bold: {{ settings.font_heading_bold_weight }};
+    --global-font-weight-heading-2: {{ settings.font_heading_2_weight }};
+    --global-font-weight-heading-2-bold: {{ settings.font_heading_2_bold_weight }};
     --global-font-weight-subheading: {{ settings.font_subheading_weight }};
     --global-font-weight-subheading-bold: {{ settings.font_subheading_bold_weight }};
+    --global-font-weight-subheading-2: {{ settings.font_subheading_2_weight }};
+    --global-font-weight-subheading-2-bold: {{ settings.font_subheading_2_bold_weight }};
     --global-font-weight-body: {{ settings.font_body_weight }};
     --global-font-weight-body-bold: {{ settings.font_body_bold_weight }};
     --global-font-weight-button: {{ settings.font_button_weight }};
@@ -306,12 +319,21 @@
     {%- capture tagNameSettingsKey -%}custom_product_badge_group_{{ index }}_tag_names{%- endcapture -%}
     {%- capture colorSettingsKey -%}custom_product_badge_group_{{ index }}_color{%- endcapture -%}
     {%- unless settings[tagNameSettingsKey] == blank -%}
+      {%- assign badge_bg = settings[colorSettingsKey] -%}
+      {%- assign badge_brightness = badge_bg | color_brightness -%}
+      {%- if badge_brightness > 128 -%}
+        {%- assign badge_text_color = '#000000' -%}
+      {%- else -%}
+        {%- assign badge_text_color = '#ffffff' -%}
+      {%- endif -%}
       {%- assign tags = settings[tagNameSettingsKey] | downcase | split: ", " -%}
       {%- for tag in tags -%}
         .product-badge[data-handle="{{ tag | downcase | handleize }}"]{%- if forloop.last != true -%},{%- endif -%}
       {%- endfor -%}
       {
-        color: {{ settings[colorSettingsKey] }};
+        background-color: {{ badge_bg }};
+        color: {{ badge_text_color }};
+        border-color: transparent;
       }
     {% endunless %}
   {%- endfor -%}
