@@ -58,6 +58,12 @@
     --grid-gap-row-desktop: {{ section.settings.row_spacing }}px;
     --grid-gap-row-mobile: {{ section.settings.row_spacing_mobile }}px;
     --multi-column-grid-width: {{ section.settings.grid_width | default: 100 }}%;
+    {% if section.settings.enable_custom_spacing %}
+      --section-padding-top: {{ section.settings.padding_top }}px;
+      --section-padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
+      --section-padding-bottom: {{ section.settings.padding_bottom }}px;
+      --section-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;
+    {% endif %}
     {% render 'overlay-button-vars', color_button_text: section.settings.button_text_color, color_button_background: section.settings.button_background_color %}
   "
 >
@@ -86,6 +92,9 @@
         swiper
       {% endif %}
       {% if multi_column_inner_has_icon_column %}multi-column__inner--icon-column{% endif %}
+      {% if section.settings.enable_custom_spacing %}
+        section--custom-spacing-enabled
+      {% endif %}
     "
   >
     <div class="multi-column__introduction section-introduction animation--section-introduction">
@@ -537,6 +546,57 @@
           "value": "section--vertical-padding-bottom-only"
         }
       ]
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_custom_spacing",
+      "label": "t:shared.settings.enable_custom_spacing.label",
+      "info": "t:shared.settings.enable_custom_spacing.info",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "t:shared.settings.padding_top.label",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "default": 40,
+      "unit": "px",
+      "visible_if": "{{ section.settings.enable_custom_spacing }}"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "t:shared.settings.padding_top_mobile.label",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "default": 40,
+      "unit": "px",
+      "visible_if": "{{ section.settings.enable_custom_spacing }}"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "t:shared.settings.padding_bottom.label",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "default": 40,
+      "unit": "px",
+      "visible_if": "{{ section.settings.enable_custom_spacing }}"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "t:shared.settings.padding_bottom_mobile.label",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "default": 40,
+      "unit": "px",
+      "visible_if": "{{ section.settings.enable_custom_spacing }}"
     },
     {
       "type": "select",

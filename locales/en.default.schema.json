@@ -6011,6 +6011,22 @@
         "label": "Button Color",
         "dark": "Dark",
         "light": "Light"
+      },
+      "enable_custom_spacing": {
+        "label": "Enable custom spacing",
+        "info": "This will override the section padding settings."
+      },
+      "padding_top": {
+        "label": "Padding top"
+      },
+      "padding_top_mobile": {
+        "label": "Mobile padding top"
+      },
+      "padding_bottom": {
+        "label": "Padding bottom"
+      },
+      "padding_bottom_mobile": {
+        "label": "Mobile padding bottom"
       }
     },
     "column": {
