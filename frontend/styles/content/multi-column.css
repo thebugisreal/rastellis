@@ -411,7 +411,7 @@
       line-height: var(--custom-line-height);
       font-size: var(--custom-font-size-desktop);
 
-      @media (--below-720) {
+      @media (--below-960) {
         font-size: var(--custom-font-size-mobile);
       }
     }
