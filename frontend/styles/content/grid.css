@@ -19,6 +19,11 @@
   flex-wrap: wrap;
   width: 100%;
 
+  @media (--above-720) and (--below-960) {
+    row-gap: var(--grid-spacing-mobile, var(--spacing-2));
+    column-gap: var(--grid-spacing-mobile, var(--spacing-2));
+  }
+
   @media (--above-960) {
     width: calc(100% + var(--grid-spacing, var(--spacing-6)));
     height: calc(100% + var(--grid-spacing, var(--spacing-6)));
