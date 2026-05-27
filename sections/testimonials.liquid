@@ -22,7 +22,7 @@
 
 {%- capture section_classes -%}
   section section--divider-{{ section.settings.divider_style }}
-  {{ section.settings.section_padding }}
+  section--vertical-padding-compact-large
 {%- endcapture -%}
 
 {% capture prev_nav_button %}
@@ -33,7 +33,7 @@
         class="testimonials__navigation-button testimonials__navigation-button--prev"
         aria-label="{{ 'general.accessibility.carousel_previous' | t }}"
       >
-        {%- render 'icon' with icon: 'chevron' -%}
+        {%- render 'icon' with icon: 'carousel-navigation-arrow', view_box_custom: '0 0 38 21' -%}
       </button>
     </div>
   {%- endif -%}
@@ -47,7 +47,7 @@
         class="testimonials__navigation-button testimonials__navigation-button--next"
         aria-label="{{ 'general.accessibility.carousel_next' | t }}"
       >
-        {%- render 'icon' with icon: 'chevron' -%}
+        {%- render 'icon' with icon: 'carousel-navigation-arrow', view_box_custom: '0 0 38 21' -%}
       </button>
     </div>
   {%- endif -%}
@@ -61,9 +61,6 @@
     {% if has_background_image %}
       testimonials--has-background
     {% endif %}
-    {% unless has_background_image %}
-      {{ section_classes }}
-    {% endunless %}
     {% if section.settings.enable_wave_top_desktop %}rough-border--top-desktop{% endif %}
     {% if section.settings.enable_wave_top_mobile %}rough-border--top-mobile{% endif %}
     {% if section.settings.enable_wave_bottom_desktop %}rough-border--bottom-desktop{% endif %}
@@ -104,9 +101,7 @@
   <div
     class="
       testimonials__inner
-      {% if has_background_image %}
-        {{ section_classes }}
-      {% endif %}
+      {{ section_classes }}
     "
   >
     <div class="testimonails__carousel swiper">
@@ -118,8 +113,8 @@
             render 'testimonials-item' with
             block: block,
             forloop: forloop,
-            image_size: section.settings.image_size,
-            quote_font: section.settings.quote_font
+            quote_font: section.settings.quote_font,
+            quote_border_image: section.settings.quote_border_image
           -%}
         {%- endfor -%}
       </div>
@@ -143,26 +138,6 @@
   },
   "settings": [
     {
-      "type": "select",
-      "id": "image_size",
-      "label": "t:sections.testimonials.settings.image_size.label",
-      "default": "small",
-      "options": [
-        {
-          "value": "small",
-          "label": "t:sections.testimonials.settings.image_size.option_small"
-        },
-        {
-          "value": "medium",
-          "label": "t:sections.testimonials.settings.image_size.option_medium"
-        },
-        {
-          "value": "large",
-          "label": "t:sections.testimonials.settings.image_size.option_large"
-        }
-      ]
-    },
-    {
       "id": "quote_font",
       "type": "select",
       "label": "t:sections.testimonials.settings.quote_font.label",
@@ -179,19 +154,25 @@
       ]
     },
     {
+      "type": "image_picker",
+      "id": "quote_border_image",
+      "label": "t:sections.testimonials.settings.quote_border_image.label"
+    },
+    {
       "type": "header",
       "content": "t:shared.settings.header_color.content"
     },
     {
       "type": "color",
       "id": "background_color",
-      "label": "t:shared.settings.background_color.label"
+      "label": "t:shared.settings.background_color.label",
+      "default": "#F2F1EB"
     },
     {
       "type": "color",
       "id": "text_color",
       "label": "t:shared.settings.text_color.label",
-      "default": "#000000"
+      "default": "#272727"
     },
     {
       "type": "header",

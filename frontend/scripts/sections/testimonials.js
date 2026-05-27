@@ -13,7 +13,7 @@ const selectors = {
   swiper: '.swiper',
   navigationNext: '.testimonials__navigation-button--next',
   navigationPrev: '.testimonials__navigation-button--prev',
-  productImage: '.testimonials__item-product-pick-image',
+  productImage: '.testimonials__item-product-pick .product-pick-card__image',
 }
 
 section('testimonials', {
@@ -32,7 +32,8 @@ section('testimonials', {
         ({ Swiper, Navigation, EffectFade }) => {
           const swiperOptions = {
             modules: [Navigation, EffectFade],
-            autoHeight: true,
+            autoHeight: false,
+            spaceBetween: 40,
             slidesPerView: 1,
             effect: 'fade',
             loop: true,
@@ -45,8 +46,9 @@ section('testimonials', {
               prevEl: selectors.navigationPrev,
             },
             breakpoints: {
-              720: {
-                spaceBetween: 42,
+              960: {
+                spaceBetween: 56,
+                autoHeight: false,
               },
             },
             on: {
@@ -65,8 +67,8 @@ section('testimonials', {
           }
 
           // We use fade for desktop size animatiosn and slide for under
-          // 720px
-          if (window.matchMedia(getMediaQuery('below-720')).matches) {
+          // 960px
+          if (window.matchMedia(getMediaQuery('below-960')).matches) {
             swiperOptions.effect = 'slide'
             swiperOptions.slidesPerView = 'auto'
           }
@@ -82,7 +84,7 @@ section('testimonials', {
   },
 
   setMobileButtonOffset() {
-    if (window.matchMedia(getMediaQuery('above-720')).matches) return
+    if (window.matchMedia(getMediaQuery('above-960')).matches) return
 
     const firstImage = qs(selectors.productImage, this.container)
     if (!firstImage) return

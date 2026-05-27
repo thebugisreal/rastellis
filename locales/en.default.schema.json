@@ -3993,6 +3993,9 @@
           "label": "Quote font",
           "option_body": "Body",
           "option_heading": "Heading"
+        },
+        "quote_border_image": {
+          "label": "Quote border"
         }
       }
     },

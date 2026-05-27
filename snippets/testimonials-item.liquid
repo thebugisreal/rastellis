@@ -1,42 +1,6 @@
-{%- liquid
-  assign product_image = block.settings.product.featured_media | default: block.settings.product.media[0].preview_image
-
-  if block.settings.image != blank
-    assign product_image = block.settings.image
-  endif
-
-  if image_size == "small"
-    assign image_sizes_fraction = 0.30
-  elsif image_size == "medium"
-    assign image_sizes_fraction = 0.40
-  elsif image_size == "large"
-    assign image_sizes_fraction = 0.50
-  else
-    assign image_sizes_fraction = 0.40
-  endif
-
-  assign pick_product = block.settings.product
-  assign pick_price = blank
-
-  if pick_product != blank
-    assign lowest_price = pick_product.price_min | money
-
-    if pick_product.variants.size > 1
-      assign pick_price = 'sections.slideshow.product_pick.starting_at_price_html' | t: price: lowest_price
-    else
-      assign pick_price = lowest_price
-    endif
-  endif
--%}
-
-{% capture product_pick_image_sizes -%}
-  (min-width: 720px) calc((100vw - (2 * clamp(18px, 3.3vw, 3.3vw))) * {{ image_sizes_fraction }} * 0.5), 75px
-{%- endcapture %}
-
 <div
   class="
     testimonials__item
-    testimonials__item--image-{{ image_size }}
     swiper-slide
     animation--item
   "
@@ -48,64 +12,53 @@
 >
   <div class="testimonials__item-panel">
     <div class="testimonials__item-content">
-      {%- if block.settings.quote != blank -%}
-        <blockquote class="testimonials__item-quote {% if quote_font == 'heading' %}ff-subheading fs-heading-4-base{% else %}ff-body fs-body-300 fs-body-350-above-720{% endif %}">
-          {{ block.settings.quote }}
-        </blockquote>
-      {%- endif -%}
-
-      {%- if block.settings.show_rating or block.settings.author != blank -%}
-        <div class="testimonials__item-meta">
-          {%- if block.settings.show_rating -%}
-            <div class="testimonials__item-stars">
-              {%- render 'star-rating', rating: block.settings.rating -%}
-            </div>
-          {%- endif -%}
-
-          {%- if block.settings.author != blank -%}
-            <cite class="testimonials__item-author ff-subheading ff-secondary">
-              <span>{{ block.settings.author }}</span>
-            </cite>
-          {%- endif -%}
-        </div>
-      {%- endif -%}
-    </div>
-
-    {%- if pick_product != blank -%}
-      <div class="testimonials__item-product-pick">
-        <div class="testimonials__item-product-pick-card">
-          {%- if product_image != blank -%}
-            <a
-              class="testimonials__item-product-pick-image"
-              href="{{ pick_product.url }}"
-              aria-hidden="true"
-              tabindex="-1"
-            >
-              {%
-                render 'image',
-                image: product_image,
-                wrapper_class: 'testimonials__item-product-pick-image-wrapper',
-                aspect_ratio: 'square',
-                sizes: product_pick_image_sizes
-              %}
-            </a>
-          {%- endif -%}
-
-          <div class="testimonials__item-product-pick-content">
-            <a class="testimonials__item-product-pick-title fs-body-75" href="{{ pick_product.url }}">
-              {{ pick_product.title }}
-            </a>
-            {%- if pick_price != blank -%}
-              <p class="testimonials__item-product-pick-price fs-body-75">
-                {{ pick_price }}
-              </p>
+      {%- if block.settings.quote != blank or block.settings.show_rating or block.settings.author != blank -%}
+        <blockquote class="testimonials__item-quote">
+          <div
+            class="testimonials__item-quote-border{% unless quote_border_image != blank %} testimonials__item-quote-border--line{% endunless %}"
+            aria-hidden="true"
+          >
+            {%- if quote_border_image != blank -%}
+              {%- render 'image',
+                image: quote_border_image,
+                wrapper_class: 'testimonials__item-quote-border-image',
+                no_crop: true,
+                sizes: '6px'
+              -%}
             {%- endif -%}
           </div>
 
-          <a class="testimonials__item-product-pick-button btn btn--dark btn--small" href="{{ pick_product.url }}">
-            <span>{{ 'sections.slideshow.product_pick.shop' | t }}</span>
-          </a>
-        </div>
+          <div class="testimonials__item-quote-body">
+            {%- if block.settings.quote != blank -%}
+              <span class="testimonials__item-quote-text{% if quote_font == 'heading' %} ff-heading fs-heading-4-base{% else %} ff-body fs-body-75{% endif %}">{{ block.settings.quote }}</span>
+            {%- endif -%}
+
+            {%- if block.settings.show_rating or block.settings.author != blank -%}
+              <div class="testimonials__item-meta">
+                {%- if block.settings.author != blank -%}
+                  <cite class="testimonials__item-author ff-subheading ff-secondary fs-body-250">
+                    <span>{{ block.settings.author }}</span>
+                  </cite>
+                {%- endif -%}
+                {%- if block.settings.show_rating -%}
+                  <div class="testimonials__item-stars">
+                    {%- render 'star-rating', rating: block.settings.rating -%}
+                  </div>
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+          </div>
+        </blockquote>
+      {%- endif -%}
+    </div>
+
+    {%- if block.settings.product != blank -%}
+      <div class="testimonials__item-product-pick">
+        {%- render 'product-pick-card',
+          product: block.settings.product,
+          image: block.settings.image,
+          image_sizes: '(min-width: 720px) 77px, 60px'
+        -%}
       </div>
     {%- endif -%}
 
@@ -115,7 +68,8 @@
           image: block.settings.sticker,
           wrapper_class: 'testimonials__item-sticker-image',
           sizes: '440px',
-          aspect_ratio: 'natural'
+          aspect_ratio: 'externally_set',
+          object_fit: 'contain'
         -%}
       </div>
     {%- endif -%}
