@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.1.0 - 2026-05-27
+### CHANGED
+- RAS-177 Homepage – Grid — fix styles for grid module on tablet
+- RAS-179 Homepage – Featured Collection Slider — fix styles for featured collection slider on desktop
+- RAS-181 Homepage – Stat Group / Multi-Column — apply font-size fix for mobile at 768px
+
 ## v1.0.0 - 2026-05-26
 ## CHANGED:
 - RAS-178 Homepage Slideshow — style fixes for slideshow section on homepage
