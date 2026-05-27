@@ -1,7 +1,14 @@
 {%- liquid
   assign has_background_image = false
-  if section.settings.background_image != blank
+  if section.settings.background_image != blank or section.settings.background_image_mobile != blank
     assign has_background_image = true
+  endif
+
+  assign testimonials_background_image = section.settings.background_image
+  assign testimonials_background_image_mobile = section.settings.background_image_mobile
+  if testimonials_background_image == blank and testimonials_background_image_mobile != blank
+    assign testimonials_background_image = testimonials_background_image_mobile
+    assign testimonials_background_image_mobile = blank
   endif
 
   assign has_wave_top = false
@@ -85,13 +92,15 @@
     {%- render 'wave', position: 'top' -%}
   {%- endif -%}
 
-  {%- if has_background_image -%}
+  {%- if has_background_image and testimonials_background_image != blank -%}
     <div class="testimonials__background-image-wrapper">
       {%- render 'image',
         wrapper_class: 'testimonials__background-image',
-        image: section.settings.background_image,
+        image: testimonials_background_image,
+        mobile_image: testimonials_background_image_mobile,
         sizes: '100vw',
         focal_point: section.settings.background_image_focal_point,
+        mobile_focal_point: section.settings.background_image_focal_point,
         no_crop: true,
         src_set_type: 'full-width'
       -%}
@@ -182,6 +191,11 @@
       "type": "image_picker",
       "id": "background_image",
       "label": "t:sections.testimonials.settings.background_image.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image_mobile",
+      "label": "t:sections.testimonials.settings.background_image_mobile.label"
     },
     {
       "id": "background_image_focal_point",

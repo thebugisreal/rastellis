@@ -158,6 +158,9 @@
         "show_featured_image": {
           "label": "Show featured image"
         },
+        "show_recipe_times": {
+          "label": "Show prep and cook time"
+        },
         "show_tags": {
           "label": "Show article categories"
         },
@@ -3982,6 +3985,9 @@
       "settings": {
         "background_image": {
           "label": "Background image"
+        },
+        "background_image_mobile": {
+          "label": "Mobile background image"
         },
         "image_size": {
           "label": "Product image size",

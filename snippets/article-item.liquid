@@ -32,6 +32,25 @@
   endif
 -%}
 
+{%- capture article_recipe_times -%}
+  {%- if show_recipe_times and blog_article != blank -%}
+    {%- if blog_article.metafields.custom.prep_time.value != blank or blog_article.metafields.custom.cook_time.value != blank -%}
+      <div class="article-item__recipe-times">
+        {%- if blog_article.metafields.custom.prep_time.value != blank -%}
+          <span class="article-item__recipe-time ff-body fs-heading-6-base fs-body-bold">
+            {{- 'blogs.article.prep_time' | t: time: blog_article.metafields.custom.prep_time.value -}}
+          </span>
+        {%- endif -%}
+        {%- if blog_article.metafields.custom.cook_time.value != blank -%}
+          <span class="article-item__recipe-time ff-body fs-heading-6-base fs-body-bold">
+            {{- 'blogs.article.cook_time' | t: time: blog_article.metafields.custom.cook_time.value -}}
+          </span>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  {%- endif -%}
+{%- endcapture -%}
+
 {%- capture tag_list -%}
   {%- if show_tags and blog_article.tags.size > 0 -%}
     {%- for tag in blog_article.tags -%}
@@ -89,27 +108,32 @@
                 loop: true,
                 wrapper_class: video_wrapper_class
               -%}
-              {%- if featured_video_label != blank -%}
-                <p class="article-item__video-label ff-subheading ff-secondary fs-body-200">{{ featured_video_label }}</p>
-              {%- endif -%}
-              <div class="article-item__video-button">
-                <button
-                  type="button"
-                  class="video-play-button js-button-video played"
-                  aria-label="{{ 'general.accessibility.play_video' | t }}"
-                  aria-pressed="false"
-                >
-                  <span class="video-button-content--play" aria-hidden="true">
-                    {%- render 'play-icon', class: 'article-item__video-button-icon' -%}
-                  </span>
-                  <span class="video-button-content--pause" aria-hidden="true">
-                    {%- render 'pause-icon', class: 'article-item__video-button-icon' -%}
-                  </span>
-                </button>
+              <div class="article-item__video-overlay">
+                {%- if featured_video_label != blank -%}
+                  <p class="article-item__video-label ff-subheading ff-secondary fs-body-200">{{ featured_video_label }}</p>
+                {%- endif -%}
+                <div class="article-item__video-button">
+                  <button
+                    type="button"
+                    class="video-play-button js-button-video played"
+                    aria-label="{{ 'general.accessibility.play_video' | t }}"
+                    aria-pressed="false"
+                  >
+                    <span class="video-button-content--play" aria-hidden="true">
+                      {%- render 'play-icon', class: 'article-item__video-button-icon' -%}
+                    </span>
+                    <span class="video-button-content--pause" aria-hidden="true">
+                      {%- render 'pause-icon', class: 'article-item__video-button-icon' -%}
+                    </span>
+                  </button>
+                </div>
               </div>
-              <h3 class="article-item__video-title fs-heading-5-base">
-                <a class="fs-heading-5-base fs-body-bold" href="{{ blog_article.url }}">{{ blog_article.title }}</a>
-              </h3>
+              <div class="article-item__video-footer">
+                <h3 class="article-item__video-title fs-heading-5-base">
+                  <a class="fs-heading-5-base fs-body-bold" href="{{ blog_article.url }}">{{ blog_article.title }}</a>
+                </h3>
+                {{ article_recipe_times }}
+              </div>
             </div>
           </video-control>
         </div>
@@ -147,6 +171,8 @@
           <h3 class="article-item__title fs-heading-5-base">
             <a class="fs-heading-5-base fs-body-bold" href="{{ blog_article.url }}">{{ blog_article.title }}</a>
           </h3>
+
+          {{ article_recipe_times }}
 
           {%- if show_author or show_date -%}
             <p class="article-item__meta text-sm mb-2.5">

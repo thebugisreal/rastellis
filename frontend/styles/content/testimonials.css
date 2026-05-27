@@ -4,18 +4,33 @@
   overflow: hidden;
   isolation: isolate;
 
-  @media (--below-960) {
-    min-height: 680px;
+  &.testimonials--has-background {
+    @media (--below-960) {
+      min-height: 680px;
+    }
+
+    & .testimonials__background-image-wrapper {
+      overflow: hidden;
+    }
+
+    & .testimonials__item {
+      @media (--above-960) {
+        min-height: 648px;
+      }
+    }
+
+    & .testimonials__item-panel {
+      @media (--above-960) {
+        flex: 0 0 50%;
+        align-self: stretch;
+        width: 50%;
+        margin-left: auto;
+      }
+    }
   }
 
   &.has-rough-border {
     overflow: visible;
-  }
-
-  &.testimonials--has-background {
-    & .testimonials__background-image-wrapper {
-      overflow: hidden;
-    }
   }
 
   &[data-block-count="1"] {
@@ -177,7 +192,6 @@
 
     @media (--above-960) {
       display: flex;
-      min-height: 648px;
     }
   }
 
@@ -194,10 +208,6 @@
     border-radius: 4px;
 
     @media (--above-960) {
-      flex: 0 0 50%;
-      align-self: stretch;
-      width: 50%;
-      margin-left: auto;
       padding: var(--spacing-10) 56px var(--spacing-10) var(--spacing-10);
     }
   }
@@ -303,7 +313,7 @@
 
     & .product-pick-card {
       justify-content: space-between;
-      background-color: white;
+      background-color: var(--color-body-text-light);
       border-radius: 4px;
     }
   }
