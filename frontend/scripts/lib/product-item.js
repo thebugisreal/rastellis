@@ -11,6 +11,7 @@ const selectors = {
   quickViewButton: '[data-quick-shop-trigger="quick-view"]',
   quickCart: '.quick-cart',
   purchaseConfirmation: '.purchase-confirmation-popup',
+  quickAddQuantitySelector: '.product-item__qty-select',
 }
 
 export default function ProductItem(container) {
@@ -27,6 +28,7 @@ export default function ProductItem(container) {
   const quickViewButtons = qsa(selectors.quickViewButton, container)
   const quickCart = qs(selectors.quickCart, document)
   const purchaseConfirmation = qs(selectors.purchaseConfirmation, document)
+  const quickAddQuantitySelector = qsa(selectors.quickAddQuantitySelector, container)
 
   const events = [
     listen(quickAddButtons, 'click', (e) => {
@@ -39,10 +41,10 @@ export default function ProductItem(container) {
       e.preventDefault()
       e.stopPropagation()
 
-      const { productId } = buttonEl.dataset
+      const { productId, productQuantity = 1 } = buttonEl.dataset
       if (!productId) return
 
-      cart.addItemById(productId, 1).then(({ res }) => {
+      cart.addItemById(productId, productQuantity).then(({ res }) => {
         remove(buttonEl, 'loading')
 
         if (purchaseConfirmation) {
@@ -67,6 +69,16 @@ export default function ProductItem(container) {
       emit('quick-view:open', null, {
         productUrl: productUrl,
       })
+    }),
+
+    listen(quickAddQuantitySelector, 'change', (e) => {
+      const formEl = e.currentTarget.closest('form')
+      if (!formEl) return
+
+      const addButtonEl = qs('[data-quick-shop-trigger="quick-add"]', formEl)
+      if (!addButtonEl) return
+
+      addButtonEl.setAttribute('data-product-quantity', e.currentTarget.value)
     }),
   ]
 
