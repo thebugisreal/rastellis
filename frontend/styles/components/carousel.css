@@ -50,7 +50,7 @@
   }
 
   &.swiper-button-lock {
-    visibility: hidden;
+    display: none;
   }
 
   .icon {
