@@ -15,6 +15,10 @@
   &.grid-item--width-66 {
     width: 100%;
 
+    @media (--above-720) and (--below-960) {
+      width: calc(50% - (var(--grid-spacing-mobile, var(--spacing-2)) / 2));
+    }
+
     @media (--above-960) {
       width: calc(100% * (2 / 3));
     }
@@ -25,6 +29,10 @@
     --grid-item-content-padding-mobile: var(--spacing-5);
     --grid-item-content-padding-desktop: var(--spacing-8);
 
+    @media (--above-720) and (--below-960) {
+      width: calc(50% - (var(--grid-spacing-mobile, var(--spacing-2)) / 2));
+    }
+
     @media (--above-960) {
       width: 50%;
     }
@@ -32,21 +40,29 @@
 
   &.grid-item--width-33 {
     width: 100%;
-    min-width: 290px;
+
+    @media (--above-720) and (--below-960) {
+      width: calc(50% - (var(--grid-spacing-mobile, var(--spacing-2)) / 2));
+    }
 
     @media (--above-960) {
       width: calc(100% / 3);
+      min-width: 290px;
     }
   }
 
   &.grid-item--width-25 {
     width: 100%;
-    min-width: 220px;
     --grid-item-content-padding-mobile: 22px;
     --grid-item-content-padding-desktop: var(--spacing-5);
 
+    @media (--above-720) and (--below-960) {
+      width: calc(50% - (var(--grid-spacing-mobile, var(--spacing-2)) / 2));
+    }
+
     @media (--above-960) {
       width: calc(100% / 4);
+      min-width: 220px;
     }
 
     .grid-item__accent {
@@ -92,7 +108,7 @@
 }
 
 .grid-item + .grid-item {
-  @media (--below-960) {
+  @media (--below-720) {
     margin-top: var(--grid-spacing-mobile, var(--grid-spacing, var(--spacing-6)));
   }
 }
