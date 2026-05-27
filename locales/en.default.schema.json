@@ -4942,6 +4942,9 @@
         "enable_border_on_hover": {
           "label": "Show border on hover"
         },
+        "show_variant_row": {
+          "label": "Show variant row"
+        },
         "enable_quick_add": {
           "label": "Enable quick add"
         },

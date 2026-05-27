@@ -1947,6 +1947,12 @@
         "default": true
       },
       {
+        "id": "show_variant_row",
+        "type": "checkbox",
+        "label": "t:settings_schema.product_listing.settings.show_variant_row.label",
+        "default": true
+      },
+      {
         "type": "header",
         "content": "t:settings_schema.product_listing.settings.header__quick_shop.content",
         "info": "t:settings_schema.product_listing.settings.header__quick_shop.info"
