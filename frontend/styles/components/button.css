@@ -79,7 +79,7 @@ button {
   text-transform: var(--text-transform-button);
   line-height: var(--line-height-button);
   letter-spacing: var(--letter-spacing-button);
-  border-radius: 6px;
+  border-radius: 4px;
 }
 
 .btn.btn--small {
