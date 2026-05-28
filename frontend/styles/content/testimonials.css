@@ -276,6 +276,9 @@
 
   & .testimonials__item-stars {
     color: var(--color-inline-link-dark);
+    display: flex;
+    align-items: center;
+    gap: 3px;
 
     & .icon {
       width: 16px;
