@@ -108,10 +108,13 @@
     <div class="slideshow-slide__overlay"></div>
 
     {%- if block != blank -%}
-      {%- render 'slideshow-product-pick',
-        product_pick: block.settings.product_pick,
-        product_pick_label: block.settings.product_pick_label
-      -%}
+      <div class="slideshow-slide__product-pick">
+        {%- render 'product-pick-card',
+          product: block.settings.product_pick,
+          label: block.settings.product_pick_label,
+          image_sizes: '75px'
+        -%}
+      </div>
     {%- endif -%}
 
     <div class="slideshow-slide__text-container-wrapper">

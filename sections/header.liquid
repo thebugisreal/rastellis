@@ -407,9 +407,7 @@
     {% if logo_transparent != blank %}
       header--has-transparent-logo
     {% endif %}
-    {% if shop.customer_accounts_enabled -%}
-      header--has-accounts
-    {%- endif %}
+    header--has-accounts
     {% if secondary_menu_valid -%}
       header--has-secondary-menu
     {%- endif %}
@@ -470,9 +468,7 @@
         {%- if enable_location -%}
           {{ location_button }}
         {%- endif -%}
-        {%- if shop.customer_accounts_enabled -%}
-          {{ account_icon }}
-        {%- endif -%}
+        {{ account_icon }}
         {{ cart_icon }}
       </div>
     </div>
@@ -513,9 +509,6 @@
 
       <div class="header__row-segment header__row-segment-desktop right {% if sub_menu != blank %}contains-nav{% endif %}">
         {{ sub_nav }}
-        {%- if shop.customer_accounts_enabled -%}
-          {{ account_icon }}
-        {%- endif -%}
       </div>
     </div>
 
@@ -526,9 +519,7 @@
       {%- if logo_position == 'center' -%}
         <div class="header__row-segment left">
           {{ location_button }}
-          {%- if shop.customer_accounts_enabled -%}
-            {{ account_icon }}
-          {%- endif -%}
+          {{ account_icon }}
         </div>
 
         {{ header_logo }}

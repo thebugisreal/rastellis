@@ -2,7 +2,7 @@
   {
     "name": "theme_info",
     "theme_name": "Barrel Base Framework",
-    "theme_version": "1.1.0",
+    "theme_version": "1.1.1",
     "theme_author": "Barrel LLC",
     "theme_documentation_url": "https://www.barrelny.com/contact",
     "theme_support_url": "https://www.barrelny.com/contact"
@@ -1944,6 +1944,12 @@
         "id": "enable_border_on_hover",
         "type": "checkbox",
         "label": "t:settings_schema.product_listing.settings.enable_border_on_hover.label",
+        "default": true
+      },
+      {
+        "id": "show_variant_row",
+        "type": "checkbox",
+        "label": "t:settings_schema.product_listing.settings.show_variant_row.label",
         "default": true
       },
       {

@@ -64,6 +64,16 @@
     }
   }
 
+  &.section--vertical-padding-compact-large {
+    padding-top: var(--spacing-5);
+    padding-bottom: var(--spacing-5);
+
+    @media (--above-720) {
+      padding-top: var(--spacing-20);
+      padding-bottom: var(--spacing-20);
+    }
+  }
+
   &.section--includes-product-items {
     &.section--vertical-padding-none,
     &.section--vertical-padding-top-only {

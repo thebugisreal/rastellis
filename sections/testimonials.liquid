@@ -1,14 +1,28 @@
 {%- liquid
-  assign has_background_color = false
+  assign has_background_image = false
+  if section.settings.background_image != blank
+    assign has_background_image = true
+  endif
 
-  if section.settings.background_color != blank and section.settings.background_color != 'rgba(0,0,0,0)'
-    assign has_background_color = true
+  assign has_wave_top = false
+  if section.settings.enable_wave_top_desktop or section.settings.enable_wave_top_mobile
+    assign has_wave_top = true
+  endif
+
+  assign has_wave_bottom = false
+  if section.settings.enable_wave_bottom_desktop or section.settings.enable_wave_bottom_mobile
+    assign has_wave_bottom = true
+  endif
+
+  assign has_rough_border = false
+  if has_wave_top or has_wave_bottom
+    assign has_rough_border = true
   endif
 -%}
 
 {%- capture section_classes -%}
   section section--divider-{{ section.settings.divider_style }}
-  {{ section.settings.section_padding }}
+  section--vertical-padding-compact-large
 {%- endcapture -%}
 
 {% capture prev_nav_button %}
@@ -19,7 +33,7 @@
         class="testimonials__navigation-button testimonials__navigation-button--prev"
         aria-label="{{ 'general.accessibility.carousel_previous' | t }}"
       >
-        {%- render 'icon' with icon: 'chevron' -%}
+        {%- render 'icon' with icon: 'carousel-navigation-arrow', view_box_custom: '0 0 38 21' -%}
       </button>
     </div>
   {%- endif -%}
@@ -33,7 +47,7 @@
         class="testimonials__navigation-button testimonials__navigation-button--next"
         aria-label="{{ 'general.accessibility.carousel_next' | t }}"
       >
-        {%- render 'icon' with icon: 'chevron' -%}
+        {%- render 'icon' with icon: 'carousel-navigation-arrow', view_box_custom: '0 0 38 21' -%}
       </button>
     </div>
   {%- endif -%}
@@ -44,19 +58,21 @@
   data-section-type="testimonials"
   class="
     testimonials
-    {% if has_background_color %}
+    {% if has_background_image %}
       testimonials--has-background
     {% endif %}
-    {% unless has_background_color %}
-      {{ section_classes }}
-    {% endunless %}
+    {% if section.settings.enable_wave_top_desktop %}rough-border--top-desktop{% endif %}
+    {% if section.settings.enable_wave_top_mobile %}rough-border--top-mobile{% endif %}
+    {% if section.settings.enable_wave_bottom_desktop %}rough-border--bottom-desktop{% endif %}
+    {% if section.settings.enable_wave_bottom_mobile %}rough-border--bottom-mobile{% endif %}
+    {% if has_rough_border %}has-rough-border{% endif %}
     {% if settings.enable_section_animations and section.settings.enable_animation %}
       animation
       animation--testimonials
     {% endif %}
   "
   style="
-    {% if has_background_color %}
+    {% if section.settings.background_color != blank and section.settings.background_color != 'rgba(0,0,0,0)' %}
       --section-background-color: {{ section.settings.background_color }};
     {% endif %}
     --color-text-section: {{ section.settings.text_color }};
@@ -65,12 +81,27 @@
   "
   data-block-count="{{ section.blocks.size }}"
 >
+  {%- if has_wave_top -%}
+    {%- render 'wave', position: 'top' -%}
+  {%- endif -%}
+
+  {%- if has_background_image -%}
+    <div class="testimonials__background-image-wrapper">
+      {%- render 'image',
+        wrapper_class: 'testimonials__background-image',
+        image: section.settings.background_image,
+        sizes: '100vw',
+        focal_point: section.settings.background_image_focal_point,
+        no_crop: true,
+        src_set_type: 'full-width'
+      -%}
+    </div>
+  {%- endif -%}
+
   <div
     class="
       testimonials__inner
-      {% if has_background_color %}
-        {{ section_classes }}
-      {% endif %}
+      {{ section_classes }}
     "
   >
     <div class="testimonails__carousel swiper">
@@ -82,8 +113,8 @@
             render 'testimonials-item' with
             block: block,
             forloop: forloop,
-            image_size: section.settings.image_size,
-            quote_font: section.settings.quote_font
+            quote_font: section.settings.quote_font,
+            quote_border_image: section.settings.quote_border_image
           -%}
         {%- endfor -%}
       </div>
@@ -91,6 +122,10 @@
       {{ next_nav_button }}
     </div>
   </div>
+
+  {%- if has_wave_bottom -%}
+    {%- render 'wave', position: 'bottom' -%}
+  {%- endif -%}
 </div>
 
 {% schema %}
@@ -102,26 +137,6 @@
     "templates": ["password"]
   },
   "settings": [
-    {
-      "type": "select",
-      "id": "image_size",
-      "label": "t:sections.testimonials.settings.image_size.label",
-      "default": "small",
-      "options": [
-        {
-          "value": "small",
-          "label": "t:sections.testimonials.settings.image_size.option_small"
-        },
-        {
-          "value": "medium",
-          "label": "t:sections.testimonials.settings.image_size.option_medium"
-        },
-        {
-          "value": "large",
-          "label": "t:sections.testimonials.settings.image_size.option_large"
-        }
-      ]
-    },
     {
       "id": "quote_font",
       "type": "select",
@@ -139,19 +154,66 @@
       ]
     },
     {
+      "type": "image_picker",
+      "id": "quote_border_image",
+      "label": "t:sections.testimonials.settings.quote_border_image.label"
+    },
+    {
       "type": "header",
       "content": "t:shared.settings.header_color.content"
     },
     {
       "type": "color",
       "id": "background_color",
-      "label": "t:shared.settings.background_color.label"
+      "label": "t:shared.settings.background_color.label",
+      "default": "#F2F1EB"
     },
     {
       "type": "color",
       "id": "text_color",
       "label": "t:shared.settings.text_color.label",
-      "default": "#000000"
+      "default": "#272727"
+    },
+    {
+      "type": "header",
+      "content": "t:shared.settings.header__background_image.content"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "t:sections.testimonials.settings.background_image.label"
+    },
+    {
+      "id": "background_image_focal_point",
+      "type": "select",
+      "label": "t:shared.settings.focal_point.label",
+      "options": [
+        {
+          "label": "t:shared.settings.focal_point.option_image",
+          "value": "image_presentation"
+        },
+        {
+          "label": "t:shared.settings.focal_point.option_center",
+          "value": "center"
+        },
+        {
+          "label": "t:shared.settings.focal_point.option_top",
+          "value": "top"
+        },
+        {
+          "label": "t:shared.settings.focal_point.option_bottom",
+          "value": "bottom"
+        },
+        {
+          "label": "t:shared.settings.focal_point.option_left",
+          "value": "left"
+        },
+        {
+          "label": "t:shared.settings.focal_point.option_right",
+          "value": "right"
+        }
+      ],
+      "default": "image_presentation"
     },
     {
       "type": "header",
@@ -197,6 +259,34 @@
           "label": "t:shared.settings.section_style.section_padding.option_bottom", "value": "section--vertical-padding-bottom-only"
         }
       ]
+    },
+    {
+      "type": "paragraph",
+      "content": "t:shared.settings.rough_border.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_wave_top_desktop",
+      "label": "t:shared.settings.rough_border.enable_wave_top_desktop.label",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_wave_bottom_desktop",
+      "label": "t:shared.settings.rough_border.enable_wave_bottom_desktop.label",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_wave_top_mobile",
+      "label": "t:shared.settings.rough_border.enable_wave_top_mobile.label",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_wave_bottom_mobile",
+      "label": "t:shared.settings.rough_border.enable_wave_bottom_mobile.label",
+      "default": false
     }
   ],
   "blocks": [
@@ -231,35 +321,9 @@
           "label": "t:sections.testimonials.blocks.testimonial.settings.image.label"
         },
         {
-          "type": "select",
-          "id": "aspect_ratio",
-          "label": "t:sections.testimonials.blocks.testimonial.settings.aspect_ratio.label",
-          "default": "square",
-          "options": [
-            {
-              "value": "natural",
-              "label": "t:shared.settings.aspect_ratio.option_natural"
-            },
-            {
-              "value": "square",
-              "label": "t:shared.settings.aspect_ratio.option_square"
-            },
-            {
-              "value": "portrait",
-              "label": "t:shared.settings.aspect_ratio.option_portrait"
-            },
-            {
-              "value": "landscape",
-              "label": "t:shared.settings.aspect_ratio.option_landscape"
-            }
-          ]
-        },
-        {
-          "id": "focal_point",
-          "type": "select",
-          "label": "t:shared.settings.focal_point.label",
-          "options": [{"label":"t:shared.settings.focal_point.option_image","value":"image_presentation"},{"label":"t:shared.settings.focal_point.option_center","value":"center"},{"label":"t:shared.settings.focal_point.option_top","value":"top"},{"label":"t:shared.settings.focal_point.option_bottom","value":"bottom"},{"label":"t:shared.settings.focal_point.option_left","value":"left"},{"label":"t:shared.settings.focal_point.option_right","value":"right"}],
-          "default": "image_presentation"
+          "type": "image_picker",
+          "id": "sticker",
+          "label": "t:sections.testimonials.blocks.testimonial.settings.sticker.label"
         },
         {
           "type": "header",

@@ -460,7 +460,7 @@ ul.drawer-menu__secondary-links {
         padding-top: var(--spacing-6);
 
         &:first-child {
-          padding-top: var(--spacing-4);
+          padding-top: var(--spacing-5);
         }
       }
     }

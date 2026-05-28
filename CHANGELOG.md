@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.1.1 - 2026-05-28
+### Changed
+- RAS-58 GE – Header, Nav & Announcement Bar — fix QA feedbacks
+- RAS-183 Homepage – Testimonials — update styles testimonials on homepage
+- RAS-185 Product card — update style and quick add button function
+
 ## v1.1.0 - 2026-05-27
 ### CHANGED
 - RAS-177 Homepage – Grid — fix styles for grid module on tablet

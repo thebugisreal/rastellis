@@ -1,0 +1,72 @@
+{%- liquid
+  comment
+    Renders a product pick card.
+
+    Parameters:
+      - product: { Object } Product object (required)
+      - image: { Object } Optional image override
+      - label: { String } Optional promotional label
+      - image_sizes: { String } Responsive sizes attribute for the product image
+  endcomment
+
+  unless image_sizes
+    assign image_sizes = '(min-width: 720px) 77px, 60px'
+  endunless
+-%}
+
+{%- if product != blank -%}
+  {%- liquid
+    assign pick_product = product
+    assign pick_image = image
+
+    if pick_image == blank
+      assign pick_image = pick_product.featured_media | default: pick_product.media[0].preview_image
+    endif
+
+    assign lowest_price = pick_product.price_min | money
+
+    if pick_product.variants.size > 1
+      assign pick_price = 'sections.slideshow.product_pick.starting_at_price_html' | t: price: lowest_price
+    else
+      assign pick_price = lowest_price
+    endif
+  -%}
+
+  <div class="product-pick-card">
+    {%- if label != blank -%}
+      <span class="product-pick-card__label fs-body-300">
+        {{ label }}
+      </span>
+    {%- endif -%}
+
+    {%- if pick_image != blank -%}
+      <a
+        class="product-pick-card__image"
+        href="{{ pick_product.url }}"
+        aria-hidden="true"
+        tabindex="-1"
+      >
+        {%
+          render 'image',
+          image: pick_image,
+          wrapper_class: 'product-pick-card__image-wrapper',
+          aspect_ratio: 'square',
+          sizes: image_sizes
+        %}
+      </a>
+    {%- endif -%}
+
+    <div class="product-pick-card__content">
+      <a class="product-pick-card__title fs-body-75" href="{{ pick_product.url }}">
+        {{ pick_product.title }}
+      </a>
+      <p class="product-pick-card__price fs-body-75">
+        {{ pick_price }}
+      </p>
+    </div>
+
+    <a class="product-pick-card__button btn btn--dark btn--small" href="{{ pick_product.url }}">
+      <span>{{ 'sections.slideshow.product_pick.shop' | t }}</span>
+    </a>
+  </div>
+{%- endif -%}

@@ -11,6 +11,8 @@
   assign resolved_enable_border = enable_border | default: settings.enable_border_on_hover, allow_false: true
   assign resolved_show_swatches = show_swatches | default: true, allow_false: true
   assign resolved_enable_quick_view = enable_quick_view | default: settings.enable_quick_view, allow_false: true
+  assign show_variant_row = show_variant_row | default: settings.show_variant_row
+  assign hide_price = hide_price | default: false, allow_false: true
 
   assign show_multiple_images = false
   if resolved_show_second_image and prod.media.size > 1
@@ -111,6 +113,10 @@
     endcapture
   else
     assign quick_shop_type = 'none'
+  endif
+
+  if show_variant_row
+    assign hide_price = true
   endif
 -%}
 
@@ -413,7 +419,7 @@
         {{ quick_shop_button }}
       {%- endif -%}
 
-      {%- if show_variant_row and placeholder != true -%}
+      {%- if show_variant_row -%}
         {%- assign variant_title_visible = false -%}
         {%- if current_variant.title != 'Default Title' -%}{%- assign variant_title_visible = true -%}{%- endif -%}
         {%- if variant_title_visible or current_variant.unit_price_measurement -%}
@@ -432,24 +438,32 @@
         {%- endif -%}
       {%- endif -%}
 
-      {%- if show_atc and prod.available and placeholder != true and prod.has_only_default_variant -%}
+      {%- if settings.enable_quick_add -%}
         <div class="product-item__atc-row">
-          {%- form 'product', prod, class: 'product-item__atc-form' -%}
-            <input type="hidden" name="id" value="{{ current_variant.id }}">
-            <div class="product-item__atc-split">
-              <div class="product-item__qty-wrap">
-                <select name="quantity" class="product-item__qty-select ff-body-bold fs-accent" aria-label="{{ 'general.accessibility.quantity' | t | default: 'Quantity' }}">
-                  {%- for i in (1..10) -%}
-                    <option value="{{ i }}">{{ i }}</option>
-                  {%- endfor -%}
-                </select>
+          {% if prod.available %}
+            {%- form 'product', prod, class: 'product-item__atc-form' -%}
+              <input type="hidden" name="id" value="{{ current_variant.id }}">
+              <div class="product-item__atc-split">
+                <div class="product-item__qty-wrap">
+                  <select name="quantity" class="product-item__qty-select" aria-label="{{ 'general.accessibility.quantity' | t | default: 'Quantity' }}">
+                    {%- for i in (1..4) -%}
+                      <option value="{{ i }}">{{ i }}</option>
+                    {%- endfor -%}
+                  </select>
+                </div>
+                <button class="product-item__atc-btn" data-quick-shop-trigger="quick-add" data-product-id="{{ current_variant.id }}" data-product-quantity="1">
+                  <span>{{ 'products.product.add_to_cart' | t }} &bull; {{ current_variant.price | money }}</span>
+                  <div class="btn__loading-wrap"><div class="btn__loading-bar"></div></div>
+                </button>
               </div>
-              <button type="submit" name="add" class="product-item__atc-btn ff-body-bold fs-accent">
-                <span>{{ 'products.product.add_to_cart' | t }} &bull; {{ current_variant.price | money }}</span>
-                <div class="btn__loading-wrap"><div class="btn__loading-bar"></div></div>
+            {%- endform -%}
+          {% else %}
+            <div class="product-item__atc-sold-out">
+              <button class="product-item__sold-out-btn btn btn--full btn--dark" disabled>
+                <span>{{ 'products.product.sold_out' | t }}</span>
               </button>
             </div>
-          {%- endform -%}
+          {% endif %}
         </div>
       {%- endif -%}
     </div>

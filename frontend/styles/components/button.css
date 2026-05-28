@@ -79,7 +79,7 @@ button {
   text-transform: var(--text-transform-button);
   line-height: var(--line-height-button);
   letter-spacing: var(--letter-spacing-button);
-  border-radius: 6px;
+  border-radius: 4px;
 }
 
 .btn.btn--small {
@@ -168,7 +168,7 @@ button {
   }
 
   .btn__loading-bar {
-    background-color: var(--color-button-dark-solid-bg);
+    background-color: var(--color-button-light-solid-bg);
   }
 
   &.btn--overlay {
@@ -226,7 +226,7 @@ button {
   }
 
   .btn__loading-bar {
-    background-color: var(--color-button-light-solid-bg);
+    background-color: var(--color-button-dark-solid-bg);
   }
 }
 

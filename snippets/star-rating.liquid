@@ -12,7 +12,7 @@
 -%}
 
 {%- for star in (1..solid_star_rating) -%}
-  {%- render 'icon' with icon: 'star-filled' -%}
+  {%- render 'icon' with icon: 'star-filled', view_box_custom: '0 0 14 13' -%}
 {%- endfor -%}
 
 {%- if remaining_stars > 0 -%}

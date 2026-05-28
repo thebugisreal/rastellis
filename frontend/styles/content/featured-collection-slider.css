@@ -310,3 +310,23 @@
   + .featured-collection-slider__view-all {
   margin-top: var(--spacing-3);
 }
+
+.featured-collection-slider__product {
+  &.swiper-slide {
+    height: auto;
+  }
+
+  .product-item__inner {
+    height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr;
+  }
+
+  .product-item {
+    height: 100%;
+  }
+
+  .product-item__meta {
+    height: 100%;
+  }
+}
