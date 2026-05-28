@@ -1,0 +1,93 @@
+{%- comment -%}
+  Renders a recipe card.
+
+  Parameters:
+    - article: { Object } Required. Shopify article object.
+    - featured: { Boolean } Optional (default false). If true, renders the video/featured variant.
+    - video_url: { String } Required when featured is true. From custom.user_curated_vertical_video.value.url (file_reference metafield).
+{%- endcomment -%}
+
+{%- liquid
+  assign prep_time = article.metafields.custom.prep_time.value
+  assign cook_time = article.metafields.custom.cook_time.value
+-%}
+
+{%- unless featured -%}
+  <a href="{{ article.url }}" class="recipe-card recipe-card--default" aria-label="{{ article.title | escape }}">
+    {%- render 'image',
+      image: article.image,
+      wrapper_class: 'recipe-card__image',
+      sizes: '(min-width: 960px) 25vw, 90vw',
+      animate: true,
+      include_placeholder: true
+    -%}
+    <div class="recipe-card__body">
+      <h3 class="recipe-card__title ff-heading ff-secondary fs-heading-5-base">{{ article.title | escape }}</h3>
+      {%- if prep_time != blank or cook_time != blank -%}
+        <div class="recipe-card__pills">
+          {%- if prep_time != blank -%}
+            <span class="recipe-card__pill ff-heading fs-heading-6-base">Prep: {{ prep_time }}</span>
+          {%- endif -%}
+          {%- if cook_time != blank -%}
+            <span class="recipe-card__pill ff-heading fs-heading-6-base">Cook: {{ cook_time }}</span>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </a>
+{%- endunless -%}
+
+{%- if featured -%}
+  {%- assign poster_url = article.image | image_url: width: 600 -%}
+  <div class="recipe-card recipe-card--featured">
+    <video-control class="recipe-card__video-control">
+      <div class="recipe-card__featured-inner">
+        {%- if video_url != blank -%}
+          {%- render 'video',
+            video: video_url,
+            poster: poster_url,
+            controls: false,
+            video_pause: false,
+            loop: true,
+            wrapper_class: 'recipe-card__video'
+          -%}
+        {%- endif -%}
+        <div class="recipe-card__featured-overlay">
+          <span class="recipe-card__user-label ff-subheading ff-secondary">User Created Recipe</span>
+          {%- if video_url != blank -%}
+            <div class="recipe-card__play-button-wrapper">
+              <button
+                type="button"
+                class="video-play-button js-button-video played"
+                aria-label="{{ 'general.accessibility.play_video' | t }}"
+                aria-pressed="false"
+              >
+                <span class="video-button-content--play" aria-hidden="true">
+                  {%- render 'play-icon', class: 'recipe-card__play-icon' -%}
+                </span>
+                <span class="video-button-content--pause" aria-hidden="true">
+                  {%- render 'pause-icon', class: 'recipe-card__play-icon' -%}
+                </span>
+              </button>
+            </div>
+          {%- endif -%}
+          <div class="recipe-card__featured-body">
+            <h3 class="recipe-card__title recipe-card__title--white ff-heading ff-secondary fs-heading-5-base">
+              <a href="{{ article.url }}" class="recipe-card__featured-link">{{ article.title | escape }}</a>
+            </h3>
+            {%- if prep_time != blank or cook_time != blank -%}
+              <div class="recipe-card__pills">
+                {%- if prep_time != blank -%}
+                  <span class="recipe-card__pill recipe-card__pill--white ff-heading fs-heading-6-base">Prep: {{ prep_time }}</span>
+                {%- endif -%}
+                {%- if cook_time != blank -%}
+                  <span class="recipe-card__pill recipe-card__pill--white ff-heading fs-heading-6-base">Cook: {{ cook_time }}</span>
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+    </video-control>
+  </div>
+{%- endif -%}

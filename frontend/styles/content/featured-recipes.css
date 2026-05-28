@@ -1,0 +1,266 @@
+/* ============================================================
+   Featured Recipes
+   ============================================================ */
+
+.featured-recipes.section {
+  padding-top: var(--spacing-20);
+  padding-bottom: var(--spacing-20);
+  padding-inline: var(--space-outer);
+
+  @media (--below-960) {
+    padding-top: 0;
+    padding-bottom: var(--spacing-10);
+    padding-inline: var(--spacing-5);
+  }
+}
+
+/* Header row — title left, CTA right, vertically centered */
+.featured-recipes__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-8);
+
+  @media (--below-960) {
+    margin-bottom: var(--spacing-6);
+
+    .featured-recipes__header-cta {
+      display: none;
+    }
+  }
+}
+
+.featured-recipes__title--center {
+  text-align: center;
+}
+
+/* Card grid — desktop 4 columns */
+/* On desktop we override Swiper's flex layout: move the grid onto
+   .swiper-wrapper so Swiper can still measure it, and reset slide widths. */
+.featured-recipes__cards {
+  @media (--above-960) {
+    &.swiper {
+      overflow: visible;
+    }
+
+    .featured-recipes__cards-inner.swiper-wrapper {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--spacing-8);
+    }
+
+    /* Cancel Swiper's inline margin-right so gap is the sole spacing */
+    .featured-recipes__card.swiper-slide {
+      width: auto !important;
+      margin-right: 0 !important;
+    }
+  }
+}
+
+/* Mobile footer: nav arrows + CTA */
+.featured-recipes__mobile-footer {
+  display: none;
+
+  @media (--below-960) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-6);
+    margin-top: var(--spacing-6);
+  }
+}
+
+.featured-recipes__navigation-buttons {
+  @media (--above-960) {
+    display: none;
+  }
+
+  @media (--below-960) {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+/* Mobile CTA: bordered band, 15px breathing room above/below */
+.featured-recipes__mobile-cta {
+  @media (--below-960) {
+    width: 100%;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+}
+
+/* ============================================================
+   Recipe Card — default variant
+   ============================================================ */
+
+.recipe-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.recipe-card--default {
+  background-color: var(--color-background);
+}
+
+.recipe-card__image {
+  border-radius: 4px;
+  overflow: hidden;
+  aspect-ratio: 308 / 396;
+
+  .image__inner {
+    height: 100%;
+  }
+
+  .image__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.recipe-card__body {
+  padding: var(--spacing-4) 0;
+}
+
+.recipe-card__title {
+  margin: 0 0 var(--spacing-3);
+}
+
+.recipe-card__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+}
+
+.recipe-card__pill {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--spacing-1) var(--spacing-3);
+  border: 1px solid #000;
+  border-radius: 500px;
+  background-color: #f5f2ec;
+  color: #000;
+  white-space: nowrap;
+}
+
+/* ============================================================
+   Recipe Card — featured (video) variant
+   ============================================================ */
+
+/* Desktop: height:100% fills the grid row set by the default cards' aspect-ratio images.
+   Mobile: aspect-ratio because Swiper flex has no row height to inherit. */
+.recipe-card--featured {
+  position: relative;
+  display: block;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 4px;
+
+  @media (--below-960) {
+    height: auto;
+    aspect-ratio: 308 / 396;
+  }
+}
+
+.recipe-card__video-control {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.recipe-card__featured-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.recipe-card__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+
+  video {
+    width: 100%;
+    height: 100% !important; /* overrides .video-wrapper > * { height: auto } in image.css */
+    object-fit: cover;
+  }
+}
+
+.recipe-card__featured-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-5);
+  pointer-events: none;
+}
+
+.recipe-card__user-label {
+  font-size: 21px;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.recipe-card__play-button-wrapper {
+  position: absolute;
+  top: var(--spacing-5);
+  right: var(--spacing-5);
+  pointer-events: all;
+  z-index: 1;
+
+  .video-play-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    color: #fff;
+  }
+}
+
+.recipe-card__play-icon {
+  width: 32px;
+  height: 32px;
+  color: #fff;
+}
+
+.recipe-card__featured-body {
+  margin-top: auto;
+  pointer-events: all;
+  position: relative;
+}
+
+.recipe-card__title--white {
+  color: #fff;
+}
+
+.recipe-card__pill--white {
+  border-color: #fff;
+  background-color: #fff;
+  color: #000;
+}
+
+/* Stretched link — featured card title link covers full card */
+.recipe-card__featured-link {
+  position: static;
+  color: inherit;
+  text-decoration: none;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+}
+
