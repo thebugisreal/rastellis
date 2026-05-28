@@ -66,11 +66,12 @@ section('featured-collection-slider', {
       const carouselOptions = {
         slidesPerView: this.mobilePerView,
         spaceBetween: 16,
+        threshold: 5,
         breakpoints: {
           720: {
             spaceBetween: 20,
             slidesPerView:
-              this.perView === 5 ? this.perView - 1 : this.perView,
+              this.perView >= 4 ? this.perView - 1 : this.perView,
           },
           1200: {
             spaceBetween: 32,

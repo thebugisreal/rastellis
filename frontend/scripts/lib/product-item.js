@@ -56,6 +56,8 @@ export default function ProductItem(container) {
             emit('quick-cart:open')
           }, 300)
         }
+      }).finally(() => {
+        remove(buttonEl, 'loading')
       })
     }),
 
