@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.1.3 - 2026-05-29
+### Fixed
+- RAS-183 Homepage – Testimonials — update star icons
+
 ## v1.1.2 - 2026-05-29
 ### Added
 - RAS-182 Homepage – Featured Recipes — add Featured Recipes section with recipe card, CSS, JS, and schema
