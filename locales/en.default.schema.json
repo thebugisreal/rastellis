@@ -807,33 +807,6 @@
       }
     },
     "featured_collection_slider": {
-      "settings": {
-        "header__padding_mobile": {
-          "content": "Mobile padding"
-        },
-        "header__padding_desktop": {
-          "content": "Desktop padding"
-        },
-        "padding_top": {
-          "label": "Top"
-        },
-        "padding_bottom": {
-          "label": "Bottom"
-        },
-        "content_alignment": {
-          "label": "Alignment"
-        },
-        "header__sticker": {
-          "content": "Sticker"
-        },
-        "sticker_image": {
-          "label": "Image"
-        },
-        "show_carousel_controls": {
-          "label": "Carousel navigation",
-          "info": "Dots on mobile and arrows on desktop for the product carousel."
-        }
-      },
       "blocks": {
         "collection": {
           "name": "Collection",
@@ -896,6 +869,65 @@
         },
         "header__padding_desktop": {
           "content": "Desktop padding"
+        },
+        "header__sticker": {
+          "content": "Sticker"
+        },
+        "sticker_image": {
+          "label": "Image"
+        },
+        "show_carousel_controls": {
+          "label": "Carousel navigation",
+          "info": "Dots on mobile and arrows on desktop for the product carousel."
+        }
+      }
+    },
+    "featured_recipes": {
+      "name": "Featured recipes",
+      "presets": {
+        "name": "Featured recipes"
+      },
+      "settings": {
+        "title": {
+          "label": "Title"
+        },
+        "title_alignment": {
+          "label": "Title alignment",
+          "option_left": "Left",
+          "option_center": "Center"
+        },
+        "button_label": {
+          "label": "Button label"
+        },
+        "button_url": {
+          "label": "Button URL"
+        },
+        "source_mode": {
+          "label": "Card source",
+          "option_manual": "Manual (use blocks below)",
+          "option_auto": "Auto (pull from blog)",
+          "info": "In auto mode, renders the first 4 articles from the selected blog."
+        },
+        "blog": {
+          "label": "Blog (auto mode)",
+          "info": "Only used when Card source is set to Auto."
+        },
+        "featured_article": {
+          "label": "Featured video article",
+          "info": "Appears in the 4th card position with a play/pause video."
+        },
+        "featured_article_overlay_text": {
+          "label": "Featured article overlay text"
+        }
+      },
+      "blocks": {
+        "recipe_card": {
+          "name": "Recipe card",
+          "settings": {
+            "article": {
+              "label": "Article"
+            }
+          }
         }
       }
     },
