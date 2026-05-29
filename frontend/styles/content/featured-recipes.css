@@ -32,6 +32,10 @@
 
 .featured-recipes__title--center {
   text-align: center;
+
+  @media (--below-960) {
+    width: 100%;
+  }
 }
 
 /* Card grid — desktop 4 columns */
@@ -228,7 +232,7 @@
 
 .recipe-card__play-button-wrapper {
   position: absolute;
-  top: var(--spacing-5);
+  top: var(--spacing-4);
   right: var(--spacing-5);
   pointer-events: all;
   z-index: 1;
