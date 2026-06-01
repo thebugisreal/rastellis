@@ -1,6 +1,28 @@
+.collapsible-row-list.section.section--vertical-padding-collapsible-row-list {
+  padding-top: 48px;
+  padding-bottom: 48px;
+
+  @media (--above-720) {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+}
+
+.collapsible-row-list.section.section--vertical-padding-collapsible-row-list.collapsible-row-list--has-background-illustration {
+  padding-top: 112px;
+
+  @media (--above-720) {
+    padding-bottom: 216px;
+  }
+}
+
 .collapsible-row-list__inner {
   margin-left: auto;
   margin-right: auto;
+  width: 100%;
+}
+
+.collapsible-row-list--content-custom .collapsible-row-list__inner {
   max-width: var(--content-width);
 
   &.collapsible-row-list--has-media {
@@ -42,21 +64,19 @@
 .collapsible-row-list--side {
   .collapsible-row-list__inner {
     position: relative;
-    max-width: 100%;
-    padding: 0 var(--spacing-16);
 
     @media (--above-960) {
       display: flex;
       align-items: flex-start;
-      gap: var(--spacing-8);
+      gap: 35px;
     }
   }
 
   .collapsible-row-list__heading {
-    margin-bottom: var(--spacing-8);
+    margin-bottom: 28px;
 
     @media (--above-960) {
-      flex: 0 0 300px;
+      flex: 0 0 305px;
       margin-bottom: 0;
     }
   }
@@ -65,25 +85,35 @@
     flex: 1;
     min-width: 0;
   }
+}
 
-  /* Typography corrections to match design */
-  .collapsible-row-list-item__trigger {
-    font-size: var(--font-size-heading-5-base);
-    font-weight: var(--font-weight-body-bold);
-  }
-
-  .collapsible-row-list-item__text {
-    font-size: var(--font-size-body-1);
-  }
+.collapsible-row-list--side:not(.collapsible-row-list--content-custom) .collapsible-row-list__inner {
+  max-width: 100%;
 }
 
 /* Background illustration */
+.shopify-section:has(.collapsible-row-list--has-background-illustration) {
+  overflow: visible;
+}
+
+.collapsible-row-list--has-background-illustration {
+  overflow: visible;
+}
+
 .collapsible-row-list__background-illustration {
   position: absolute;
-  left: 0;
-  top: 0;
-  width: 569px;
+  top: 19px;
+  right: -81px;
+  width: 244px;
   pointer-events: none;
-  opacity: 0.1;
+  opacity: 1;
   overflow: hidden;
+
+  @media (--above-720) {
+    top: auto;
+    right: auto;
+    bottom: -25px;
+    left: -123px;
+    width: 569px;
+  }
 }

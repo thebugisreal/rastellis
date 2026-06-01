@@ -32,7 +32,10 @@
   class="
     collapsible-row-list
     {% if section.settings.layout == 'side' %}collapsible-row-list--side{% endif %}
+    {% if section.settings.background_illustration != blank %}collapsible-row-list--has-background-illustration{% endif %}
+    {% if section.settings.content_width == 'custom' %}collapsible-row-list--content-custom{% endif %}
     section
+    section--vertical-padding-collapsible-row-list
     {{ section.settings.section_padding }}
     section--divider-{{ section.settings.divider_style }}
     {% if settings.enable_section_animations and section.settings.enable_animation %}
@@ -52,12 +55,13 @@
     --media-position-desktop: {{ media_position_desktop }};
   "
 >
+  {%- unless section.settings.background_illustration == blank -%}
+    <div class="collapsible-row-list__background-illustration" aria-hidden="true">
+      {%- render 'image', image: section.settings.background_illustration, wrapper_class: 'collapsible-row-list__background-illustration-img', include_placeholder: false -%}
+    </div>
+  {%- endunless -%}
+
   <div class="collapsible-row-list__inner {{ class_inner_media }}">
-    {%- unless section.settings.background_illustration == blank -%}
-      <div class="collapsible-row-list__background-illustration" aria-hidden="true">
-        {%- render 'image', image: section.settings.background_illustration, wrapper_class: 'collapsible-row-list__background-illustration-img', include_placeholder: false -%}
-      </div>
-    {%- endunless -%}
     {%- if section.settings.title != blank -%}
       <{{ section.settings.heading_tag }} class="collapsible-row-list__heading ff-heading {{ section.settings.heading_font_class }} {{ section.settings.heading_color }}">
         {{ section.settings.title }}
@@ -274,17 +278,23 @@
     {
       "type": "select",
       "id": "layout",
-      "label": "Layout",
+      "label": "t:sections.collapsible_row_list.settings.layout.label",
       "default": "stacked",
       "options": [
-        { "value": "stacked", "label": "Stacked" },
-        { "value": "side", "label": "Side by side" }
+        {
+          "value": "stacked",
+          "label": "t:sections.collapsible_row_list.settings.layout.option__stacked"
+        },
+        {
+          "value": "side",
+          "label": "t:sections.collapsible_row_list.settings.layout.option__side"
+        }
       ]
     },
     {
       "type": "image_picker",
       "id": "background_illustration",
-      "label": "Background illustration"
+      "label": "t:sections.collapsible_row_list.settings.background_illustration.label"
     },
     {
       "type": "header",
