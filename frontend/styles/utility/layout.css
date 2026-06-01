@@ -61,6 +61,16 @@
     }
   }
 
+  &.section--vertical-padding-why-rastellis {
+    padding-top: 28px;
+    padding-bottom: 34px;
+
+    @media (--above-720) {
+      padding-top: 80px;
+      padding-bottom: 86px;
+    }
+  }
+
   &.section--vertical-padding-none {
     padding-top: 0;
     padding-bottom: 0;
