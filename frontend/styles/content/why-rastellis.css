@@ -1,0 +1,190 @@
+/* ── Section — full viewport width background ────────────────────────────── */
+/* section--full-width + shopify-section--full-width remove max-width from the
+   .section utility so background and wave span edge-to-edge */
+
+.why-rastellis {
+  background-color: var(--section-background-color, #E7E6DE);
+  position: relative;
+}
+
+/* ── Inner container — content at max-width ──────────────────────────────── */
+
+.why-rastellis__inner {
+  max-width: calc(var(--max-width) + var(--space-outer) * 2);
+  margin: 0 auto;
+  padding-left: var(--space-outer);
+  padding-right: var(--space-outer);
+  position: relative;
+}
+
+/* ── Carousel ────────────────────────────────────────────────────────────── */
+
+.why-rastellis__carousel {
+  position: relative; /* nav arrows absolutely positioned inside */
+}
+
+/* ── Slide — split row, bottom-aligned, relative for badge + nav ──────────── */
+
+.why-rastellis__slide {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: var(--space-outer);
+  position: relative; /* badge positioned here */
+
+  @media (--below-720) {
+    flex-direction: column;
+    gap: 18px;
+  }
+}
+
+/* ── Badge — absolute within slide, top-left; in-flow centered on mobile ─── */
+
+.why-rastellis__badge {
+  @media (--above-720) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  @media (--below-720) {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--spacing-5);
+    order: -2;
+    width: 100%;
+  }
+}
+
+.why-rastellis__badge-image {
+  width: 139px;
+}
+
+/* ── Text column — fix 1: padding-top for badge clearance on desktop ─────── */
+
+.why-rastellis__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+  flex: 0 0 auto;
+
+  @media (--above-720) {
+    max-width: 480px;
+    width: 480px;
+    /* Badge is ~72px tall + space; this clears the badge above */
+    padding-top: 80px;
+    /* fix 4: spacing between last text element and arrows at bottom */
+    padding-bottom: 60px;
+  }
+
+  @media (--below-720) {
+    width: 100%;
+    order: 1;
+    gap: var(--spacing-3);
+  }
+}
+
+/* ── Typography ──────────────────────────────────────────────────────────── */
+
+.why-rastellis__eyebrow {
+  margin: 0;
+}
+
+.why-rastellis__headline {
+  margin: 0;
+  /* fix 2: override text-transform: uppercase from typography_heading_3_uppercase */
+  text-transform: none;
+  /* mobile: fs-heading-3-base = 30px; Figma = 35px */
+  @media (--below-720) {
+    font-size: 35px;
+  }
+}
+
+/* fix 2: body — correct font family (Raleway via --font-heading-2) + size */
+.why-rastellis__body {
+  margin: 0;
+  color: var(--color-text, #272727);
+  /* fs-body-75 gives 15px desktop / 14px mobile — matches Figma body-1 */
+  font-family: var(--font-heading-2);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* ── Media column — 648×648px desktop, full width mobile ────────────────── */
+
+.why-rastellis__media {
+  flex-shrink: 0;
+
+  @media (--above-720) {
+    width: 648px;
+  }
+
+  @media (--below-720) {
+    width: 100%;
+    order: -1;
+  }
+}
+
+/* media_position toggle */
+.why-rastellis--media-left .why-rastellis__media {
+  @media (--above-720) {
+    order: -1;
+  }
+}
+
+/* ── Media wrapper — shared by image, video, placeholder ────────────────── */
+
+.why-rastellis__media-wrapper {
+  display: block;
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Image height chain */
+.why-rastellis__media-wrapper.image,
+.why-rastellis__media-wrapper .image {
+  width: 100%;
+}
+
+/* ── Video — video-control element wrapper ───────────────────────────────── */
+
+.why-rastellis__media-video {
+  /* video.liquid renders .video-wrapper; aspect-ratio--square from image.css applies */
+  width: 100%;
+}
+
+.why-rastellis__video-button-wrapper {
+  position: absolute;
+  right: var(--spacing-5);
+  bottom: var(--spacing-5);
+  z-index: 10;
+}
+
+/* ── Navigation arrows ───────────────────────────────────────────────────── */
+
+/* Show on mobile (overrides carousel.css display:none at <720) */
+.why-rastellis .carousel__navigation-buttons {
+  display: flex;
+}
+
+/* fix 3: desktop — absolute at bottom of carousel, same level as image base */
+@media (--above-720) {
+  .why-rastellis .carousel__navigation-buttons {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    z-index: 2;
+  }
+}
+
+/* fix 3: mobile — in document flow, below text */
+@media (--below-720) {
+  .why-rastellis .carousel__navigation-buttons {
+    position: static;
+    margin-top: var(--spacing-6);
+  }
+}
