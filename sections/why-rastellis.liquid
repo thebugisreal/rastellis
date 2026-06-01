@@ -3,10 +3,26 @@
   if section.settings.background_color != blank and section.settings.background_color != 'rgba(0,0,0,0)'
     assign has_background_color = true
   endif
+
+  assign has_wave_top = false
+  if section.settings.enable_wave_top_desktop or section.settings.enable_wave_top_mobile
+    assign has_wave_top = true
+  endif
+
+  assign has_wave_bottom = false
+  if section.settings.enable_wave_bottom_desktop or section.settings.enable_wave_bottom_mobile
+    assign has_wave_bottom = true
+  endif
+
+  assign has_rough_border = false
+  if has_wave_top or has_wave_bottom
+    assign has_rough_border = true
+  endif
 -%}
 
 {%- capture section_classes -%}
   section section--divider-{{ section.settings.divider_style }}
+  section--vertical-padding-why-rastellis
   {{ section.settings.section_padding }}
 {%- endcapture -%}
 
@@ -18,9 +34,12 @@
     {{ section_classes }}
     section--full-width
     why-rastellis--media-{{ section.settings.media_position }}
-    has-rough-border
-    rough-border--top-desktop
-    rough-border--top-mobile
+    {% if section.blocks.size <= 1 %}why-rastellis--single-slide{% endif %}
+    {% if section.settings.enable_wave_top_desktop %}rough-border--top-desktop{% endif %}
+    {% if section.settings.enable_wave_top_mobile %}rough-border--top-mobile{% endif %}
+    {% if section.settings.enable_wave_bottom_desktop %}rough-border--bottom-desktop{% endif %}
+    {% if section.settings.enable_wave_bottom_mobile %}rough-border--bottom-mobile{% endif %}
+    {% if has_rough_border %}has-rough-border{% endif %}
     {% if settings.enable_section_animations and section.settings.enable_animation %}
       animation
       animation--why-rastellis
@@ -32,7 +51,9 @@
     {% endif %}
   "
 >
-  {%- render 'wave', position: 'top' -%}
+  {%- if has_wave_top -%}
+    {%- render 'wave', position: 'top' -%}
+  {%- endif -%}
 
   <div class="why-rastellis__inner">
 
@@ -90,11 +111,15 @@
     </div>
 
   </div>
+
+  {%- if has_wave_bottom -%}
+    {%- render 'wave', position: 'bottom' -%}
+  {%- endif -%}
 </div>
 
 {% schema %}
 {
-  "name": "Why Rastelli's",
+  "name": "t:sections.why_rastellis.name",
   "tag": "section",
   "class": "shopify-section--full-width",
   "disabled_on": {
@@ -105,112 +130,165 @@
     {
       "type": "image_picker",
       "id": "badge_image",
-      "label": "Badge image",
-      "info": "Upload the 'Why Rastelli's?' brand badge. Hides automatically if blank."
+      "label": "t:sections.why_rastellis.settings.badge_image.label",
+      "info": "t:sections.why_rastellis.settings.badge_image.info"
     },
     {
       "type": "color",
       "id": "background_color",
-      "label": "Background color",
+      "label": "t:sections.why_rastellis.settings.background_color.label",
       "default": "#E7E6DE"
     },
     {
       "type": "select",
       "id": "media_position",
-      "label": "Media position",
+      "label": "t:sections.why_rastellis.settings.media_position.label",
       "default": "right",
       "options": [
-        { "value": "left", "label": "Left" },
-        { "value": "right", "label": "Right" }
+        {
+          "value": "left",
+          "label": "t:sections.why_rastellis.settings.media_position.option__left"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.why_rastellis.settings.media_position.option__right"
+        }
       ]
     },
     {
       "type": "header",
-      "content": "Section style"
+      "content": "t:shared.settings.section_style.header_style.content"
     },
     {
       "id": "enable_animation",
       "type": "checkbox",
-      "label": "Enable animation",
+      "label": "t:shared.settings.section_style.enable_animation.label",
+      "info": "t:shared.settings.section_style.enable_animation.info",
       "default": true
     },
     {
       "type": "select",
       "id": "divider_style",
-      "label": "Divider style",
+      "label": "t:shared.settings.section_style.divider_style.label",
       "default": "none",
       "options": [
-        { "label": "None", "value": "none" },
-        { "label": "Solid", "value": "solid" }
+        {
+          "label": "t:shared.settings.section_style.divider_style.option_none",
+          "value": "none"
+        },
+        {
+          "label": "t:shared.settings.section_style.divider_style.option_solid",
+          "value": "solid"
+        }
       ]
     },
     {
       "type": "select",
       "id": "section_padding",
-      "label": "Section padding",
+      "label": "t:shared.settings.section_style.section_padding.label",
       "default": "section--vertical-padding-top-bottom",
       "options": [
-        { "label": "None", "value": "section--vertical-padding-none" },
-        { "label": "Top and bottom", "value": "section--vertical-padding-top-bottom" },
-        { "label": "Top only", "value": "section--vertical-padding-top-only" },
-        { "label": "Bottom only", "value": "section--vertical-padding-bottom-only" }
+        {
+          "label": "t:shared.settings.section_style.section_padding.option_none",
+          "value": "section--vertical-padding-none"
+        },
+        {
+          "label": "t:shared.settings.section_style.section_padding.option_both",
+          "value": "section--vertical-padding-top-bottom"
+        },
+        {
+          "label": "t:shared.settings.section_style.section_padding.option_top",
+          "value": "section--vertical-padding-top-only"
+        },
+        {
+          "label": "t:shared.settings.section_style.section_padding.option_bottom",
+          "value": "section--vertical-padding-bottom-only"
+        }
       ]
+    },
+    {
+      "type": "paragraph",
+      "content": "t:shared.settings.rough_border.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_wave_top_desktop",
+      "label": "t:shared.settings.rough_border.enable_wave_top_desktop.label",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_wave_bottom_desktop",
+      "label": "t:shared.settings.rough_border.enable_wave_bottom_desktop.label",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_wave_top_mobile",
+      "label": "t:shared.settings.rough_border.enable_wave_top_mobile.label",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_wave_bottom_mobile",
+      "label": "t:shared.settings.rough_border.enable_wave_bottom_mobile.label",
+      "default": false
     }
   ],
   "blocks": [
     {
       "type": "slide",
-      "name": "Slide",
+      "name": "t:sections.why_rastellis.blocks.slide.name",
       "limit": 5,
       "settings": [
         {
           "type": "text",
           "id": "headline",
-          "label": "Headline",
+          "label": "t:sections.why_rastellis.blocks.slide.settings.headline.label",
           "default": "Delicious Meat, Responsibly Sourced from Trusted Farms"
         },
         {
           "type": "textarea",
           "id": "body",
-          "label": "Body text",
+          "label": "t:sections.why_rastellis.blocks.slide.settings.body.label",
           "default": "Rastelli's partners with trusted family farms and fisheries to source high-quality meat that is humanely raised, responsibly harvested, and free from unnecessary antibiotics and added hormones."
         },
         {
           "type": "header",
-          "content": "Optional eyebrow"
+          "content": "t:sections.why_rastellis.blocks.slide.settings.header__eyebrow.content"
         },
         {
           "type": "checkbox",
           "id": "show_eyebrow",
-          "label": "Show eyebrow label",
+          "label": "t:sections.why_rastellis.blocks.slide.settings.show_eyebrow.label",
           "default": false
         },
         {
           "type": "text",
           "id": "eyebrow",
-          "label": "Eyebrow text"
+          "label": "t:sections.why_rastellis.blocks.slide.settings.eyebrow.label"
         },
         {
           "type": "header",
-          "content": "Media"
+          "content": "t:sections.why_rastellis.blocks.slide.settings.header__media.content"
         },
         {
           "type": "image_picker",
           "id": "image",
-          "label": "Image"
+          "label": "t:sections.why_rastellis.blocks.slide.settings.image.label"
         },
         {
           "type": "video",
           "id": "video_hosted",
-          "label": "Video",
-          "info": "Uploaded video takes priority over image."
+          "label": "t:sections.why_rastellis.blocks.slide.settings.video_hosted.label",
+          "info": "t:sections.why_rastellis.blocks.slide.settings.video_hosted.info"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Why Rastelli's",
+      "name": "t:sections.why_rastellis.presets.name",
       "blocks": [
         {
           "type": "slide",

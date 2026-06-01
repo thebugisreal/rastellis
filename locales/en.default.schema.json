@@ -4267,6 +4267,58 @@
         }
       }
     },
+    "why_rastellis": {
+      "name": "Why Rastelli's",
+      "presets": {
+        "name": "Why Rastelli's"
+      },
+      "blocks": {
+        "slide": {
+          "name": "Slide",
+          "settings": {
+            "headline": {
+              "label": "Headline"
+            },
+            "body": {
+              "label": "Body text"
+            },
+            "header__eyebrow": {
+              "content": "Optional eyebrow"
+            },
+            "show_eyebrow": {
+              "label": "Show eyebrow label"
+            },
+            "eyebrow": {
+              "label": "Eyebrow text"
+            },
+            "header__media": {
+              "content": "Media"
+            },
+            "image": {
+              "label": "Image"
+            },
+            "video_hosted": {
+              "label": "Video",
+              "info": "Uploaded video takes priority over image."
+            }
+          }
+        }
+      },
+      "settings": {
+        "badge_image": {
+          "label": "Badge image",
+          "info": "Upload the 'Why Rastelli's?' brand badge. Hides automatically if blank."
+        },
+        "background_color": {
+          "label": "Background color"
+        },
+        "media_position": {
+          "label": "Media position",
+          "option__left": "Left",
+          "option__right": "Right"
+        }
+      }
+    },
     "article_hero": {
       "name": "Article hero",
       "presets": {
