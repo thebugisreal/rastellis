@@ -88,6 +88,7 @@
                   show_excerpt: section.settings.show_excerpt,
                   show_featured_image: section.settings.show_featured_image,
                   show_read_button: false,
+                  show_recipe_times: section.settings.show_recipe_times,
                   use_featured_video: true,
                   featured_video_url: featured_video_url,
                   featured_video_label: featured_video_label
@@ -102,7 +103,8 @@
                   show_tags: section.settings.show_tags,
                   show_excerpt: section.settings.show_excerpt,
                   show_featured_image: section.settings.show_featured_image,
-                  show_read_button: false
+                  show_read_button: false,
+                  show_recipe_times: section.settings.show_recipe_times
                 %}
               {%- endif -%}
             {%- else -%}
@@ -125,6 +127,7 @@
                 show_excerpt: section.settings.show_excerpt,
                 show_featured_image: section.settings.show_featured_image,
                 show_read_button: false,
+                show_recipe_times: section.settings.show_recipe_times,
                 use_featured_video: true,
                 featured_video_url: featured_video_url,
                 featured_video_label: featured_video_label
@@ -140,7 +143,8 @@
                 show_tags: section.settings.show_tags,
                 show_excerpt: section.settings.show_excerpt,
                 show_featured_image: section.settings.show_featured_image,
-                show_read_button: false
+                show_read_button: false,
+                show_recipe_times: section.settings.show_recipe_times
               %}
             {%- endif -%}
           </div>
@@ -241,24 +245,30 @@
       "id": "show_tags",
       "type": "checkbox",
       "label": "t:sections.blog_posts.settings.show_tags.label",
-      "default": true
+      "default": false
     },
     {
       "id": "show_author",
       "type": "checkbox",
       "label": "t:sections.blog_posts.settings.show_author.label",
-      "default": true
+      "default": false
     },
     {
       "id": "show_date",
       "type": "checkbox",
       "label": "t:sections.blog_posts.settings.show_date.label",
-      "default": true
+      "default": false
     },
     {
       "id": "show_excerpt",
       "type": "checkbox",
       "label": "t:sections.blog_posts.settings.show_excerpt.label",
+      "default": false
+    },
+    {
+      "id": "show_recipe_times",
+      "type": "checkbox",
+      "label": "t:sections.blog_posts.settings.show_recipe_times.label",
       "default": true
     },
     {

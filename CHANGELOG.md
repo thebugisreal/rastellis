@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.1.2 - 2026-05-29
+### Added
+- RAS-182 Homepage – Featured Recipes — add Featured Recipes section with recipe card, CSS, JS, and schema
+
+### Fixed
+- RAS-182 Homepage – Blog Posts / Featured Article Slider — fix styles for featured article slider
+
 ## v1.1.1 - 2026-05-28
 ### Changed
 - RAS-58 GE – Header, Nav & Announcement Bar — fix QA feedbacks

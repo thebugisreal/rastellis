@@ -21,6 +21,8 @@
         "previous": "Previous post"
       },
       "read": "Read recipe",
+      "prep_time": "Prep: {{ time }}",
+      "cook_time": "Cook: {{ time }}",
       "tags": "Tags"
     },
     "comment": "Comment",

@@ -707,6 +707,17 @@
         "padding_bottom_desktop": 48
       }
     },
+    "featured_recipes_MnKpQr": {
+      "type": "featured-recipes",
+      "blocks": {},
+      "block_order": [],
+      "settings": {
+        "title": "Discover Ways to Enjoy Rastelli's",
+        "title_alignment": "left",
+        "button_label": "Explore All",
+        "button_url": ""
+      }
+    },
     "blog_posts_rmdkRw": {
       "type": "blog-posts",
       "name": "t:sections.blog_posts.presets.name",
@@ -894,6 +905,7 @@
     "multi_column_pftXnd",
     "stat_group_3dGmdC",
     "featured_collection_slider_ViCgkA",
+    "featured_recipes_MnKpQr",
     "blog_posts_rmdkRw",
     "grid_TpNtEH",
     "testimonials_qM7QCB"

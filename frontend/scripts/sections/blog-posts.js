@@ -20,6 +20,10 @@ section('blog-posts', {
       spaceBetween: 16,
       breakpoints: {
         720: {
+          spaceBetween: 20,
+          slidesPerView: 2,
+        },
+        960: {
           spaceBetween: 32,
           slidesPerView: 4,
         },
