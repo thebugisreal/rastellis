@@ -4013,6 +4013,30 @@
         }
       }
     },
+    "text_cta_strip": {
+      "name": "Text CTA strip",
+      "presets": {
+        "name": "Text CTA strip"
+      },
+      "settings": {
+        "text": {
+          "label": "Body text"
+        },
+        "body_font_class": {
+          "label": "Body size"
+        },
+        "cta_header": {
+          "content": "CTA"
+        },
+        "cta_image": {
+          "info": "Export Figma Group 8527 (ellipse + script text) as SVG",
+          "label": "CTA image"
+        },
+        "cta_link": {
+          "label": "CTA link"
+        }
+      }
+    },
     "video": {
       "blocks": {
         "play_button": {

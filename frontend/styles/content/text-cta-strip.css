@@ -2,23 +2,28 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  /* Figma layout_6Y04JZ: padding 120px 56px 80px */
-  padding: 120px var(--spacing-14) 80px;
-  gap: var(--spacing-8);
+  gap: var(--spacing-10);
+
+  @media (--below-720) {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
 }
 
-/* Body text: Bebas Neue Pro Bold 50px */
 .text-cta-strip__body {
   flex: 1;
-  max-width: 988px;
-  font-size: 50px;
-  line-height: 0.9;
+  width: 100%;
   color: var(--color-text);
+
+  @media (--above-720) {
+    max-width: calc(988 / 1328 * 100%);
+  }
 }
 
 .text-cta-strip__cta-wrap {
   flex-shrink: 0;
-  align-self: center;
+  align-self: start;
 }
 
 .text-cta-strip__cta {
@@ -29,6 +34,10 @@
 /* SVG export (Figma Group 8527) includes the oval border.
    Width matches Figma group dimensions: 203.11px */
 .text-cta-strip__cta-image {
-  width: 203px;
+  width: 190px;
   height: auto;
+
+  @media (--below-720) {
+    width: 195px;
+  }
 }

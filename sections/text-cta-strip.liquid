@@ -2,6 +2,7 @@
   class="
     text-cta-strip
     section
+    section--vertical-padding-text-cta-strip
     {{ section.settings.section_padding }}
     section--divider-{{ section.settings.divider_style }}
     {% if settings.enable_section_animations and section.settings.enable_animation %}
@@ -15,7 +16,7 @@
   <div class="text-cta-strip__inner">
 
     {%- unless section.settings.text == blank -%}
-      <div class="text-cta-strip__body ff-heading">
+      <div class="text-cta-strip__body ff-heading {{ section.settings.body_font_class }}">
         {{ section.settings.text }}
       </div>
     {%- endunless -%}
@@ -30,7 +31,7 @@
             {%- render 'image',
               image: section.settings.cta_image,
               wrapper_class: 'text-cta-strip__cta-image',
-              sizes: '203px'
+              sizes: '(min-width: 720px) 190px, 195px'
             -%}
         {%- if section.settings.cta_link != blank -%}
           </a>
@@ -45,7 +46,7 @@
 
 {% schema %}
 {
-  "name": "Text CTA strip",
+  "name": "t:sections.text_cta_strip.name",
   "tag": "section",
   "class": "text-cta-strip-wrap",
   "disabled_on": {
@@ -55,26 +56,40 @@
     {
       "type": "richtext",
       "id": "text",
-      "label": "Body text"
+      "label": "t:sections.text_cta_strip.settings.text.label"
+    },
+    {
+      "type": "select",
+      "id": "body_font_class",
+      "label": "t:sections.text_cta_strip.settings.body_font_class.label",
+      "default": "fs-heading-3-base",
+      "options": [
+        { "value": "fs-heading-1-base", "label": "t:shared.settings.heading_font_class.option_heading_1" },
+        { "value": "fs-heading-2-base", "label": "t:shared.settings.heading_font_class.option_heading_2" },
+        { "value": "fs-heading-3-base", "label": "t:shared.settings.heading_font_class.option_heading_3" },
+        { "value": "fs-heading-4-base", "label": "t:shared.settings.heading_font_class.option_heading_4" },
+        { "value": "fs-heading-5-base", "label": "t:shared.settings.heading_font_class.option_heading_5" },
+        { "value": "fs-heading-6-base", "label": "t:shared.settings.heading_font_class.option_heading_6" }
+      ]
     },
     {
       "type": "header",
-      "content": "CTA"
+      "content": "t:sections.text_cta_strip.settings.cta_header.content"
     },
     {
       "type": "image_picker",
       "id": "cta_image",
-      "label": "CTA image",
-      "info": "Export Figma Group 8527 (ellipse + script text) as SVG"
+      "label": "t:sections.text_cta_strip.settings.cta_image.label",
+      "info": "t:sections.text_cta_strip.settings.cta_image.info"
     },
     {
       "type": "url",
       "id": "cta_link",
-      "label": "CTA link"
+      "label": "t:sections.text_cta_strip.settings.cta_link.label"
     },
     {
       "type": "header",
-      "content": "Section style"
+      "content": "t:shared.settings.section_style.header_style.content"
     },
     {
       "id": "enable_animation",
@@ -117,7 +132,7 @@
   ],
   "presets": [
     {
-      "name": "Text CTA strip"
+      "name": "t:sections.text_cta_strip.presets.name"
     }
   ]
 }
