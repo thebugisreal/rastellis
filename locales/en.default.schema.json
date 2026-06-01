@@ -3943,6 +3943,64 @@
         }
       }
     },
+    "spend_and_save": {
+      "name": "Spend and Save",
+      "presets": {
+        "name": "Spend and Save"
+      },
+      "blocks": {
+        "row": {
+          "name": "Feature row",
+          "settings": {
+            "title": {
+              "label": "Feature label"
+            },
+            "col1_value": {
+              "label": "Column 1 value"
+            },
+            "col2_value": {
+              "label": "Column 2 value"
+            }
+          }
+        }
+      },
+      "settings": {
+        "heading": {
+          "label": "Heading"
+        },
+        "body": {
+          "label": "Body text"
+        },
+        "badge_image": {
+          "info": "Upload the full badge graphic — both seals as one image",
+          "label": "Badge image"
+        },
+        "table_columns_header": {
+          "content": "Table columns"
+        },
+        "feature_header_label": {
+          "label": "Feature column header"
+        },
+        "col1_text_color": {
+          "label": "Column 1 text color"
+        },
+        "col1_label": {
+          "label": "Column 1 label"
+        },
+        "col1_logo": {
+          "label": "Column 1 logo"
+        },
+        "col2_text_color": {
+          "label": "Column 2 text color"
+        },
+        "col2_label": {
+          "label": "Column 2 label"
+        },
+        "col2_logo": {
+          "label": "Column 2 logo"
+        }
+      }
+    },
     "testimonials": {
       "blocks": {
         "testimonial": {

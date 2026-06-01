@@ -51,6 +51,16 @@
     }
   }
 
+  &.section--vertical-padding-spend-and-save {
+    padding-top: var(--spacing-5);
+    padding-bottom: var(--spacing-5);
+
+    @media (--above-720) {
+      padding-top: 84px;
+      padding-bottom: 84px;
+    }
+  }
+
   &.section--vertical-padding-none {
     padding-top: 0;
     padding-bottom: 0;

@@ -16,7 +16,7 @@
         "row-1": {
           "type": "row",
           "settings": {
-            "feature_name": "Everyday shop (~$100)",
+            "title": "Everyday shop (~$100)",
             "col1_value": "Similar total, but higher quality cuts and portion control",
             "col2_value": "Standard shelf pricing, inconsistent cuts and portions"
           }
@@ -24,7 +24,7 @@
         "row-2": {
           "type": "row",
           "settings": {
-            "feature_name": "Stock-up trip (~$150)",
+            "title": "Stock-up trip (~$150)",
             "col1_value": "Spend $150+, save 10% automatically at checkout",
             "col2_value": "Small % off with store card or weekly deals"
           }
@@ -32,7 +32,7 @@
         "row-3": {
           "type": "row",
           "settings": {
-            "feature_name": "Big freezer fill (~$250+)",
+            "title": "Big freezer fill (~$250+)",
             "col1_value": "Spend $250+, save 20% on your whole meat order",
             "col2_value": "Rare promos; per-item deals may not stack"
           }
@@ -40,7 +40,7 @@
         "row-4": {
           "type": "row",
           "settings": {
-            "feature_name": "Total savings",
+            "title": "Total savings",
             "col1_value": "Up to 25% plus free shipping when you stock up",
             "col2_value": "Up to ~5% in typical weekly promos"
           }

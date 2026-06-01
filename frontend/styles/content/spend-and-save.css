@@ -1,11 +1,15 @@
 .spend-and-save__inner {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 var(--spacing-8);
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--spacing-8);
+  gap: var(--spacing-4);
+
+  @media (--above-720) {
+    max-width: 900px;
+    margin: 0 auto;
+    gap: var(--spacing-8);
+  }
 }
 
 /* Intro */
@@ -13,17 +17,25 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--spacing-4);
+  gap: var(--spacing-2);
   text-align: center;
+
+  @media (--above-720) {
+    gap: var(--spacing-4);
+  }
 }
 
 .spend-and-save__badge-wrap {
   display: flex;
   justify-content: center;
+
+  @media (--below-720) {
+    margin-bottom: var(--spacing-2);
+  }
 }
 
 .spend-and-save__badge {
-  width: 120px;
+  width: 105px;
   flex-shrink: 0;
 }
 
@@ -38,10 +50,15 @@
 /* Table — no overflow:hidden so col1 background can bleed past outer border */
 .spend-and-save__table {
   width: 100%;
-  max-width: 807px;
+  max-width: 100%;
   border: 2px solid #BDBDBD;
   border-radius: 4px;
-  /* intentionally no overflow:hidden — col1 bleeds past top/bottom border */
+  margin-top: var(--spacing-5);
+  margin-bottom: var(--spacing-5);
+
+  @media (--above-720) {
+    max-width: 807px;
+  }
 }
 
 .spend-and-save__row {
@@ -52,8 +69,8 @@
 /* All cells */
 .spend-and-save__cell {
   position: relative;
+  min-height: var(--spacing-18);
   padding: var(--spacing-4) var(--spacing-3);
-  border-right: 2px solid #BDBDBD;
   border-bottom: 2px solid #BDBDBD;
   display: flex;
   flex-direction: column;
@@ -62,27 +79,16 @@
   text-align: center;
   gap: var(--spacing-2);
   z-index: 1;
-
-  &:last-child {
-    border-right: none;
-  }
 }
 
 .spend-and-save__row--last .spend-and-save__cell {
   border-bottom: none;
 }
 
-/* Feature (left) column */
-.spend-and-save__cell--feature {
-  justify-content: flex-start;
-  align-items: flex-start;
-  text-align: left;
-}
-
 /* Column 2 ("Supermarkets") */
 .spend-and-save__cell--col2 {
   span {
-    color: #5B5B5B;
+    color: var(--spend-and-save-col2-text-color);
   }
 }
 
@@ -95,7 +101,7 @@
  */
 .spend-and-save__cell--col1 {
   span {
-    color: #AF0440;
+    color: var(--spend-and-save-col1-text-color);
   }
 
   &::before {
@@ -116,9 +122,15 @@
   }
 }
 
-.spend-and-save__row--last .spend-and-save__cell--col1::before {
-  bottom: -20px;
-  border-radius: 0 0 4px 4px;
+.spend-and-save__row--last .spend-and-save__cell--col1 {
+  span {
+    padding-top: 10px;
+  }
+
+  &::before {
+    bottom: -20px;
+    border-radius: 0 0 4px 4px;
+  }
 }
 
 /* Header row */
@@ -126,13 +138,32 @@
   min-height: 135px;
   justify-content: flex-end;
 
-  &.spend-and-save__cell--feature {
+  &.spend-and-save__cell--col1 {
     justify-content: center;
+    align-items: center;
+    text-align: center;
   }
 
-  &.spend-and-save__cell--col2 span {
-    color: var(--color-text);
+  &.spend-and-save__cell--col2 {
+    padding: 40px var(--spacing-3) var(--spacing-4);
+    justify-content: space-between;
+    gap: var(--spacing-2);
+
+    span {
+      color: var(--color-text);
+    }
   }
+}
+
+.spend-and-save__cell--feature {
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.spend-and-save__cell--feature.spend-and-save__cell--header {
+  align-items: center;
+  text-align: center;
 }
 
 .spend-and-save__col-logo {

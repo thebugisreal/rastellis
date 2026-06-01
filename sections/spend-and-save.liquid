@@ -2,12 +2,17 @@
   class="
     spend-and-save
     section
+    section--vertical-padding-spend-and-save
     {{ section.settings.section_padding }}
     section--divider-{{ section.settings.divider_style }}
     {% if settings.enable_section_animations and section.settings.enable_animation %}
       animation
     {% endif %}
     link-color-scheme--{{ section.settings.link_color_scheme }}
+  "
+  style="
+    --spend-and-save-col1-text-color: {{ section.settings.col1_text_color }};
+    --spend-and-save-col2-text-color: {{ section.settings.col2_text_color }};
   "
   data-section-id="{{ section.id }}"
   data-section-type="spend-and-save"
@@ -72,7 +77,7 @@
             {{ block.shopify_attributes }}
           >
             <div class="spend-and-save__cell spend-and-save__cell--feature" role="rowheader">
-              <span class="ff-heading ff-secondary fs-body-300">{{ block.settings.feature_name }}</span>
+              <span class="ff-heading ff-secondary fs-body-300">{{ block.settings.title }}</span>
             </div>
             <div class="spend-and-save__cell spend-and-save__cell--col1" role="cell">
               <span class="ff-body fs-body-50">{{ block.settings.col1_value }}</span>
@@ -91,7 +96,7 @@
 
 {% schema %}
 {
-  "name": "Spend and Save",
+  "name": "t:sections.spend_and_save.name",
   "tag": "section",
   "class": "spend-and-save-wrap",
   "disabled_on": {
@@ -101,55 +106,67 @@
     {
       "type": "text",
       "id": "heading",
-      "label": "Heading",
+      "label": "t:sections.spend_and_save.settings.heading.label",
       "default": "Butcher Quality, Unmatched Value"
     },
     {
       "type": "richtext",
       "id": "body",
-      "label": "Body text"
+      "label": "t:sections.spend_and_save.settings.body.label"
     },
     {
       "type": "image_picker",
       "id": "badge_image",
-      "label": "Badge image",
-      "info": "Upload the full badge graphic — both seals as one image"
+      "label": "t:sections.spend_and_save.settings.badge_image.label",
+      "info": "t:sections.spend_and_save.settings.badge_image.info"
     },
     {
       "type": "header",
-      "content": "Table columns"
+      "content": "t:sections.spend_and_save.settings.table_columns_header.content"
     },
     {
       "type": "text",
       "id": "feature_header_label",
-      "label": "Feature column header",
+      "label": "t:sections.spend_and_save.settings.feature_header_label.label",
       "default": "Cart Size"
+    },
+    {
+      "type": "color",
+      "id": "col1_text_color",
+      "label": "t:sections.spend_and_save.settings.col1_text_color.label",
+      "default": "#AF0440"
     },
     {
       "type": "text",
       "id": "col1_label",
-      "label": "Column 1 label",
+      "label": "t:sections.spend_and_save.settings.col1_label.label",
       "default": "Us"
     },
     {
       "type": "image_picker",
       "id": "col1_logo",
-      "label": "Column 1 logo"
+      "label": "t:sections.spend_and_save.settings.col1_logo.label"
+    },
+    {
+      "type": "color",
+      "id": "col2_text_color",
+      "label": "t:sections.spend_and_save.settings.col2_text_color.label",
+      "default": "#5B5B5B"
     },
     {
       "type": "text",
       "id": "col2_label",
-      "label": "Column 2 label",
+      "label": "t:sections.spend_and_save.settings.col2_label.label",
       "default": "Supermarkets"
     },
     {
       "type": "image_picker",
       "id": "col2_logo",
-      "label": "Column 2 logo"
+      "label": "t:sections.spend_and_save.settings.col2_logo.label"
     },
     {
       "type": "header",
-      "content": "Section style"
+      "content": "t:shared.settings.section_style.header_style.content"
     },
     {
       "id": "enable_animation",
@@ -193,29 +210,29 @@
   "blocks": [
     {
       "type": "row",
-      "name": "Feature row",
+      "name": "t:sections.spend_and_save.blocks.row.name",
       "settings": [
         {
           "type": "text",
-          "id": "feature_name",
-          "label": "Feature label"
+          "id": "title",
+          "label": "t:sections.spend_and_save.blocks.row.settings.title.label"
         },
         {
           "type": "text",
           "id": "col1_value",
-          "label": "Column 1 value"
+          "label": "t:sections.spend_and_save.blocks.row.settings.col1_value.label"
         },
         {
           "type": "text",
           "id": "col2_value",
-          "label": "Column 2 value"
+          "label": "t:sections.spend_and_save.blocks.row.settings.col2_value.label"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Spend and Save",
+      "name": "t:sections.spend_and_save.presets.name",
       "blocks": [
         { "type": "row" },
         { "type": "row" },
