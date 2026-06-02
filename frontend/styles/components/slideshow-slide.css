@@ -143,7 +143,7 @@
   position: absolute;
   right: var(--slideshow-content-inset-inline);
   left: var(--slideshow-content-inset-inline);
-  bottom: 64px;
+  bottom: 78px;
   z-index: 2;
   pointer-events: none;
 
