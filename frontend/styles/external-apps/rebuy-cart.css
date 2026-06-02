@@ -30,9 +30,15 @@
       }
 
       .rebuy-cart__flyout-close,
-      .rebuy-cart__flyout-close:hover {
+      .rebuy-cart__flyout-close:hover,
+      .rebuy-cart__flyout-close:focus,
+      .rebuy-cart__flyout-close:active {
         width: 16px;
         height: 16px;
+        outline: none;
+        border: none;
+        background: transparent;
+        cursor: pointer;
       }
     }
 
@@ -174,6 +180,26 @@
         -moz-appearance: none;
         -ms-appearance: none;
         -o-appearance: none;
+        background-image: none !important;
+        transition: none !important;
+        animation: none !important;
+
+        &::before,
+        &::after {
+          content: none !important;
+          display: none !important;
+          transition: none !important;
+          animation: none !important;
+        }
+
+        &:checked {
+          background-color: var(--color-text);
+          border-color: var(--color-text);
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 8'%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M1 4l2.5 2.5L9 1'/%3E%3C/svg%3E") !important;
+          background-repeat: no-repeat !important;
+          background-position: center !important;
+          background-size: 10px 8px !important;
+        }
       }
     }
 
@@ -202,7 +228,8 @@
     }
 
     & .rebuy-cart__flyout-subtotal-final-amount,
-    & .rebuy-cart__flyout-subtotal-compare-amount {
+    & .rebuy-cart__flyout-subtotal-compare-amount,
+    & .rebuy-cart__flyout-subtotal-amount {
       font-size: var(--font-size-heading-5-base);
       line-height: var(--line-height-heading-5);
       text-transform: var(--text-transform-heading-5);
@@ -531,6 +558,10 @@
           -webkit-mask-position: center;
         }
 
+        &:focus {
+          box-shadow: none;
+        }
+
         &.flickity-prev-next-button.previous {
           right: 23px;
 
@@ -550,11 +581,12 @@
 
       & .flickity-viewport {
         border-radius: 4px;
+        height: 116px !important;
       }
 
       & .rebuy-product-block {
         margin: 8px 0;
-        padding: 16px;
+        padding: 16px 16px 0 16px;
         background: white;
         border-radius: 4px;
 
