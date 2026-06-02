@@ -22,8 +22,8 @@ section('why-rastellis', {
         slidesPerView: 1,
         loop: true,
         navigation: {
-          nextEl: selectors.navNext,
-          prevEl: selectors.navPrev,
+          nextEl: qs(selectors.navNext, this.container),
+          prevEl: qs(selectors.navPrev, this.container),
         },
         on: {
           slideChangeTransitionEnd() {
