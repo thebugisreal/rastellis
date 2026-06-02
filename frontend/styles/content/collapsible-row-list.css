@@ -1,6 +1,28 @@
+.collapsible-row-list.section.section--vertical-padding-collapsible-row-list {
+  padding-top: 48px;
+  padding-bottom: 48px;
+
+  @media (--above-720) {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+}
+
+.collapsible-row-list.section.section--vertical-padding-collapsible-row-list.collapsible-row-list--has-background-illustration {
+  padding-top: 112px;
+
+  @media (--above-720) {
+    padding-bottom: 216px;
+  }
+}
+
 .collapsible-row-list__inner {
   margin-left: auto;
   margin-right: auto;
+  width: 100%;
+}
+
+.collapsible-row-list--content-custom .collapsible-row-list__inner {
   max-width: var(--content-width);
 
   &.collapsible-row-list--has-media {
@@ -35,5 +57,63 @@
 
   @media (--above-960) {
     width: 50%;
+  }
+}
+
+/* Side layout: heading column left, FAQ list right */
+.collapsible-row-list--side {
+  .collapsible-row-list__inner {
+    position: relative;
+
+    @media (--above-960) {
+      display: flex;
+      align-items: flex-start;
+      gap: 35px;
+    }
+  }
+
+  .collapsible-row-list__heading {
+    margin-bottom: 28px;
+
+    @media (--above-960) {
+      flex: 0 0 305px;
+      margin-bottom: 0;
+    }
+  }
+
+  .collapsible-row-list__list {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+.collapsible-row-list--side:not(.collapsible-row-list--content-custom) .collapsible-row-list__inner {
+  max-width: 100%;
+}
+
+/* Background illustration */
+.shopify-section:has(.collapsible-row-list--has-background-illustration) {
+  overflow: visible;
+}
+
+.collapsible-row-list--has-background-illustration {
+  overflow: visible;
+}
+
+.collapsible-row-list__background-illustration {
+  position: absolute;
+  top: 19px;
+  right: -81px;
+  width: 244px;
+  pointer-events: none;
+  opacity: 1;
+  overflow: hidden;
+
+  @media (--above-720) {
+    top: auto;
+    right: auto;
+    bottom: -25px;
+    left: -123px;
+    width: 569px;
   }
 }

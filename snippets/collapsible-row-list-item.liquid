@@ -20,7 +20,7 @@
   {%- unless heading == blank -%}
     <button
       type="button"
-      class="collapsible-row-list-item__trigger {% if item_heading_font == 'heading' %}ff-heading fs-heading-5-base{% else %}ff-body fs-body-250{% endif %}"
+      class="collapsible-row-list-item__trigger {% if item_heading_font == 'heading' %}fs-body-bold fs-heading-5-base{% else %}ff-body fs-body-250{% endif %}"
       aria-controls="content-{{ forloop.index }}"
       aria-expanded="{{ item_heading_expanded }}"
       {% if text == blank %}
@@ -55,7 +55,7 @@
       aria-hidden="{{ item_text_hidden }}"
       id="content-{{ forloop.index }}"
     >
-      <div class="collapsible-row-list-item__text fs-body-100 rte">
+      <div class="collapsible-row-list-item__text fs-body-75 rte">
         {{ text }}
       </div>
     </div>

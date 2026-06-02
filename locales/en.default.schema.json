@@ -206,6 +206,14 @@
           "option_body": "Body",
           "option_heading": "Heading"
         },
+        "background_illustration": {
+          "label": "Background illustration"
+        },
+        "layout": {
+          "label": "Layout",
+          "option__side": "Side by side",
+          "option__stacked": "Stacked"
+        },
         "subheading": {
           "label": "Subheading"
         },
