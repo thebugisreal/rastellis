@@ -548,8 +548,8 @@ header[data-navigation-position="left"][data-logo-position="center"] {
 
     .icon {
       display: flex;
-      width: 9px;
-      height: 9px;
+      width: 8px;
+      height: 5px;
     }
   }
 

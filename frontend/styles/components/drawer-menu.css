@@ -45,12 +45,12 @@
 
 .drawer-menu__panel {
   position: absolute;
-  top: var(--height-header);
+  top: calc(var(--height-header) - 1px);
   left: 0;
   display: flex;
   flex-direction: column;
   width: 100vw;
-  height: calc(100 * var(--vh) - var(--height-header) - var(--announcement-height, 0px));
+  height: calc(100 * var(--vh) - var(--height-header) - var(--announcement-height, 0px) + 1px);
   color: var(--color-text-header);
   background-color: var(--color-navigation-background);
   z-index: 100;
@@ -59,7 +59,7 @@
   transition: opacity var(--duration-ultra-fast) var(--easing);
 
   html.sticky-header-active & {
-    height: calc(100 * var(--vh) - var(--height-header));
+    height: calc(100 * var(--vh) - var(--height-header) + 1px);
   }
 }
 
