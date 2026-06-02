@@ -3,8 +3,12 @@
    .section utility so background and wave span edge-to-edge */
 
 .why-rastellis {
-  background-color: var(--section-background-color, #E7E6DE);
+  background-color: var(--section-background-color, var(--color-background-warm));
   position: relative;
+
+  &.has-rough-border {
+    overflow: visible;
+  }
 }
 
 /* ── Inner container — content at max-width ──────────────────────────────── */
@@ -15,12 +19,21 @@
   padding-left: var(--space-outer);
   padding-right: var(--space-outer);
   position: relative;
+
+  @media (--above-720) {
+    overflow: visible;
+  }
 }
 
 /* ── Carousel ────────────────────────────────────────────────────────────── */
 
 .why-rastellis__carousel {
   position: relative; /* nav arrows absolutely positioned inside */
+
+  &.swiper,
+  .swiper-wrapper {
+    overflow: visible;
+  }
 }
 
 /* ── Slide — split row, bottom-aligned, relative for badge + nav ──────────── */
@@ -31,6 +44,10 @@
   align-items: flex-end;
   gap: var(--space-outer);
   position: relative; /* badge positioned here */
+
+  @media (--above-720) {
+    overflow: visible;
+  }
 
   @media (--below-720) {
     flex-direction: column;
@@ -43,22 +60,21 @@
 .why-rastellis__badge {
   @media (--above-720) {
     position: absolute;
-    top: 0;
+    top: -22px;
     left: 0;
-    z-index: 1;
+    z-index: 11;
   }
 
   @media (--below-720) {
     display: flex;
-    justify-content: center;
-    margin-bottom: var(--spacing-5);
+    justify-content: start;
     order: -2;
     width: 100%;
   }
 }
 
 .why-rastellis__badge-image {
-  width: 139px;
+  width: 132px;
 }
 
 /* ── Text column — fix 1: padding-top for badge clearance on desktop ─────── */
@@ -66,22 +82,31 @@
 .why-rastellis__text {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-8);
-  flex: 0 0 auto;
+  gap: var(--spacing-3);
 
   @media (--above-720) {
-    max-width: 480px;
-    width: 480px;
+    flex: 1;
     /* Badge is ~72px tall + space; this clears the badge above */
     padding-top: 80px;
     /* fix 4: spacing between last text element and arrows at bottom */
-    padding-bottom: 60px;
+    padding-bottom: 50px;
+    gap: var(--spacing-4);
+
+    > * {
+      max-width: 480px;
+    }
   }
 
   @media (--below-720) {
     width: 100%;
     order: 1;
     gap: var(--spacing-3);
+  }
+}
+
+.why-rastellis--single-slide .why-rastellis__text {
+  @media (--above-720) {
+    padding-bottom: 0;
   }
 }
 
@@ -117,7 +142,7 @@
   flex-shrink: 0;
 
   @media (--above-720) {
-    width: 648px;
+    width: calc(648 / 1328 * 100%);
   }
 
   @media (--below-720) {
@@ -149,18 +174,30 @@
   width: 100%;
 }
 
-/* ── Video — video-control element wrapper ───────────────────────────────── */
+/* ── Video — video-control + global play/pause button ───────────────────── */
 
-.why-rastellis__media-video {
-  /* video.liquid renders .video-wrapper; aspect-ratio--square from image.css applies */
+.why-rastellis__video-control {
+  display: block;
+}
+
+.why-rastellis__video-inner {
+  position: relative;
   width: 100%;
 }
 
-.why-rastellis__video-button-wrapper {
+.why-rastellis__media-video {
+  width: 100%;
+}
+
+.why-rastellis__video-button {
   position: absolute;
   right: var(--spacing-5);
   bottom: var(--spacing-5);
-  z-index: 10;
+  z-index: 2;
+}
+
+.why-rastellis__video-button .video-play-button {
+  color: var(--color-body-text-light);
 }
 
 /* ── Navigation arrows ───────────────────────────────────────────────────── */
@@ -174,7 +211,7 @@
 @media (--above-720) {
   .why-rastellis .carousel__navigation-buttons {
     position: absolute;
-    bottom: 0;
+    bottom: -32px;
     left: 0;
     margin: 0;
     z-index: 2;
@@ -185,6 +222,15 @@
 @media (--below-720) {
   .why-rastellis .carousel__navigation-buttons {
     position: static;
-    margin-top: var(--spacing-6);
+    margin-top: var(--spacing-3);
+
+    & .carousel__navigation-button {
+      margin-top: 0;
+      margin-bottom: 0;
+
+      &.carousel__navigation-button--back {
+        margin-right: var(--spacing-5);
+      }
+    }
   }
 }

@@ -206,6 +206,14 @@
           "option_body": "Body",
           "option_heading": "Heading"
         },
+        "background_illustration": {
+          "label": "Background illustration"
+        },
+        "layout": {
+          "label": "Layout",
+          "option__side": "Side by side",
+          "option__stacked": "Stacked"
+        },
         "subheading": {
           "label": "Subheading"
         },
@@ -3935,6 +3943,64 @@
         }
       }
     },
+    "spend_and_save": {
+      "name": "Spend and Save",
+      "presets": {
+        "name": "Spend and Save"
+      },
+      "blocks": {
+        "row": {
+          "name": "Feature row",
+          "settings": {
+            "title": {
+              "label": "Feature label"
+            },
+            "col1_value": {
+              "label": "Column 1 value"
+            },
+            "col2_value": {
+              "label": "Column 2 value"
+            }
+          }
+        }
+      },
+      "settings": {
+        "heading": {
+          "label": "Heading"
+        },
+        "body": {
+          "label": "Body text"
+        },
+        "badge_image": {
+          "info": "Upload the full badge graphic — both seals as one image",
+          "label": "Badge image"
+        },
+        "table_columns_header": {
+          "content": "Table columns"
+        },
+        "feature_header_label": {
+          "label": "Feature column header"
+        },
+        "col1_text_color": {
+          "label": "Column 1 text color"
+        },
+        "col1_label": {
+          "label": "Column 1 label"
+        },
+        "col1_logo": {
+          "label": "Column 1 logo"
+        },
+        "col2_text_color": {
+          "label": "Column 2 text color"
+        },
+        "col2_label": {
+          "label": "Column 2 label"
+        },
+        "col2_logo": {
+          "label": "Column 2 logo"
+        }
+      }
+    },
     "testimonials": {
       "blocks": {
         "testimonial": {
@@ -4002,6 +4068,30 @@
         },
         "quote_border_image": {
           "label": "Quote border"
+        }
+      }
+    },
+    "text_cta_strip": {
+      "name": "Text CTA strip",
+      "presets": {
+        "name": "Text CTA strip"
+      },
+      "settings": {
+        "text": {
+          "label": "Body text"
+        },
+        "body_font_class": {
+          "label": "Body size"
+        },
+        "cta_header": {
+          "content": "CTA"
+        },
+        "cta_image": {
+          "info": "Export Figma Group 8527 (ellipse + script text) as SVG",
+          "label": "CTA image"
+        },
+        "cta_link": {
+          "label": "CTA link"
         }
       }
     },
@@ -4264,6 +4354,58 @@
           "label": "Mobile video position ",
           "option_above": "Above content",
           "option_below": "Below content"
+        }
+      }
+    },
+    "why_rastellis": {
+      "name": "Why Rastelli's",
+      "presets": {
+        "name": "Why Rastelli's"
+      },
+      "blocks": {
+        "slide": {
+          "name": "Slide",
+          "settings": {
+            "headline": {
+              "label": "Headline"
+            },
+            "body": {
+              "label": "Body text"
+            },
+            "header__eyebrow": {
+              "content": "Optional eyebrow"
+            },
+            "show_eyebrow": {
+              "label": "Show eyebrow label"
+            },
+            "eyebrow": {
+              "label": "Eyebrow text"
+            },
+            "header__media": {
+              "content": "Media"
+            },
+            "image": {
+              "label": "Image"
+            },
+            "video_hosted": {
+              "label": "Video",
+              "info": "Uploaded video takes priority over image."
+            }
+          }
+        }
+      },
+      "settings": {
+        "badge_image": {
+          "label": "Badge image",
+          "info": "Upload the 'Why Rastelli's?' brand badge. Hides automatically if blank."
+        },
+        "background_color": {
+          "label": "Background color"
+        },
+        "media_position": {
+          "label": "Media position",
+          "option__left": "Left",
+          "option__right": "Right"
         }
       }
     },

@@ -1,5 +1,16 @@
 # Changelog
 
+## v1.1.4 - 2026-06-02
+
+### Added
+- RAS-185 GE – Product Card — update style and quick add button function
+- RAS-189 Batch A PDP – FAQ — add FAQ section (collapsible side layout)
+
+### Fixed
+- RAS-186 Batch A PDP – Text CTA — update styles
+- RAS-187 Batch A PDP – Spend N Save — update and fix styles
+- RAS-188 Batch A PDP – Why Rastelli's — update and fix styles
+
 ## v1.1.3 - 2026-06-02
 ### Added
 - RAS-186 PDP – Text CTA — add text CTA strip section

@@ -5,44 +5,50 @@
   - block: Shopify block object
 
   Render priority: video_hosted > image > placeholder
-  Video uses <video-control> + video.liquid (URL-based) matching image-hero.liquid pattern.
-  Requires video-control.js to be imported in the section JS.
+  Video uses <video-control> + video.liquid (same pattern as image-hero.liquid).
 {%- endcomment -%}
 
-{%- if block.settings.video_hosted -%}
-  {%- liquid
-    assign video_src = null
+{%- liquid
+  assign video_src = null
+
+  if block.settings.video_hosted != blank
     for source in block.settings.video_hosted.sources
       if source.mime_type == 'video/mp4' and video_src == null
         assign video_src = source.url
       endif
     endfor
-    if video_src == null
+
+    if video_src == null and block.settings.video_hosted.sources.size > 0
       assign video_src = block.settings.video_hosted.sources.first.url
     endif
-  -%}
-  <video-control class="why-rastellis__media-wrapper">
-    {%- render 'video',
-      video: video_src,
-      video_pause: false,
-      loop: true,
-      wrapper_class: 'why-rastellis__media-video',
-      aspect_ratio: 'square'
-    -%}
-    <div class="why-rastellis__video-button-wrapper">
-      <button
-        type="button"
-        class="video-play-button js-button-video played"
-        aria-label="{{ 'general.accessibility.play_video' | t }}"
-        aria-pressed="false"
-      >
-        <span class="video-button-content--play" aria-hidden="true">
-          {%- render 'play-icon' -%}
-        </span>
-        <span class="video-button-content--pause" aria-hidden="true">
-          {%- render 'pause-icon' -%}
-        </span>
-      </button>
+  endif
+-%}
+
+{%- if video_src != blank -%}
+  <video-control class="why-rastellis__media-wrapper why-rastellis__video-control">
+    <div class="why-rastellis__video-inner">
+      {%- render 'video',
+        video: video_src,
+        video_pause: false,
+        loop: true,
+        wrapper_class: 'why-rastellis__media-video',
+        aspect_ratio: 'square'
+      -%}
+      <div class="why-rastellis__video-button">
+        <button
+          type="button"
+          class="flex p-0 video-play-button js-button-video played"
+          aria-label="{{ 'general.accessibility.play_video' | t }}"
+          aria-pressed="false"
+        >
+          <span class="flex items-center video-button-content--play" aria-hidden="true">
+            {%- render 'play-icon', class: 'w-[32px]' -%}
+          </span>
+          <span class="flex items-center video-button-content--pause" aria-hidden="true">
+            {%- render 'pause-icon', class: 'w-[32px]' -%}
+          </span>
+        </button>
+      </div>
     </div>
   </video-control>
 {%- elsif block.settings.image != blank -%}

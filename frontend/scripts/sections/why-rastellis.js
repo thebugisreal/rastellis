@@ -14,7 +14,7 @@ section('why-rastellis', {
     const slides = this.container.querySelectorAll('.swiper-slide')
     if (slides.length <= 1) return
 
-    import('@/scripts/manualChunks/swiper.js').then(({ Swiper, Navigation, EffectFade }) => {
+    this.carouselReady = import('@/scripts/manualChunks/swiper.js').then(({ Swiper, Navigation, EffectFade }) => {
       this.carousel = new Swiper(qs(selectors.swiper, this.container), {
         modules: [Navigation, EffectFade],
         effect: 'fade',
@@ -37,6 +37,11 @@ section('why-rastellis', {
         },
       })
     })
+  },
+
+  onBlockSelect({ target }) {
+    const index = parseInt(target.dataset.index, 10)
+    this.carouselReady?.then(() => this.carousel.slideToLoop(index))
   },
 
   onUnload() {
