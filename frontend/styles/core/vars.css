@@ -105,4 +105,8 @@
   --aspect-ratio-landscape-alt: 5 / 4;
   --aspect-ratio-widescreen: 16 / 9;
   --aspect-ratio-ultrawide: 21 / 9;
+
+  /* Colors */
+  --color-background-warm: #E7E6DE;
+  --color-border-muted: #BDBDBD;
 }

@@ -3,7 +3,7 @@
    .section utility so background and wave span edge-to-edge */
 
 .why-rastellis {
-  background-color: var(--section-background-color, #E7E6DE);
+  background-color: var(--section-background-color, var(--color-background-warm));
   position: relative;
 }
 
