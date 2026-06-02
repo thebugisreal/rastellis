@@ -18,24 +18,32 @@ class VideoControl extends HTMLElement {
             } else {
                 this.pauseVideo(videoEl, buttonPlayPauseEl)
             }
-
-            buttonPlayPauseEl.setAttribute("aria-pressed", "true")
-
-            setTimeout(function (){
-                buttonPlayPauseEl.setAttribute("aria-pressed", "false")
-            }, 500)
         })
+
+        videoEl.addEventListener("play", () => {
+          buttonPlayPauseEl.setAttribute("aria-pressed", "true")
+          buttonPlayPauseEl.classList.add(VIDEO_PLAYED_CLASS)
+        })
+
+        videoEl.addEventListener("pause", () => {
+          buttonPlayPauseEl.setAttribute("aria-pressed", "false")
+          buttonPlayPauseEl.classList.remove(VIDEO_PLAYED_CLASS)
+        })
+
+        buttonPlayPauseEl.setAttribute("aria-pressed", String(!videoEl.paused))
     }
   }
 
     pauseVideo (video, button)  {
         video.pause()
         button.classList.remove(VIDEO_PLAYED_CLASS)
+        button.setAttribute("aria-pressed", "false")
     }
 
     playVideo  (video, button)  {
         video.play()
         button.classList.add(VIDEO_PLAYED_CLASS)
+        button.setAttribute("aria-pressed", "true")
     }
 }
 

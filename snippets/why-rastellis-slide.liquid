@@ -8,18 +8,23 @@
   Video uses <video-control> + video.liquid (same pattern as image-hero.liquid).
 {%- endcomment -%}
 
-{%- if block.settings.video_hosted -%}
-  {%- liquid
-    assign video_src = null
+{%- liquid
+  assign video_src = null
+
+  if block.settings.video_hosted != blank
     for source in block.settings.video_hosted.sources
       if source.mime_type == 'video/mp4' and video_src == null
         assign video_src = source.url
       endif
     endfor
-    if video_src == null
+
+    if video_src == null and block.settings.video_hosted.sources.size > 0
       assign video_src = block.settings.video_hosted.sources.first.url
     endif
-  -%}
+  endif
+-%}
+
+{%- if video_src != blank -%}
   <video-control class="why-rastellis__media-wrapper why-rastellis__video-control">
     <div class="why-rastellis__video-inner">
       {%- render 'video',
