@@ -3911,8 +3911,8 @@
             "product_pick": {
               "label": "Product"
             },
-            "product_pick_label": {
-              "label": "Label"
+            "product_pick_label_image": {
+              "label": "Label image"
             },
             "mobile_focal_point": {
               "label": "Mobile image focal point"

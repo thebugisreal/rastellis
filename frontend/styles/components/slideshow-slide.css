@@ -149,8 +149,12 @@
 
   @media (--above-720) {
     left: auto;
-    bottom: 56px;
+    bottom: 78px;
     max-width: calc(100% - (var(--slideshow-content-inset-inline) * 2));
+  }
+
+  @media (--above-1200) {
+    bottom: 56px;
   }
 
   @media (--above-1400) {
