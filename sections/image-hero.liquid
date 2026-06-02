@@ -108,7 +108,7 @@
             loop: true,
             wrapper_class: 'hero__video'
           -%}
-          <div class="absolute right-0 bottom-0 p-5 md:p-[56px] z-[100]">
+          <div class="absolute right-0 bottom-0 z-[100]{% if has_wave_bottom %} px-5 pt-5 pb-10 md:px-[56px] md:py-16{% else %} p-5 md:p-[56px]{% endif %}">
             <button
               type="button"
               class="flex p-0 video-play-button js-button-video played"
