@@ -1,0 +1,124 @@
+<div
+  class="
+    text-cta-strip
+    section
+    {{ section.settings.section_padding }}
+    section--divider-{{ section.settings.divider_style }}
+    {% if settings.enable_section_animations and section.settings.enable_animation %}
+      animation
+    {% endif %}
+    link-color-scheme--{{ section.settings.link_color_scheme }}
+  "
+  data-section-id="{{ section.id }}"
+  data-section-type="text-cta-strip"
+>
+  <div class="text-cta-strip__inner">
+
+    {%- unless section.settings.text == blank -%}
+      <div class="text-cta-strip__body ff-heading">
+        {{ section.settings.text }}
+      </div>
+    {%- endunless -%}
+
+    {%- unless section.settings.cta_image == blank -%}
+      <div class="text-cta-strip__cta-wrap">
+        {%- if section.settings.cta_link != blank -%}
+          <a href="{{ section.settings.cta_link }}" class="text-cta-strip__cta">
+        {%- else -%}
+          <div class="text-cta-strip__cta">
+        {%- endif -%}
+            {%- render 'image',
+              image: section.settings.cta_image,
+              wrapper_class: 'text-cta-strip__cta-image',
+              sizes: '203px'
+            -%}
+        {%- if section.settings.cta_link != blank -%}
+          </a>
+        {%- else -%}
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endunless -%}
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Text CTA strip",
+  "tag": "section",
+  "class": "text-cta-strip-wrap",
+  "disabled_on": {
+    "groups": ["header", "custom.overlay"]
+  },
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Body text"
+    },
+    {
+      "type": "header",
+      "content": "CTA"
+    },
+    {
+      "type": "image_picker",
+      "id": "cta_image",
+      "label": "CTA image",
+      "info": "Export Figma Group 8527 (ellipse + script text) as SVG"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "CTA link"
+    },
+    {
+      "type": "header",
+      "content": "Section style"
+    },
+    {
+      "id": "enable_animation",
+      "type": "checkbox",
+      "label": "t:shared.settings.section_style.enable_animation.label",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "divider_style",
+      "label": "t:shared.settings.section_style.divider_style.label",
+      "default": "none",
+      "options": [
+        { "label": "t:shared.settings.section_style.divider_style.option_none", "value": "none" },
+        { "label": "t:shared.settings.section_style.divider_style.option_solid", "value": "solid" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "section_padding",
+      "label": "t:shared.settings.section_style.section_padding.label",
+      "default": "section--vertical-padding-top-bottom",
+      "options": [
+        { "label": "t:shared.settings.section_style.section_padding.option_none", "value": "section--vertical-padding-none" },
+        { "label": "t:shared.settings.section_style.section_padding.option_both", "value": "section--vertical-padding-top-bottom" },
+        { "label": "t:shared.settings.section_style.section_padding.option_top", "value": "section--vertical-padding-top-only" },
+        { "label": "t:shared.settings.section_style.section_padding.option_bottom", "value": "section--vertical-padding-bottom-only" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "link_color_scheme",
+      "label": "t:shared.settings.link_color_scheme.label",
+      "default": "dark",
+      "options": [
+        { "value": "light", "label": "t:shared.settings.link_color_scheme.option_light" },
+        { "value": "dark", "label": "t:shared.settings.link_color_scheme.option_dark" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Text CTA strip"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,243 @@
+{%- liquid
+  assign has_background_color = false
+  if section.settings.background_color != blank and section.settings.background_color != 'rgba(0,0,0,0)'
+    assign has_background_color = true
+  endif
+-%}
+
+{%- capture section_classes -%}
+  section section--divider-{{ section.settings.divider_style }}
+  {{ section.settings.section_padding }}
+{%- endcapture -%}
+
+<div
+  data-section-id="{{ section.id }}"
+  data-section-type="why-rastellis"
+  class="
+    why-rastellis
+    {{ section_classes }}
+    section--full-width
+    why-rastellis--media-{{ section.settings.media_position }}
+    has-rough-border
+    rough-border--top-desktop
+    rough-border--top-mobile
+    {% if settings.enable_section_animations and section.settings.enable_animation %}
+      animation
+      animation--why-rastellis
+    {% endif %}
+  "
+  style="
+    {% if has_background_color %}
+      --section-background-color: {{ section.settings.background_color }};
+    {% endif %}
+  "
+>
+  {%- render 'wave', position: 'top' -%}
+
+  <div class="why-rastellis__inner">
+
+    <div class="why-rastellis__carousel swiper">
+      <div class="swiper-wrapper">
+        {%- for block in section.blocks -%}
+          <div
+            class="why-rastellis__slide swiper-slide animation--item"
+            {% unless forloop.first %}inert{% endunless %}
+            data-index="{{ forloop.index0 }}"
+            {{ block.shopify_attributes }}
+          >
+            {%- if section.settings.badge_image != blank -%}
+              <div class="why-rastellis__badge" aria-hidden="true">
+                {%- render 'image',
+                  image: section.settings.badge_image,
+                  wrapper_class: 'why-rastellis__badge-image',
+                  include_placeholder: false,
+                  loading: 'lazy',
+                  sizes: '139px'
+                -%}
+              </div>
+            {%- endif -%}
+
+            <div class="why-rastellis__text">
+              {%- if block.settings.show_eyebrow and block.settings.eyebrow != blank -%}
+                <p class="why-rastellis__eyebrow ff-subheading ff-secondary fs-body-200">
+                  {{ block.settings.eyebrow }}
+                </p>
+              {%- endif -%}
+
+              {%- if block.settings.headline != blank -%}
+                <h2 class="why-rastellis__headline ff-heading fs-heading-3-base">
+                  {{ block.settings.headline }}
+                </h2>
+              {%- endif -%}
+
+              {%- if block.settings.body != blank -%}
+                <div class="why-rastellis__body fs-body-75">
+                  {{ block.settings.body }}
+                </div>
+              {%- endif -%}
+            </div>
+
+            <div class="why-rastellis__media">
+              {%- render 'why-rastellis-slide', block: block -%}
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+
+      {%- if section.blocks.size > 1 -%}
+        {%- render 'carousel-navigation' -%}
+      {%- endif -%}
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Why Rastelli's",
+  "tag": "section",
+  "class": "shopify-section--full-width",
+  "disabled_on": {
+    "groups": ["header", "custom.overlay"],
+    "templates": ["password"]
+  },
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "badge_image",
+      "label": "Badge image",
+      "info": "Upload the 'Why Rastelli's?' brand badge. Hides automatically if blank."
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#E7E6DE"
+    },
+    {
+      "type": "select",
+      "id": "media_position",
+      "label": "Media position",
+      "default": "right",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Section style"
+    },
+    {
+      "id": "enable_animation",
+      "type": "checkbox",
+      "label": "Enable animation",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "divider_style",
+      "label": "Divider style",
+      "default": "none",
+      "options": [
+        { "label": "None", "value": "none" },
+        { "label": "Solid", "value": "solid" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "section_padding",
+      "label": "Section padding",
+      "default": "section--vertical-padding-top-bottom",
+      "options": [
+        { "label": "None", "value": "section--vertical-padding-none" },
+        { "label": "Top and bottom", "value": "section--vertical-padding-top-bottom" },
+        { "label": "Top only", "value": "section--vertical-padding-top-only" },
+        { "label": "Bottom only", "value": "section--vertical-padding-bottom-only" }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "limit": 5,
+      "settings": [
+        {
+          "type": "text",
+          "id": "headline",
+          "label": "Headline",
+          "default": "Delicious Meat, Responsibly Sourced from Trusted Farms"
+        },
+        {
+          "type": "textarea",
+          "id": "body",
+          "label": "Body text",
+          "default": "Rastelli's partners with trusted family farms and fisheries to source high-quality meat that is humanely raised, responsibly harvested, and free from unnecessary antibiotics and added hormones."
+        },
+        {
+          "type": "header",
+          "content": "Optional eyebrow"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_eyebrow",
+          "label": "Show eyebrow label",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "eyebrow",
+          "label": "Eyebrow text"
+        },
+        {
+          "type": "header",
+          "content": "Media"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "video",
+          "id": "video_hosted",
+          "label": "Video",
+          "info": "Uploaded video takes priority over image."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Why Rastelli's",
+      "blocks": [
+        {
+          "type": "slide",
+          "settings": {
+            "headline": "Delicious Meat, Responsibly Sourced from Trusted Farms",
+            "body": "Rastelli's partners with trusted family farms and fisheries to source high-quality meat that is humanely raised, responsibly harvested, and free from unnecessary antibiotics and added hormones.",
+            "show_eyebrow": false
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "headline": "Cut, Frozen, Packed, & Shipped On Site",
+            "body": "Rastelli's partners with trusted family farms and fisheries to source high-quality meat that is humanely raised, responsibly harvested, and free from unnecessary antibiotics and added hormones.",
+            "show_eyebrow": false
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "headline": "Unmatched Flavor",
+            "body": "Rastelli's partners with trusted family farms and fisheries to source high-quality meat that is humanely raised, responsibly harvested, and free from unnecessary antibiotics and added hormones.",
+            "show_eyebrow": false
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,61 @@
+{%- comment -%}
+  Per-slide media render for why-rastellis section.
+
+  Pass in:
+  - block: Shopify block object
+
+  Render priority: video_hosted > image > placeholder
+  Video uses <video-control> + video.liquid (URL-based) matching image-hero.liquid pattern.
+  Requires video-control.js to be imported in the section JS.
+{%- endcomment -%}
+
+{%- if block.settings.video_hosted -%}
+  {%- liquid
+    assign video_src = null
+    for source in block.settings.video_hosted.sources
+      if source.mime_type == 'video/mp4' and video_src == null
+        assign video_src = source.url
+      endif
+    endfor
+    if video_src == null
+      assign video_src = block.settings.video_hosted.sources.first.url
+    endif
+  -%}
+  <video-control class="why-rastellis__media-wrapper">
+    {%- render 'video',
+      video: video_src,
+      video_pause: false,
+      loop: true,
+      wrapper_class: 'why-rastellis__media-video',
+      aspect_ratio: 'square'
+    -%}
+    <div class="why-rastellis__video-button-wrapper">
+      <button
+        type="button"
+        class="video-play-button js-button-video played"
+        aria-label="{{ 'general.accessibility.play_video' | t }}"
+        aria-pressed="false"
+      >
+        <span class="video-button-content--play" aria-hidden="true">
+          {%- render 'play-icon' -%}
+        </span>
+        <span class="video-button-content--pause" aria-hidden="true">
+          {%- render 'pause-icon' -%}
+        </span>
+      </button>
+    </div>
+  </video-control>
+{%- elsif block.settings.image != blank -%}
+  {%- render 'image',
+    image: block.settings.image,
+    wrapper_class: 'why-rastellis__media-wrapper',
+    aspect_ratio: 'square',
+    sizes: '(min-width: 720px) 648px, 100vw'
+  -%}
+{%- else -%}
+  {%- render 'placeholder-image',
+    placeholder: 'lifestyle-2',
+    aspect_ratio: 'square',
+    wrapper_class: 'why-rastellis__media-wrapper'
+  -%}
+{%- endif -%}

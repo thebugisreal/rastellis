@@ -31,5 +31,18 @@
         <circle cx="8.154" cy="5.929" r="3.193" stroke="currentColor" stroke-width="2" transform="rotate(-45 8.154 5.93)"/>
         <path stroke="currentColor" stroke-width="2" d="M15.308 19.013a7.154 7.154 0 1 0-14.308 0"/>
       </svg>
+    {%- when 'star-filled' -%}
+      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="14" fill="none" viewBox="0 0 15 14">
+        <path fill="#af0440" d="M7.135 0 8.82 5.184h5.45L9.86 8.388l1.685 5.184-4.41-3.204-4.41 3.204L4.41 8.388 0 5.184h5.451z"/>
+      </svg>
+    {%- when 'star-empty' -%}
+      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="14" fill="none" viewBox="0 0 15 14">
+        <path fill="#d5d4cc" d="M7.135 0 8.82 5.184h5.45L9.86 8.388l1.685 5.184-4.41-3.204-4.41 3.204L4.41 8.388 0 5.184h5.451z"/>
+      </svg>
+    {%- when 'star-half' -%}
+      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="14" fill="none" viewBox="0 0 15 14">
+        <path fill="#d5d4cc" d="M7.135 0 8.82 5.184h5.45L9.86 8.388l1.685 5.184-4.41-3.204-4.41 3.204L4.41 8.388 0 5.184h5.451z"/>
+        <path fill="#af0440" d="m2.725 13.572 4.41-3.204V0L5.451 5.184H0l4.41 3.204z"/>
+      </svg>
   {%- endcase -%}
 </span>

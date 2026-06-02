@@ -18,8 +18,8 @@
     "file": "at-breakpoint-change-DVsQWIFj.js",
     "name": "at-breakpoint-change"
   },
-  "_back-to-top-DcXW4yGg.js": {
-    "file": "back-to-top-DcXW4yGg.js",
+  "_back-to-top-KmQLqHES.js": {
+    "file": "back-to-top-KmQLqHES.js",
     "name": "back-to-top",
     "imports": [
       "_main-BCFY9a9_.js",
@@ -31,7 +31,7 @@
       "_shouldAnimate-UBwZO_aC.js",
       "_xhr-DPgtqhaK.js",
       "_cart-Dp1qr_mc.js",
-      "_product-BtQAKmBa.js",
+      "_product-dxbxSVbx.js",
       "_delay-offset-WNpokWIU.js",
       "_debounce-ByPGBjlu.js"
     ]
@@ -195,8 +195,16 @@
       "frontend/scripts/manualChunks/photoswipe.js"
     ]
   },
-  "_product-BtQAKmBa.js": {
-    "file": "product-BtQAKmBa.js",
+  "_product-DuLB-dol.js": {
+    "file": "product-DuLB-dol.js",
+    "name": "product",
+    "imports": [
+      "_intersection-watcher-CQpC-SnO.js",
+      "_delay-offset-WNpokWIU.js"
+    ]
+  },
+  "_product-dxbxSVbx.js": {
+    "file": "product-dxbxSVbx.js",
     "name": "product",
     "imports": [
       "_index-BWeMscSV.js",
@@ -208,7 +216,7 @@
       "_evx.es-D_-Lbk8t.js",
       "_accordions-B0I69eqg.js",
       "_formatMoney-CYQmZU7x.js",
-      "_product-item-Cw-fDYgY.js",
+      "_product-item-CmhLbQ8x.js",
       "_carousel-eu4IY4Zw.js",
       "_sticky-scroll-Diwr9IM0.js",
       "_recently-viewed-products-CUo44wPy.js",
@@ -221,16 +229,8 @@
       "frontend/scripts/manualChunks/swiper.js"
     ]
   },
-  "_product-DuLB-dol.js": {
-    "file": "product-DuLB-dol.js",
-    "name": "product",
-    "imports": [
-      "_intersection-watcher-CQpC-SnO.js",
-      "_delay-offset-WNpokWIU.js"
-    ]
-  },
-  "_product-item-Cw-fDYgY.js": {
-    "file": "product-item-Cw-fDYgY.js",
+  "_product-item-CmhLbQ8x.js": {
+    "file": "product-item-CmhLbQ8x.js",
     "name": "product-item",
     "imports": [
       "_index-BWeMscSV.js",
@@ -354,16 +354,16 @@
     "isEntry": true
   },
   "frontend/entrypoints/theme-design-mode.js": {
-    "file": "theme-design-mode-DbVMaeNy.js",
+    "file": "theme-design-mode-PdTpwqt6.js",
     "name": "theme-design-mode",
     "src": "frontend/entrypoints/theme-design-mode.js",
     "isEntry": true,
     "imports": [
       "_index-BWeMscSV.js",
-      "_back-to-top-DcXW4yGg.js",
+      "_back-to-top-KmQLqHES.js",
       "_a11y-B9r62fll.js",
       "_evx.es-D_-Lbk8t.js",
-      "_product-BtQAKmBa.js",
+      "_product-dxbxSVbx.js",
       "_main-BCFY9a9_.js",
       "_focus-trap.esm-D2ssBw0w.js",
       "_bodyScrollLock.esm-CT-oBNdc.js",
@@ -381,7 +381,7 @@
       "_accordions-B0I69eqg.js",
       "_slide-anim.module-Cg7-vL5t.js",
       "_formatMoney-CYQmZU7x.js",
-      "_product-item-Cw-fDYgY.js",
+      "_product-item-CmhLbQ8x.js",
       "_carousel-eu4IY4Zw.js",
       "_sticky-scroll-Diwr9IM0.js",
       "_provide-resize-observer-BOclCc7D.js",
@@ -405,6 +405,7 @@
       "frontend/scripts/sections/featured-collection-grid.js",
       "frontend/scripts/sections/featured-collection-slider.js",
       "frontend/scripts/sections/featured-product.js",
+      "frontend/scripts/sections/featured-recipes.js",
       "frontend/scripts/sections/footer.js",
       "frontend/scripts/sections/gallery-carousel.js",
       "frontend/scripts/sections/grid.js",
@@ -438,6 +439,7 @@
       "frontend/scripts/sections/video-reels.js",
       "frontend/scripts/sections/video-with-text.js",
       "frontend/scripts/sections/video.js",
+      "frontend/scripts/sections/why-rastellis.js",
       "frontend/scripts/templates/article.js",
       "frontend/scripts/templates/blog.js",
       "frontend/scripts/templates/cart.js",
@@ -452,12 +454,12 @@
     ]
   },
   "frontend/entrypoints/theme.css": {
-    "file": "theme-BjVAjXb_.css",
+    "file": "theme-BOZoxA2X.css",
     "src": "frontend/entrypoints/theme.css",
     "isEntry": true
   },
   "frontend/entrypoints/theme.js": {
-    "file": "theme-U6z9tZ_q.js",
+    "file": "theme-BWYXm35S.js",
     "name": "theme",
     "src": "frontend/entrypoints/theme.js",
     "isEntry": true,
@@ -481,6 +483,7 @@
       "frontend/scripts/sections/featured-collection-grid.js",
       "frontend/scripts/sections/featured-collection-slider.js",
       "frontend/scripts/sections/featured-product.js",
+      "frontend/scripts/sections/featured-recipes.js",
       "frontend/scripts/sections/footer.js",
       "frontend/scripts/sections/gallery-carousel.js",
       "frontend/scripts/sections/grid.js",
@@ -514,6 +517,7 @@
       "frontend/scripts/sections/video-reels.js",
       "frontend/scripts/sections/video-with-text.js",
       "frontend/scripts/sections/video.js",
+      "frontend/scripts/sections/why-rastellis.js",
       "frontend/scripts/templates/article.js",
       "frontend/scripts/templates/blog.js",
       "frontend/scripts/templates/cart.js",
@@ -535,15 +539,15 @@
     "isEntry": true
   },
   "frontend/scripts/extra/load-libraries.js": {
-    "file": "load-libraries-BqNFjgyV.js",
+    "file": "load-libraries-Dub2Nijf.js",
     "name": "load-libraries",
     "src": "frontend/scripts/extra/load-libraries.js",
     "isDynamicEntry": true,
     "imports": [
       "_index-BWeMscSV.js",
-      "_back-to-top-DcXW4yGg.js",
+      "_back-to-top-KmQLqHES.js",
       "_a11y-B9r62fll.js",
-      "_product-BtQAKmBa.js",
+      "_product-dxbxSVbx.js",
       "_main-BCFY9a9_.js",
       "_focus-trap.esm-D2ssBw0w.js",
       "_bodyScrollLock.esm-CT-oBNdc.js",
@@ -562,7 +566,7 @@
       "_accordions-B0I69eqg.js",
       "_slide-anim.module-Cg7-vL5t.js",
       "_formatMoney-CYQmZU7x.js",
-      "_product-item-Cw-fDYgY.js",
+      "_product-item-CmhLbQ8x.js",
       "_carousel-eu4IY4Zw.js",
       "_sticky-scroll-Diwr9IM0.js",
       "_provide-resize-observer-BOclCc7D.js",
@@ -646,7 +650,7 @@
     ]
   },
   "frontend/scripts/sections/blog-posts.js": {
-    "file": "blog-posts-MNJ71ziY.js",
+    "file": "blog-posts-CJA8oK5X.js",
     "name": "blog-posts",
     "src": "frontend/scripts/sections/blog-posts.js",
     "isDynamicEntry": true,
@@ -794,7 +798,7 @@
     ]
   },
   "frontend/scripts/sections/featured-collection-grid.js": {
-    "file": "featured-collection-grid-CxI8FVgB.js",
+    "file": "featured-collection-grid-BEzlSFYU.js",
     "name": "featured-collection-grid",
     "src": "frontend/scripts/sections/featured-collection-grid.js",
     "isDynamicEntry": true,
@@ -803,7 +807,7 @@
       "_media-queries-CokWIw5y.js",
       "_at-breakpoint-change-DVsQWIFj.js",
       "_carousel-eu4IY4Zw.js",
-      "_product-item-Cw-fDYgY.js",
+      "_product-item-CmhLbQ8x.js",
       "_intersection-watcher-CQpC-SnO.js",
       "_delay-offset-WNpokWIU.js",
       "_shouldAnimate-UBwZO_aC.js",
@@ -813,14 +817,14 @@
     ]
   },
   "frontend/scripts/sections/featured-collection-slider.js": {
-    "file": "featured-collection-slider-BEEn_O99.js",
+    "file": "featured-collection-slider-DoegDQRQ.js",
     "name": "featured-collection-slider",
     "src": "frontend/scripts/sections/featured-collection-slider.js",
     "isDynamicEntry": true,
     "imports": [
       "_index-BWeMscSV.js",
       "_carousel-eu4IY4Zw.js",
-      "_product-item-Cw-fDYgY.js",
+      "_product-item-CmhLbQ8x.js",
       "_list-slider-CR4Z_T1p.js",
       "_shouldAnimate-UBwZO_aC.js",
       "_evx.es-D_-Lbk8t.js",
@@ -832,12 +836,12 @@
     ]
   },
   "frontend/scripts/sections/featured-product.js": {
-    "file": "featured-product-DBOmVeRQ.js",
+    "file": "featured-product-DndduTSm.js",
     "name": "featured-product",
     "src": "frontend/scripts/sections/featured-product.js",
     "isDynamicEntry": true,
     "imports": [
-      "_product-BtQAKmBa.js",
+      "_product-dxbxSVbx.js",
       "_slide-anim.module-Cg7-vL5t.js",
       "_index-BWeMscSV.js",
       "_product-DuLB-dol.js",
@@ -851,7 +855,7 @@
       "_evx.es-D_-Lbk8t.js",
       "_accordions-B0I69eqg.js",
       "_formatMoney-CYQmZU7x.js",
-      "_product-item-Cw-fDYgY.js",
+      "_product-item-CmhLbQ8x.js",
       "_carousel-eu4IY4Zw.js",
       "_sticky-scroll-Diwr9IM0.js",
       "_provide-resize-observer-BOclCc7D.js",
@@ -860,6 +864,19 @@
       "_wrapTables-BziL4gGw.js",
       "_intersection-watcher-CQpC-SnO.js",
       "_delay-offset-WNpokWIU.js"
+    ]
+  },
+  "frontend/scripts/sections/featured-recipes.js": {
+    "file": "featured-recipes-BYTVshrJ.js",
+    "name": "featured-recipes",
+    "src": "frontend/scripts/sections/featured-recipes.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-BWeMscSV.js",
+      "_carousel-eu4IY4Zw.js"
+    ],
+    "dynamicImports": [
+      "frontend/scripts/lib/video-control.js"
     ]
   },
   "frontend/scripts/sections/footer.js": {
@@ -1149,14 +1166,14 @@
     ]
   },
   "frontend/scripts/sections/recently-viewed-products.js": {
-    "file": "recently-viewed-products-vNQL7DiA.js",
+    "file": "recently-viewed-products-Pgh2iTmp.js",
     "name": "recently-viewed-products",
     "src": "frontend/scripts/sections/recently-viewed-products.js",
     "isDynamicEntry": true,
     "imports": [
       "_index-BWeMscSV.js",
       "_carousel-eu4IY4Zw.js",
-      "_product-item-Cw-fDYgY.js",
+      "_product-item-CmhLbQ8x.js",
       "_recently-viewed-products-CUo44wPy.js",
       "_list-slider-CR4Z_T1p.js",
       "_shouldAnimate-UBwZO_aC.js",
@@ -1170,14 +1187,14 @@
     ]
   },
   "frontend/scripts/sections/recommended-products.js": {
-    "file": "recommended-products-C0sIewws.js",
+    "file": "recommended-products-CRzbUYfi.js",
     "name": "recommended-products",
     "src": "frontend/scripts/sections/recommended-products.js",
     "isDynamicEntry": true,
     "imports": [
       "_index-BWeMscSV.js",
       "_carousel-eu4IY4Zw.js",
-      "_product-item-Cw-fDYgY.js",
+      "_product-item-CmhLbQ8x.js",
       "_list-slider-CR4Z_T1p.js",
       "_shouldAnimate-UBwZO_aC.js",
       "_evx.es-D_-Lbk8t.js",
@@ -1282,7 +1299,7 @@
     ]
   },
   "frontend/scripts/sections/testimonials.js": {
-    "file": "testimonials-B7Fj9tYG.js",
+    "file": "testimonials-2c-51Eaq.js",
     "name": "testimonials",
     "src": "frontend/scripts/sections/testimonials.js",
     "isDynamicEntry": true,
@@ -1383,8 +1400,21 @@
       "_media-queries-CokWIw5y.js"
     ]
   },
+  "frontend/scripts/sections/why-rastellis.js": {
+    "file": "why-rastellis-CxED63-B.js",
+    "name": "why-rastellis",
+    "src": "frontend/scripts/sections/why-rastellis.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-BWeMscSV.js"
+    ],
+    "dynamicImports": [
+      "frontend/scripts/lib/video-control.js",
+      "frontend/scripts/manualChunks/swiper.js"
+    ]
+  },
   "frontend/scripts/templates/article.js": {
-    "file": "article-BJqgpXrb.js",
+    "file": "article-DBkSw1Wl.js",
     "name": "article",
     "src": "frontend/scripts/templates/article.js",
     "isDynamicEntry": true,
@@ -1396,7 +1426,7 @@
       "_delay-offset-WNpokWIU.js",
       "_intersection-watcher-CQpC-SnO.js",
       "_shouldAnimate-UBwZO_aC.js",
-      "_product-item-Cw-fDYgY.js",
+      "_product-item-CmhLbQ8x.js",
       "_media-queries-CokWIw5y.js",
       "_evx.es-D_-Lbk8t.js",
       "_cart-Dp1qr_mc.js",
@@ -1448,7 +1478,7 @@
     ]
   },
   "frontend/scripts/templates/collection.js": {
-    "file": "collection-Dx_wNZda.js",
+    "file": "collection-Dc-3qAdw.js",
     "name": "collection",
     "src": "frontend/scripts/templates/collection.js",
     "isDynamicEntry": true,
@@ -1457,7 +1487,7 @@
       "_filter-sidebar-CXPnJRH3.js",
       "_at-breakpoint-change-DVsQWIFj.js",
       "_media-queries-CokWIw5y.js",
-      "_product-item-Cw-fDYgY.js",
+      "_product-item-CmhLbQ8x.js",
       "_sticky-scroll-Diwr9IM0.js",
       "_evx.es-D_-Lbk8t.js",
       "_intersection-watcher-CQpC-SnO.js",
@@ -1530,12 +1560,12 @@
     ]
   },
   "frontend/scripts/templates/product.js": {
-    "file": "product-DFnV33qW.js",
+    "file": "product-CKajbxe8.js",
     "name": "product",
     "src": "frontend/scripts/templates/product.js",
     "isDynamicEntry": true,
     "imports": [
-      "_product-BtQAKmBa.js",
+      "_product-dxbxSVbx.js",
       "_slide-anim.module-Cg7-vL5t.js",
       "_index-BWeMscSV.js",
       "_product-DuLB-dol.js",
@@ -1548,7 +1578,7 @@
       "_evx.es-D_-Lbk8t.js",
       "_accordions-B0I69eqg.js",
       "_formatMoney-CYQmZU7x.js",
-      "_product-item-Cw-fDYgY.js",
+      "_product-item-CmhLbQ8x.js",
       "_carousel-eu4IY4Zw.js",
       "_sticky-scroll-Diwr9IM0.js",
       "_provide-resize-observer-BOclCc7D.js",
@@ -1560,7 +1590,7 @@
     ]
   },
   "frontend/scripts/templates/search.js": {
-    "file": "search-Cil2iaME.js",
+    "file": "search-M4zAldYG.js",
     "name": "search",
     "src": "frontend/scripts/templates/search.js",
     "isDynamicEntry": true,
@@ -1569,7 +1599,7 @@
       "_filter-sidebar-CXPnJRH3.js",
       "_at-breakpoint-change-DVsQWIFj.js",
       "_media-queries-CokWIw5y.js",
-      "_product-item-Cw-fDYgY.js",
+      "_product-item-CmhLbQ8x.js",
       "_sticky-scroll-Diwr9IM0.js",
       "_evx.es-D_-Lbk8t.js",
       "_intersection-watcher-CQpC-SnO.js",

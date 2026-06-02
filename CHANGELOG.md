@@ -1,5 +1,16 @@
 # Changelog
 
+## v1.1.3 - 2026-06-02
+### Added
+- RAS-186 PDP – Text CTA — add text CTA strip section
+- RAS-187 PDP – Spend N Save — add Spend & Save comparison section
+- RAS-188 PDP – Why Rastelli's — add Why Rastelli's media slider section
+
+### Fixed
+- RAS-183 Homepage – Testimonials — update star icons
+- RAS-58 GE – Header, Nav & Announcement Bar — fix QA feedbacks
+- RAS-188 PDP – Why Rastelli's — fix nav selector scope to prevent cross-section conflicts
+
 ## v1.1.2 - 2026-05-29
 ### Added
 - RAS-182 Homepage – Featured Recipes — add Featured Recipes section with recipe card, CSS, JS, and schema

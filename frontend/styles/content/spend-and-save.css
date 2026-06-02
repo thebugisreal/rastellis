@@ -1,0 +1,141 @@
+.spend-and-save__inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-8);
+}
+
+/* Intro */
+.spend-and-save__intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-4);
+  text-align: center;
+}
+
+.spend-and-save__badge-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.spend-and-save__badge {
+  width: 120px;
+  flex-shrink: 0;
+}
+
+.spend-and-save__heading {
+  margin: 0;
+}
+
+.spend-and-save__body {
+  max-width: 486px;
+}
+
+/* Table — no overflow:hidden so col1 background can bleed past outer border */
+.spend-and-save__table {
+  width: 100%;
+  max-width: 807px;
+  border: 2px solid #BDBDBD;
+  border-radius: 4px;
+  /* intentionally no overflow:hidden — col1 bleeds past top/bottom border */
+}
+
+.spend-and-save__row {
+  display: grid;
+  grid-template-columns: 32% 34% 34%;
+}
+
+/* All cells */
+.spend-and-save__cell {
+  position: relative;
+  padding: var(--spacing-4) var(--spacing-3);
+  border-right: 2px solid #BDBDBD;
+  border-bottom: 2px solid #BDBDBD;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: var(--spacing-2);
+  z-index: 1;
+
+  &:last-child {
+    border-right: none;
+  }
+}
+
+.spend-and-save__row--last .spend-and-save__cell {
+  border-bottom: none;
+}
+
+/* Feature (left) column */
+.spend-and-save__cell--feature {
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: left;
+}
+
+/* Column 2 ("Supermarkets") */
+.spend-and-save__cell--col2 {
+  span {
+    color: #5B5B5B;
+  }
+}
+
+/*
+ * Column 1 ("Us") — background via ::before so it bleeds past table border.
+ * The ::before sits behind cell content (z-index: -1).
+ * Header cell bleeds 20px above (past table top border).
+ * Last row cell bleeds 20px below (past table bottom border).
+ * Table border sits at position 0 — visible across the bleed area.
+ */
+.spend-and-save__cell--col1 {
+  span {
+    color: #AF0440;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: #E7E6DE;
+    z-index: -1;
+  }
+
+  &.spend-and-save__cell--header::before {
+    top: -20px;
+    border-radius: 4px 4px 0 0;
+  }
+
+  &.spend-and-save__cell--header span {
+    color: var(--color-text);
+  }
+}
+
+.spend-and-save__row--last .spend-and-save__cell--col1::before {
+  bottom: -20px;
+  border-radius: 0 0 4px 4px;
+}
+
+/* Header row */
+.spend-and-save__cell--header {
+  min-height: 135px;
+  justify-content: flex-end;
+
+  &.spend-and-save__cell--feature {
+    justify-content: center;
+  }
+
+  &.spend-and-save__cell--col2 span {
+    color: var(--color-text);
+  }
+}
+
+.spend-and-save__col-logo {
+  max-width: 157px;
+  width: 100%;
+}
