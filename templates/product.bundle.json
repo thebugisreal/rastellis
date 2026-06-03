@@ -65,6 +65,13 @@
             "show_dynamic_checkout": true
           }
         },
+        "bundle_product_HFjcW6": {
+          "type": "bundle_product",
+          "settings": {
+            "heading": "In This Bundle:",
+            "heading_tag": "h3"
+          }
+        },
         "product_callouts-1": {
           "type": "product_callouts",
           "settings": {
@@ -167,7 +174,9 @@
         "variant_picker",
         "inventory_counter",
         "quantity_selector",
+        "recharge_subscriptions_subscription_widget_v2_C7T8pg",
         "buy_buttons",
+        "bundle_product_HFjcW6",
         "product_callouts-1",
         "product_callouts-2",
         "share",
