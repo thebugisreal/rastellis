@@ -1,5 +1,17 @@
 # Changelog
 
+## v1.1.5 - 2026-06-03
+
+### Added
+- RAS-168 Batch A – Bundle PDP — add bundle product template
+- RAS-182 Homepage – Featured Article Slider — fix play button position and update styles
+
+### Fixed
+- RAS-58 GE – Header, Nav & Announcement Bar — fix QA feedbacks
+- RAS-60 GE – Footer — update multi-column item alignment
+- RAS-178 Homepage – Slideshow — fix styles on homepage and tablet
+- RAS-180 Homepage – Image Hero — fix styles on homepage and tablet
+
 ## v1.1.4 - 2026-06-02
 
 ### Added
