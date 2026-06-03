@@ -125,6 +125,15 @@
       {%- when 'product_callouts_mini' -%}
         {%- render 'product-block-callouts-mini' with block: block, block_settings: block.settings %}
 
+      {%- when 'bundle_product' -%}
+        {%- if prod != blank -%}
+          {%- render 'product-block-bundle-product',
+            product: prod,
+            block: block,
+            block_settings: block.settings
+          -%}
+        {%- endif -%}
+
       {%- when 'text' -%}
         {%
           render 'product-block-text' with

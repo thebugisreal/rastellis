@@ -1,0 +1,63 @@
+{%- liquid
+  assign bundle_items = product.metafields.custom.bundle_items.value
+-%}
+
+{%- if bundle_items != blank -%}
+  <div
+    class="product__block product__block--medium product-bundle-product"
+    {{ block.shopify_attributes }}
+  >
+    {%- if block_settings.heading != blank -%}
+      <{{ block_settings.heading_tag }} class="product-bundle-product__heading fs-body-bold fs-heading-6-base">
+        {{- block_settings.heading -}}
+      </{{ block_settings.heading_tag }}>
+    {%- endif -%}
+
+    <ul class="product-bundle-product__list" role="list">
+      {%- for item in bundle_items -%}
+        {%- liquid
+          assign item_title = item.title.value | default: item.title
+
+          assign item_image = item.image.value | default: item.image | default: item.thumbnail_image.value | default: item.thumbnail_image | default: item.thumbnail.value | default: item.thumbnail
+
+          assign item_url = item.url | default: item.product.value.url | default: item.link.value | default: item.link
+
+          if item.featured_media != blank
+            assign item_image = item.metafields.custom.thumbnail_image.value | default: item.featured_media
+            if item_title == blank
+              assign item_title = item.title
+            endif
+          endif
+        -%}
+
+        {%- if item_url != blank -%}
+          {%- if item_title != blank or item_image != blank -%}
+          <li class="product-bundle-product__item" role="listitem">
+            <a
+              class="product-bundle-product__link"
+              href="{{ item_url }}"
+              aria-label="{{ item_title | default: item.url }}"
+            >
+              {%- if item_image != blank -%}
+                <span class="product-bundle-product__media">
+                  {%- render 'image',
+                    image: item_image,
+                    prioritize_loading: true,
+                    include_placeholder: true,
+                    src_set_type: 'thumbnail',
+                    fallback_alt: ''
+                  -%}
+                </span>
+              {%- endif -%}
+
+              {%- if item_title != blank -%}
+                <span class="product-bundle-product__title ff-body fs-body-75">{{ item_title }}</span>
+              {%- endif -%}
+            </a>
+          </li>
+          {%- endif -%}
+        {%- endif -%}
+      {%- endfor -%}
+    </ul>
+  </div>
+{%- endif -%}
