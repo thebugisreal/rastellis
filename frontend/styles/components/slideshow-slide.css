@@ -143,14 +143,18 @@
   position: absolute;
   right: var(--slideshow-content-inset-inline);
   left: var(--slideshow-content-inset-inline);
-  bottom: 64px;
+  bottom: 78px;
   z-index: 2;
   pointer-events: none;
 
   @media (--above-720) {
     left: auto;
-    bottom: 56px;
+    bottom: 78px;
     max-width: calc(100% - (var(--slideshow-content-inset-inline) * 2));
+  }
+
+  @media (--above-1200) {
+    bottom: 56px;
   }
 
   @media (--above-1400) {

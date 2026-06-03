@@ -6,8 +6,9 @@ import('@/scripts/lib/video-control.js')
 section('featured-recipes', {
   onLoad() {
     this.carousel = Carousel(this.container, {
-      slidesPerView: 1.2,
+      slidesPerView: 1.1,
       spaceBetween: 16,
+      threshold: 5,
       breakpoints: {
         960: {
           slidesPerView: 4,

@@ -19,10 +19,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: var(--spacing-8);
+  margin-bottom: var(--spacing-6);
 
   @media (--below-960) {
-    margin-bottom: var(--spacing-6);
+    margin-bottom: var(--spacing-7);
 
     .featured-recipes__header-cta {
       display: none;
@@ -32,12 +32,28 @@
 
 .featured-recipes__title--center {
   text-align: center;
+
+  @media (--below-960) {
+    width: 100%;
+  }
 }
 
 /* Card grid — desktop 4 columns */
 /* On desktop we override Swiper's flex layout: move the grid onto
    .swiper-wrapper so Swiper can still measure it, and reset slide widths. */
 .featured-recipes__cards {
+  &.swiper:not(.swiper-initialized) {
+    .featured-recipes__card.swiper-slide:not(:last-child) {
+      margin-right: var(--spacing-4);
+      width: 90%;
+
+      @media (--above-960) {
+        margin-right: var(--spacing-8);
+        width: 25%;
+      }
+    }
+  }
+
   @media (--above-960) {
     &.swiper {
       overflow: visible;
@@ -55,6 +71,10 @@
       margin-right: 0 !important;
     }
   }
+
+  .featured-recipes__card.swiper-slide {
+    height: auto;
+  }
 }
 
 /* Mobile footer: nav arrows + CTA */
@@ -65,20 +85,28 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--spacing-6);
-    margin-top: var(--spacing-6);
+    margin-top: var(--spacing-7);
   }
 }
 
 .featured-recipes__navigation-buttons {
-  @media (--above-960) {
-    display: none;
-  }
+  &.carousel__navigation-buttons {
+    padding: 0 0 var(--spacing-7) 0;
 
-  @media (--below-960) {
-    display: flex;
-    justify-content: center;
-    width: 100%;
+    @media (--above-960) {
+      display: none;
+    }
+
+    @media (--below-960) {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .carousel__navigation-button {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -124,7 +152,7 @@
 }
 
 .recipe-card__body {
-  padding: var(--spacing-4) 0;
+  padding: var(--spacing-2) 0 0 0;
 }
 
 .recipe-card__title {
@@ -134,7 +162,7 @@
 .recipe-card__pills {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--spacing-2);
+  gap: var(--spacing-1);
 }
 
 .recipe-card__pill {
@@ -160,11 +188,6 @@
   height: 100%;
   overflow: hidden;
   border-radius: 4px;
-
-  @media (--below-960) {
-    height: auto;
-    aspect-ratio: 308 / 396;
-  }
 }
 
 .recipe-card__video-control {
@@ -209,7 +232,7 @@
 
 .recipe-card__play-button-wrapper {
   position: absolute;
-  top: var(--spacing-5);
+  top: var(--spacing-4);
   right: var(--spacing-5);
   pointer-events: all;
   z-index: 1;
@@ -218,8 +241,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
     background: transparent;
     border: none;
     cursor: pointer;

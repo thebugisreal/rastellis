@@ -5,7 +5,7 @@
     Parameters:
       - product: { Object } Product object (required)
       - image: { Object } Optional image override
-      - label: { String } Optional promotional label
+      - label_image: { Object } Optional label background image
       - image_sizes: { String } Responsive sizes attribute for the product image
   endcomment
 
@@ -33,9 +33,16 @@
   -%}
 
   <div class="product-pick-card">
-    {%- if label != blank -%}
-      <span class="product-pick-card__label fs-body-300">
-        {{ label }}
+    {%- if label_image != blank -%}
+      <span class="product-pick-card__label" aria-hidden="true">
+        <img
+          class="product-pick-card__label-image"
+          src="{{ label_image | image_url: width: 188 }}"
+          alt=""
+          width="94"
+          height="34"
+          loading="lazy"
+        >
       </span>
     {%- endif -%}
 

@@ -4,7 +4,7 @@
   Parameters:
     - article: { Object } Required. Shopify article object.
     - featured: { Boolean } Optional (default false). If true, renders the video/featured variant.
-    - video_url: { String } Required when featured is true. From custom.user_curated_vertical_video.value.url (file_reference metafield).
+    - video_url: { String } Required when featured is true. From custom.user_curated_vertical_video.value.sources[0].url (file_reference metafield).
 {%- endcomment -%}
 
 {%- liquid
@@ -26,10 +26,14 @@
       {%- if prep_time != blank or cook_time != blank -%}
         <div class="recipe-card__pills">
           {%- if prep_time != blank -%}
-            <span class="recipe-card__pill ff-heading fs-heading-6-base">Prep: {{ prep_time }}</span>
+            <span class="recipe-card__pill ff-body fs-heading-6-base fs-body-bold">
+              {{- 'blogs.article.prep_time' | t: time: prep_time -}}
+            </span>
           {%- endif -%}
           {%- if cook_time != blank -%}
-            <span class="recipe-card__pill ff-heading fs-heading-6-base">Cook: {{ cook_time }}</span>
+            <span class="recipe-card__pill ff-body fs-heading-6-base fs-body-bold">
+              {{- 'blogs.article.cook_time' | t: time: cook_time -}}
+            </span>
           {%- endif -%}
         </div>
       {%- endif -%}
@@ -53,7 +57,9 @@
           -%}
         {%- endif -%}
         <div class="recipe-card__featured-overlay">
-          <span class="recipe-card__user-label ff-subheading ff-secondary">User Created Recipe</span>
+          {%- if overlay_text != blank -%}
+            <span class="recipe-card__user-label ff-subheading ff-secondary">{{ overlay_text }}</span>
+          {%- endif -%}
           {%- if video_url != blank -%}
             <div class="recipe-card__play-button-wrapper">
               <button
@@ -78,10 +84,14 @@
             {%- if prep_time != blank or cook_time != blank -%}
               <div class="recipe-card__pills">
                 {%- if prep_time != blank -%}
-                  <span class="recipe-card__pill recipe-card__pill--white ff-heading fs-heading-6-base">Prep: {{ prep_time }}</span>
+                  <span class="recipe-card__pill recipe-card__pill--white ff-body fs-heading-6-base fs-body-bold">
+                    {{- 'blogs.article.prep_time' | t: time: prep_time -}}
+                  </span>
                 {%- endif -%}
                 {%- if cook_time != blank -%}
-                  <span class="recipe-card__pill recipe-card__pill--white ff-heading fs-heading-6-base">Cook: {{ cook_time }}</span>
+                  <span class="recipe-card__pill recipe-card__pill--white ff-body fs-heading-6-base fs-body-bold">
+                    {{- 'blogs.article.cook_time' | t: time: cook_time -}}
+                  </span>
                 {%- endif -%}
               </div>
             {%- endif -%}
