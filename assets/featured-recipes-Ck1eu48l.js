@@ -1,0 +1,1 @@
+import{_ as r,r as s}from"./index-BWeMscSV.js";import{C as o}from"./carousel-eu4IY4Zw.js";r(()=>import("./video-control-Dh429iUr.js"),[],import.meta.url);s("featured-recipes",{onLoad(){this.carousel=o(this.container,{slidesPerView:1.1,spaceBetween:16,threshold:5,breakpoints:{960:{slidesPerView:4,spaceBetween:32}}})},onUnload(){var e;(e=this.carousel)==null||e.destroy()}});

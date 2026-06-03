@@ -319,7 +319,7 @@
     "isEntry": true
   },
   "frontend/entrypoints/custom.css": {
-    "file": "custom-BLweU5YO.css",
+    "file": "custom-Ckj6chx6.css",
     "src": "frontend/entrypoints/custom.css",
     "isEntry": true
   },
@@ -354,7 +354,7 @@
     "isEntry": true
   },
   "frontend/entrypoints/theme-design-mode.js": {
-    "file": "theme-design-mode-BX8esEs5.js",
+    "file": "theme-design-mode-Dq5QBRjb.js",
     "name": "theme-design-mode",
     "src": "frontend/entrypoints/theme-design-mode.js",
     "isEntry": true,
@@ -454,12 +454,12 @@
     ]
   },
   "frontend/entrypoints/theme.css": {
-    "file": "theme-CpmyQeJ2.css",
+    "file": "theme-C1o_DA2p.css",
     "src": "frontend/entrypoints/theme.css",
     "isEntry": true
   },
   "frontend/entrypoints/theme.js": {
-    "file": "theme-QS-IoD0o.js",
+    "file": "theme-DWBzXbjH.js",
     "name": "theme",
     "src": "frontend/entrypoints/theme.js",
     "isEntry": true,
@@ -867,7 +867,7 @@
     ]
   },
   "frontend/scripts/sections/featured-recipes.js": {
-    "file": "featured-recipes-CRmyLWRG.js",
+    "file": "featured-recipes-Ck1eu48l.js",
     "name": "featured-recipes",
     "src": "frontend/scripts/sections/featured-recipes.js",
     "isDynamicEntry": true,
