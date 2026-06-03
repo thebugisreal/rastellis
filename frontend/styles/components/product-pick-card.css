@@ -17,8 +17,10 @@
 .product-pick-card__label {
   position: absolute;
   top: -20px;
-  left: -26px;
+  left: -20px;
   z-index: 1;
+  width: 94px;
+  height: auto;
 }
 
 .product-pick-card__label-image {
