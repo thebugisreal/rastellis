@@ -6,7 +6,7 @@
   -%}
   <div id="product-list-{{ shopify_attributes }}" class="product__block product__block--medium product__block-list">
     {%- if block_settings.heading != blank -%}
-      <h3 class="product-list__title fs-body-100">{{- block_settings.heading -}}</h3>
+      <h3 class="product-list__title fs-body-bold fs-heading-6-base">{{- block_settings.heading -}}</h3>
     {%- endif -%}
     <div class="product-list__items" role="list">
       {%- for prod in block_settings.product_list -%}

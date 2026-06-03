@@ -2403,17 +2403,6 @@
             }
           }
         },
-        "bundle_product": {
-          "name": "Bundle product",
-          "settings": {
-            "heading": {
-              "label": "Heading"
-            },
-            "paragraph__metafield": {
-              "content": "Items are loaded from the product metafield custom.bundle_items."
-            }
-          }
-        },
         "product_callouts_mini": {
           "name": "Product labels",
           "settings": {
