@@ -33,13 +33,6 @@
             "text_6": ""
           }
         },
-        "bundle_product": {
-          "type": "bundle_product",
-          "settings": {
-            "heading": "In This Bundle:",
-            "heading_tag": "h3"
-          }
-        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -171,7 +164,6 @@
       "block_order": [
         "product_header",
         "product_callouts_mini",
-        "bundle_product",
         "variant_picker",
         "inventory_counter",
         "quantity_selector",
