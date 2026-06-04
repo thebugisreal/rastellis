@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.1.6 - 2026-06-04
+
+### Added
+- RAS-171 Mini Cart – add Rebuy Smart Cart styles and YMAL snippet
+
 ## v1.1.5 - 2026-06-03
 
 ### Added
