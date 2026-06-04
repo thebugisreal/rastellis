@@ -11,6 +11,7 @@ import productLightbox from '@/scripts/lib/product-lightbox'
 import { flashAlertModal } from '@/scripts/lib/flash-alert'
 import headerOverlay from '@/scripts/lib/header-overlay'
 import backToTop from '@/scripts/lib/back-to-top'
+import '@/scripts/lib/rebuy-smart-cart'
 
 const el = qs('.theme-editor-scroll-offset', document)
 el && el.parentNode.removeChild(el)
