@@ -129,6 +129,7 @@
     "cart_item_aspect_ratio": "natural",
     "enable_free_shipping_bar": false,
     "free_shipping_threshold": "250",
+    "rebuy_cart_cross_sell_widget_id": "292756",
     "quick_search_product_style": "columns",
     "quick_search_show_vendor": false,
     "quick_search_suggested_heading": "Popular collections",
