@@ -6,6 +6,7 @@
 @import "../styles/external-apps/fixed-widgets.css";
 @import "../styles/external-apps/instafeed.css";
 @import "../styles/external-apps/recharge-subscriptions.css";
+@import "../styles/external-apps/rebuy-cart.css";
 
 /* Core */
 @import "../styles/core/vars.css";

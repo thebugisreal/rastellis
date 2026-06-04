@@ -2405,6 +2405,20 @@
         "id": "product_list",
         "type": "product_list",
         "label": "t:sections.collection_sections_shared.settings.product_list.label"
+      },
+      {
+        "type": "header",
+        "content": "t:settings_schema.cart.settings.header__rebuy.content"
+      },
+      {
+        "type": "paragraph",
+        "content": "t:settings_schema.cart.settings.paragraph__rebuy.content"
+      },
+      {
+        "id": "rebuy_cart_cross_sell_widget_id",
+        "type": "text",
+        "label": "t:settings_schema.cart.settings.rebuy_cart_cross_sell_widget_id.label",
+        "info": "t:settings_schema.cart.settings.rebuy_cart_cross_sell_widget_id.info"
       }
     ]
   },
