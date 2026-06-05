@@ -31,8 +31,24 @@ section('collapsible-row-list', {
     }
   },
 
+  _closeAllExcept(activeGroup) {
+    this.items.forEach((trigger) => {
+      const group = trigger.parentNode
+
+      if (group === activeGroup) return
+
+      const content = trigger.nextElementSibling
+
+      if (!content || !isVisible(content)) return
+
+      this._close(trigger, group, content)
+    })
+  },
+
   _open(label, group, content) {
     if (!content) return
+
+    this._closeAllExcept(group)
 
     slideStop(content)
     slideDown(content)
