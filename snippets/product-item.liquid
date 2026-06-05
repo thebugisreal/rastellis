@@ -452,7 +452,7 @@
                   </select>
                 </div>
                 <button class="product-item__atc-btn" data-quick-shop-trigger="quick-add" data-product-id="{{ current_variant.id }}" data-product-quantity="1">
-                  <span>{{ 'products.product.add_to_cart' | t }} &bull; {{ current_variant.price | money }}</span>
+                  <span class="product-item__atc-btn-label">{{ 'products.product.add_to_cart' | t }} &bull; {{ current_variant.price | money }}</span>
                   <div class="btn__loading-wrap"><div class="btn__loading-bar"></div></div>
                 </button>
               </div>

@@ -321,7 +321,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: var(--spacing-3);
+  gap: 6px;
   margin-top: var(--spacing-2);
 }
 
@@ -427,9 +427,8 @@
 
 .product-item__atc-btn {
   flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  place-content: center;
   background-color: var(--color-button-dark-solid-bg);
   color: var(--color-button-dark-solid-text);
   border: none;
@@ -463,12 +462,20 @@
     background-color: var(--color-button-light-solid-bg);
   }
 
+  .product-item__atc-btn-label {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+  }
+
   &.loading {
     .btn__loading-wrap {
       display: block;
     }
 
-    > span {
+    .product-item__atc-btn-label {
       opacity: 0;
     }
   }
