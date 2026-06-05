@@ -211,10 +211,15 @@
 @media (--above-720) {
   .why-rastellis .carousel__navigation-buttons {
     position: absolute;
-    bottom: -32px;
+    bottom: 0;
     left: 0;
     margin: 0;
     z-index: 2;
+  }
+
+  .why-rastellis .carousel__navigation-button--back,
+  .why-rastellis .carousel__navigation-button--forward {
+    margin-bottom: 0;
   }
 }
 
