@@ -175,14 +175,9 @@
         -moz-appearance: none;
         -ms-appearance: none;
         -o-appearance: none;
-        appearance: none;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        -ms-appearance: none;
-        -o-appearance: none;
-        background-image: none !important;
-        transition: none !important;
-        animation: none !important;
+        background-image: none;
+        transition: none;
+        animation: none;
 
         &::before,
         &::after {
@@ -269,7 +264,55 @@
     border: none;
 
     & .rebuy-cart__flyout-item {
-      gap: 15px;
+      column-gap: 15px;
+      row-gap: 4px;
+
+      & .rebuy-cart__flyout-item-subscription {
+        width: calc(100% - 85px);
+        margin-right: 0;
+        margin-left: auto;
+
+        & .rebuy-button {
+          border: 1px solid var(--color-text);
+          background-color: transparent;
+          color: var(--color-text);
+          font-size: var(--font-size-button);
+          font-weight: 700;
+          padding: var(--spacing-2) var(--spacing-6);
+
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+
+        & .rebuy-select {
+          --rebuy-select-chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 9 5'%3E%3Cpath stroke='%23040404' stroke-width='1.5' d='M8.27.576 4.274 3.909.496.576'/%3E%3C/svg%3E");
+          border: none;
+          border-radius: 4px;
+          overflow: hidden;
+          padding: var(--spacing-2) var(--spacing-6) var(--spacing-2) var(--spacing-2);
+          font-size: var(--font-size-body-2);
+          line-height: var(--line-height-body-2);
+          text-transform: var(--text-transform-body-2);
+          letter-spacing: var(--letter-spacing-body-2);
+          appearance: none;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          background-color: white;
+          background-image: var(--rebuy-select-chevron);
+          background-repeat: no-repeat;
+          background-position: right var(--spacing-2) center;
+          background-size: 9px 5px;
+          min-height: 33px;
+
+          &:focus,
+          &:focus-visible {
+            border: none;
+            outline: none !important;
+            box-shadow: none;
+          }
+        }
+      }
     }
 
     & .rebuy-cart__flyout-item-media {
@@ -310,6 +353,16 @@
         color: var(--color-text);
         opacity: 0.7;
       }
+
+      & .rebuy-cart__flyout-item-property {
+        font-size: var(--font-size-body-2);
+        line-height: var(--line-height-body-2);
+        text-transform: var(--text-transform-body-2);
+        letter-spacing: var(--letter-spacing-body-2);
+        color: var(--color-text);
+        font-weight: 500;
+        padding-top: var(--spacing-1);
+      }
     }
 
     & .rebuy-cart__flyout-item-remove {
@@ -318,8 +371,8 @@
       color: var(--color-text);
       text-decoration: underline;
       cursor: pointer;
-      font-size: var(--font-size-body-2);
-      line-height: var(--line-height-body-2);
+      font-size: var(--font-size-body-2) !important;
+      line-height: var(--line-height-body-2) !important;
       text-transform: var(--text-transform-body-2);
       letter-spacing: var(--letter-spacing-body-2);
       margin-top: 4px;
@@ -662,6 +715,69 @@
             font-weight: 500;
             margin-top: 0;
             width: fit-content;
+          }
+
+          & .subscription-checkbox {
+            width: calc(100% + 100px);
+            padding-top: var(--spacing-2);
+
+            & .checkbox-input {
+              border: 1px solid var(--color-text);
+              border-radius: 0;
+              background: transparent;
+              appearance: none;
+              -webkit-appearance: none;
+              -moz-appearance: none;
+              -ms-appearance: none;
+              -o-appearance: none;
+              background-image: none;
+              transition: none;
+              animation: none;
+            }
+
+            & .checkbox-label {
+              text-align: left;
+              font-size: var(--font-size-body-2);
+              line-height: var(--line-height-body-2);
+              text-transform: var(--text-transform-body-2);
+              letter-spacing: var(--letter-spacing-body-2);
+              font-weight: 500;
+
+              & .rebuy-underline {
+                border-bottom: 1px solid var(--color-text);
+              }
+            }
+          }
+
+          & .subscription-frequency {
+            width: calc(100% + 80px);
+            padding-top: var(--spacing-2);
+
+            & select.rebuy-select {
+              --rebuy-select-chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 9 5'%3E%3Cpath stroke='%23040404' stroke-width='1.5' d='M8.27.576 4.274 3.909.496.576'/%3E%3C/svg%3E");
+              border: none;
+              border-radius: 4px;
+              overflow: hidden;
+              padding: var(--spacing-2) var(--spacing-6) var(--spacing-2) var(--spacing-2);
+              font-size: var(--font-size-body-2);
+              line-height: var(--line-height-body-2);
+              text-transform: var(--text-transform-body-2);
+              letter-spacing: var(--letter-spacing-body-2);
+              background-color: white;
+              background-image: var(--rebuy-select-chevron);
+              background-repeat: no-repeat;
+              background-position: right var(--spacing-2) center;
+              background-size: 9px 5px;
+              min-height: 33px;
+              border: 1px solid var(--color-text);
+
+              &:focus,
+              &:focus-visible {
+                border: none;
+                outline: none !important;
+                box-shadow: none;
+              }
+            }
           }
         }
 

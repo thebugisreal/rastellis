@@ -231,20 +231,6 @@
                   </div>
                 </div>
 
-                <div class="rebuy-product-description" v-if="showProductDescription(product)" v-html="text(product.body_html)"></div>
-              </div>
-
-              <div class="rebuy-product-actions">
-                <button
-                  v-if="hasProductQuickViewEnabled() && hasQuickViewButtonTrigger()"
-                  class="product-quick-view-button rebuy-button outline"
-                  v-on:click="openQuickViewVariantModal(product)"
-                  v-bind:aria-label="'Quick view ' + product.title"
-                  type="button"
-                >
-                  <span v-html="getQuickViewButtonText()"></span>
-                </button>
-
                 <div class="subscription-checkbox" v-if="showSubscriptionOptions(product)">
                   <label class="rebuy-checkbox-label">
                     <input
@@ -268,6 +254,20 @@
                     <option v-for="frequency in product.subscription_frequencies" v-bind:value="frequency">{{ frequencyLabel(frequency, product.subscription_interval) }}</option>
                   </select>
                 </div>
+
+                <div class="rebuy-product-description" v-if="showProductDescription(product)" v-html="text(product.body_html)"></div>
+              </div>
+
+              <div class="rebuy-product-actions">
+                <button
+                  v-if="hasProductQuickViewEnabled() && hasQuickViewButtonTrigger()"
+                  class="product-quick-view-button rebuy-button outline"
+                  v-on:click="openQuickViewVariantModal(product)"
+                  v-bind:aria-label="'Quick view ' + product.title"
+                  type="button"
+                >
+                  <span v-html="getQuickViewButtonText()"></span>
+                </button>
 
                 <div class="product-quantity" v-if="hasQuantityInputEnabled()">
                   <div class="rebuy-select-wrapper">
